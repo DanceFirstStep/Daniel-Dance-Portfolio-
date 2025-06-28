@@ -7,8 +7,31 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Daniel Palacios | Professional Salsa & Bachata Instructor</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    /* ========== CSS VARIABLES ========== */
+    :root {
+      --primary-dark: #0a0a1a;
+      --secondary-dark: #1a1a3a;
+      --gradient-start: #ff7d00;
+      --gradient-mid: #ffd700;
+      --gradient-end: #6a5acd;
+      --accent-gold: #ffd700;
+      --accent-orange: #ff7d00;
+      --accent-purple: #6a5acd;
+      --text-light: #f0f0ff;
+      --text-secondary: rgba(240, 240, 255, 0.85);
+      --card-bg: rgba(25, 20, 45, 0.85);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --form-bg: rgba(30, 25, 55, 0.9);
+      --success-color: #4CAF50;
+      --error-color: #f44336;
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      --shadow-md: 0 15px 40px rgba(0, 0, 0, 0.25);
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ========== BASE STYLES ========== */
     * {
       margin: 0;
       padding: 0;
@@ -23,12 +46,8 @@
       min-height: 100vh;
       overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
-    }
-
-    /* ==================== SCIENTIFIC BACKGROUND SYSTEM ==================== */
-    body {
-      background: #0a0a1a;
-      color: #f0f0ff;
+      background: var(--primary-dark);
+      color: var(--text-light);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -37,13 +56,14 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       line-height: 1.6;
-      animation: colorJourney 90s infinite linear;
       padding: 15px;
+      animation: colorJourney 90s infinite linear;
     }
 
+    /* ========== BACKGROUND ANIMATIONS ========== */
     @keyframes colorJourney {
-      0%, 11.11% { background: #0a0a1a; }
-      11.12%, 33.33% { background: #1a1a3a; }
+      0%, 11.11% { background: var(--primary-dark); }
+      11.12%, 33.33% { background: var(--secondary-dark); }
       33.34%, 50% { background: #2d1952; }
       50.01%, 66.66% { background: #1e3a5f; }
       66.67%, 83.33% { background: #2c5282; }
@@ -97,20 +117,22 @@
       z-index: 100;
     }
 
-    /* ==================== MAIN CONTENT ==================== */
+    /* ========== MAIN CONTENT ========== */
     .container {
       max-width: 500px;
       width: 100%;
-      padding: 25px 20px;
+      padding: 30px 25px;
       margin: 15px 0;
       z-index: 10;
-      background: rgba(25, 20, 45, 0.85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow-lg);
       animation: fadeIn 1.2s ease-out;
+      position: relative;
+      overflow: hidden;
     }
 
     @keyframes fadeIn {
@@ -133,21 +155,28 @@
       transform: translateX(-50%);
       width: 80%;
       height: 2px;
-      background: linear-gradient(90deg, transparent, #ff7d00, transparent);
+      background: linear-gradient(90deg, transparent, var(--gradient-start), transparent);
       border-radius: 1px;
     }
 
     .logo-container {
       position: relative;
-      width: 110px;
-      height: 110px;
+      width: 120px;
+      height: 120px;
       margin: 0 auto 20px;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
     }
 
     .logo {
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #ff7d00, #ffd700, #6a5acd);
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -155,7 +184,7 @@
       box-shadow: 0 0 30px rgba(255, 125, 0, 0.5);
       position: relative;
       overflow: hidden;
-      transition: all 0.5s ease;
+      transition: var(--transition);
     }
 
     .logo:hover {
@@ -164,7 +193,7 @@
     }
 
     .logo i {
-      font-size: 50px;
+      font-size: 54px;
       color: #fff;
       z-index: 2;
       text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -172,16 +201,17 @@
 
     h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 6px;
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 8px;
       letter-spacing: 0.5px;
       line-height: 1.2;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      background: linear-gradient(to right, #ffd700, #ffa000);
+      background: linear-gradient(to right, var(--gradient-mid), var(--gradient-start));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      position: relative;
     }
 
     .tagline-container {
@@ -193,18 +223,18 @@
     }
 
     .tagline {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      color: #f5f5ff;
+      color: var(--text-light);
       position: relative;
       padding-bottom: 4px;
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
     }
 
     .sub-tagline {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 300;
-      color: #f5f5ff;
+      color: var(--text-secondary);
       font-style: italic;
       padding-top: 6px;
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
@@ -212,15 +242,15 @@
 
     .section-title {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       margin: 28px 0 18px;
-      font-weight: 600;
-      color: #ffd700;
+      font-weight: 700;
+      color: var(--accent-gold);
       position: relative;
       display: block;
       text-align: center;
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
-      transition: all 0.4s ease;
+      transition: var(--transition);
       padding: 0 15px;
       width: 100%;
     }
@@ -233,22 +263,23 @@
       transform: translateX(-50%);
       width: 80%;
       height: 3px;
-      background: linear-gradient(90deg, #ff7d00, #ffd700);
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid));
       border-radius: 2px;
       transform-origin: center;
     }
 
+    /* ========== LINK CARDS ========== */
     .links-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 14px;
+      gap: 16px;
       margin: 20px 0;
     }
 
     .link-card {
       background: rgba(255, 255, 255, 0.08);
       border-radius: 14px;
-      padding: 16px;
+      padding: 18px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       cursor: pointer;
       display: flex;
@@ -259,7 +290,7 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      transition: all 0.4s ease;
+      transition: var(--transition);
       min-height: 80px;
       touch-action: manipulation;
     }
@@ -276,7 +307,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #ff7d00, #ffd700);
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid));
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.5s ease;
@@ -287,16 +318,16 @@
     }
 
     .link-icon {
-      width: 44px;
-      height: 44px;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 12px;
-      font-size: 1.4rem;
-      border-radius: 10px;
+      margin-right: 14px;
+      font-size: 1.5rem;
+      border-radius: 12px;
       flex-shrink: 0;
-      transition: transform 0.4s ease 0.5s;
+      transition: var(--transition);
       background: rgba(255, 255, 255, 0.1);
       color: white;
     }
@@ -314,12 +345,12 @@
     }
 
     .stardust-icon {
-      background: linear-gradient(135deg, #ffd700, #ffa500) !important;
+      background: linear-gradient(135deg, var(--gradient-mid), var(--gradient-start)) !important;
       box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
     }
 
     .letsbailar-icon {
-      background: linear-gradient(135deg, #6a5acd, #9370db) !important;
+      background: linear-gradient(135deg, var(--gradient-end), #9370db) !important;
       box-shadow: 0 0 10px rgba(106, 90, 205, 0.4);
     }
 
@@ -329,7 +360,7 @@
     }
 
     .contact-icon {
-      background: linear-gradient(135deg, #ff7d00, #ffaa33) !important;
+      background: linear-gradient(135deg, var(--gradient-start), #ffaa33) !important;
       box-shadow: 0 0 10px rgba(255, 125, 0, 0.4);
     }
 
@@ -338,7 +369,7 @@
     }
 
     .link-title {
-      font-size: 1.15rem;
+      font-size: 1.18rem;
       font-weight: 600;
       margin-bottom: 4px;
       color: #ffffff;
@@ -346,8 +377,8 @@
     }
 
     .link-subtitle {
-      font-size: 0.9rem;
-      color: #f5f5ff;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
       opacity: 0.9;
       line-height: 1.4;
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
@@ -356,29 +387,30 @@
     .schedule-detail {
       display: block;
       margin-top: 4px;
-      color: #ffd700;
+      color: var(--accent-gold);
       font-weight: 500;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
     }
 
     .dance-style {
       display: block;
       margin-top: 4px;
-      color: #ff7d00;
+      color: var(--accent-orange);
       font-weight: 500;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-style: italic;
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
     }
 
+    /* ========== FORM SECTION ========== */
     .registration-form {
-      background: rgba(30, 25, 55, 0.9);
-      border-radius: 14px;
-      padding: 18px;
+      background: var(--form-bg);
+      border-radius: 16px;
+      padding: 20px;
       margin: 24px 0;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--shadow-md);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       position: relative;
@@ -386,48 +418,57 @@
     }
 
     .form-title {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 600;
-      margin-bottom: 16px;
-      color: #ffd700;
+      margin-bottom: 18px;
+      color: var(--accent-gold);
       text-align: center;
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
     }
 
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       text-align: left;
       position: relative;
     }
 
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
     .form-input {
       width: 100%;
-      padding: 14px;
+      padding: 14px 16px;
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.15);
       background: rgba(255, 255, 255, 0.1);
       color: #ffffff;
       font-size: 1rem;
-      transition: all 0.4s ease;
+      transition: var(--transition);
       -webkit-appearance: none;
       appearance: none;
+      font-family: 'Poppins', sans-serif;
     }
 
     .form-input:focus {
       outline: none;
-      border-color: #ffd700;
+      border-color: var(--accent-gold);
       background: rgba(255, 255, 255, 0.15);
       box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
     }
 
     .form-input::placeholder {
       color: rgba(224, 224, 255, 0.7);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     .form-select {
       width: 100%;
-      padding: 14px;
+      padding: 14px 16px;
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.15);
       background: rgba(255, 255, 255, 0.1);
@@ -438,34 +479,37 @@
       background-repeat: no-repeat;
       background-position: right 14px center;
       background-size: 14px;
-      transition: all 0.4s ease;
+      transition: var(--transition);
       -webkit-appearance: none;
+      font-family: 'Poppins', sans-serif;
     }
 
     .form-select:focus {
       outline: none;
-      border-color: #ffd700;
+      border-color: var(--accent-gold);
       background: rgba(255, 255, 255, 0.15);
       box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
     }
 
     .submit-btn {
-      background: linear-gradient(135deg, #ff7d00, #ffd700);
-      color: #0a0a1a;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid));
+      color: var(--primary-dark);
       border: none;
       border-radius: 12px;
-      padding: 15px;
-      font-size: 1.1rem;
+      padding: 16px;
+      font-size: 1.15rem;
       font-weight: 700;
       cursor: pointer;
       width: 100%;
-      margin-top: 10px;
+      margin-top: 12px;
       box-shadow: 0 5px 15px rgba(255, 125, 0, 0.4);
-      transition: all 0.4s ease;
+      transition: var(--transition);
       position: relative;
       overflow: hidden;
       display: block;
       touch-action: manipulation;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.5px;
     }
 
     .submit-btn:active {
@@ -473,17 +517,33 @@
       box-shadow: 0 3px 10px rgba(255, 125, 0, 0.4);
     }
 
+    .submit-btn .spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary-dark);
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ========== PAYMENT OPTIONS ========== */
     .payment-options {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 18px;
       margin: 24px 0;
     }
 
     .payment-card {
       background: rgba(255, 255, 255, 0.08);
       border-radius: 14px;
-      padding: 18px;
+      padding: 20px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       cursor: pointer;
       display: flex;
@@ -495,7 +555,7 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      transition: all 0.4s ease;
+      transition: var(--transition);
       touch-action: manipulation;
     }
 
@@ -505,49 +565,50 @@
     }
 
     .payment-icon {
-      width: 54px;
-      height: 54px;
+      width: 58px;
+      height: 58px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 10px;
-      font-size: 1.6rem;
+      margin-bottom: 12px;
+      font-size: 1.7rem;
       border-radius: 50%;
-      transition: transform 0.4s ease 0.5s;
+      transition: var(--transition);
       background: rgba(255, 255, 255, 0.1);
       color: white;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
     .venmo .payment-icon {
-      background: linear-gradient(135deg, #3d95ce, #ff7d00);
+      background: linear-gradient(135deg, #3d95ce, var(--gradient-start));
     }
 
     .cash .payment-icon {
-      background: linear-gradient(135deg, #4CAF50, #ff7d00);
+      background: linear-gradient(135deg, #4CAF50, var(--gradient-start));
     }
 
     .payment-name {
-      font-size: 1.15rem;
+      font-size: 1.18rem;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       color: #ffffff;
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
     }
 
     .payment-desc {
-      font-size: 0.9rem;
-      color: #f5f5ff;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
       opacity: 0.9;
       line-height: 1.4;
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
     }
 
+    /* ========== THANK YOU MESSAGE ========== */
     .thank-you-message {
       display: none;
       text-align: center;
-      padding: 20px 15px;
-      border-radius: 14px;
+      padding: 25px 20px;
+      border-radius: 16px;
       background: rgba(255, 255, 255, 0.08);
       margin-top: 15px;
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -557,32 +618,36 @@
     }
 
     .thank-you-message h3 {
-      font-size: 1.6rem;
-      color: #ffd700;
-      margin-bottom: 15px;
+      font-size: 1.8rem;
+      color: var(--accent-gold);
+      margin-bottom: 18px;
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
     }
 
     .thank-you-message p {
-      font-size: 1rem;
-      margin-bottom: 18px;
-      color: #f5f5ff;
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      color: var(--text-light);
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+      line-height: 1.6;
     }
 
     .whatsapp-btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #25D366, #ffd700);
-      color: #0a0a1a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #25D366, var(--gradient-mid));
+      color: var(--primary-dark);
       text-decoration: none;
-      padding: 12px 24px;
+      padding: 13px 26px;
       border-radius: 12px;
       font-weight: 700;
-      font-size: 1rem;
-      margin-top: 10px;
+      font-size: 1.05rem;
+      margin-top: 15px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-      transition: all 0.4s ease;
+      transition: var(--transition);
       touch-action: manipulation;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .whatsapp-btn:active {
@@ -591,14 +656,16 @@
     }
 
     .whatsapp-btn i {
-      margin-right: 8px;
+      margin-right: 10px;
+      font-size: 1.2rem;
     }
 
+    /* ========== FOOTER ========== */
     footer {
-      margin-top: 24px;
-      padding: 16px;
-      color: #f5f5ff;
-      font-size: 0.85rem;
+      margin-top: 30px;
+      padding: 18px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
       width: 100%;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       line-height: 1.6;
@@ -606,135 +673,135 @@
       text-align: center;
     }
 
-    /* ==================== MEDIA QUERIES ==================== */
+    /* ========== MEDIA QUERIES ========== */
     @media (max-width: 480px) {
       body {
         padding: 10px;
       }
       
       .container {
-        padding: 20px 15px;
+        padding: 25px 20px;
         margin: 10px 0;
-        border-radius: 16px;
+        border-radius: 18px;
       }
       
       .logo-container {
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
         margin-bottom: 15px;
       }
       
       .logo i {
-        font-size: 45px;
+        font-size: 48px;
       }
       
       h1 {
-        font-size: 2rem;
-        margin-bottom: 4px;
+        font-size: 2.1rem;
+        margin-bottom: 6px;
       }
       
       .tagline {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
       }
       
       .sub-tagline {
-        font-size: 0.95rem;
+        font-size: 1rem;
       }
       
       .section-title {
-        font-size: 1.45rem;
-        margin: 24px 0 15px;
+        font-size: 1.55rem;
+        margin: 24px 0 16px;
       }
       
       .links-grid {
-        gap: 12px;
+        gap: 14px;
         margin: 18px 0;
       }
       
       .link-card {
-        padding: 14px;
+        padding: 16px;
         min-height: 76px;
       }
       
       .link-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.3rem;
-        margin-right: 10px;
+        width: 46px;
+        height: 46px;
+        font-size: 1.4rem;
+        margin-right: 12px;
       }
       
       .link-title {
-        font-size: 1.1rem;
+        font-size: 1.12rem;
       }
       
       .link-subtitle {
-        font-size: 0.85rem;
+        font-size: 0.92rem;
       }
       
       .schedule-detail {
-        font-size: 0.8rem;
+        font-size: 0.88rem;
       }
       
       .dance-style {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
       }
       
       .registration-form {
-        padding: 16px;
+        padding: 18px;
         margin: 20px 0;
       }
       
       .form-title {
-        font-size: 1.4rem;
+        font-size: 1.45rem;
       }
       
       .form-input, .form-select {
-        padding: 12px;
-        font-size: 0.95rem;
+        padding: 13px;
+        font-size: 0.98rem;
       }
       
       .form-input::placeholder {
-        font-size: 0.85rem;
+        font-size: 0.92rem;
       }
       
       .submit-btn {
-        padding: 14px;
-        font-size: 1.05rem;
+        padding: 15px;
+        font-size: 1.08rem;
       }
       
       .payment-card {
-        padding: 16px;
+        padding: 18px;
       }
       
       .payment-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
+        width: 54px;
+        height: 54px;
+        font-size: 1.6rem;
       }
       
       .payment-name {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
       }
       
       .payment-desc {
-        font-size: 0.85rem;
+        font-size: 0.92rem;
       }
       
       .thank-you-message {
-        padding: 18px 14px;
+        padding: 20px 16px;
       }
       
       .thank-you-message h3 {
-        font-size: 1.5rem;
+        font-size: 1.65rem;
       }
       
       .thank-you-message p {
-        font-size: 0.95rem;
+        font-size: 1rem;
       }
       
       .whatsapp-btn {
-        padding: 11px 20px;
-        font-size: 0.95rem;
+        padding: 12px 22px;
+        font-size: 1rem;
       }
     }
 
@@ -838,7 +905,7 @@
         </div>
       </div>
       
-      <div class="link-card">
+      <div class="link-card" onclick="openLink('https://www.facebook.com/estilodancestudio/')">
         <div class="link-icon estilo-icon">
           <i class="fas fa-building"></i>
         </div>
@@ -858,28 +925,34 @@
       <div class="form-title">Begin Your Dance Journey</div>
       <form id="dance-registration">
         <div class="form-group">
-          <input type="text" id="name" class="form-input" placeholder="Full Name" required>
+          <label class="form-label" for="name">Full Name</label>
+          <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
         </div>
         
         <div class="form-group">
-          <input type="email" id="email" class="form-input" placeholder="Email Address" required>
+          <label class="form-label" for="email">Email Address</label>
+          <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
         </div>
         
         <div class="form-group">
-          <select id="location" class="form-select">
-            <option value="">Select class location</option>
+          <label class="form-label" for="location">Class Location</label>
+          <select id="location" class="form-select" required>
+            <option value="">Select your preferred location</option>
             <option value="stardust">Stardust Ballroom - Mon/Thu 6:30pm</option>
             <option value="letsbailar">Let's Bailar - Fridays 7pm</option>
             <option value="estilo">Estilo Dance - Saturdays 4pm</option>
           </select>
         </div>
         
-        <button type="submit" class="submit-btn">Start Dancing</button>
+        <button type="submit" class="submit-btn">
+          <span class="btn-text">Start Dancing</span>
+          <span class="spinner"></span>
+        </button>
       </form>
       
       <div id="thank-you-message" class="thank-you-message">
         <h3>Thank You for Joining!</h3>
-        <p>We're excited to welcome you to our dance community!</p>
+        <p>We're excited to welcome you to our dance community! You'll receive a confirmation email shortly.</p>
         <p>Join our WhatsApp group for updates and to connect with fellow dancers:</p>
         <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
           <i class="fab fa-whatsapp"></i> Join Dance Community
@@ -897,7 +970,7 @@
         <div class="payment-desc">Secure your spot today</div>
       </div>
       
-      <div class="payment-card cash" onclick="alert('Cash accepted at all class locations! Exact change appreciated.')">
+      <div class="payment-card cash" onclick="showCashAlert()">
         <div class="payment-icon">
           <i class="fas fa-money-bill-wave"></i>
         </div>
@@ -928,7 +1001,29 @@
   <script>
     // Mobile-optimized functions
     function openLink(url) {
-      window.open(url, '_blank');
+      createSparkle(event);
+      setTimeout(() => {
+        window.open(url, '_blank');
+      }, 300);
+    }
+
+    function showCashAlert() {
+      createSparkle(event);
+      setTimeout(() => {
+        alert('Cash accepted at all class locations! Exact change appreciated.');
+      }, 300);
+    }
+
+    function createSparkle(event) {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.left = (event.clientX - 4) + 'px';
+      sparkle.style.top = (event.clientY - 4) + 'px';
+      document.body.appendChild(sparkle);
+      
+      setTimeout(() => {
+        sparkle.remove();
+      }, 1500);
     }
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -936,6 +1031,8 @@
       const registrationForm = document.getElementById('dance-registration');
       const thankYouMessage = document.getElementById('thank-you-message');
       const submitBtn = registrationForm.querySelector('button[type="submit"]');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const spinner = submitBtn.querySelector('.spinner');
       
       registrationForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -944,27 +1041,64 @@
         const email = document.getElementById('email').value;
         const location = document.getElementById('location').value;
         
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Processing...';
+        // Validate form
+        if (!name.trim()) {
+          alert('Please enter your name.');
+          return;
+        }
         
+        if (!email.trim()) {
+          alert('Please enter your email address.');
+          return;
+        }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+        
+        if (!location) {
+          alert('Please select a class location.');
+          return;
+        }
+        
+        // Show loading state
+        btnText.textContent = 'Processing...';
+        spinner.style.display = 'inline-block';
+        submitBtn.disabled = true;
+        
+        // Simulate form submission
         setTimeout(function() {
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address.');
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Start Dancing';
-            return;
-          }
-          
+          // Hide form, show thank you message
           registrationForm.style.display = 'none';
           thankYouMessage.style.display = 'block';
           registrationForm.reset();
+          
+          // Reset button
+          btnText.textContent = 'Start Dancing';
+          spinner.style.display = 'none';
           submitBtn.disabled = false;
-          submitBtn.innerHTML = 'Start Dancing';
           
           // Scroll to thank you message
           thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 800);
+          
+          // Create a sparkle effect
+          const containerRect = thankYouMessage.getBoundingClientRect();
+          const sparkleX = containerRect.left + containerRect.width/2;
+          const sparkleY = containerRect.top + containerRect.height/2;
+          
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          sparkle.style.position = 'absolute';
+          sparkle.style.left = sparkleX + 'px';
+          sparkle.style.top = sparkleY + 'px';
+          document.body.appendChild(sparkle);
+          
+          setTimeout(() => {
+            sparkle.remove();
+          }, 1500);
+        }, 1500);
       });
       
       // Auto-focus next field
