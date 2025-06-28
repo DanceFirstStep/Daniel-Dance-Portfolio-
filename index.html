@@ -61,7 +61,7 @@
       transition: all 0.4s ease;
     }
     
-    /* Logo Animation */
+    /* Enhanced Logo Animation with Ring */
     .logo-container {
       position: relative;
       width: 140px;
@@ -82,6 +82,35 @@
       box-shadow: 0 10px 30px rgba(230, 126, 34, 0.5);
       animation: logoPulse 8s infinite ease-in-out;
       transition: all 0.4s ease;
+      z-index: 2;
+    }
+    
+    /* New concentric ring */
+    .logo-ring {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(241, 196, 15, 0.8);
+      border-radius: 50%;
+      animation: pulseRing 4s infinite ease-out;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    @keyframes pulseRing {
+      0% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: scale(1.4);
+        opacity: 0;
+      }
     }
     
     .logo:hover {
@@ -90,8 +119,14 @@
     }
     
     @keyframes logoPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+      0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(230, 126, 34, 0.5);
+      }
+      50% { 
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(230, 126, 34, 0.7);
+      }
     }
     
     .logo i {
@@ -318,28 +353,35 @@
       backdrop-filter: blur(6px);
     }
     
-    /* Golden Music notes */
+    /* Enhanced Music Notes with Size Variation */
     .music-note {
       position: fixed;
       color: #FFD700;
-      font-size: 24px;
       z-index: 100;
       pointer-events: none;
       opacity: 0;
       text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
       animation: fallNote 2s ease-out forwards;
+      font-size: var(--size, 24px); /* Size will be set dynamically */
+      transform-origin: center;
     }
     
     @keyframes fallNote {
       0% {
-        transform: translate(0, 0) scale(1.1) rotate(0deg);
+        transform: 
+          translate(0, 0) 
+          scale(1.1) 
+          rotate(0deg);
         opacity: 0.9;
       }
       70% {
         opacity: 0.6;
       }
       100% {
-        transform: translate(var(--tx, 0), 100px) scale(0.4) rotate(var(--rot, 0deg));
+        transform: 
+          translate(var(--tx, 0), var(--ty, 100px)) 
+          scale(0.4) 
+          rotate(var(--rot, 0deg));
         opacity: 0;
       }
     }
@@ -727,6 +769,7 @@
     
     <header>
       <div class="logo-container">
+        <div class="logo-ring"></div>
         <div class="logo">
           <i class="fas fa-music"></i>
         </div>
@@ -892,10 +935,10 @@
   </div>
 
   <script>
-    // Create golden falling music notes at click position
+    // Enhanced createMusicNote function with size variation
     function createMusicNote(event) {
       const notesContainer = document.getElementById('music-notes-container');
-      const noteCount = 3 + Math.floor(Math.random() * 2); // 3-4 notes
+      const noteCount = 3 + Math.floor(Math.random() * 3); // 3-5 notes
       
       for (let i = 0; i < noteCount; i++) {
         const note = document.createElement('div');
@@ -903,21 +946,28 @@
         note.innerHTML = '<i class="fas fa-music"></i>';
         
         // Position at click location with some randomness
-        const posX = event.clientX + (Math.random() - 0.5) * 50;
-        const posY = event.clientY + (Math.random() - 0.5) * 40;
+        const posX = event.clientX + (Math.random() - 0.5) * 80;
+        const posY = event.clientY + (Math.random() - 0.5) * 60;
         
         note.style.left = `${posX}px`;
         note.style.top = `${posY}px`;
         
         // Random properties for variation
-        const size = 20 + Math.random() * 20; // 20-40px
-        const rotation = Math.random() * 360;
-        const translateX = (Math.random() - 0.5) * 80;
-        const delay = Math.random() * 0.5;
-        const duration = 1.2 + Math.random() * 0.8; // 1.2-2s
+        const sizeOptions = [16, 24, 32, 40]; // Different note sizes
+        const size = sizeOptions[Math.floor(Math.random() * sizeOptions.length)];
         
+        const rotation = (Math.random() - 0.5) * 180; // -90 to +90 degrees
+        const translateX = (Math.random() - 0.5) * 150; // More horizontal movement
+        const translateY = 150 + Math.random() * 100; // Variable distance
+        const delay = Math.random() * 0.5;
+        const duration = 1.5 + Math.random() * 1.0; // 1.5-2.5s
+        
+        // Apply properties through CSS variables
         note.style.setProperty('--rot', `${rotation}deg`);
         note.style.setProperty('--tx', `${translateX}px`);
+        note.style.setProperty('--ty', `${translateY}px`);
+        note.style.setProperty('--size', `${size}px`);
+        
         note.style.fontSize = `${size}px`;
         note.style.animationDelay = `${delay}s`;
         note.style.animationDuration = `${duration}s`;
@@ -930,7 +980,7 @@
           if (note.parentNode) {
             note.remove();
           }
-        }, duration * 1000 + 500);
+        }, (duration + delay) * 1000);
       }
     }
     
