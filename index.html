@@ -22,9 +22,22 @@
       overflow-x: hidden;
       position: relative;
       color: #f5f5ff;
-      background: linear-gradient(135deg, #0c0526, #170b38, #1a0630);
+      background: #0f0e1e;
+    }
+    
+    /* Enhanced animated background */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(209, 84, 0, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(106, 90, 205, 0.1) 0%, transparent 25%);
+      animation: gradientBG 30s ease infinite;
       background-size: 400% 400%;
-      animation: gradientBG 20s ease infinite;
     }
     
     @keyframes gradientBG {
@@ -37,43 +50,23 @@
       width: 100%;
       max-width: 900px;
       background: rgba(28, 25, 48, 0.92);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
       overflow: hidden;
       position: relative;
       z-index: 10;
       margin: 20px;
+      transition: all 0.4s ease;
     }
     
-    .purpose-statement {
-      text-align: center;
-      padding: 30px;
-      background: linear-gradient(135deg, rgba(230, 126, 34, 0.15), rgba(241, 196, 15, 0.15));
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .purpose-statement h2 {
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-      color: #f1c40f;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    }
-    
-    .purpose-statement p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
-      color: rgba(240, 240, 255, 0.9);
-      line-height: 1.6;
-    }
-    
+    /* Logo Animation */
     .logo-container {
       position: relative;
-      width: 150px;
-      height: 150px;
-      margin: 30px auto;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 25px;
     }
     
     .logo {
@@ -86,8 +79,14 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 8px 25px rgba(230, 126, 34, 0.6);
+      box-shadow: 0 10px 30px rgba(230, 126, 34, 0.5);
       animation: logoPulse 8s infinite ease-in-out;
+      transition: all 0.4s ease;
+    }
+    
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 35px rgba(230, 126, 34, 0.7);
     }
     
     @keyframes logoPulse {
@@ -96,30 +95,14 @@
     }
     
     .logo i {
-      font-size: 60px;
+      font-size: 58px;
       color: #fff;
       z-index: 2;
       text-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
     
-    .dance-rings {
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      border: 2px solid rgba(241, 196, 15, 0.3);
-      border-radius: 50%;
-      animation: pulseRing 3s infinite ease-in-out;
-    }
-    
-    @keyframes pulseRing {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.7; }
-    }
-    
     header {
-      padding: 20px 30px 40px;
+      padding: 50px 30px 30px;
       text-align: center;
       position: relative;
     }
@@ -130,29 +113,37 @@
       margin-bottom: 10px;
       letter-spacing: 0.5px;
       color: #ffffff;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-    
-    .specialty {
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      position: relative;
       display: inline-block;
-      font-size: 1.3rem;
+    }
+    
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
       background: linear-gradient(to right, #e67e22, #f1c40f);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      font-weight: 600;
-      margin-top: 15px;
-      padding: 5px 15px;
-      border-radius: 30px;
-      border: 2px solid rgba(230, 126, 34, 0.3);
+      border-radius: 2px;
     }
     
-    .content {
-      padding: 0 30px 30px;
+    .tagline {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: rgba(240, 240, 255, 0.9);
+      margin-top: 25px;
+      max-width: 600px;
+      margin: 15px auto 0;
+      line-height: 1.6;
+      padding: 0 20px;
     }
     
+    /* Elegant Section Title with Orange-Gold Divider */
     .section-title {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       font-weight: 600;
       margin: 45px 0 30px;
       text-align: center;
@@ -176,13 +167,8 @@
       box-shadow: 0 2px 8px rgba(230, 126, 34, 0.3);
     }
     
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.2rem;
-      color: rgba(240, 240, 255, 0.85);
-      max-width: 700px;
-      margin: -20px auto 30px;
-      line-height: 1.6;
+    .content {
+      padding: 0 30px 30px;
     }
     
     .links-grid {
@@ -193,26 +179,42 @@
     }
     
     .link-card {
-      background: linear-gradient(145deg, rgba(40, 35, 70, 0.7), rgba(25, 20, 50, 0.7));
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
       padding: 25px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
-      min-height: 110px;
+      min-height: 120px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      z-index: 2;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     }
     
     .link-card:hover {
-      background: linear-gradient(145deg, rgba(50, 45, 80, 0.8), rgba(35, 30, 60, 0.8));
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-      border-color: rgba(241, 196, 15, 0.3);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(241, 196, 15, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .link-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.05) 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .link-card:hover::before {
+      opacity: 1;
     }
     
     .link-icon {
@@ -225,43 +227,48 @@
       font-size: 1.8rem;
       border-radius: 16px;
       flex-shrink: 0;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
       color: white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+    
+    .link-card:hover .link-icon {
+      transform: scale(1.1);
     }
     
     .facebook .link-icon {
-      background: linear-gradient(135deg, rgba(24, 119, 242, 0.2), rgba(24, 119, 242, 0.3));
-      color: #ffffff;
+      background: rgba(24, 119, 242, 0.18);
+      color: #1877f2;
     }
     
     .instagram .link-icon {
-      background: linear-gradient(135deg, rgba(195, 42, 163, 0.2), rgba(225, 48, 108, 0.3));
-      color: #ffffff;
+      background: rgba(195, 42, 163, 0.18);
+      color: #c32aa3;
     }
     
     .tiktok .link-icon {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
+      background: rgba(0, 0, 0, 0.18);
       color: #69c9d0;
     }
     
     .stardust-icon {
-      background: linear-gradient(135deg, rgba(241, 196, 15, 0.2), rgba(241, 196, 15, 0.3)) !important;
+      background: rgba(241, 196, 15, 0.18) !important;
       color: #f1c40f !important;
     }
     
     .letsbailar-icon {
-      background: linear-gradient(135deg, rgba(106, 90, 205, 0.2), rgba(106, 90, 205, 0.3)) !important;
-      color: #a99cff !important;
+      background: rgba(106, 90, 205, 0.18) !important;
+      color: #6a5acd !important;
     }
     
     .estilo-icon {
-      background: linear-gradient(135deg, rgba(32, 178, 170, 0.2), rgba(32, 178, 170, 0.3)) !important;
+      background: rgba(32, 178, 170, 0.18) !important;
       color: #20b2aa !important;
     }
     
     .contact-icon {
-      background: linear-gradient(135deg, rgba(230, 126, 34, 0.2), rgba(230, 126, 34, 0.3)) !important;
+      background: rgba(230, 126, 34, 0.18) !important;
       color: #e67e22 !important;
     }
     
@@ -271,31 +278,30 @@
     
     .link-title {
       font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
+      font-weight: 600;
+      margin-bottom: 8px;
       color: #f0f0ff;
-      letter-spacing: 0.5px;
     }
     
     .link-subtitle {
       font-size: 1rem;
       color: rgba(240, 240, 255, 0.85);
-      line-height: 1.6;
+      line-height: 1.5;
     }
     
     .schedule-detail {
       display: block;
       margin-top: 8px;
       color: #f1c40f;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 0.95rem;
     }
     
     .dance-style {
       display: block;
-      margin-top: 8px;
+      margin-top: 6px;
       color: #e67e22;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 0.95rem;
       font-style: italic;
     }
@@ -304,20 +310,44 @@
       margin-top: 50px;
       padding: 30px 20px;
       text-align: center;
-      color: rgba(240, 240, 255, 0.8);
+      color: rgba(240, 240, 255, 0.75);
       font-size: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
       line-height: 1.7;
-      background: rgba(15, 10, 30, 0.5);
-      backdrop-filter: blur(5px);
-      position: relative;
-      z-index: 2;
+      background: rgba(15, 10, 30, 0.45);
+      backdrop-filter: blur(6px);
+    }
+    
+    /* Golden Music notes */
+    .music-note {
+      position: fixed;
+      color: #FFD700;
+      font-size: 24px;
+      z-index: 100;
+      pointer-events: none;
+      opacity: 0;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+      animation: fallNote 2s ease-out forwards;
+    }
+    
+    @keyframes fallNote {
+      0% {
+        transform: translate(0, 0) scale(1.1) rotate(0deg);
+        opacity: 0.9;
+      }
+      70% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translate(var(--tx, 0), 100px) scale(0.4) rotate(var(--rot, 0deg));
+        opacity: 0;
+      }
     }
     
     /* Registration Form Styles */
     .registration-form {
-      background: linear-gradient(145deg, rgba(40, 35, 70, 0.8), rgba(25, 20, 50, 0.8));
-      border-radius: 20px;
+      background: rgba(30, 25, 55, 0.85);
+      border-radius: 18px;
       padding: 30px;
       margin: 40px 0;
       border: 1px solid rgba(255, 255, 255, 0.15);
@@ -325,18 +355,16 @@
       backdrop-filter: blur(10px);
       position: relative;
       overflow: hidden;
-      z-index: 2;
     }
     
     .form-title {
-      font-size: 1.7rem;
-      font-weight: 700;
+      font-size: 1.6rem;
+      font-weight: 600;
       margin-bottom: 25px;
       color: #f1c40f;
       text-align: center;
       position: relative;
       padding-bottom: 15px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     }
     
     .form-title::after {
@@ -348,12 +376,11 @@
       width: 80px;
       height: 3px;
       background: linear-gradient(to right, #e67e22, #f1c40f);
-      border-radius: 3px;
-      box-shadow: 0 2px 8px rgba(230, 126, 34, 0.3);
+      border-radius: 2px;
     }
     
     .form-group {
-      margin-bottom: 25px;
+      margin-bottom: 22px;
       text-align: left;
       position: relative;
     }
@@ -362,7 +389,7 @@
       width: 100%;
       padding: 16px 20px;
       border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       background: rgba(255, 255, 255, 0.1);
       color: #ffffff;
       font-size: 1.05rem;
@@ -370,14 +397,14 @@
       -webkit-appearance: none;
       appearance: none;
       font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
     }
     
     .form-input:focus {
       outline: none;
       border-color: #f1c40f;
       background: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.3), inset 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.25);
     }
     
     .form-input::placeholder {
@@ -389,7 +416,7 @@
       width: 100%;
       padding: 16px 20px;
       border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       background: rgba(255, 255, 255, 0.1);
       color: #ffffff;
       font-size: 1.05rem;
@@ -401,14 +428,14 @@
       transition: all 0.3s ease;
       -webkit-appearance: none;
       font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
     }
     
     .form-select:focus {
       outline: none;
       border-color: #f1c40f;
       background: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.3), inset 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.25);
     }
     
     .submit-btn {
@@ -429,13 +456,17 @@
       touch-action: manipulation;
       font-family: 'Segoe UI', sans-serif;
       letter-spacing: 0.8px;
-      box-shadow: 0 5px 20px rgba(230, 126, 34, 0.4);
+      box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
       text-shadow: 0 1px 1px rgba(255,255,255,0.3);
     }
     
     .submit-btn:hover {
-      opacity: 0.9;
+      opacity: 0.95;
       box-shadow: 0 8px 25px rgba(230, 126, 34, 0.6);
+    }
+    
+    .submit-btn:active {
+      transform: translateY(1px);
     }
     
     /* Thank You Message */
@@ -443,14 +474,13 @@
       display: none;
       text-align: center;
       padding: 40px 30px;
-      border-radius: 20px;
-      background: linear-gradient(145deg, rgba(40, 35, 70, 0.9), rgba(25, 20, 50, 0.9));
+      border-radius: 18px;
+      background: rgba(30, 25, 55, 0.95);
       margin-top: 20px;
       border: 1px solid rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(10px);
       animation: fadeIn 0.8s ease-out;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      z-index: 3;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.25);
     }
     
     @keyframes fadeIn {
@@ -459,12 +489,11 @@
     }
     
     .thank-you-message h3 {
-      font-size: 2rem;
+      font-size: 1.9rem;
       color: #f1c40f;
       margin-bottom: 25px;
       position: relative;
       padding-bottom: 20px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     }
     
     .thank-you-message h3::after {
@@ -476,8 +505,7 @@
       width: 80px;
       height: 3px;
       background: linear-gradient(to right, #e67e22, #f1c40f);
-      border-radius: 3px;
-      box-shadow: 0 2px 8px rgba(230, 126, 34, 0.3);
+      border-radius: 2px;
     }
     
     .thank-you-message p {
@@ -491,28 +519,71 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, rgba(37, 211, 102, 0.2), rgba(37, 211, 102, 0.3));
+      background: rgba(37, 211, 102, 0.2);
       color: #ffffff;
       text-decoration: none;
       padding: 16px 32px;
       border-radius: 14px;
       font-weight: 700;
       font-size: 1.1rem;
-      margin-top: 25px;
+      margin-top: 20px;
       transition: all 0.3s ease;
       touch-action: manipulation;
       font-family: 'Segoe UI', sans-serif;
-      border: 1px solid rgba(37, 211, 102, 0.4);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     }
     
     .whatsapp-btn:hover {
-      background: linear-gradient(135deg, rgba(37, 211, 102, 0.3), rgba(37, 211, 102, 0.4));
+      background: rgba(37, 211, 102, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 7px 20px rgba(0,0,0,0.2);
     }
     
     .whatsapp-btn i {
       margin-right: 12px;
       font-size: 1.3rem;
+    }
+    
+    /* Decorative corner elements */
+    .corner-decoration {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      z-index: -1;
+      opacity: 0.1;
+    }
+    
+    .corner-top-left {
+      top: 0;
+      left: 0;
+      border-top: 3px solid #e67e22;
+      border-left: 3px solid #e67e22;
+      border-top-left-radius: 24px;
+    }
+    
+    .corner-top-right {
+      top: 0;
+      right: 0;
+      border-top: 3px solid #f1c40f;
+      border-right: 3px solid #f1c40f;
+      border-top-right-radius: 24px;
+    }
+    
+    .corner-bottom-left {
+      bottom: 0;
+      left: 0;
+      border-bottom: 3px solid #6a5acd;
+      border-left: 3px solid #6a5acd;
+      border-bottom-left-radius: 24px;
+    }
+    
+    .corner-bottom-right {
+      bottom: 0;
+      right: 0;
+      border-bottom: 3px solid #20b2aa;
+      border-right: 3px solid #20b2aa;
+      border-bottom-right-radius: 24px;
     }
     
     /* Responsive design */
@@ -522,21 +593,9 @@
         gap: 22px;
       }
       
-      .purpose-statement {
-        padding: 20px;
-      }
-      
-      .purpose-statement h2 {
-        font-size: 1.8rem;
-      }
-      
-      .purpose-statement p {
-        font-size: 1.1rem;
-      }
-      
       .logo-container {
-        width: 130px;
-        height: 130px;
+        width: 120px;
+        height: 120px;
       }
       
       .logo i {
@@ -547,8 +606,8 @@
         font-size: 2.4rem;
       }
       
-      .specialty {
-        font-size: 1.1rem;
+      .tagline {
+        font-size: 1.15rem;
       }
       
       .link-card {
@@ -562,11 +621,7 @@
       }
       
       .section-title {
-        font-size: 1.7rem;
-      }
-      
-      .section-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.6rem;
       }
       
       .registration-form {
@@ -574,7 +629,7 @@
       }
       
       .form-title {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
       }
     }
     
@@ -589,7 +644,7 @@
       }
       
       header {
-        padding: 15px 20px 30px;
+        padding: 40px 20px 30px;
       }
       
       .content {
@@ -597,21 +652,25 @@
       }
       
       .logo-container {
-        width: 110px;
-        height: 110px;
+        width: 100px;
+        height: 100px;
       }
       
       h1 {
         font-size: 2.2rem;
       }
       
+      h1::after {
+        width: 80px;
+      }
+      
+      .tagline {
+        font-size: 1.05rem;
+      }
+      
       .section-title {
         font-size: 1.5rem;
         margin: 30px 0 25px;
-      }
-      
-      .section-subtitle {
-        font-size: 1rem;
       }
       
       .link-card {
@@ -644,67 +703,40 @@
       .submit-btn {
         padding: 17px;
       }
+      
+      .corner-decoration {
+        width: 60px;
+        height: 60px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Enhanced animated background -->
+  <div class="background"></div>
+  
+  <!-- Container for music notes -->
+  <div id="music-notes-container"></div>
+  
   <div class="container">
-    <div class="purpose-statement">
-      <h2>Transform Your Passion into Movement</h2>
-      <p>Professional dance instruction for all levels - from beginners to advanced dancers</p>
-    </div>
-    
-    <div class="logo-container">
-      <div class="logo">
-        <i class="fas fa-music"></i>
-      </div>
-      <div class="dance-rings"></div>
-    </div>
+    <!-- Decorative corners -->
+    <div class="corner-decoration corner-top-left"></div>
+    <div class="corner-decoration corner-top-right"></div>
+    <div class="corner-decoration corner-bottom-left"></div>
+    <div class="corner-decoration corner-bottom-right"></div>
     
     <header>
+      <div class="logo-container">
+        <div class="logo">
+          <i class="fas fa-music"></i>
+        </div>
+      </div>
       <h1>Daniel Palacios</h1>
-      <div class="specialty">Salsa & Bachata Specialist</div>
+      <p class="tagline">Professional Salsa & Bachata Instructor | Transforming Passion into Movement</p>
     </header>
     
     <div class="content">
-      <div class="section-title">My Teaching Philosophy</div>
-      <div class="section-subtitle">Dance is not just steps - it's expression, connection, and personal growth</div>
-      
-      <div class="links-grid">
-        <div class="link-card">
-          <div class="link-icon">
-            <i class="fas fa-heart"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Passion-Driven</div>
-            <div class="link-subtitle">Teaching from a place of genuine love for dance</div>
-          </div>
-        </div>
-        
-        <div class="link-card">
-          <div class="link-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Community Focused</div>
-            <div class="link-subtitle">Building supportive dance communities</div>
-          </div>
-        </div>
-        
-        <div class="link-card">
-          <div class="link-icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Progressive Learning</div>
-            <div class="link-subtitle">Structured programs for continuous growth</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="section-title">Connect With Me</div>
-      <div class="section-subtitle">Stay updated with my latest classes, events, and dance tips</div>
-      
+      <h2 class="section-title">Connect With Me</h2>
       <div class="links-grid">
         <div class="link-card clickable facebook" data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
           <div class="link-icon">
@@ -737,9 +769,7 @@
         </div>
       </div>
       
-      <div class="section-title">Class Schedule</div>
-      <div class="section-subtitle">Professional instruction at convenient locations and times</div>
-      
+      <h2 class="section-title">Class Schedule</h2>
       <div class="links-grid">
         <div class="link-card clickable stardust" data-url="https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr">
           <div class="link-icon stardust-icon">
@@ -769,7 +799,7 @@
           </div>
         </div>
         
-        <div class="link-card">
+        <div class="link-card clickable">
           <div class="link-icon estilo-icon">
             <i class="fas fa-building"></i>
           </div>
@@ -784,11 +814,9 @@
         </div>
       </div>
       
-      <div class="section-title">Begin Your Dance Journey</div>
-      <div class="section-subtitle">Join our community and transform your dancing skills</div>
-      
+      <h2 class="section-title">Join My Classes</h2>
       <div class="registration-form">
-        <div class="form-title">Register for Classes</div>
+        <div class="form-title">Begin Your Dance Journey</div>
         <form id="dance-registration">
           <div class="form-group">
             <input type="text" id="name" class="form-input" placeholder="Full Name" required>
@@ -820,12 +848,10 @@
         </div>
       </div>
       
-      <div class="section-title">Payment Options</div>
-      <div class="section-subtitle">Secure and convenient payment methods for your classes</div>
-      
+      <h2 class="section-title">Payment Options</h2>
       <div class="links-grid">
         <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
-          <div class="link-icon" style="background: linear-gradient(135deg, rgba(61, 149, 206, 0.2), rgba(61, 149, 206, 0.3)); color: #ffffff;">
+          <div class="link-icon" style="background: rgba(61, 149, 206, 0.18); color: #3d95ce;">
             <i class="fab fa-vimeo-v"></i>
           </div>
           <div class="link-text">
@@ -835,7 +861,7 @@
         </div>
         
         <div class="link-card clickable cash">
-          <div class="link-icon" style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.2), rgba(46, 204, 113, 0.3)); color: #ffffff;">
+          <div class="link-icon" style="background: rgba(46, 204, 113, 0.18); color: #2ecc71;">
             <i class="fas fa-money-bill-wave"></i>
           </div>
           <div class="link-text">
@@ -845,16 +871,14 @@
         </div>
       </div>
       
-      <div class="section-title">Professional Inquiries</div>
-      <div class="section-subtitle">For bookings, partnerships, and other professional opportunities</div>
-      
+      <h2 class="section-title">Contact Me</h2>
       <div class="links-grid">
         <div class="link-card clickable contact" data-url="mailto:contact@danielpbachata.com">
           <div class="link-icon contact-icon">
             <i class="fas fa-envelope"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Contact Me</div>
+            <div class="link-title">Professional Inquiries</div>
             <div class="link-subtitle">Bookings & partnerships</div>
           </div>
         </div>
@@ -863,17 +887,62 @@
     
     <footer>
       <p>© 2025 Daniel Palacios | Professional Dance Instruction</p>
-      <p>Every step is progress. Every dance is a story.</p>
+      <p>Transform your passion into movement</p>
     </footer>
   </div>
 
   <script>
+    // Create golden falling music notes at click position
+    function createMusicNote(event) {
+      const notesContainer = document.getElementById('music-notes-container');
+      const noteCount = 3 + Math.floor(Math.random() * 2); // 3-4 notes
+      
+      for (let i = 0; i < noteCount; i++) {
+        const note = document.createElement('div');
+        note.className = 'music-note';
+        note.innerHTML = '<i class="fas fa-music"></i>';
+        
+        // Position at click location with some randomness
+        const posX = event.clientX + (Math.random() - 0.5) * 50;
+        const posY = event.clientY + (Math.random() - 0.5) * 40;
+        
+        note.style.left = `${posX}px`;
+        note.style.top = `${posY}px`;
+        
+        // Random properties for variation
+        const size = 20 + Math.random() * 20; // 20-40px
+        const rotation = Math.random() * 360;
+        const translateX = (Math.random() - 0.5) * 80;
+        const delay = Math.random() * 0.5;
+        const duration = 1.2 + Math.random() * 0.8; // 1.2-2s
+        
+        note.style.setProperty('--rot', `${rotation}deg`);
+        note.style.setProperty('--tx', `${translateX}px`);
+        note.style.fontSize = `${size}px`;
+        note.style.animationDelay = `${delay}s`;
+        note.style.animationDuration = `${duration}s`;
+        
+        // Add to container
+        notesContainer.appendChild(note);
+        
+        // Remove after animation completes
+        setTimeout(() => {
+          if (note.parentNode) {
+            note.remove();
+          }
+        }, duration * 1000 + 500);
+      }
+    }
+    
+    // Handle card clicks
     document.addEventListener('DOMContentLoaded', function() {
-      // Handle card clicks
       const clickableElements = document.querySelectorAll('.clickable');
       
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
+          // Create music notes
+          createMusicNote(e);
+          
           // Handle specific actions
           const url = this.getAttribute('data-url');
           
@@ -941,6 +1010,16 @@
           
           // Scroll to thank you message
           thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // Create celebration notes
+          for (let i = 0; i < 7; i++) {
+            setTimeout(() => {
+              const randomX = Math.random() * window.innerWidth;
+              const randomY = Math.random() * window.innerHeight;
+              const fakeEvent = { clientX: randomX, clientY: randomY };
+              createMusicNote(fakeEvent);
+            }, i * 200);
+          }
         }, 1000);
       });
     });
