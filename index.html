@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      font-family: 'Montserrat', 'Segoe UI', 'Helvetica Neue', sans-serif;
     }
     
     body {
@@ -21,11 +21,11 @@
       padding: 20px;
       overflow-x: hidden;
       position: relative;
-      color: #e0e0ff;
-      background: linear-gradient(135deg, #0a0915 0%, #151328 100%);
+      color: #f8f8f8;
+      background: linear-gradient(135deg, #0a0b1a 0%, #1a1b2e 100%);
     }
     
-    /* Darker animated background */
+    /* Animated background with subtle pattern */
     .background {
       position: fixed;
       top: 0;
@@ -34,26 +34,20 @@
       height: 100%;
       z-index: -2;
       background: 
-        radial-gradient(circle at 20% 30%, rgba(180, 70, 0, 0.08) 0%, transparent 25%),
-        radial-gradient(circle at 80% 70%, rgba(80, 70, 160, 0.08) 0%, transparent 25%);
-      animation: gradientBG 30s ease infinite;
-      background-size: 400% 400%;
-    }
-    
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+        radial-gradient(circle at 10% 20%, rgba(180, 70, 0, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(80, 70, 160, 0.05) 0%, transparent 20%),
+        linear-gradient(to bottom, #0a0b1a, #1a1b2e);
+      opacity: 0.95;
     }
     
     .container {
       width: 100%;
-      max-width: 900px;
-      background: rgba(20, 18, 35, 0.96);
-      backdrop-filter: blur(12px);
-      border-radius: 24px;
-      border: 1px solid rgba(100, 100, 150, 0.15);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      max-width: 1100px;
+      background: rgba(15, 16, 32, 0.92);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      border: 1px solid rgba(100, 100, 150, 0.1);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
       overflow: hidden;
       position: relative;
       z-index: 10;
@@ -61,26 +55,33 @@
       transition: all 0.4s ease;
     }
     
-    /* Enhanced Logo Animation with Ring */
-    .logo-container {
+    /* Header with elegant styling */
+    header {
+      padding: 50px 40px 30px;
+      text-align: center;
       position: relative;
-      width: 140px;
-      height: 140px;
-      margin: 0 auto 30px;
+      background: linear-gradient(to bottom, rgba(20, 18, 35, 0.8), rgba(15, 16, 32, 0.2));
+      border-bottom: 1px solid rgba(200, 170, 50, 0.15);
+    }
+    
+    .logo-container {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 25px;
+      position: relative;
     }
     
     .logo {
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #b34700, #c96e1d);
+      background: linear-gradient(135deg, #c96e1d, #d8b220);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(180, 100, 34, 0.4);
-      animation: logoPulse 8s infinite ease-in-out;
+      box-shadow: 0 10px 30px rgba(180, 100, 34, 0.3);
       transition: all 0.4s ease;
       z-index: 2;
     }
@@ -91,95 +92,92 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border: 2px solid rgba(200, 170, 50, 0.6);
+      border: 2px solid rgba(200, 170, 50, 0.4);
       border-radius: 50%;
-      animation: pulseRing 4s infinite ease-out;
       z-index: 1;
       pointer-events: none;
     }
     
-    @keyframes pulseRing {
-      0% {
-        transform: scale(1);
-        opacity: 0.7;
-      }
-      50% {
-        opacity: 0.3;
-      }
-      100% {
-        transform: scale(1.4);
-        opacity: 0;
-      }
-    }
-    
-    .logo:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 35px rgba(180, 100, 34, 0.5);
-    }
-    
-    @keyframes logoPulse {
-      0%, 100% { 
-        transform: scale(1);
-        box-shadow: 0 10px 30px rgba(180, 100, 34, 0.4);
-      }
-      50% { 
-        transform: scale(1.05);
-        box-shadow: 0 15px 40px rgba(180, 100, 34, 0.5);
-      }
-    }
-    
     .logo i {
-      font-size: 58px;
+      font-size: 50px;
       color: #fff;
       z-index: 2;
       text-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
     
-    header {
-      padding: 50px 30px 20px;
-      text-align: center;
-      position: relative;
-    }
-    
     h1 {
       font-size: 2.8rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       letter-spacing: 0.5px;
-      color: #f0f0ff;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      color: #fff;
       position: relative;
       display: inline-block;
-    }
-    
-    h1::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(to right, #c96e1d, #d8b220);
-      border-radius: 2px;
+      background: linear-gradient(to right, #d8b220, #c96e1d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 15px rgba(200, 150, 50, 0.2);
     }
     
     .tagline {
-      font-size: 1.3rem;
-      font-weight: 300;
-      color: rgba(210, 210, 230, 0.8);
-      margin-top: 25px;
-      max-width: 600px;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: rgba(220, 220, 240, 0.9);
+      margin-top: 20px;
+      max-width: 700px;
       margin: 15px auto 0;
-      line-height: 1.6;
-      padding: 0 20px;
+      line-height: 1.7;
     }
     
-    /* Elegant Section Title with Orange-Gold Divider */
+    .cta-container {
+      margin: 30px auto 0;
+      max-width: 500px;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #c96e1d, #d8b220);
+      color: #0a0915;
+      text-decoration: none;
+      padding: 18px 45px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(180, 100, 34, 0.4);
+      border: none;
+      cursor: pointer;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(180, 100, 34, 0.5);
+    }
+    
+    .cta-button:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.1);
+      opacity: 0;
+      transition: all 0.4s;
+    }
+    
+    .cta-button:hover:after {
+      opacity: 1;
+      transform: translateX(100%) skewX(-20deg);
+    }
+    
     .section-title {
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       font-weight: 600;
-      margin: 40px 0 25px;
+      margin: 50px 0 30px;
       text-align: center;
       position: relative;
       display: block;
@@ -188,7 +186,7 @@
       padding-bottom: 15px;
     }
     
-    .section-title::after {
+    .section-title:after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -198,460 +196,129 @@
       height: 4px;
       background: linear-gradient(to right, #c96e1d, #d8b220);
       border-radius: 3px;
-      box-shadow: 0 2px 8px rgba(180, 100, 34, 0.2);
     }
     
     .content {
-      padding: 0 30px 30px;
+      padding: 0 40px 40px;
     }
     
-    .links-grid {
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin: 25px 0;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
     }
     
-    .link-card {
-      background: rgba(40, 38, 60, 0.7);
-      border-radius: 18px;
-      padding: 22px;
-      border: 1px solid rgba(80, 80, 120, 0.2);
-      display: flex;
-      align-items: center;
+    .feature-card {
+      background: rgba(30, 31, 48, 0.7);
+      border-radius: 16px;
+      padding: 30px;
+      border: 1px solid rgba(80, 80, 120, 0.15);
+      text-align: center;
       position: relative;
       overflow: hidden;
-      min-height: 110px;
-      cursor: pointer;
       transition: all 0.4s ease;
       backdrop-filter: blur(6px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
     
-    .link-card:hover {
-      background: rgba(50, 48, 70, 0.7);
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
       border-color: rgba(200, 170, 50, 0.3);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
-      transform: translateY(-2px);
     }
     
-    .link-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(120deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0.03) 100%);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-    
-    .link-card:hover::before {
-      opacity: 1;
-    }
-    
-    /* Enhanced Icons with Animations and Effects */
-    .link-icon {
-      width: 60px;
-      height: 60px;
+    .feature-icon {
+      width: 80px;
+      height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 20px;
-      font-size: 1.8rem;
-      border-radius: 16px;
-      flex-shrink: 0;
-      color: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    /* Icon hover animations */
-    .link-icon::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.1);
+      margin: 0 auto 25px;
+      font-size: 2.5rem;
       border-radius: 50%;
-      transform: scale(0);
-      transition: all 0.3s ease;
-      z-index: 1;
-    }
-    
-    .link-card:hover .link-icon::after {
-      transform: scale(1.8);
-      opacity: 0;
-    }
-    
-    .link-card:hover .link-icon {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(200, 200, 255, 0.15);
-    }
-    
-    /* Icon backgrounds with gradients */
-    .facebook .link-icon {
-      background: linear-gradient(135deg, #0f5fcf, #2a4a8a);
-    }
-    
-    .instagram .link-icon {
-      background: linear-gradient(135deg, #a02883, #c45c20);
-    }
-    
-    .tiktok .link-icon {
-      background: linear-gradient(135deg, #000000, #4a9da0);
-    }
-    
-    .stardust-icon {
-      background: linear-gradient(135deg, #d8b220, #c96e1d) !important;
-    }
-    
-    .letsbailar-icon {
-      background: linear-gradient(135deg, #5548b0, #3a0066) !important;
-    }
-    
-    .estilo-icon {
-      background: linear-gradient(135deg, #1a8d88, #006d6d) !important;
-    }
-    
-    .contact-icon {
-      background: linear-gradient(135deg, #c96e1d, #b34700) !important;
-    }
-    
-    .venmo .link-icon {
-      background: linear-gradient(135deg, #2d7db0, #0066cc) !important;
-    }
-    
-    .cash .link-icon {
-      background: linear-gradient(135deg, #25a25a, #1d8c4f) !important;
-    }
-    
-    /* Icon animations - REMOVED ANIMATIONS FOR FACEBOOK AND CASH */
-    .link-icon i {
-      position: relative;
-      z-index: 2;
-      transition: transform 0.3s ease;
-    }
-    
-    .link-card:hover .link-icon i {
-      transform: scale(1.1);
-    }
-    
-    /* FACEBOOK ICON ANIMATION REMOVED */
-    .facebook .link-icon i {
-      animation: none;
-    }
-    
-    .instagram .link-icon i {
-      animation: pulse 2s infinite ease-in-out;
-    }
-    
-    .tiktok .link-icon i {
-      animation: shake 1.8s infinite ease-in-out;
-    }
-    
-    .stardust .link-icon i {
-      animation: spin 5s infinite linear;
-    }
-    
-    .letsbailar .link-icon i {
-      animation: float 3s infinite ease-in-out;
-    }
-    
-    .estilo .link-icon i {
-      animation: pulse 2.5s infinite ease-in-out;
-    }
-    
-    .venmo .link-icon i {
-      animation: bounce 1.7s infinite ease-in-out;
-    }
-    
-    /* CASH ICON ANIMATION REMOVED */
-    .cash .link-icon i {
-      animation: none;
-    }
-    
-    .contact .link-icon i {
-      animation: float 3.5s infinite ease-in-out;
-    }
-    
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-    
-    @keyframes shake {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(3deg); }
-      75% { transform: rotate(-3deg); }
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    
-    .link-text {
-      flex: 1;
-    }
-    
-    .link-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #e0e0ff;
-    }
-    
-    .link-subtitle {
-      font-size: 1rem;
-      color: rgba(200, 200, 230, 0.8);
-      line-height: 1.5;
-    }
-    
-    .schedule-detail {
-      display: block;
-      margin-top: 8px;
       color: #d8b220;
-      font-weight: 500;
-      font-size: 0.95rem;
+      background: rgba(200, 170, 50, 0.1);
+      transition: all 0.3s ease;
     }
     
-    .dance-style {
-      display: block;
-      margin-top: 6px;
-      color: #c96e1d;
-      font-weight: 500;
-      font-size: 0.95rem;
-      font-style: italic;
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1);
+      background: rgba(200, 170, 50, 0.15);
+      box-shadow: 0 0 20px rgba(200, 170, 50, 0.1);
     }
     
-    footer {
-      margin-top: 40px;
-      padding: 30px 20px;
-      text-align: center;
-      color: rgba(180, 180, 200, 0.7);
-      font-size: 1rem;
-      border-top: 1px solid rgba(80, 80, 120, 0.2);
-      line-height: 1.7;
-      background: rgba(15, 10, 30, 0.45);
-      backdrop-filter: blur(6px);
-    }
-    
-    /* Enhanced Music Notes with Size Variation */
-    .music-note {
-      position: fixed;
-      color: #d4b000;
-      z-index: 100;
-      pointer-events: none;
-      opacity: 0;
-      text-shadow: 0 0 8px rgba(200, 170, 0, 0.6);
-      animation: fallNote 2s ease-out forwards;
-      font-size: var(--size, 24px);
-      transform-origin: center;
-    }
-    
-    @keyframes fallNote {
-      0% {
-        transform: 
-          translate(0, 0) 
-          scale(1.1) 
-          rotate(0deg);
-        opacity: 0.9;
-      }
-      70% {
-        opacity: 0.6;
-      }
-      100% {
-        transform: 
-          translate(var(--tx, 0), var(--ty, 100px)) 
-          scale(0.4) 
-          rotate(var(--rot, 0deg));
-        opacity: 0;
-      }
-    }
-    
-    /* New Registration Banner Styles */
-    .registration-banner {
-      background: linear-gradient(135deg, rgba(40, 38, 60, 0.9), rgba(25, 22, 42, 0.9));
-      border-radius: 18px;
-      padding: 25px;
-      margin: 0 0 40px;
-      border: 1px solid rgba(200, 170, 50, 0.3);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-    
-    .banner-title {
-      font-size: 2.2rem;
-      font-weight: 700;
+    .feature-title {
+      font-size: 1.5rem;
+      font-weight: 600;
       margin-bottom: 15px;
       color: #d8b220;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
     
-    .banner-subtitle {
-      font-size: 1.2rem;
-      color: rgba(220, 220, 240, 0.9);
-      margin-bottom: 25px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
-    }
-    
-    .banner-highlight {
-      color: #d8b220;
-      font-weight: 600;
-    }
-    
-    .banner-form {
-      max-width: 500px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-    }
-    
-    .banner-input {
-      flex: 1;
-      min-width: 200px;
-      padding: 16px 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(80, 80, 120, 0.3);
-      background: rgba(50, 48, 70, 0.5);
-      color: #e0e0ff;
+    .feature-text {
       font-size: 1.05rem;
-      transition: all 0.3s ease;
-      -webkit-appearance: none;
-      appearance: none;
-      font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.15);
+      color: rgba(220, 220, 240, 0.85);
+      line-height: 1.7;
     }
     
-    .banner-input:focus {
-      outline: none;
-      border-color: #d8b220;
-      background: rgba(60, 58, 80, 0.5);
-      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.2);
-    }
-    
-    .banner-input::placeholder {
-      color: rgba(180, 180, 210, 0.7);
-      font-size: 1rem;
-    }
-    
-    .banner-btn {
-      background: linear-gradient(135deg, #c96e1d, #d8b220);
-      color: #0a0915;
-      border: none;
-      border-radius: 14px;
-      padding: 16px 30px;
-      font-size: 1.15rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      display: block;
-      touch-action: manipulation;
-      font-family: 'Segoe UI', sans-serif;
-      letter-spacing: 0.8px;
-      box-shadow: 0 6px 20px rgba(180, 100, 34, 0.3);
-      text-shadow: 0 1px 1px rgba(255,255,255,0.2);
-      min-width: 200px;
-    }
-    
-    .banner-btn:hover {
-      opacity: 0.95;
-      box-shadow: 0 8px 25px rgba(180, 100, 34, 0.4);
-      transform: translateY(-2px);
-    }
-    
-    .banner-btn:active {
-      transform: translateY(1px);
-    }
-    
-    /* Registration Form Styles */
     .registration-form {
-      background: rgba(25, 22, 42, 0.9);
-      border-radius: 18px;
-      padding: 30px;
-      margin: 40px 0;
-      border: 1px solid rgba(80, 80, 120, 0.2);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(10px);
+      background: rgba(25, 26, 42, 0.8);
+      border-radius: 16px;
+      padding: 40px;
+      margin: 60px 0 40px;
+      border: 1px solid rgba(200, 170, 50, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
       position: relative;
       overflow: hidden;
     }
     
     .form-title {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-weight: 600;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       color: #d8b220;
       text-align: center;
       position: relative;
-      padding-bottom: 15px;
+      padding-bottom: 20px;
     }
     
-    .form-title::after {
+    .form-title:after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
+      width: 100px;
+      height: 4px;
       background: linear-gradient(to right, #c96e1d, #d8b220);
       border-radius: 2px;
     }
     
     .form-group {
-      margin-bottom: 22px;
+      margin-bottom: 25px;
       text-align: left;
       position: relative;
     }
     
     .form-input {
       width: 100%;
-      padding: 16px 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(80, 80, 120, 0.3);
-      background: rgba(40, 38, 60, 0.5);
-      color: #e0e0ff;
-      font-size: 1.05rem;
+      padding: 18px 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(80, 80, 120, 0.25);
+      background: rgba(40, 41, 60, 0.4);
+      color: #f0f0ff;
+      font-size: 1.1rem;
       transition: all 0.3s ease;
-      -webkit-appearance: none;
       appearance: none;
-      font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.15);
+      font-family: 'Montserrat', sans-serif;
     }
     
     .form-input:focus {
       outline: none;
       border-color: #d8b220;
-      background: rgba(50, 48, 70, 0.5);
-      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.2);
+      background: rgba(50, 51, 70, 0.4);
+      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.15);
     }
     
     .form-input::placeholder {
@@ -661,37 +328,35 @@
     
     .form-select {
       width: 100%;
-      padding: 16px 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(80, 80, 120, 0.3);
-      background: rgba(40, 38, 60, 0.5);
-      color: #e0e0ff;
-      font-size: 1.05rem;
+      padding: 18px 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(80, 80, 120, 0.25);
+      background: rgba(40, 41, 60, 0.4);
+      color: #f0f0ff;
+      font-size: 1.1rem;
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d8b220'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 18px center;
+      background-position: right 22px center;
       background-size: 18px;
       transition: all 0.3s ease;
-      -webkit-appearance: none;
-      font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.15);
+      font-family: 'Montserrat', sans-serif;
     }
     
     .form-select:focus {
       outline: none;
       border-color: #d8b220;
-      background: rgba(50, 48, 70, 0.5);
-      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.2);
+      background: rgba(50, 51, 70, 0.4);
+      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.15);
     }
     
     .submit-btn {
       background: linear-gradient(135deg, #c96e1d, #d8b220);
       color: #0a0915;
       border: none;
-      border-radius: 14px;
-      padding: 18px;
-      font-size: 1.15rem;
+      border-radius: 12px;
+      padding: 20px;
+      font-size: 1.2rem;
       font-weight: 700;
       cursor: pointer;
       width: 100%;
@@ -700,239 +365,79 @@
       position: relative;
       overflow: hidden;
       display: block;
-      touch-action: manipulation;
-      font-family: 'Segoe UI', sans-serif;
-      letter-spacing: 0.8px;
-      box-shadow: 0 6px 20px rgba(180, 100, 34, 0.3);
-      text-shadow: 0 1px 1px rgba(255,255,255,0.2);
+      letter-spacing: 1px;
+      box-shadow: 0 8px 25px rgba(180, 100, 34, 0.3);
     }
     
     .submit-btn:hover {
-      opacity: 0.95;
-      box-shadow: 0 8px 25px rgba(180, 100, 34, 0.4);
-      transform: translateY(-2px);
-    }
-    
-    .submit-btn:active {
-      transform: translateY(1px);
-    }
-    
-    /* Thank You Message */
-    .thank-you-message {
-      display: none;
-      text-align: center;
-      padding: 40px 30px;
-      border-radius: 18px;
-      background: rgba(25, 22, 42, 0.95);
-      margin-top: 20px;
-      border: 1px solid rgba(80, 80, 120, 0.2);
-      backdrop-filter: blur(10px);
-      animation: fadeIn 0.8s ease-out;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .thank-you-message h3 {
-      font-size: 1.9rem;
-      color: #d8b220;
-      margin-bottom: 25px;
-      position: relative;
-      padding-bottom: 20px;
-    }
-    
-    .thank-you-message h3::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(to right, #c96e1d, #d8b220);
-      border-radius: 2px;
-    }
-    
-    .thank-you-message p {
-      font-size: 1.15rem;
-      margin-bottom: 30px;
-      color: rgba(200, 200, 230, 0.9);
-      line-height: 1.7;
-    }
-    
-    .whatsapp-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(30, 180, 80, 0.15);
-      color: #e0e0ff;
-      text-decoration: none;
-      padding: 16px 32px;
-      border-radius: 14px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-top: 20px;
-      transition: all 0.3s ease;
-      touch-action: manipulation;
-      font-family: 'Segoe UI', sans-serif;
-      border: 1px solid rgba(30, 180, 80, 0.25);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    }
-    
-    .whatsapp-btn:hover {
-      background: rgba(30, 180, 80, 0.25);
       transform: translateY(-3px);
-      box-shadow: 0 7px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 12px 30px rgba(180, 100, 34, 0.4);
     }
     
-    .whatsapp-btn i {
-      margin-right: 12px;
-      font-size: 1.3rem;
-    }
-    
-    /* Decorative corner elements */
-    .corner-decoration {
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      z-index: -1;
-      opacity: 0.08;
-    }
-    
-    .corner-top-left {
-      top: 0;
-      left: 0;
-      border-top: 3px solid #c96e1d;
-      border-left: 3px solid #c96e1d;
-      border-top-left-radius: 24px;
-    }
-    
-    .corner-top-right {
-      top: 0;
-      right: 0;
-      border-top: 3px solid #d8b220;
-      border-right: 3px solid #d8b220;
-      border-top-right-radius: 24px;
-    }
-    
-    .corner-bottom-left {
-      bottom: 0;
-      left: 0;
-      border-bottom: 3px solid #5548b0;
-      border-left: 3px solid #5548b0;
-      border-bottom-left-radius: 24px;
-    }
-    
-    .corner-bottom-right {
-      bottom: 0;
-      right: 0;
-      border-bottom: 3px solid #1a8d88;
-      border-right: 3px solid #1a8d88;
-      border-bottom-right-radius: 24px;
-    }
-    
-    /* New style for non-link cards */
-    .non-link-card {
-      cursor: default;
-    }
-    
-    .non-link-card:hover {
-      transform: none;
-      background: rgba(40, 38, 60, 0.7);
-      border-color: rgba(80, 80, 120, 0.2);
-    }
-    
-    .non-link-card .link-icon::after,
-    .non-link-card:hover .link-icon::after {
-      display: none;
-    }
-    
-    .non-link-card:hover .link-icon {
-      transform: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    
-    .non-link-card:hover .link-icon i {
-      transform: none;
-    }
-    
-    /* Benefit Cards */
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    .social-links {
+      display: flex;
+      justify-content: center;
       gap: 20px;
       margin: 40px 0;
     }
     
-    .benefit-card {
-      background: rgba(40, 38, 60, 0.7);
-      border-radius: 18px;
-      padding: 25px;
-      border: 1px solid rgba(80, 80, 120, 0.2);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.4s ease;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
-      border-color: rgba(200, 170, 50, 0.3);
-    }
-    
-    .benefit-icon {
-      width: 70px;
-      height: 70px;
+    .social-link {
+      width: 60px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 20px;
-      font-size: 2.2rem;
       border-radius: 50%;
+      background: rgba(40, 41, 60, 0.7);
       color: #d8b220;
-      background: rgba(200, 170, 50, 0.1);
+      font-size: 1.5rem;
       transition: all 0.3s ease;
+      border: 1px solid rgba(200, 170, 50, 0.2);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     
-    .benefit-card:hover .benefit-icon {
-      transform: scale(1.1);
-      background: rgba(200, 170, 50, 0.15);
-      box-shadow: 0 0 15px rgba(200, 170, 50, 0.1);
+    .social-link:hover {
+      transform: translateY(-5px);
+      background: rgba(200, 170, 50, 0.1);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(180, 100, 34, 0.3);
     }
     
-    .benefit-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 15px;
-      color: #d8b220;
-    }
-    
-    .benefit-text {
+    .footer {
+      margin-top: 50px;
+      padding: 40px 20px;
+      text-align: center;
+      color: rgba(180, 180, 200, 0.7);
       font-size: 1rem;
-      color: rgba(200, 200, 230, 0.8);
-      line-height: 1.6;
+      border-top: 1px solid rgba(80, 80, 120, 0.15);
+      line-height: 1.7;
+      background: rgba(10, 11, 26, 0.6);
+    }
+    
+    .copyright {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: rgba(200, 200, 220, 0.6);
     }
     
     /* Responsive design */
-    @media (max-width: 768px) {
-      .links-grid {
+    @media (max-width: 900px) {
+      .features-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 25px;
+      }
+      
+      header {
+        padding: 40px 30px 25px;
+      }
+      
+      .content {
+        padding: 0 30px 30px;
       }
       
       .logo-container {
-        width: 120px;
-        height: 120px;
-      }
-      
-      .logo i {
-        font-size: 50px;
+        width: 100px;
+        height: 100px;
       }
       
       h1 {
@@ -943,75 +448,35 @@
         font-size: 1.15rem;
       }
       
-      .link-card {
-        padding: 20px;
-      }
-      
-      .link-icon {
-        width: 55px;
-        height: 55px;
-        font-size: 1.7rem;
-      }
-      
-      .section-title {
-        font-size: 1.6rem;
-        margin: 35px 0 20px;
-      }
-      
       .registration-form {
-        padding: 25px;
+        padding: 30px;
       }
       
       .form-title {
-        font-size: 1.5rem;
-      }
-      
-      .banner-title {
-        font-size: 1.8rem;
-      }
-      
-      .banner-subtitle {
-        font-size: 1.1rem;
-      }
-      
-      .banner-form {
-        flex-direction: column;
-      }
-      
-      .banner-input, .banner-btn {
-        width: 100%;
+        font-size: 1.6rem;
       }
     }
     
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       body {
         padding: 15px;
       }
       
       .container {
         margin: 10px;
-        border-radius: 20px;
+        border-radius: 14px;
       }
       
       header {
-        padding: 40px 20px 20px;
+        padding: 30px 20px 20px;
       }
       
       .content {
         padding: 0 20px 20px;
       }
       
-      .logo-container {
-        width: 100px;
-        height: 100px;
-      }
-      
       h1 {
-        font-size: 2.2rem;
-      }
-      
-      h1::after {
-        width: 80px;
+        font-size: 2rem;
       }
       
       .tagline {
@@ -1019,70 +484,62 @@
       }
       
       .section-title {
-        font-size: 1.5rem;
-        margin: 30px 0 20px;
-      }
-      
-      .link-card {
-        padding: 18px;
-      }
-      
-      .link-icon {
-        width: 50px;
-        height: 50px;
         font-size: 1.6rem;
-        margin-right: 15px;
+        margin: 40px 0 25px;
       }
       
-      .link-title {
-        font-size: 1.2rem;
+      .feature-card {
+        padding: 25px;
       }
       
-      .link-subtitle {
-        font-size: 0.95rem;
+      .feature-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+      }
+      
+      .feature-title {
+        font-size: 1.3rem;
       }
       
       .registration-form {
-        padding: 20px;
+        padding: 25px;
+        margin: 40px 0 30px;
       }
       
       .form-input, .form-select {
-        padding: 14px 16px;
+        padding: 16px 20px;
+        font-size: 1rem;
       }
       
       .submit-btn {
-        padding: 16px;
+        padding: 18px;
+        font-size: 1.1rem;
       }
       
-      .corner-decoration {
-        width: 60px;
-        height: 60px;
-      }
-      
-      .banner-title {
-        font-size: 1.6rem;
-      }
-      
-      .banner-subtitle {
-        font-size: 1rem;
+      .cta-button {
+        padding: 16px 35px;
+        font-size: 1.1rem;
       }
     }
+    
+    /* Animation for form focus */
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(200, 170, 50, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(200, 170, 50, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(200, 170, 50, 0); }
+    }
+    
+    .form-input:focus, .form-select:focus {
+      animation: pulse 1.5s infinite;
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Enhanced animated background -->
   <div class="background"></div>
   
-  <!-- Container for music notes -->
-  <div id="music-notes-container"></div>
-  
   <div class="container">
-    <!-- Decorative corners -->
-    <div class="corner-decoration corner-top-left"></div>
-    <div class="corner-decoration corner-top-right"></div>
-    <div class="corner-decoration corner-bottom-left"></div>
-    <div class="corner-decoration corner-bottom-right"></div>
-    
     <header>
       <div class="logo-container">
         <div class="logo-ring"></div>
@@ -1092,128 +549,43 @@
       </div>
       <h1>Daniel Palacios</h1>
       <p class="tagline">Professional Salsa & Bachata Instructor | Transforming Passion into Movement</p>
+      
+      <div class="cta-container">
+        <button class="cta-button">Reserve Your Spot</button>
+      </div>
     </header>
     
     <div class="content">
-      <!-- Registration Banner -->
-      <div class="registration-banner">
-        <div class="banner-title">Reserve Your Spot Today</div>
-        <p class="banner-subtitle">Join our vibrant dance community and <span class="banner-highlight">unlock your rhythm</span> with professional instruction. Limited spots available for our upcoming classes!</p>
-        
-        <div class="banner-form">
-          <input type="text" class="banner-input" placeholder="Your Name">
-          <input type="email" class="banner-input" placeholder="Your Email">
-          <button class="banner-btn">Reserve My Spot</button>
-        </div>
-      </div>
+      <h2 class="section-title">Why Dance With Me</h2>
       
-      <h2 class="section-title">Why Dance With Me?</h2>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
             <i class="fas fa-award"></i>
           </div>
-          <h3 class="benefit-title">Professional Expertise</h3>
-          <p class="benefit-text">10+ years teaching experience with a focus on technique and style</p>
+          <h3 class="feature-title">Professional Expertise</h3>
+          <p class="feature-text">With over a decade of teaching experience, I bring refined technique and style to every lesson.</p>
         </div>
         
-        <div class="benefit-card">
-          <div class="benefit-icon">
+        <div class="feature-card">
+          <div class="feature-icon">
             <i class="fas fa-users"></i>
           </div>
-          <h3 class="benefit-title">Supportive Community</h3>
-          <p class="benefit-text">Join a welcoming dance family that celebrates progress</p>
+          <h3 class="feature-title">Supportive Community</h3>
+          <p class="feature-text">Join a welcoming dance family that celebrates progress and fosters growth at every level.</p>
         </div>
         
-        <div class="benefit-card">
-          <div class="benefit-icon">
+        <div class="feature-card">
+          <div class="feature-icon">
             <i class="fas fa-fire"></i>
           </div>
-          <h3 class="benefit-title">Passion-Driven</h3>
-          <p class="benefit-text">Instruction infused with energy and love for dance</p>
-        </div>
-      </div>
-      
-      <h2 class="section-title">Connect With Me</h2>
-      <div class="links-grid">
-        <div class="link-card clickable facebook" data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
-          <div class="link-icon">
-            <i class="fab fa-facebook-f"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Daniel Palacios</div>
-            <div class="link-subtitle">Personal Facebook Profile</div>
-          </div>
-        </div>
-        
-        <div class="link-card clickable instagram" data-url="https://www.instagram.com/danielp_bachata">
-          <div class="link-icon">
-            <i class="fab fa-instagram"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Instagram</div>
-            <div class="link-subtitle">@danielp_bachata</div>
-          </div>
-        </div>
-        
-        <div class="link-card clickable tiktok" data-url="https://www.tiktok.com/@danielp_bachata">
-          <div class="link-icon">
-            <i class="fab fa-tiktok"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">TikTok</div>
-            <div class="link-subtitle">@danielp_bachata</div>
-          </div>
-        </div>
-      </div>
-      
-      <h2 class="section-title">Class Schedule</h2>
-      <div class="links-grid">
-        <div class="link-card clickable stardust" data-url="https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr">
-          <div class="link-icon stardust-icon">
-            <i class="fas fa-star"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Stardust Ballroom</div>
-            <div class="link-subtitle">
-              Bellmawr, New Jersey
-              <span class="schedule-detail">Mondays & Thursdays at 6:30pm</span>
-              <span class="dance-style">Salsa and Bachata</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="link-card clickable letsbailar" data-url="https://www.facebook.com/share/1QfGefKoK5/?mibextid=wwXIfr">
-          <div class="link-icon letsbailar-icon">
-            <i class="fas fa-city"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Let's Bailar Dance Studio</div>
-            <div class="link-subtitle">
-              Philadelphia
-              <span class="schedule-detail">Fridays at 7pm</span>
-              <span class="dance-style">Salsa and Bachata</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="link-card estilo non-link-card">
-          <div class="link-icon estilo-icon">
-            <i class="fas fa-building"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Estilo Dance Studio</div>
-            <div class="link-subtitle">
-              Fishtown, Philadelphia
-              <span class="schedule-detail">Saturdays at 4pm</span>
-              <span class="dance-style">Salsa and Bachata</span>
-            </div>
-          </div>
+          <h3 class="feature-title">Passion-Driven</h3>
+          <p class="feature-text">Instruction infused with energy and genuine love for dance that will ignite your own passion.</p>
         </div>
       </div>
       
       <div class="registration-form">
-        <div class="form-title">Complete Your Registration</div>
+        <h2 class="form-title">Begin Your Dance Journey</h2>
         <form id="dance-registration">
           <div class="form-group">
             <input type="text" id="name" class="form-input" placeholder="Full Name" required>
@@ -1224,244 +596,118 @@
           </div>
           
           <div class="form-group">
-            <select id="location" class="form-select" required>
-              <option value="">Select class location</option>
-              <option value="stardust">Stardust Ballroom - Mon/Thu 6:30pm</option>
-              <option value="letsbailar">Let's Bailar - Fridays 7pm</option>
-              <option value="estilo">Estilo Dance - Saturdays 4pm</option>
+            <select id="experience" class="form-select" required>
+              <option value="">Your Dance Experience</option>
+              <option value="beginner">Beginner (First time dancing)</option>
+              <option value="intermediate">Intermediate (Some experience)</option>
+              <option value="advanced">Advanced (Confident dancer)</option>
             </select>
           </div>
           
           <div class="form-group">
-            <select id="level" class="form-select" required>
-              <option value="">Select your experience level</option>
-              <option value="beginner">Beginner (0-6 months)</option>
-              <option value="intermediate">Intermediate (6-18 months)</option>
-              <option value="advanced">Advanced (18+ months)</option>
+            <select id="location" class="form-select" required>
+              <option value="">Preferred Studio Location</option>
+              <option value="stardust">Stardust Ballroom - Bellmawr, NJ</option>
+              <option value="letsbailar">Let's Bailar - Philadelphia</option>
+              <option value="estilo">Estilo Dance - Fishtown, Philadelphia</option>
             </select>
           </div>
           
           <button type="submit" class="submit-btn">Secure My Spot</button>
         </form>
-        
-        <div id="thank-you-message" class="thank-you-message">
-          <h3>Thank You for Joining!</h3>
-          <p>We're excited to welcome you to our dance community! You'll receive a confirmation email shortly.</p>
-          <p>Join our WhatsApp group for updates and to connect with fellow dancers:</p>
-          <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Join Dance Community
-          </a>
-        </div>
       </div>
       
-      <h2 class="section-title">Payment Options</h2>
-      <div class="links-grid">
-        <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
-          <div class="link-icon">
-            <i class="fab fa-vimeo-v"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Venmo</div>
-            <div class="link-subtitle">Secure your spot today</div>
-          </div>
-        </div>
-        
-        <div class="link-card clickable cash">
-          <div class="link-icon">
-            <i class="fas fa-money-bill-wave"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Cash</div>
-            <div class="link-subtitle">Pay when you arrive</div>
-          </div>
-        </div>
-      </div>
-      
-      <h2 class="section-title">Contact Me</h2>
-      <div class="links-grid">
-        <div class="link-card clickable contact" data-url="mailto:contact@danielpbachata.com">
-          <div class="link-icon contact-icon">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Professional Inquiries</div>
-            <div class="link-subtitle">Bookings & partnerships</div>
-          </div>
-        </div>
+      <div class="social-links">
+        <a href="#" class="social-link">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-youtube"></i>
+        </a>
       </div>
     </div>
     
-    <footer>
-      <p>© 2025 Daniel Palacios | Professional Dance Instruction</p>
+    <div class="footer">
+      <p>Professional Dance Instruction Since 2015</p>
       <p>Transform your passion into movement</p>
-    </footer>
+      <div class="copyright">© 2025 Daniel Palacios Dance. All rights reserved.</div>
+    </div>
   </div>
 
   <script>
-    // Create golden falling music notes at click position
-    function createMusicNote(event) {
-      const notesContainer = document.getElementById('music-notes-container');
-      const noteCount = 3 + Math.floor(Math.random() * 3); // 3-5 notes
-      
-      for (let i = 0; i < noteCount; i++) {
-        const note = document.createElement('div');
-        note.className = 'music-note';
-        note.innerHTML = '<i class="fas fa-music"></i>';
-        
-        // Position at click location with some randomness
-        const posX = event.clientX + (Math.random() - 0.5) * 80;
-        const posY = event.clientY + (Math.random() - 0.5) * 60;
-        
-        note.style.left = `${posX}px`;
-        note.style.top = `${posY}px`;
-        
-        // Random properties for variation
-        const sizeOptions = [16, 24, 32, 40]; // Different note sizes
-        const size = sizeOptions[Math.floor(Math.random() * sizeOptions.length)];
-        
-        const rotation = (Math.random() - 0.5) * 180; // -90 to +90 degrees
-        const translateX = (Math.random() - 0.5) * 150; // More horizontal movement
-        const translateY = 150 + Math.random() * 100; // Variable distance
-        const delay = Math.random() * 0.5;
-        const duration = 1.5 + Math.random() * 1.0; // 1.5-2.5s
-        
-        // Apply properties through CSS variables
-        note.style.setProperty('--rot', `${rotation}deg`);
-        note.style.setProperty('--tx', `${translateX}px`);
-        note.style.setProperty('--ty', `${translateY}px`);
-        note.style.setProperty('--size', `${size}px`);
-        
-        note.style.fontSize = `${size}px`;
-        note.style.animationDelay = `${delay}s`;
-        note.style.animationDuration = `${duration}s`;
-        
-        // Add to container
-        notesContainer.appendChild(note);
-        
-        // Remove after animation completes
-        setTimeout(() => {
-          if (note.parentNode) {
-            note.remove();
-          }
-        }, (duration + delay) * 1000);
-      }
-    }
-    
-    // Handle card clicks
     document.addEventListener('DOMContentLoaded', function() {
-      const clickableElements = document.querySelectorAll('.clickable');
-      
-      clickableElements.forEach(el => {
-        el.addEventListener('click', function(e) {
-          // Create music notes
-          createMusicNote(e);
-          
-          // Handle specific actions
-          const url = this.getAttribute('data-url');
-          
-          if (this.classList.contains('cash')) {
-            setTimeout(() => {
-              alert('Cash accepted at all class locations! Exact change appreciated.');
-            }, 100);
-          } 
-          else if (url) {
-            setTimeout(() => {
-              window.open(url, '_blank');
-            }, 100);
-          }
-        });
-      });
-      
-      // Add click handler for the Estilo card
-      const estiloCard = document.querySelector('.estilo');
-      estiloCard.addEventListener('click', function(e) {
-        createMusicNote(e);
-      });
-      
-      // Form handling
+      // Form submission handling
       const registrationForm = document.getElementById('dance-registration');
-      const thankYouMessage = document.getElementById('thank-you-message');
-      const submitBtn = registrationForm.querySelector('button[type="submit"]');
+      const ctaButton = document.querySelector('.cta-button');
       
       registrationForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
+        const experience = document.getElementById('experience').value;
         const location = document.getElementById('location').value;
-        const level = document.getElementById('level').value;
         
-        // Validate form
-        if (!name.trim()) {
-          alert('Please enter your name.');
-          return;
-        }
-        
-        if (!email.trim()) {
-          alert('Please enter your email address.');
-          return;
-        }
-        
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          alert('Please enter a valid email address.');
-          return;
-        }
-        
-        if (!location) {
-          alert('Please select a class location.');
-          return;
-        }
-        
-        if (!level) {
-          alert('Please select your experience level.');
+        // Basic validation
+        if (!name.trim() || !email.trim() || !experience || !location) {
+          alert('Please fill in all fields');
           return;
         }
         
         // Show loading state
+        const submitBtn = registrationForm.querySelector('button[type="submit"]');
         submitBtn.textContent = 'Processing...';
         submitBtn.disabled = true;
         
         // Simulate form submission
         setTimeout(function() {
-          // Hide form, show thank you message
-          registrationForm.style.display = 'none';
-          thankYouMessage.style.display = 'block';
+          // Reset form
           registrationForm.reset();
           
-          // Reset button
-          submitBtn.textContent = 'Secure My Spot';
-          submitBtn.disabled = false;
+          // Show success message
+          submitBtn.textContent = 'Registration Complete!';
+          submitBtn.style.background = 'linear-gradient(135deg, #25a25a, #1d8c4f)';
           
-          // Scroll to thank you message
-          thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          
-          // Create celebration notes
-          for (let i = 0; i < 7; i++) {
-            setTimeout(() => {
-              const randomX = Math.random() * window.innerWidth;
-              const randomY = Math.random() * window.innerHeight;
-              const fakeEvent = { clientX: randomX, clientY: randomY };
-              createMusicNote(fakeEvent);
-            }, i * 200);
-          }
-        }, 1000);
+          // Reset button after delay
+          setTimeout(() => {
+            submitBtn.textContent = 'Secure My Spot';
+            submitBtn.disabled = false;
+            submitBtn.style.background = 'linear-gradient(135deg, #c96e1d, #d8b220)';
+          }, 2000);
+        }, 1500);
       });
       
-      // Banner button handler
-      const bannerBtn = document.querySelector('.banner-btn');
-      bannerBtn.addEventListener('click', function() {
-        document.querySelector('.registration-form').scrollIntoView({ 
-          behavior: 'smooth', 
+      // CTA button scroll to form
+      ctaButton.addEventListener('click', function() {
+        document.querySelector('.registration-form').scrollIntoView({
+          behavior: 'smooth',
           block: 'center'
         });
-        
-        // Create music notes
-        const fakeEvent = { 
-          clientX: window.innerWidth/2, 
-          clientY: window.innerHeight/2 
-        };
-        createMusicNote(fakeEvent);
+      });
+      
+      // Add subtle animation to feature cards on scroll
+      const featureCards = document.querySelectorAll('.feature-card');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      featureCards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
       });
     });
   </script>
