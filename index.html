@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Palacios | Dance Portfolio</title>
+  <title>Daniel Palacios | Dance Instructor</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
     }
     
     body {
-      background: linear-gradient(135deg, #0a0a1a, #1a1a3a);
-      color: #f0f0ff;
+      background: linear-gradient(135deg, #0d0d1f, #171734);
+      color: #f5f5ff;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -28,82 +28,62 @@
     .container {
       width: 100%;
       max-width: 900px;
-      background: rgba(25, 20, 45, 0.95);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      background: rgba(28, 25, 48, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
       overflow: hidden;
       position: relative;
       z-index: 10;
       margin: 20px;
-      animation: fadeIn 1s ease-out;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
     
     /* Logo Animation */
     .logo-container {
       position: relative;
-      width: 130px;
-      height: 130px;
-      margin: 0 auto 25px;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 30px;
     }
     
     .logo {
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #d35400, #e67e22, #f1c40f);
+      background: linear-gradient(135deg, #d35400, #e67e22);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(230, 126, 34, 0.4);
-      animation: logoDance 10s infinite ease-in-out;
+      box-shadow: 0 8px 25px rgba(230, 126, 34, 0.3);
+      animation: logoPulse 8s infinite ease-in-out;
     }
     
-    @keyframes logoDance {
-      0%, 100% { transform: scale(1) rotate(0deg); }
-      25% { transform: scale(1.1) rotate(15deg); }
-      50% { transform: scale(1.15) rotate(0deg); }
-      75% { transform: scale(1.1) rotate(-15deg); }
+    @keyframes logoPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
     
     .logo i {
-      font-size: 56px;
+      font-size: 48px;
       color: #fff;
       z-index: 2;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
-      animation: notePulse 2s infinite alternate;
-    }
-    
-    @keyframes notePulse {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.1); }
     }
     
     header {
-      padding: 40px 30px 30px;
+      padding: 50px 30px 30px;
       text-align: center;
       position: relative;
-      background: rgba(15, 10, 30, 0.6);
-      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
     }
     
     h1 {
       font-size: 2.5rem;
-      font-weight: 800;
+      font-weight: 700;
       margin-bottom: 10px;
       letter-spacing: 0.5px;
-      background: linear-gradient(to right, #f1c40f, #e67e22);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      color: #ffffff;
     }
     
     .tagline {
@@ -111,37 +91,25 @@
       font-weight: 300;
       color: rgba(240, 240, 255, 0.85);
       margin-top: 15px;
-      font-style: italic;
       max-width: 600px;
       margin: 15px auto 0;
       line-height: 1.5;
     }
     
     .section-title {
-      font-size: 1.7rem;
-      font-weight: 700;
-      margin: 30px 0 25px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 35px 0 25px;
       text-align: center;
       position: relative;
       display: inline-block;
       padding: 0 20px;
       width: 100%;
-    }
-    
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(to right, #f1c40f, #e67e22);
-      border-radius: 4px;
+      color: #f1c40f;
     }
     
     .content {
-      padding: 20px 30px 30px;
+      padding: 0 30px 30px;
     }
     
     .links-grid {
@@ -152,7 +120,7 @@
     }
     
     .link-card {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 16px;
       padding: 22px;
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -160,71 +128,63 @@
       align-items: center;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       min-height: 110px;
       cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      transform: translateY(0);
+      transition: all 0.3s ease;
     }
     
     .link-card:hover {
-      transform: translateY(-8px);
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(241, 196, 15, 0.3);
     }
     
     .link-icon {
-      width: 60px;
-      height: 60px;
+      width: 55px;
+      height: 55px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-right: 18px;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       border-radius: 14px;
       flex-shrink: 0;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
       color: white;
-      transition: all 0.3s ease;
-    }
-    
-    .link-card:hover .link-icon {
-      transform: scale(1.1);
     }
     
     .facebook .link-icon {
-      background: rgba(24, 119, 242, 0.2);
+      background: rgba(24, 119, 242, 0.15);
       color: #1877f2;
     }
     
     .instagram .link-icon {
-      background: rgba(195, 42, 163, 0.2);
+      background: rgba(195, 42, 163, 0.15);
       color: #c32aa3;
     }
     
     .tiktok .link-icon {
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.15);
       color: #69c9d0;
     }
     
     .stardust-icon {
-      background: rgba(241, 196, 15, 0.2) !important;
+      background: rgba(241, 196, 15, 0.15) !important;
       color: #f1c40f !important;
     }
     
     .letsbailar-icon {
-      background: rgba(106, 90, 205, 0.2) !important;
+      background: rgba(106, 90, 205, 0.15) !important;
       color: #6a5acd !important;
     }
     
     .estilo-icon {
-      background: rgba(32, 178, 170, 0.2) !important;
+      background: rgba(32, 178, 170, 0.15) !important;
       color: #20b2aa !important;
     }
     
     .contact-icon {
-      background: rgba(230, 126, 34, 0.2) !important;
+      background: rgba(230, 126, 34, 0.15) !important;
       color: #e67e22 !important;
     }
     
@@ -233,15 +193,14 @@
     }
     
     .link-title {
-      font-size: 1.3rem;
-      font-weight: 700;
+      font-size: 1.25rem;
+      font-weight: 600;
       margin-bottom: 8px;
       color: #f0f0ff;
-      letter-spacing: 0.3px;
     }
     
     .link-subtitle {
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       color: rgba(240, 240, 255, 0.75);
       line-height: 1.5;
     }
@@ -250,8 +209,8 @@
       display: block;
       margin-top: 6px;
       color: #f1c40f;
-      font-weight: 600;
-      font-size: 0.95rem;
+      font-weight: 500;
+      font-size: 0.9rem;
     }
     
     .dance-style {
@@ -269,8 +228,7 @@
       text-align: center;
       color: rgba(240, 240, 255, 0.6);
       font-size: 0.95rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(15, 10, 30, 0.6);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       line-height: 1.7;
     }
     
@@ -278,27 +236,25 @@
     .music-note {
       position: fixed;
       color: #FFD700;
-      font-size: 24px;
+      font-size: 20px;
       z-index: 100;
       pointer-events: none;
       opacity: 0;
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
-      animation: fallNote 2.5s ease-out forwards;
+      text-shadow: 0 0 6px rgba(255, 215, 0, 0.7);
+      animation: fallNote 2s ease-out forwards;
     }
     
     @keyframes fallNote {
       0% {
-        transform: translate(0, 0) scale(1.2) rotate(0deg);
-        opacity: 1;
-        text-shadow: 0 0 15px rgba(255, 215, 0, 1);
+        transform: translate(0, 0) scale(1.1) rotate(0deg);
+        opacity: 0.9;
       }
       70% {
-        opacity: 0.7;
+        opacity: 0.6;
       }
       100% {
-        transform: translate(var(--tx, 0), 150px) scale(0.4) rotate(var(--rot, 0deg));
+        transform: translate(var(--tx, 0), 100px) scale(0.4) rotate(var(--rot, 0deg));
         opacity: 0;
-        text-shadow: 0 0 3px rgba(255, 215, 0, 0.3);
       }
     }
     
@@ -310,12 +266,12 @@
       }
       
       .logo-container {
-        width: 110px;
-        height: 110px;
+        width: 100px;
+        height: 100px;
       }
       
       .logo i {
-        font-size: 42px;
+        font-size: 40px;
       }
       
       h1 {
@@ -331,13 +287,13 @@
       }
       
       .link-icon {
-        width: 55px;
-        height: 55px;
-        font-size: 1.7rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
       }
       
       .section-title {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
       }
     }
     
@@ -348,7 +304,7 @@
       
       .container {
         margin: 10px;
-        border-radius: 18px;
+        border-radius: 20px;
       }
       
       header {
@@ -356,12 +312,12 @@
       }
       
       .content {
-        padding: 15px 20px 25px;
+        padding: 0 20px 25px;
       }
       
       .logo-container {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
       }
       
       h1 {
@@ -373,7 +329,7 @@
       }
       
       .section-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         margin: 25px 0 20px;
       }
       
@@ -382,65 +338,44 @@
       }
       
       .link-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1.4rem;
         margin-right: 15px;
       }
       
       .link-title {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
       }
       
       .link-subtitle {
-        font-size: 0.92rem;
+        font-size: 0.9rem;
       }
     }
     
-    /* Watermark */
-    .watermark {
+    /* Modern background effect */
+    .bg-grid {
       position: fixed;
-      bottom: 15px;
-      right: 15px;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.3);
-      z-index: 100;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 5px 10px;
-      border-radius: 10px;
-    }
-    
-    /* Hint message */
-    .hint {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(241, 196, 15, 0.2);
-      color: #f1c40f;
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-size: 0.95rem;
-      backdrop-filter: blur(10px);
-      z-index: 100;
-      animation: pulseHint 3s infinite;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(241, 196, 15, 0.3);
-    }
-    
-    @keyframes pulseHint {
-      0%, 100% { opacity: 0.9; }
-      50% { opacity: 0.7; }
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(rgba(13, 13, 31, 0.9), rgba(23, 23, 52, 0.9)),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 1px,
+          rgba(255, 255, 255, 0.02) 1px,
+          rgba(255, 255, 255, 0.02) 2px
+        );
+      z-index: -1;
     }
   </style>
 </head>
 <body>
-  <!-- Hint message -->
-  <div class="hint">
-    <i class="fas fa-music"></i> Click on any card to see golden music notes
-  </div>
+  <!-- Modern grid background -->
+  <div class="bg-grid"></div>
   
   <!-- Container for music notes -->
   <div id="music-notes-container"></div>
@@ -538,7 +473,7 @@
       <h2 class="section-title">Payment Options</h2>
       <div class="links-grid">
         <div class="link-card clickable">
-          <div class="link-icon" style="background: rgba(61, 149, 206, 0.2); color: #3d95ce;">
+          <div class="link-icon" style="background: rgba(61, 149, 206, 0.15); color: #3d95ce;">
             <i class="fab fa-vimeo-v"></i>
           </div>
           <div class="link-text">
@@ -548,7 +483,7 @@
         </div>
         
         <div class="link-card clickable">
-          <div class="link-icon" style="background: rgba(46, 204, 113, 0.2); color: #2ecc71;">
+          <div class="link-icon" style="background: rgba(46, 204, 113, 0.15); color: #2ecc71;">
             <i class="fas fa-money-bill-wave"></i>
           </div>
           <div class="link-text">
@@ -577,14 +512,12 @@
       <p>Transform your passion into movement</p>
     </footer>
   </div>
-  
-  <div class="watermark">Click any card to see the effect</div>
 
   <script>
     // Create golden falling music notes at click position
     function createMusicNote(event) {
       const notesContainer = document.getElementById('music-notes-container');
-      const noteCount = 8 + Math.floor(Math.random() * 5); // 8-12 notes
+      const noteCount = 3 + Math.floor(Math.random() * 3); // 3-5 notes
       
       for (let i = 0; i < noteCount; i++) {
         const note = document.createElement('div');
@@ -592,18 +525,18 @@
         note.innerHTML = '<i class="fas fa-music"></i>';
         
         // Position at click location with some randomness
-        const posX = event.clientX + (Math.random() - 0.5) * 60;
-        const posY = event.clientY + (Math.random() - 0.5) * 40;
+        const posX = event.clientX + (Math.random() - 0.5) * 40;
+        const posY = event.clientY + (Math.random() - 0.5) * 30;
         
         note.style.left = `${posX}px`;
         note.style.top = `${posY}px`;
         
         // Random properties for variation
-        const size = 16 + Math.random() * 24; // 16-40px
+        const size = 18 + Math.random() * 16; // 18-34px
         const rotation = Math.random() * 360;
-        const translateX = (Math.random() - 0.5) * 100;
-        const delay = Math.random() * 0.7;
-        const duration = 1.5 + Math.random() * 1.5; // 1.5-3s
+        const translateX = (Math.random() - 0.5) * 60;
+        const delay = Math.random() * 0.5;
+        const duration = 1.2 + Math.random() * 0.8; // 1.2-2s
         
         note.style.setProperty('--rot', `${rotation}deg`);
         note.style.setProperty('--tx', `${translateX}px`);
