@@ -24,7 +24,7 @@
       color: #f5f5ff;
     }
     
-    /* Animated background */
+    /* Enhanced animated background */
     .background {
       position: fixed;
       top: 0;
@@ -32,7 +32,7 @@
       width: 100%;
       height: 100%;
       z-index: -2;
-      background: linear-gradient(135deg, #0a0a2a, #1a1a4a, #2a1a5a, #1a1a4a, #0a0a2a);
+      background: linear-gradient(135deg, #0a0a2a, #1a1a4a, #2a1a5a);
       background-size: 300% 300%;
       animation: gradientBG 20s ease infinite;
     }
@@ -46,7 +46,7 @@
     .container {
       width: 100%;
       max-width: 900px;
-      background: rgba(28, 25, 48, 0.85);
+      background: rgba(28, 25, 48, 0.88);
       backdrop-filter: blur(12px);
       border-radius: 24px;
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -63,7 +63,7 @@
       position: relative;
       width: 120px;
       height: 120px;
-      margin: 0 auto 30px;
+      margin: 0 auto 25px;
     }
     
     .logo {
@@ -281,53 +281,6 @@
       }
     }
     
-    /* Call to action section */
-    .cta-section {
-      background: rgba(241, 196, 15, 0.1);
-      border-radius: 16px;
-      padding: 25px;
-      margin: 30px 0;
-      text-align: center;
-      border: 1px solid rgba(241, 196, 15, 0.2);
-      backdrop-filter: blur(5px);
-    }
-    
-    .cta-title {
-      font-size: 1.8rem;
-      color: #f1c40f;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-    
-    .cta-text {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: rgba(240, 240, 255, 0.9);
-      max-width: 600px;
-      margin: 0 auto 20px;
-      line-height: 1.6;
-    }
-    
-    .cta-button {
-      display: inline-block;
-      background: linear-gradient(to right, #e67e22, #f1c40f);
-      color: #1a1a3a;
-      text-decoration: none;
-      padding: 14px 35px;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
-      border: none;
-      cursor: pointer;
-    }
-    
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
-    }
-    
     /* Responsive design */
     @media (max-width: 768px) {
       .links-grid {
@@ -364,14 +317,6 @@
       
       .section-title {
         font-size: 1.5rem;
-      }
-      
-      .cta-title {
-        font-size: 1.6rem;
-      }
-      
-      .cta-text {
-        font-size: 1rem;
       }
     }
     
@@ -429,19 +374,11 @@
       .link-subtitle {
         font-size: 0.9rem;
       }
-      
-      .cta-section {
-        padding: 20px 15px;
-      }
-      
-      .cta-title {
-        font-size: 1.4rem;
-      }
     }
   </style>
 </head>
 <body>
-  <!-- Animated background -->
+  <!-- Enhanced animated background -->
   <div class="background"></div>
   
   <!-- Container for music notes -->
@@ -459,12 +396,6 @@
     </header>
     
     <div class="content">
-      <div class="cta-section">
-        <h2 class="cta-title">Begin Your Dance Journey Today</h2>
-        <p class="cta-text">Join hundreds of students who have discovered the joy of dance through our welcoming community and expert instruction</p>
-        <a href="#classes" class="cta-button">Sign Up for Classes</a>
-      </div>
-      
       <h2 class="section-title">Connect With Me</h2>
       <div class="links-grid">
         <div class="link-card clickable facebook" data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
@@ -498,7 +429,7 @@
         </div>
       </div>
       
-      <h2 class="section-title" id="classes">Class Schedule</h2>
+      <h2 class="section-title">Class Schedule</h2>
       <div class="links-grid">
         <div class="link-card clickable stardust" data-url="https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr">
           <div class="link-icon stardust-icon">
@@ -651,14 +582,6 @@
               window.open(url, '_blank');
             }, 100);
           }
-        });
-      });
-      
-      // Add smooth scrolling for CTA button
-      document.querySelector('.cta-button').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('classes').scrollIntoView({
-          behavior: 'smooth'
         });
       });
     });
