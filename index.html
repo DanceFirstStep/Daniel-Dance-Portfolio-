@@ -81,6 +81,28 @@
       100% { transform: translate(0, 0); }
     }
 
+    /* ========== FLOATING MUSIC NOTES ========== */
+    .music-note {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 24px;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0;
+      animation: floatNote 5s linear forwards;
+    }
+    
+    @keyframes floatNote {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
     /* ========== MAIN CONTENT ========== */
     .container {
       max-width: 100%;
@@ -101,6 +123,12 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gentleSway {
+      0%, 100% { transform: translateX(0) rotate(0); }
+      25% { transform: translateX(-3px) rotate(-1deg); }
+      75% { transform: translateX(3px) rotate(1deg); }
     }
 
     header {
@@ -146,6 +174,7 @@
       font-size: 42px;
       color: #fff;
       z-index: 2;
+      animation: gentleSway 15s infinite ease-in-out;
     }
 
     h1 {
@@ -264,11 +293,6 @@
     .letsbailar-icon {
       background: rgba(106, 90, 205, 0.15) !important;
       color: var(--accent-purple) !important;
-    }
-
-    .estilo-icon {
-      background: rgba(32, 178, 170, 0.15) !important;
-      color: #20b2aa !important;
     }
 
     .contact-icon {
@@ -694,6 +718,9 @@
   <!-- Background -->
   <div class="bg-particles"></div>
   
+  <!-- Floating music notes -->
+  <div id="music-notes-container"></div>
+  
   <!-- Main Content Container -->
   <div class="container">
     <header>
@@ -771,20 +798,6 @@
           </div>
         </div>
       </div>
-      
-      <div class="link-card" onclick="openLink('https://www.facebook.com/estilodancestudio/')">
-        <div class="link-icon estilo-icon">
-          <i class="fas fa-building"></i>
-        </div>
-        <div class="link-text">
-          <div class="link-title">Estilo Dance Studio</div>
-          <div class="link-subtitle">
-            Fishtown, Philadelphia
-            <span class="schedule-detail">Saturdays at 4pm</span>
-            <span class="dance-style">Salsa and Bachata</span>
-          </div>
-        </div>
-      </div>
     </div>
     
     <div class="section-title">Join My Classes</div>
@@ -804,7 +817,6 @@
             <option value="">Select class location</option>
             <option value="stardust">Stardust Ballroom - Mon/Thu 6:30pm</option>
             <option value="letsbailar">Let's Bailar - Fridays 7pm</option>
-            <option value="estilo">Estilo Dance - Saturdays 4pm</option>
           </select>
         </div>
         
@@ -860,16 +872,54 @@
   </div>
 
   <script>
+    // Create floating music notes
+    function createMusicNote() {
+      const notesContainer = document.getElementById('music-notes-container');
+      const note = document.createElement('div');
+      note.className = 'music-note';
+      note.innerHTML = '<i class="fas fa-music"></i>';
+      
+      // Random position
+      const leftPos = Math.random() * 100;
+      note.style.left = `${leftPos}%`;
+      
+      // Random size and animation duration
+      const size = 16 + Math.random() * 20;
+      const duration = 3 + Math.random() * 7;
+      note.style.fontSize = `${size}px`;
+      note.style.animationDuration = `${duration}s`;
+      
+      // Add to container
+      notesContainer.appendChild(note);
+      
+      // Remove after animation completes
+      setTimeout(() => {
+        note.remove();
+      }, duration * 1000);
+    }
+    
+    // Generate music notes periodically
+    function generateMusicNotes() {
+      createMusicNote();
+      const nextNoteTime = 500 + Math.random() * 1500;
+      setTimeout(generateMusicNotes, nextNoteTime);
+    }
+    
     // Mobile-optimized functions
     function openLink(url) {
+      createMusicNote(); // Create a note on click
       window.open(url, '_blank');
     }
 
     function showCashAlert() {
+      createMusicNote(); // Create a note on click
       alert('Cash accepted at all class locations! Exact change appreciated.');
     }
 
     document.addEventListener('DOMContentLoaded', function() {
+      // Start generating music notes
+      generateMusicNotes();
+      
       // Form handling
       const registrationForm = document.getElementById('dance-registration');
       const thankYouMessage = document.getElementById('thank-you-message');
@@ -921,6 +971,11 @@
           
           // Scroll to thank you message
           thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // Create celebration notes
+          for (let i = 0; i < 5; i++) {
+            setTimeout(createMusicNote, i * 200);
+          }
         }, 1000);
       });
       
