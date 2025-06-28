@@ -394,7 +394,7 @@
     <div class="content">
       <h2 class="section-title">Connect With Me</h2>
       <div class="links-grid">
-        <div class="link-card clickable facebook">
+        <div class="link-card clickable facebook" data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
           <div class="link-icon">
             <i class="fab fa-facebook-f"></i>
           </div>
@@ -404,7 +404,7 @@
           </div>
         </div>
         
-        <div class="link-card clickable instagram">
+        <div class="link-card clickable instagram" data-url="https://www.instagram.com/danielp_bachata">
           <div class="link-icon">
             <i class="fab fa-instagram"></i>
           </div>
@@ -414,7 +414,7 @@
           </div>
         </div>
         
-        <div class="link-card clickable tiktok">
+        <div class="link-card clickable tiktok" data-url="https://www.tiktok.com/@danielp_bachata">
           <div class="link-icon">
             <i class="fab fa-tiktok"></i>
           </div>
@@ -427,7 +427,7 @@
       
       <h2 class="section-title">Class Schedule</h2>
       <div class="links-grid">
-        <div class="link-card clickable">
+        <div class="link-card clickable stardust" data-url="https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr">
           <div class="link-icon stardust-icon">
             <i class="fas fa-star"></i>
           </div>
@@ -441,7 +441,7 @@
           </div>
         </div>
         
-        <div class="link-card clickable">
+        <div class="link-card clickable letsbailar" data-url="https://www.facebook.com/share/1QfGefKoK5/?mibextid=wwXIfr">
           <div class="link-icon letsbailar-icon">
             <i class="fas fa-city"></i>
           </div>
@@ -472,7 +472,7 @@
       
       <h2 class="section-title">Payment Options</h2>
       <div class="links-grid">
-        <div class="link-card clickable">
+        <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
           <div class="link-icon" style="background: rgba(61, 149, 206, 0.15); color: #3d95ce;">
             <i class="fab fa-vimeo-v"></i>
           </div>
@@ -482,7 +482,7 @@
           </div>
         </div>
         
-        <div class="link-card clickable">
+        <div class="link-card clickable cash">
           <div class="link-icon" style="background: rgba(46, 204, 113, 0.15); color: #2ecc71;">
             <i class="fas fa-money-bill-wave"></i>
           </div>
@@ -495,7 +495,7 @@
       
       <h2 class="section-title">Contact Me</h2>
       <div class="links-grid">
-        <div class="link-card clickable">
+        <div class="link-card clickable contact" data-url="mailto:contact@danielpbachata.com">
           <div class="link-icon contact-icon">
             <i class="fas fa-envelope"></i>
           </div>
@@ -517,7 +517,7 @@
     // Create golden falling music notes at click position
     function createMusicNote(event) {
       const notesContainer = document.getElementById('music-notes-container');
-      const noteCount = 3 + Math.floor(Math.random() * 3); // 3-5 notes
+      const noteCount = 2 + Math.floor(Math.random() * 2); // 2-3 notes
       
       for (let i = 0; i < noteCount; i++) {
         const note = document.createElement('div');
@@ -556,13 +556,28 @@
       }
     }
     
-    // Add click handlers to all interactive elements
+    // Handle card clicks
     document.addEventListener('DOMContentLoaded', function() {
       const clickableElements = document.querySelectorAll('.clickable');
       
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
+          // Create music notes
           createMusicNote(e);
+          
+          // Handle specific actions
+          const url = this.getAttribute('data-url');
+          
+          if (this.classList.contains('cash')) {
+            setTimeout(() => {
+              alert('Cash accepted at all class locations! Exact change appreciated.');
+            }, 100);
+          } 
+          else if (url) {
+            setTimeout(() => {
+              window.open(url, '_blank');
+            }, 100);
+          }
         });
       });
     });
