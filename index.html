@@ -55,7 +55,7 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       line-height: 1.6;
-      padding: 20px;
+      padding: 20px 15px;
       background: linear-gradient(135deg, #0a0a1a, #1a1a3a);
     }
 
@@ -83,10 +83,9 @@
 
     /* ========== MAIN CONTENT ========== */
     .container {
-      max-width: 500px;
+      max-width: 100%;
       width: 100%;
       padding: 30px 25px;
-      margin: 15px 0;
       z-index: 10;
       background: var(--card-bg);
       backdrop-filter: blur(8px);
@@ -557,14 +556,36 @@
     }
 
     /* ========== MEDIA QUERIES ========== */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 90%;
+        padding: 35px 30px;
+      }
+      
+      .links-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      
+      .payment-options {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .container {
+        max-width: 900px;
+      }
+    }
+
     @media (max-width: 480px) {
       body {
-        padding: 15px;
+        padding: 15px 10px;
       }
       
       .container {
         padding: 25px 20px;
-        margin: 10px 0;
         border-radius: 18px;
       }
       
@@ -661,8 +682,8 @@
     /* iPhone notch/punch hole safe areas */
     @supports (padding: max(0px)) {
       body {
-        padding-left: max(15px, env(safe-area-inset-left));
-        padding-right: max(15px, env(safe-area-inset-right));
+        padding-left: max(10px, env(safe-area-inset-left));
+        padding-right: max(10px, env(safe-area-inset-right));
         padding-top: max(15px, env(safe-area-inset-top));
         padding-bottom: max(15px, env(safe-area-inset-bottom));
       }
