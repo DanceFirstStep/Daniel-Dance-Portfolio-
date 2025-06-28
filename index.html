@@ -1,39 +1,1052 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Salsa & Bachata Classes</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
-            color: white;
-            text-align: center;
-            padding: 50px;
-        }
-        .container {
-            background: rgba(0,0,0,0.7);
-            border-radius: 15px;
-            padding: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px #000;
-        }
-        .dance-icon {
-            font-size: 4rem;
-            margin: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Palacios | Professional Salsa & Bachata Instructor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'Segoe UI', 'Helvetica Neue', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ==================== SCIENTIFIC BACKGROUND SYSTEM ==================== */
+    body {
+      background: #0a0a1a; /* Deep blue for trust (Stage 1) */
+      color: #f0f0ff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+      animation: colorJourney 180s infinite linear;
+    }
+
+    @keyframes colorJourney {
+      /* Stage 1: Trust Building (15s) */
+      0%, 8.33% {
+        background: #0a0a1a; /* Deep blue - trust and stability */
+      }
+      /* Stage 2: Creativity Spark (15s) */
+      8.34%, 16.66% {
+        background: #1a1a3a; /* Deep purple - creativity and spirituality */
+      }
+      /* Stage 3: Emotional Connection (30s) */
+      16.67%, 33.33% {
+        background: #2d1952; /* Royal purple - luxury and ambition */
+      }
+      /* Stage 4: Energy Building (30s) */
+      33.34%, 50% {
+        background: #1e3a5f; /* Teal blue - clarity and focus */
+      }
+      /* Stage 5: Action Encouragement (30s) */
+      50.01%, 66.66% {
+        background: #2c5282; /* Vibrant blue - energy and communication */
+      }
+      /* Stage 6: Commitment Phase (30s) */
+      66.67%, 83.33% {
+        background: #3a3a8a; /* Indigo - intuition and perception */
+      }
+      /* Stage 7: Decision Reinforcement (30s) */
+      83.34%, 100% {
+        background: #4a4ab3; /* Bright purple - transformation and action */
+      }
+    }
+
+    .bg-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.05) 0%, transparent 15%),
+        radial-gradient(circle at 80% 70%, rgba(255, 125, 0, 0.05) 0%, transparent 15%),
+        radial-gradient(circle at 40% 60%, rgba(106, 90, 205, 0.05) 0%, transparent 15%);
+      animation: particleMove 40s linear infinite;
+      opacity: 0.4;
+    }
+
+    @keyframes particleMove {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(-2%, 2%); }
+      50% { transform: translate(2%, -2%); }
+      75% { transform: translate(-2%, -2%); }
+      100% { transform: translate(0, 0); }
+    }
+
+    /* Floating motion notes */
+    .motion-notes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .music-note {
+      position: absolute;
+      font-size: 1.8rem;
+      color: rgba(255, 215, 0, 0.4);
+      opacity: 0;
+      z-index: 1;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    }
+    
+    @keyframes floatNote {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    /* Sparkle effects */
+    @keyframes sparkle {
+      0% { 
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+      }
+      50% { 
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+      }
+      100% { 
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.2) rotate(360deg);
+        filter: blur(2px);
+      }
+    }
+    
+    .sparkle {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      pointer-events: none;
+      animation: sparkle 1s ease-out forwards;
+      z-index: 100;
+      color: #ffd700;
+      font-size: 1.5rem;
+      text-align: center;
+      line-height: 30px;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    }
+
+    /* ==================== MAIN CONTENT ==================== */
+    .container {
+      max-width: 500px;
+      width: 90%;
+      padding: 35px 25px;
+      margin: 20px 0;
+      z-index: 10;
+      background: rgba(25, 20, 45, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff7d00, transparent);
+      border-radius: 1px;
+    }
+
+    .logo-container {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 25px;
+    }
+
+    .logo {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff7d00, #ffd700, #6a5acd);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(255, 125, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
+    }
+
+    .logo i {
+      font-size: 60px;
+      color: #fff;
+      z-index: 2;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Pulsing ring animation */
+    .logo-ring {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border: 2px solid rgba(255, 215, 0, 0.4);
+      border-radius: 50%;
+      animation: pulseRing 3s infinite ease-in-out;
+    }
+
+    @keyframes pulseRing {
+      0% {
+        transform: scale(0.9);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.3;
+      }
+      100% {
+        transform: scale(0.9);
+        opacity: 0.7;
+      }
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(to right, #ffd700, #ff7d00);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tagline-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .tagline {
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #e0e0ff;
+      position: relative;
+      padding-bottom: 10px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .sub-tagline {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: rgba(224, 224, 255, 0.9);
+      font-style: italic;
+      padding-top: 10px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      margin: 35px 0 25px;
+      font-weight: 600;
+      color: #ffd700;
+      position: relative;
+      display: inline-block;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      padding: 0 15px;
+    }
+
+    .section-title:hover {
+      transform: translateY(-3px);
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #ff7d00, #ffd700);
+      border-radius: 2px;
+      transform: scaleX(0.8);
+      transform-origin: center;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .link-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s ease;
+      min-height: 90px;
+    }
+
+    .link-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .link-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff7d00, #ffd700);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    .link-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .link-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 1.6rem;
+      border-radius: 12px;
+      flex-shrink: 0;
+      transition: transform 0.4s ease;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .link-card:hover .link-icon {
+      transform: scale(1.1);
+    }
+
+    .facebook .link-icon {
+      background: linear-gradient(135deg, #1877f2, #0d5cb6);
+    }
+
+    .instagram .link-icon {
+      background: linear-gradient(45deg, #405de6, #833ab4, #c13584, #e1306c, #fd1d1d);
+    }
+
+    .tiktok .link-icon {
+      background: linear-gradient(135deg, #000000, #2d2d2d, #69c9d0);
+    }
+
+    .stardust-icon {
+      background: linear-gradient(135deg, #ffd700, #ffa500) !important;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    }
+
+    .letsbailar-icon {
+      background: linear-gradient(135deg, #6a5acd, #9370db) !important;
+      box-shadow: 0 0 10px rgba(106, 90, 205, 0.4);
+    }
+
+    .estilo-icon {
+      background: linear-gradient(135deg, #20b2aa, #40e0d0) !important;
+      box-shadow: 0 0 10px rgba(32, 178, 170, 0.4);
+    }
+
+    .contact-icon {
+      background: linear-gradient(135deg, #ff7d00, #ffaa33) !important;
+      box-shadow: 0 0 10px rgba(255, 125, 0, 0.4);
+    }
+
+    .link-text {
+      flex: 1;
+    }
+
+    .link-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #ffffff;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .link-subtitle {
+      font-size: 1rem;
+      color: rgba(224, 224, 255, 0.9);
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .schedule-detail {
+      display: block;
+      margin-top: 6px;
+      color: #ffd700;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .dance-style {
+      display: block;
+      margin-top: 6px;
+      color: #ff7d00;
+      font-weight: 500;
+      font-size: 1rem;
+      font-style: italic;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .registration-form {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 30px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ffd700;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+      position: relative;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 1rem;
+      transition: all 0.4s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #ffd700;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .form-input::placeholder {
+      color: rgba(224, 224, 255, 0.7);
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 1rem;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffd700'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 16px;
+      transition: all 0.4s ease;
+    }
+
+    .form-select:focus {
+      outline: none;
+      border-color: #ffd700;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #ff7d00, #ffd700);
+      color: #0a0a1a;
+      border: none;
+      border-radius: 12px;
+      padding: 16px 25px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 15px;
+      box-shadow: 0 5px 15px rgba(255, 125, 0, 0.4);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      display: block;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+      background: linear-gradient(135deg, #ff8e1f, #ffe033);
+    }
+
+    .payment-options {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .payment-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 25px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s ease;
+    }
+
+    .payment-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .payment-icon {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      font-size: 2.2rem;
+      border-radius: 50%;
+      transition: transform 0.4s ease;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .payment-card:hover .payment-icon {
+      transform: scale(1.1);
+    }
+
+    .venmo .payment-icon {
+      background: linear-gradient(135deg, #3d95ce, #ff7d00);
+    }
+
+    .cash .payment-icon {
+      background: linear-gradient(135deg, #4CAF50, #ff7d00);
+    }
+
+    .payment-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #ffffff;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .payment-desc {
+      font-size: 1rem;
+      color: rgba(224, 224, 255, 0.9);
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .thank-you-message {
+      display: none;
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      margin-top: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    .thank-you-message h3 {
+      font-size: 1.9rem;
+      color: #ffd700;
+      margin-bottom: 20px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .thank-you-message p {
+      font-size: 1.15rem;
+      margin-bottom: 25px;
+      color: rgba(224, 224, 255, 0.9);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #25D366, #ffd700);
+      color: #0a0a1a;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-top: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+    }
+
+    .whatsapp-btn i {
+      margin-right: 10px;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 20px;
+      color: rgba(200, 200, 230, 0.85);
+      font-size: 0.95rem;
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      line-height: 1.6;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    /* ==================== MOBILE RESPONSIVE ==================== */
+    @media (max-width: 480px) {
+      .container {
+        padding: 25px 20px;
+        margin: 15px 0;
+        border-radius: 18px;
+      }
+      
+      .logo-container {
+        width: 110px;
+        height: 110px;
+      }
+      
+      .logo i {
+        font-size: 50px;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .sub-tagline {
+        font-size: 1rem;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+        margin: 30px 0 20px;
+      }
+      
+      .links-grid {
+        gap: 15px;
+      }
+      
+      .link-card {
+        padding: 18px;
+      }
+      
+      .link-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.4rem;
+      }
+      
+      .registration-form {
+        padding: 20px;
+      }
+      
+      .form-input, .form-select {
+        padding: 14px;
+      }
+      
+      .submit-btn {
+        padding: 15px;
+        font-size: 1.1rem;
+      }
+      
+      .payment-card {
+        padding: 22px 18px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>💃 Welcome to Salsa & Bachata Classes! 🕺</h1>
-        <div class="dance-icon">💃🕺💃</div>
-        <p>We offer professional dance classes for all levels</p>
-        <p>Website coming soon with schedule and registration!</p>
-        <p>Contact: info@danceclasses.com</p>
+  <!-- Science-backed background -->
+  <div class="bg-particles"></div>
+  
+  <!-- Floating motion notes -->
+  <div class="motion-notes"></div>
+  
+  <!-- Main Content Container -->
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <div class="logo">
+          <i class="fas fa-music"></i>
+          <div class="logo-ring"></div>
+        </div>
+      </div>
+      <h1>Daniel Palacios</h1>
+      <div class="tagline-container">
+        <p class="tagline">Transforming Passion into Movement</p>
+        <p class="sub-tagline">Professional Salsa & Bachata Instruction</p>
+      </div>
+    </header>
+    
+    <div class="section-title">Connect With Me</div>
+    <div class="links-grid">
+      <div class="link-card facebook" onclick="openLink('https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr')">
+        <div class="link-icon">
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Daniel Palacios</div>
+          <div class="link-subtitle">Personal Facebook Profile</div>
+        </div>
+      </div>
+      
+      <div class="link-card instagram" onclick="openLink('https://www.instagram.com/danielp_bachata')">
+        <div class="link-icon">
+          <i class="fab fa-instagram"></i>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Instagram</div>
+          <div class="link-subtitle">@danielp_bachata</div>
+        </div>
+      </div>
+      
+      <div class="link-card tiktok" onclick="openLink('https://www.tiktok.com/@danielp_bachata')">
+        <div class="link-icon">
+          <i class="fab fa-tiktok"></i>
+        </div>
+        <div class="link-text">
+          <div class="link-title">TikTok</div>
+          <div class="link-subtitle">@danielp_bachata</div>
+        </div>
+      </div>
     </div>
+    
+    <div class="section-title">Class Schedule</div>
+    <div class="links-grid">
+      <div class="link-card" onclick="openLink('https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr')">
+        <div class="link-icon stardust-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Stardust Ballroom</div>
+          <div class="link-subtitle">
+            Bellmawr, New Jersey
+            <span class="schedule-detail">Mondays & Thursdays at 6:30pm</span>
+            <span class="dance-style">Salsa and Bachata</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="link-card" onclick="openLink('https://www.facebook.com/share/1QfGefKoK5/?mibextid=wwXIfr')">
+        <div class="link-icon letsbailar-icon">
+          <i class="fas fa-city"></i>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Let's Bailar Dance Studio</div>
+          <div class="link-subtitle">
+            Philadelphia
+            <span class="schedule-detail">Fridays at 7pm</span>
+            <span class="dance-style">Salsa and Bachata</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="link-card">
+        <div class="link-icon estilo-icon">
+          <i class="fas fa-building"></i>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Estilo Dance Studio</div>
+          <div class="link-subtitle">
+            Fishtown, Philadelphia
+            <span class="schedule-detail">Saturdays at 4pm</span>
+            <span class="dance-style">Salsa and Bachata</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-title">Join My Classes</div>
+    <div class="registration-form">
+      <div class="form-title">Begin Your Dance Journey</div>
+      <form id="dance-registration">
+        <div class="form-group">
+          <input type="text" id="name" class="form-input" placeholder="Full Name" required>
+        </div>
+        
+        <div class="form-group">
+          <input type="email" id="email" class="form-input" placeholder="Email Address" required>
+        </div>
+        
+        <div class="form-group">
+          <select id="location" class="form-select">
+            <option value="">Select class location</option>
+            <option value="stardust">Stardust Ballroom - Mon/Thu 6:30pm</option>
+            <option value="letsbailar">Let's Bailar - Fridays 7pm</option>
+            <option value="estilo">Estilo Dance - Saturdays 4pm</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="submit-btn">Start Dancing</button>
+      </form>
+      
+      <div id="thank-you-message" class="thank-you-message">
+        <h3>Thank You for Joining!</h3>
+        <p>We're excited to welcome you to our dance community!</p>
+        <p>Join our WhatsApp group for updates and to connect with fellow dancers:</p>
+        <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Join Dance Community
+        </a>
+      </div>
+    </div>
+    
+    <div class="section-title">Payment Options</div>
+    <div class="payment-options">
+      <div class="payment-card venmo" onclick="openLink('https://venmo.com/code?user_id=2575920015605760344&created=1750346816')">
+        <div class="payment-icon">
+          <i class="fab fa-vimeo-v"></i>
+        </div>
+        <div class="payment-name">Venmo</div>
+        <div class="payment-desc">Secure your spot today</div>
+      </div>
+      
+      <div class="payment-card cash" onclick="alert('Cash accepted at all class locations! Exact change appreciated.')">
+        <div class="payment-icon">
+          <i class="fas fa-money-bill-wave"></i>
+        </div>
+        <div class="payment-name">Cash</div>
+        <div class="payment-desc">Pay when you arrive</div>
+      </div>
+    </div>
+    
+    <div class="section-title">Contact Me</div>
+    <div class="links-grid">
+      <div class="link-card contact" onclick="window.location.href='mailto:contact@danielpbachata.com'">
+        <div class="link-icon contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Professional Inquiries</div>
+          <div class="link-subtitle">Bookings & partnerships</div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p>© 2025 Daniel Palacios | Professional Dance Instruction</p>
+      <p>Transform your passion into movement</p>
+    </footer>
+  </div>
+
+  <script>
+    function openLink(url) {
+      window.open(url, '_blank');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Create floating motion notes
+      const motionNotesContainer = document.querySelector('.motion-notes');
+      const noteIcons = ['♪', '♫', '♩', '♬'];
+      
+      for (let i = 0; i < 8; i++) {
+        const note = document.createElement('div');
+        note.className = 'music-note';
+        note.innerHTML = noteIcons[Math.floor(Math.random() * noteIcons.length)];
+        
+        // Random position and animation
+        const left = Math.random() * 100;
+        const delay = Math.random() * 20;
+        const duration = 20 + Math.random() * 30;
+        
+        note.style.left = `${left}%`;
+        note.style.animation = `floatNote ${duration}s linear ${delay}s infinite`;
+        
+        motionNotesContainer.appendChild(note);
+      }
+
+      const registrationForm = document.getElementById('dance-registration');
+      const thankYouMessage = document.getElementById('thank-you-message');
+      const submitBtn = registrationForm.querySelector('button[type="submit"]');
+      
+      registrationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const location = document.getElementById('location').value;
+        
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Processing...';
+        
+        setTimeout(function() {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Start Dancing';
+            return;
+          }
+          
+          registrationForm.style.display = 'none';
+          thankYouMessage.style.display = 'block';
+          registrationForm.reset();
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Start Dancing';
+        }, 800);
+      });
+      
+      const nameField = document.getElementById('name');
+      const emailField = document.getElementById('email');
+      
+      nameField.addEventListener('blur', function() {
+        if (nameField.value.trim() !== '') {
+          setTimeout(function() {
+            emailField.focus();
+          }, 100);
+        }
+      });
+      
+      // Add sparkle effect on click
+      const interactiveElements = document.querySelectorAll(
+        '.link-card, .payment-card, .submit-btn, .whatsapp-btn, .logo'
+      );
+      
+      interactiveElements.forEach(el => {
+        el.addEventListener('click', function(e) {
+          const rect = this.getBoundingClientRect();
+          const x = e.clientX || rect.left + rect.width/2;
+          const y = e.clientY || rect.top + rect.height/2;
+          
+          // Create 3-5 sparkles
+          const sparkleCount = 3 + Math.floor(Math.random() * 3);
+          for (let i = 0; i < sparkleCount; i++) {
+            setTimeout(() => {
+              createMusicSparkle(
+                x + (Math.random() * 60 - 30),
+                y + (Math.random() * 60 - 30)
+              );
+            }, i * 100);
+          }
+        });
+      });
+      
+      // Create musical note sparkle
+      function createMusicSparkle(x, y) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        
+        // Random music note
+        const notes = ['♪', '♫', '♩', '♬'];
+        sparkle.innerHTML = notes[Math.floor(Math.random() * notes.length)];
+        
+        sparkle.style.left = `${x}px`;
+        sparkle.style.top = `${y}px`;
+        
+        document.body.appendChild(sparkle);
+        
+        // Remove after animation completes
+        setTimeout(() => {
+          sparkle.remove();
+        }, 1000);
+      }
+    });
+  </script>
 </body>
 </html>
