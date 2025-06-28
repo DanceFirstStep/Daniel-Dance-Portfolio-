@@ -481,3 +481,630 @@
       touch-action: manipulation;
       font-family: 'Segoe UI', sans-serif;
       letter-spacing: 0.8px;
+      box-shadow: 0 5px 20px rgba(230, 126, 34, 0.4);
+      text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(230, 126, 34, 0.6);
+    }
+    
+    .submit-btn:active {
+      transform: translateY(1px);
+    }
+    
+    /* Thank You Message */
+    .thank-you-message {
+      display: none;
+      text-align: center;
+      padding: 40px 30px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(40, 35, 70, 0.9), rgba(25, 20, 50, 0.9));
+      margin-top: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 0.8s ease-out;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 3;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .thank-you-message h3 {
+      font-size: 2rem;
+      color: #f1c40f;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 20px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .thank-you-message h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(to right, #e67e22, #f1c40f);
+      border-radius: 3px;
+      box-shadow: 0 2px 8px rgba(230, 126, 34, 0.3);
+    }
+    
+    .thank-you-message p {
+      font-size: 1.15rem;
+      margin-bottom: 30px;
+      color: rgba(240, 240, 255, 0.9);
+      line-height: 1.7;
+    }
+    
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.2), rgba(37, 211, 102, 0.3));
+      color: #ffffff;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-top: 25px;
+      transition: all 0.3s ease;
+      touch-action: manipulation;
+      font-family: 'Segoe UI', sans-serif;
+      border: 1px solid rgba(37, 211, 102, 0.4);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .whatsapp-btn:hover {
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.3), rgba(37, 211, 102, 0.4));
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    
+    .whatsapp-btn i {
+      margin-right: 12px;
+      font-size: 1.3rem;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .links-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+      
+      .logo-container {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .logo i {
+        font-size: 46px;
+      }
+      
+      h1 {
+        font-size: 2.4rem;
+      }
+      
+      .tagline {
+        font-size: 1.15rem;
+      }
+      
+      .link-card {
+        padding: 22px;
+      }
+      
+      .link-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.7rem;
+      }
+      
+      .section-title {
+        font-size: 1.7rem;
+      }
+      
+      .registration-form {
+        padding: 25px;
+      }
+      
+      .form-title {
+        font-size: 1.6rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      body {
+        padding: 15px;
+      }
+      
+      .container {
+        margin: 10px;
+        border-radius: 20px;
+      }
+      
+      header {
+        padding: 40px 20px 30px;
+      }
+      
+      .content {
+        padding: 0 20px 25px;
+      }
+      
+      .logo-container {
+        width: 100px;
+        height: 100px;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .tagline {
+        font-size: 1.05rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+        margin: 30px 0 25px;
+      }
+      
+      .link-card {
+        padding: 20px;
+      }
+      
+      .link-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+        margin-right: 18px;
+      }
+      
+      .link-title {
+        font-size: 1.2rem;
+      }
+      
+      .link-subtitle {
+        font-size: 0.95rem;
+      }
+      
+      .registration-form {
+        padding: 20px;
+      }
+      
+      .form-input, .form-select {
+        padding: 15px 18px;
+      }
+      
+      .submit-btn {
+        padding: 17px;
+      }
+    }
+    
+    /* Dance Motion Effect */
+    @keyframes danceMotion {
+      0% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-5px) rotate(2deg); }
+      50% { transform: translateY(0) rotate(0deg); }
+      75% { transform: translateY(-3px) rotate(-2deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+    
+    .dance-motion {
+      animation: danceMotion 4s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+  
+  <!-- Dance Silhouettes -->
+  <div class="dance-silhouette silhouette-1"></div>
+  <div class="dance-silhouette silhouette-2"></div>
+  
+  <!-- Container for music notes -->
+  <div id="music-notes-container"></div>
+  
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <div class="logo dance-motion">
+          <i class="fas fa-music"></i>
+        </div>
+      </div>
+      <h1>Daniel Palacios</h1>
+      <p class="tagline">Professional Salsa & Bachata Instructor</p>
+    </header>
+    
+    <div class="content">
+      <h2 class="section-title">Connect With Me</h2>
+      <div class="links-grid">
+        <div class="link-card clickable facebook" data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
+          <div class="link-icon">
+            <i class="fab fa-facebook-f"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Daniel Palacios</div>
+            <div class="link-subtitle">Personal Facebook Profile</div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable instagram" data-url="https://www.instagram.com/danielp_bachata">
+          <div class="link-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Instagram</div>
+            <div class="link-subtitle">@danielp_bachata</div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable tiktok" data-url="https://www.tiktok.com/@danielp_bachata">
+          <div class="link-icon">
+            <i class="fab fa-tiktok"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">TikTok</div>
+            <div class="link-subtitle">@danielp_bachata</div>
+          </div>
+        </div>
+      </div>
+      
+      <h2 class="section-title">Class Schedule</h2>
+      <div class="links-grid">
+        <div class="link-card clickable stardust" data-url="https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr">
+          <div class="link-icon stardust-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Stardust Ballroom</div>
+            <div class="link-subtitle">
+              Bellmawr, New Jersey
+              <span class="schedule-detail">Mondays & Thursdays at 6:30pm</span>
+              <span class="dance-style">Salsa and Bachata</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable letsbailar" data-url="https://www.facebook.com/share/1QfGefKoK5/?mibextid=wwXIfr">
+          <div class="link-icon letsbailar-icon">
+            <i class="fas fa-city"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Let's Bailar Dance Studio</div>
+            <div class="link-subtitle">
+              Philadelphia
+              <span class="schedule-detail">Fridays at 7pm</span>
+              <span class="dance-style">Salsa and Bachata</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable dance-motion">
+          <div class="link-icon estilo-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Estilo Dance Studio</div>
+            <div class="link-subtitle">
+              Fishtown, Philadelphia
+              <span class="schedule-detail">Saturdays at 4pm</span>
+              <span class="dance-style">Salsa and Bachata</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <h2 class="section-title">Join My Classes</h2>
+      <div class="registration-form">
+        <div class="form-title">Begin Your Dance Journey</div>
+        <form id="dance-registration">
+          <div class="form-group">
+            <input type="text" id="name" class="form-input" placeholder="Full Name" required>
+          </div>
+          
+          <div class="form-group">
+            <input type="email" id="email" class="form-input" placeholder="Email Address" required>
+          </div>
+          
+          <div class="form-group">
+            <select id="location" class="form-select" required>
+              <option value="">Select class location</option>
+              <option value="stardust">Stardust Ballroom - Mon/Thu 6:30pm</option>
+              <option value="letsbailar">Let's Bailar - Fridays 7pm</option>
+              <option value="estilo">Estilo Dance - Saturdays 4pm</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="submit-btn">Start Dancing</button>
+        </form>
+        
+        <div id="thank-you-message" class="thank-you-message">
+          <h3>Thank You for Joining!</h3>
+          <p>We're excited to welcome you to our dance community! You'll receive a confirmation email shortly.</p>
+          <p>Join our WhatsApp group for updates and to connect with fellow dancers:</p>
+          <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Join Dance Community
+          </a>
+        </div>
+      </div>
+      
+      <h2 class="section-title">Payment Options</h2>
+      <div class="links-grid">
+        <div class="link-card clickable venmo dance-motion" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
+          <div class="link-icon" style="background: linear-gradient(135deg, rgba(61, 149, 206, 0.2), rgba(61, 149, 206, 0.3)); color: #ffffff;">
+            <i class="fab fa-vimeo-v"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Venmo</div>
+            <div class="link-subtitle">Secure your spot today</div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable cash dance-motion">
+          <div class="link-icon" style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.2), rgba(46, 204, 113, 0.3)); color: #ffffff;">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Cash</div>
+            <div class="link-subtitle">Pay when you arrive</div>
+          </div>
+        </div>
+      </div>
+      
+      <h2 class="section-title">Contact Me</h2>
+      <div class="links-grid">
+        <div class="link-card clickable contact dance-motion" data-url="mailto:contact@danielpbachata.com">
+          <div class="link-icon contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Professional Inquiries</div>
+            <div class="link-subtitle">Bookings & partnerships</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p>© 2025 Daniel Palacios | Professional Dance Instruction</p>
+      <p>Transform your passion into movement</p>
+    </footer>
+  </div>
+
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
+  <script>
+    // Initialize particles background
+    particlesJS('particles-js', {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: "#f1c40f"
+        },
+        shape: {
+          type: "circle",
+          stroke: {
+            width: 0,
+            color: "#000000"
+          }
+        },
+        opacity: {
+          value: 0.3,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 2,
+            size_min: 0.3,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#e67e22",
+          opacity: 0.2,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: true,
+            mode: "grab"
+          },
+          onclick: {
+            enable: true,
+            mode: "push"
+          },
+          resize: true
+        },
+        modes: {
+          grab: {
+            distance: 140,
+            line_linked: {
+              opacity: 0.4
+            }
+          },
+          push: {
+            particles_nb: 4
+          }
+        }
+      },
+      retina_detect: true
+    });
+    
+    // Create golden falling music notes at click position
+    function createMusicNote(event) {
+      const notesContainer = document.getElementById('music-notes-container');
+      const noteCount = 2 + Math.floor(Math.random() * 2); // 2-3 notes
+      
+      for (let i = 0; i < noteCount; i++) {
+        const note = document.createElement('div');
+        note.className = 'music-note';
+        note.innerHTML = '<i class="fas fa-music"></i>';
+        
+        // Position at click location with some randomness
+        const posX = event.clientX + (Math.random() - 0.5) * 40;
+        const posY = event.clientY + (Math.random() - 0.5) * 30;
+        
+        note.style.left = `${posX}px`;
+        note.style.top = `${posY}px`;
+        
+        // Random properties for variation
+        const size = 20 + Math.random() * 20; // 20-40px
+        const rotation = Math.random() * 360;
+        const translateX = (Math.random() - 0.5) * 60;
+        const delay = Math.random() * 0.5;
+        const duration = 1.2 + Math.random() * 0.8; // 1.2-2s
+        
+        note.style.setProperty('--rot', `${rotation}deg`);
+        note.style.setProperty('--tx', `${translateX}px`);
+        note.style.fontSize = `${size}px`;
+        note.style.animationDelay = `${delay}s`;
+        note.style.animationDuration = `${duration}s`;
+        
+        // Add to container
+        notesContainer.appendChild(note);
+        
+        // Remove after animation completes
+        setTimeout(() => {
+          if (note.parentNode) {
+            note.remove();
+          }
+        }, duration * 1000 + 500);
+      }
+    }
+    
+    // Handle card clicks
+    document.addEventListener('DOMContentLoaded', function() {
+      const clickableElements = document.querySelectorAll('.clickable');
+      
+      clickableElements.forEach(el => {
+        el.addEventListener('click', function(e) {
+          // Create music notes
+          createMusicNote(e);
+          
+          // Handle specific actions
+          const url = this.getAttribute('data-url');
+          
+          if (this.classList.contains('cash')) {
+            setTimeout(() => {
+              alert('Cash accepted at all class locations! Exact change appreciated.');
+            }, 100);
+          } 
+          else if (url) {
+            setTimeout(() => {
+              window.open(url, '_blank');
+            }, 100);
+          }
+        });
+      });
+      
+      // Form handling
+      const registrationForm = document.getElementById('dance-registration');
+      const thankYouMessage = document.getElementById('thank-you-message');
+      const submitBtn = registrationForm.querySelector('button[type="submit"]');
+      
+      registrationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const location = document.getElementById('location').value;
+        
+        // Validate form
+        if (!name.trim()) {
+          alert('Please enter your name.');
+          return;
+        }
+        
+        if (!email.trim()) {
+          alert('Please enter your email address.');
+          return;
+        }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+        
+        if (!location) {
+          alert('Please select a class location.');
+          return;
+        }
+        
+        // Show loading state
+        submitBtn.textContent = 'Processing...';
+        submitBtn.disabled = true;
+        
+        // Simulate form submission
+        setTimeout(function() {
+          // Hide form, show thank you message
+          registrationForm.style.display = 'none';
+          thankYouMessage.style.display = 'block';
+          registrationForm.reset();
+          
+          // Reset button
+          submitBtn.textContent = 'Start Dancing';
+          submitBtn.disabled = false;
+          
+          // Scroll to thank you message
+          thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // Create celebration notes
+          for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+              const randomX = Math.random() * window.innerWidth;
+              const randomY = Math.random() * window.innerHeight;
+              const fakeEvent = { clientX: randomX, clientY: randomY };
+              createMusicNote(fakeEvent);
+            }, i * 200);
+          }
+        }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>
