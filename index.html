@@ -460,7 +460,7 @@
       opacity: 0;
       text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
       animation: fallNote 2s ease-out forwards;
-      font-size: var(--size, 24px); /* Size will be set dynamically */
+      font-size: var(--size, 24px);
       transform-origin: center;
     }
     
@@ -1035,7 +1035,7 @@
   </div>
 
   <script>
-    // Enhanced createMusicNote function with size variation
+    // Create golden falling music notes at click position
     function createMusicNote(event) {
       const notesContainer = document.getElementById('music-notes-container');
       const noteCount = 3 + Math.floor(Math.random() * 3); // 3-5 notes
