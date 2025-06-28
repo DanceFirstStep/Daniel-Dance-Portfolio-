@@ -3,210 +3,249 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Palacios | Professional Dance Instructor</title>
+  <title>Daniel P Bachata | Premium Dance Academy</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      font-family: 'Poppins', 'Segoe UI', 'Helvetica Neue', sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
     
     body {
+      background: linear-gradient(135deg, #0c0526, #170b38);
+      color: #f0f0f0;
       min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      padding: 20px;
+      text-align: center;
+      position: relative;
       overflow-x: hidden;
-      position: relative;
-      color: #f5f5ff;
-      background: linear-gradient(135deg, #1a0630, #0d0b3a, #0c1a3a);
-      background-size: 400% 400%;
-      animation: gradientBG 20s ease infinite;
+      padding: 20px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
     }
     
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    /* Dynamic Particles Background */
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0;
-      left: 0;
-    }
-    
-    .container {
-      width: 100%;
-      max-width: 900px;
-      background: rgba(28, 25, 48, 0.85);
-      backdrop-filter: blur(12px);
-      border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-      overflow: hidden;
-      position: relative;
-      z-index: 10;
-      margin: 20px;
-      transition: all 0.4s ease;
-      overflow: hidden;
-    }
-    
-    /* Dance Silhouette Decoration */
-    .dance-silhouette {
+    /* Background elements */
+    .floating-element {
       position: absolute;
-      width: 300px;
-      height: 300px;
-      opacity: 0.05;
-      z-index: 0;
-    }
-    
-    .silhouette-1 {
-      top: -50px;
-      right: -50px;
-      background: radial-gradient(circle, #f1c40f 0%, transparent 70%);
-    }
-    
-    .silhouette-2 {
-      bottom: -80px;
-      left: -80px;
-      background: radial-gradient(circle, #e67e22 0%, transparent 70%);
-      transform: rotate(30deg);
-    }
-    
-    /* Logo Animation */
-    .logo-container {
-      position: relative;
-      width: 140px;
-      height: 140px;
-      margin: 0 auto 25px;
-      z-index: 2;
-    }
-    
-    .logo {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #d35400, #e67e22);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(230, 126, 34, 0.6);
-      animation: logoPulse 8s infinite ease-in-out;
-      transition: all 0.5s ease;
+      z-index: -1;
+      animation: float 20s infinite ease-in-out;
     }
     
-    .logo:hover {
-      transform: scale(1.1);
-      box-shadow: 0 12px 35px rgba(230, 126, 34, 0.8);
+    .floating-element:nth-child(1) {
+      width: 120px;
+      height: 120px;
+      top: 10%;
+      left: 10%;
+      background: radial-gradient(circle, rgba(65, 105, 225, 0.05) 0%, transparent 70%);
     }
     
-    @keyframes logoPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+    .floating-element:nth-child(2) {
+      width: 80px;
+      height: 80px;
+      top: 70%;
+      right: 10%;
+      background: radial-gradient(circle, rgba(106, 90, 205, 0.05) 0%, transparent 70%);
     }
     
-    .logo i {
-      font-size: 56px;
-      color: #fff;
-      z-index: 2;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    .floating-element:nth-child(3) {
+      width: 60px;
+      height: 60px;
+      top: 40%;
+      left: 20%;
+      background: radial-gradient(circle, rgba(218, 165, 32, 0.05) 0%, transparent 70%);
+    }
+    
+    /* Content Container */
+    .container {
+      max-width: 500px;
+      width: 100%;
+      padding: 30px;
+      margin: 20px 0;
+      z-index: 10;
+      background: rgba(20, 10, 40, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(120, 100, 200, 0.15);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 1s ease-out;
     }
     
     header {
-      padding: 60px 30px 40px;
-      text-align: center;
+      margin-bottom: 30px;
       position: relative;
-      overflow: hidden;
+      padding-bottom: 25px;
     }
     
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      letter-spacing: 0.5px;
-      color: #ffffff;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      position: relative;
-      z-index: 2;
-    }
-    
-    .tagline {
-      font-size: 1.3rem;
-      font-weight: 300;
-      color: rgba(240, 240, 255, 0.9);
-      margin-top: 15px;
-      max-width: 600px;
-      margin: 15px auto 0;
-      line-height: 1.6;
-      position: relative;
-      z-index: 2;
-    }
-    
-    /* Elegant Section Title with Orange-Gold Divider */
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 45px 0 30px;
-      text-align: center;
-      position: relative;
-      display: block;
-      width: 100%;
-      color: #f1c40f;
-      padding-bottom: 15px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    }
-    
-    .section-title::after {
+    header::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(to right, #e67e22, #f1c40f);
-      border-radius: 3px;
-      box-shadow: 0 2px 8px rgba(230, 126, 34, 0.3);
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #4169e1, transparent);
+      border-radius: 1px;
     }
     
-    .content {
-      padding: 0 30px 30px;
+    .logo-container {
       position: relative;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 25px;
+    }
+    
+    .logo {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #4169e1, #6a5acd);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(65, 105, 225, 0.3);
+      position: relative;
+      overflow: hidden;
+      animation: danceLogo 4s infinite ease-in-out;
+    }
+    
+    .logo::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      transform: rotate(45deg);
+    }
+    
+    .logo i {
+      font-size: 60px;
+      color: #fff;
       z-index: 2;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .logo-ring {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border: 1px solid rgba(218, 165, 32, 0.3);
+      border-radius: 50%;
+      animation: pulseRing 3s infinite ease-in-out;
+    }
+    
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #4169e1, #6a5acd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+    
+    .tagline-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    
+    .tagline {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #e0e0ff;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .tagline:first-child::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #4169e1, transparent);
+      border-radius: 2px;
+    }
+    
+    .sub-tagline {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: #c0c0e0;
+      font-style: italic;
+      padding-top: 10px;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      margin: 40px 0 25px;
+      font-weight: 600;
+      color: #daa520;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #daa520, transparent);
+      border-radius: 2px;
     }
     
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin: 30px 0;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin: 25px 0;
     }
     
     .link-card {
-      background: linear-gradient(145deg, rgba(40, 35, 70, 0.7), rgba(25, 20, 50, 0.7));
-      border-radius: 20px;
-      padding: 25px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(30, 20, 50, 0.7);
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid rgba(100, 100, 200, 0.15);
+      cursor: pointer;
       display: flex;
       align-items: center;
+      text-align: left;
       position: relative;
       overflow: hidden;
-      min-height: 110px;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       backdrop-filter: blur(5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      z-index: 2;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      min-height: 90px;
+    }
+    
+    .link-card:hover, .link-card:active {
+      transform: translateY(-3px);
+      background: rgba(40, 30, 60, 0.8);
+      box-shadow: 0 8px 20px rgba(65, 105, 225, 0.2);
+      border-color: rgba(65, 105, 225, 0.3);
     }
     
     .link-card::before {
@@ -214,81 +253,55 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(120deg, 
-                rgba(255,255,255,0.1) 0%, 
-                rgba(255,255,255,0.05) 50%, 
-                rgba(255,255,255,0.1) 100%);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.4s ease;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #4169e1, #6a5acd);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
     }
     
-    .link-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
-      border-color: rgba(241, 196, 15, 0.4);
-    }
-    
-    .link-card:hover::before {
-      opacity: 1;
+    .link-card:hover::before, .link-card:active::before {
+      transform: scaleX(1);
     }
     
     .link-icon {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 20px;
-      font-size: 1.8rem;
-      border-radius: 16px;
+      margin-right: 15px;
+      font-size: 1.6rem;
+      border-radius: 12px;
       flex-shrink: 0;
-      background: rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
       color: white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
     }
     
-    .link-card:hover .link-icon {
+    .link-card:hover .link-icon, .link-card:active .link-icon {
       transform: scale(1.1);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
     
     .facebook .link-icon {
-      background: linear-gradient(135deg, rgba(24, 119, 242, 0.2), rgba(24, 119, 242, 0.3));
-      color: #ffffff;
+      background: linear-gradient(135deg, #1877f2, #0d5cb6);
     }
     
     .instagram .link-icon {
-      background: linear-gradient(135deg, rgba(195, 42, 163, 0.2), rgba(225, 48, 108, 0.3));
-      color: #ffffff;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
     }
     
     .tiktok .link-icon {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
-      color: #69c9d0;
+      background: linear-gradient(135deg, #000000, #2d2d2d, #69c9d0);
     }
     
-    .stardust-icon {
-      background: linear-gradient(135deg, rgba(241, 196, 15, 0.2), rgba(241, 196, 15, 0.3)) !important;
-      color: #f1c40f !important;
+    .classes .link-icon {
+      background: linear-gradient(135deg, #4169e1, #6a5acd);
     }
     
-    .letsbailar-icon {
-      background: linear-gradient(135deg, rgba(106, 90, 205, 0.2), rgba(106, 90, 205, 0.3)) !important;
-      color: #a99cff !important;
-    }
-    
-    .estilo-icon {
-      background: linear-gradient(135deg, rgba(32, 178, 170, 0.2), rgba(32, 178, 170, 0.3)) !important;
-      color: #20b2aa !important;
-    }
-    
-    .contact-icon {
-      background: linear-gradient(135deg, rgba(230, 126, 34, 0.2), rgba(230, 126, 34, 0.3)) !important;
-      color: #e67e22 !important;
+    .contact .link-icon {
+      background: linear-gradient(135deg, #6a5acd, #4b0082);
     }
     
     .link-text {
@@ -296,217 +309,275 @@
     }
     
     .link-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #f0f0ff;
-      letter-spacing: 0.5px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #ffffff;
     }
     
     .link-subtitle {
-      font-size: 1rem;
-      color: rgba(240, 240, 255, 0.85);
-      line-height: 1.6;
+      font-size: 0.95rem;
+      color: #bbbbdd;
+      opacity: 0.9;
+      line-height: 1.5;
     }
     
     .schedule-detail {
       display: block;
-      margin-top: 8px;
-      color: #f1c40f;
-      font-weight: 600;
-      font-size: 0.95rem;
+      margin-top: 6px;
+      color: #daa520;
+      font-weight: 500;
+      font-size: 0.9rem;
     }
     
-    .dance-style {
-      display: block;
-      margin-top: 8px;
-      color: #e67e22;
-      font-weight: 600;
-      font-size: 0.95rem;
-      font-style: italic;
-    }
-    
-    footer {
-      margin-top: 40px;
-      padding: 30px 20px;
-      text-align: center;
-      color: rgba(240, 240, 255, 0.8);
-      font-size: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      line-height: 1.7;
-      background: rgba(15, 10, 30, 0.5);
+    .registration-form {
+      background: rgba(30, 20, 50, 0.8);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 25px 0 30px;
+      border: 1px solid rgba(100, 100, 200, 0.15);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
       backdrop-filter: blur(5px);
       position: relative;
-      z-index: 2;
-    }
-    
-    /* Golden Music notes */
-    .music-note {
-      position: fixed;
-      color: #FFD700;
-      font-size: 24px;
-      z-index: 100;
-      pointer-events: none;
-      opacity: 0;
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
-      animation: fallNote 2s ease-out forwards;
-    }
-    
-    @keyframes fallNote {
-      0% {
-        transform: translate(0, 0) scale(1.1) rotate(0deg);
-        opacity: 0.9;
-      }
-      70% {
-        opacity: 0.6;
-      }
-      100% {
-        transform: translate(var(--tx, 0), 100px) scale(0.4) rotate(var(--rot, 0deg));
-        opacity: 0;
-      }
-    }
-    
-    /* Registration Form Styles */
-    .registration-form {
-      background: linear-gradient(145deg, rgba(40, 35, 70, 0.8), rgba(25, 20, 50, 0.8));
-      border-radius: 20px;
-      padding: 30px;
-      margin: 40px 0;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(10px);
-      position: relative;
-      overflow: hidden;
-      z-index: 2;
     }
     
     .form-title {
-      font-size: 1.7rem;
-      font-weight: 700;
-      margin-bottom: 25px;
-      color: #f1c40f;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #daa520;
       text-align: center;
-      position: relative;
-      padding-bottom: 15px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    }
-    
-    .form-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(to right, #e67e22, #f1c40f);
-      border-radius: 3px;
-      box-shadow: 0 2px 8px rgba(230, 126, 34, 0.3);
     }
     
     .form-group {
-      margin-bottom: 25px;
+      margin-bottom: 18px;
       text-align: left;
-      position: relative;
     }
     
     .form-input {
       width: 100%;
-      padding: 16px 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(100, 100, 200, 0.1);
+      background: rgba(25, 15, 45, 0.5);
       color: #ffffff;
-      font-size: 1.05rem;
+      font-size: 1rem;
       transition: all 0.3s ease;
       -webkit-appearance: none;
-      appearance: none;
-      font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
     }
     
     .form-input:focus {
       outline: none;
-      border-color: #f1c40f;
-      background: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.3), inset 0 2px 5px rgba(0,0,0,0.1);
+      border-color: #daa520;
+      background: rgba(35, 25, 55, 0.6);
     }
     
     .form-input::placeholder {
-      color: rgba(224, 224, 255, 0.65);
-      font-size: 1rem;
+      color: rgba(200, 200, 255, 0.6);
     }
     
     .form-select {
       width: 100%;
-      padding: 16px 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(100, 100, 200, 0.1);
+      background: rgba(25, 15, 45, 0.5);
       color: #ffffff;
-      font-size: 1.05rem;
+      font-size: 1rem;
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f1c40f'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23daa520'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 18px center;
-      background-size: 18px;
+      background-position: right 15px center;
+      background-size: 16px;
       transition: all 0.3s ease;
       -webkit-appearance: none;
-      font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
     }
     
     .form-select:focus {
       outline: none;
-      border-color: #f1c40f;
-      background: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.3), inset 0 2px 5px rgba(0,0,0,0.1);
+      border-color: #daa520;
+      background: rgba(35, 25, 55, 0.6);
     }
     
     .submit-btn {
-      background: linear-gradient(135deg, #e67e22, #f1c40f);
-      color: #1a1a3a;
+      background: linear-gradient(135deg, #4169e1, #6a5acd);
+      color: white;
       border: none;
-      border-radius: 14px;
-      padding: 18px;
-      font-size: 1.15rem;
-      font-weight: 700;
+      border-radius: 12px;
+      padding: 16px 25px;
+      font-size: 1.1rem;
+      font-weight: 600;
       cursor: pointer;
       width: 100%;
-      margin-top: 20px;
+      margin-top: 15px;
+      box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
       display: block;
       touch-action: manipulation;
-      font-family: 'Segoe UI', sans-serif;
-      letter-spacing: 0.8px;
-      box-shadow: 0 5px 20px rgba(230, 126, 34, 0.4);
-      text-shadow: 0 1px 1px rgba(255,255,255,0.3);
     }
     
-    .submit-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(230, 126, 34, 0.6);
+    .submit-btn:hover, .submit-btn:active {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(65, 105, 225, 0.4);
+      background: linear-gradient(135deg, #4a75e8, #7565d7);
     }
     
-    .submit-btn:active {
-      transform: translateY(1px);
+    /* Payment Options Section */
+    .payment-options {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
     }
     
-    /* Thank You Message */
+    .payment-card {
+      background: rgba(30, 20, 50, 0.7);
+      border-radius: 16px;
+      padding: 25px 20px;
+      border: 1px solid rgba(100, 100, 200, 0.15);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+    
+    .payment-card:hover, .payment-card:active {
+      transform: translateY(-3px);
+      background: rgba(40, 30, 60, 0.8);
+      box-shadow: 0 8px 20px rgba(65, 105, 225, 0.2);
+      border-color: rgba(65, 105, 225, 0.3);
+    }
+    
+    .payment-icon {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      font-size: 2rem;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+    }
+    
+    .payment-card:hover .payment-icon, .payment-card:active .payment-icon {
+      transform: scale(1.1);
+    }
+    
+    .venmo .payment-icon {
+      background: linear-gradient(135deg, #3d95ce, #008cff);
+    }
+    
+    .cash .payment-icon {
+      background: linear-gradient(135deg, #00c853, #00e676);
+    }
+    
+    .payment-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+    
+    .payment-desc {
+      font-size: 0.95rem;
+      color: #bbbbdd;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+    
+    /* Thank you message */
     .thank-you-message {
       display: none;
       text-align: center;
-      padding: 40px 30px;
-      border-radius: 20px;
-      background: linear-gradient(145deg, rgba(40, 35, 70, 0.9), rgba(25, 20, 50, 0.9));
+      padding: 30px 20px;
+      border-radius: 16px;
+      background: rgba(30, 20, 50, 0.9);
       margin-top: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      animation: fadeIn 0.8s ease-out;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      z-index: 3;
+      animation: fadeIn 0.5s ease-out;
+      border: 1px solid rgba(100, 100, 200, 0.2);
+    }
+    
+    .thank-you-message h3 {
+      font-size: 1.8rem;
+      color: #daa520;
+      margin-bottom: 20px;
+    }
+    
+    .thank-you-message p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      color: #e0e0ff;
+    }
+    
+    .whatsapp-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-top: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    }
+    
+    .whatsapp-btn i {
+      margin-right: 10px;
+    }
+    
+    footer {
+      margin-top: 30px;
+      padding: 20px;
+      color: rgba(200, 200, 255, 0.6);
+      font-size: 0.9rem;
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      line-height: 1.6;
+    }
+    
+    .psychology-note {
+      font-size: 0.85rem;
+      color: #daa520;
+      margin-top: 10px;
+      font-style: italic;
+    }
+    
+    /* Animations */
+    @keyframes danceLogo {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(2deg) scale(1.02); }
+      50% { transform: rotate(0deg) scale(1); }
+      75% { transform: rotate(-2deg) scale(1.02); }
+    }
+    
+    @keyframes pulseRing {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.7; }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(-3px, -3px) rotate(1deg); }
+      50% { transform: translate(3px, -6px) rotate(-1deg); }
+      75% { transform: translate(6px, -3px) rotate(1deg); }
     }
     
     @keyframes fadeIn {
@@ -514,70 +585,21 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
-    .thank-you-message h3 {
-      font-size: 2rem;
-      color: #f1c40f;
-      margin-bottom: 25px;
-      position: relative;
-      padding-bottom: 20px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      100% { transform: translateY(-80px) scale(0.5); opacity: 0; }
     }
     
-    .thank-you-message h3::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(to right, #e67e22, #f1c40f);
-      border-radius: 3px;
-      box-shadow: 0 2px 8px rgba(230, 126, 34, 0.3);
-    }
-    
-    .thank-you-message p {
-      font-size: 1.15rem;
-      margin-bottom: 30px;
-      color: rgba(240, 240, 255, 0.9);
-      line-height: 1.7;
-    }
-    
-    .whatsapp-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(37, 211, 102, 0.2), rgba(37, 211, 102, 0.3));
-      color: #ffffff;
-      text-decoration: none;
-      padding: 16px 32px;
-      border-radius: 14px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-top: 25px;
-      transition: all 0.3s ease;
-      touch-action: manipulation;
-      font-family: 'Segoe UI', sans-serif;
-      border: 1px solid rgba(37, 211, 102, 0.4);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    
-    .whatsapp-btn:hover {
-      background: linear-gradient(135deg, rgba(37, 211, 102, 0.3), rgba(37, 211, 102, 0.4));
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    }
-    
-    .whatsapp-btn i {
-      margin-right: 12px;
-      font-size: 1.3rem;
-    }
-    
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .links-grid {
-        grid-template-columns: 1fr;
-        gap: 22px;
+    /* Mobile-specific optimizations */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      
+      .container {
+        padding: 25px 20px;
+        margin: 15px 0;
+        border-radius: 18px;
       }
       
       .logo-container {
@@ -586,61 +608,7 @@
       }
       
       .logo i {
-        font-size: 46px;
-      }
-      
-      h1 {
-        font-size: 2.4rem;
-      }
-      
-      .tagline {
-        font-size: 1.15rem;
-      }
-      
-      .link-card {
-        padding: 22px;
-      }
-      
-      .link-icon {
-        width: 55px;
-        height: 55px;
-        font-size: 1.7rem;
-      }
-      
-      .section-title {
-        font-size: 1.7rem;
-      }
-      
-      .registration-form {
-        padding: 25px;
-      }
-      
-      .form-title {
-        font-size: 1.6rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      body {
-        padding: 15px;
-      }
-      
-      .container {
-        margin: 10px;
-        border-radius: 20px;
-      }
-      
-      header {
-        padding: 40px 20px 30px;
-      }
-      
-      .content {
-        padding: 0 20px 25px;
-      }
-      
-      .logo-container {
-        width: 100px;
-        height: 100px;
+        font-size: 50px;
       }
       
       h1 {
@@ -648,31 +616,41 @@
       }
       
       .tagline {
-        font-size: 1.05rem;
+        font-size: 1.1rem;
+        padding-bottom: 8px;
+      }
+      
+      .sub-tagline {
+        font-size: 0.98rem;
       }
       
       .section-title {
-        font-size: 1.5rem;
-        margin: 30px 0 25px;
+        font-size: 1.4rem;
+        margin: 35px 0 20px;
+      }
+      
+      .links-grid {
+        gap: 15px;
       }
       
       .link-card {
-        padding: 20px;
+        padding: 18px;
+        min-height: 85px;
       }
       
       .link-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.6rem;
-        margin-right: 18px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+        margin-right: 12px;
       }
       
       .link-title {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
       }
       
-      .link-subtitle {
-        font-size: 0.95rem;
+      .link-subtitle, .schedule-detail {
+        font-size: 0.88rem;
       }
       
       .registration-form {
@@ -680,368 +658,253 @@
       }
       
       .form-input, .form-select {
-        padding: 15px 18px;
+        padding: 14px;
       }
       
       .submit-btn {
-        padding: 17px;
+        padding: 15px;
       }
-    }
-    
-    /* Dance Motion Effect */
-    @keyframes danceMotion {
-      0% { transform: translateY(0) rotate(0deg); }
-      25% { transform: translateY(-5px) rotate(2deg); }
-      50% { transform: translateY(0) rotate(0deg); }
-      75% { transform: translateY(-3px) rotate(-2deg); }
-      100% { transform: translateY(0) rotate(0deg); }
-    }
-    
-    .dance-motion {
-      animation: danceMotion 4s infinite ease-in-out;
+      
+      .payment-options {
+        gap: 15px;
+      }
+      
+      .payment-card {
+        padding: 22px 18px;
+      }
+      
+      .payment-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+      }
+      
+      .thank-you-message {
+        padding: 20px 15px;
+      }
+      
+      .thank-you-message h3 {
+        font-size: 1.5rem;
+      }
+      
+      footer {
+        font-size: 0.85rem;
+        padding: 15px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Particles Background -->
-  <div id="particles-js"></div>
+  <!-- Background elements -->
+  <div class="floating-element"></div>
+  <div class="floating-element"></div>
+  <div class="floating-element"></div>
   
-  <!-- Dance Silhouettes -->
-  <div class="dance-silhouette silhouette-1"></div>
-  <div class="dance-silhouette silhouette-2"></div>
-  
-  <!-- Container for music notes -->
-  <div id="music-notes-container"></div>
-  
+  <!-- Content Container -->
   <div class="container">
     <header>
       <div class="logo-container">
-        <div class="logo dance-motion">
+        <div class="logo">
           <i class="fas fa-music"></i>
         </div>
+        <div class="logo-ring"></div>
       </div>
-      <h1>Daniel Palacios</h1>
-      <p class="tagline">Professional Salsa & Bachata Instructor</p>
+      <h1>Daniel P Bachata</h1>
+      <div class="tagline-container">
+        <p class="tagline">Professional Dance Academy</p>
+        <p class="sub-tagline">Master the art of movement with expert guidance</p>
+      </div>
     </header>
     
-    <div class="content">
-      <h2 class="section-title">Connect With Me</h2>
-      <div class="links-grid">
-        <div class="link-card clickable facebook" data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
-          <div class="link-icon">
-            <i class="fab fa-facebook-f"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Daniel Palacios</div>
-            <div class="link-subtitle">Personal Facebook Profile</div>
-          </div>
+    <!-- Social Media Links -->
+    <div class="section-title">Connect With Us</div>
+    <div class="links-grid">
+      <!-- Personal Facebook Profile -->
+      <div class="link-card facebook" onclick="openLink('https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr')">
+        <div class="link-icon">
+          <i class="fab fa-facebook-f"></i>
         </div>
-        
-        <div class="link-card clickable instagram" data-url="https://www.instagram.com/danielp_bachata">
-          <div class="link-icon">
-            <i class="fab fa-instagram"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Instagram</div>
-            <div class="link-subtitle">@danielp_bachata</div>
-          </div>
+        <div class="link-text">
+          <div class="link-title">Daniel Palacios</div>
+          <div class="link-subtitle">Personal Facebook Profile</div>
         </div>
-        
-        <div class="link-card clickable tiktok" data-url="https://www.tiktok.com/@danielp_bachata">
-          <div class="link-icon">
-            <i class="fab fa-tiktok"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">TikTok</div>
-            <div class="link-subtitle">@danielp_bachata</div>
+      </div>
+      
+      <!-- Instagram Profile -->
+      <div class="link-card instagram" onclick="openLink('https://www.instagram.com/danielp_bachata')">
+        <div class="link-icon">
+          <i class="fab fa-instagram"></i>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Instagram</div>
+          <div class="link-subtitle">@danielp_bachata</div>
+        </div>
+      </div>
+      
+      <!-- TikTok Profile -->
+      <div class="link-card tiktok" onclick="openLink('https://www.tiktok.com/@danielp_bachata')">
+        <div class="link-icon">
+          <i class="fab fa-tiktok"></i>
+        </div>
+        <div class="link-text">
+          <div class="link-title">TikTok</div>
+          <div class="link-subtitle">@danielp_bachata</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Class Locations - Stardust First -->
+    <div class="section-title">Class Schedule</div>
+    <div class="links-grid">
+      <!-- Stardust Ballroom - First Position -->
+      <div class="link-card classes" onclick="openLink('https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr')">
+        <div class="link-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Stardust Ballroom</div>
+          <div class="link-subtitle">
+            Bellmawr, New Jersey
+            <span class="schedule-detail">Mondays & Thursdays at 6:30pm</span>
           </div>
         </div>
       </div>
       
-      <h2 class="section-title">Class Schedule</h2>
-      <div class="links-grid">
-        <div class="link-card clickable stardust" data-url="https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr">
-          <div class="link-icon stardust-icon">
-            <i class="fas fa-star"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Stardust Ballroom</div>
-            <div class="link-subtitle">
-              Bellmawr, New Jersey
-              <span class="schedule-detail">Mondays & Thursdays at 6:30pm</span>
-              <span class="dance-style">Salsa and Bachata</span>
-            </div>
-          </div>
+      <!-- Let's Bailar Studio -->
+      <div class="link-card classes" onclick="openLink('https://www.facebook.com/share/1QfGefKoK5/?mibextid=wwXIfr')">
+        <div class="link-icon">
+          <i class="fas fa-city"></i>
         </div>
-        
-        <div class="link-card clickable letsbailar" data-url="https://www.facebook.com/share/1QfGefKoK5/?mibextid=wwXIfr">
-          <div class="link-icon letsbailar-icon">
-            <i class="fas fa-city"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Let's Bailar Dance Studio</div>
-            <div class="link-subtitle">
-              Philadelphia
-              <span class="schedule-detail">Fridays at 7pm</span>
-              <span class="dance-style">Salsa and Bachata</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="link-card clickable dance-motion">
-          <div class="link-icon estilo-icon">
-            <i class="fas fa-building"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Estilo Dance Studio</div>
-            <div class="link-subtitle">
-              Fishtown, Philadelphia
-              <span class="schedule-detail">Saturdays at 4pm</span>
-              <span class="dance-style">Salsa and Bachata</span>
-            </div>
+        <div class="link-text">
+          <div class="link-title">Let's Bailar Dance Studio</div>
+          <div class="link-subtitle">
+            Philadelphia
+            <span class="schedule-detail">Fridays at 7pm</span>
           </div>
         </div>
       </div>
       
-      <h2 class="section-title">Join My Classes</h2>
-      <div class="registration-form">
-        <div class="form-title">Begin Your Dance Journey</div>
-        <form id="dance-registration">
-          <div class="form-group">
-            <input type="text" id="name" class="form-input" placeholder="Full Name" required>
-          </div>
-          
-          <div class="form-group">
-            <input type="email" id="email" class="form-input" placeholder="Email Address" required>
-          </div>
-          
-          <div class="form-group">
-            <select id="location" class="form-select" required>
-              <option value="">Select class location</option>
-              <option value="stardust">Stardust Ballroom - Mon/Thu 6:30pm</option>
-              <option value="letsbailar">Let's Bailar - Fridays 7pm</option>
-              <option value="estilo">Estilo Dance - Saturdays 4pm</option>
-            </select>
-          </div>
-          
-          <button type="submit" class="submit-btn">Start Dancing</button>
-        </form>
-        
-        <div id="thank-you-message" class="thank-you-message">
-          <h3>Thank You for Joining!</h3>
-          <p>We're excited to welcome you to our dance community! You'll receive a confirmation email shortly.</p>
-          <p>Join our WhatsApp group for updates and to connect with fellow dancers:</p>
-          <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Join Dance Community
-          </a>
+      <!-- Estilo Dance Studio -->
+      <div class="link-card classes">
+        <div class="link-icon">
+          <i class="fas fa-building"></i>
         </div>
-      </div>
-      
-      <h2 class="section-title">Payment Options</h2>
-      <div class="links-grid">
-        <div class="link-card clickable venmo dance-motion" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
-          <div class="link-icon" style="background: linear-gradient(135deg, rgba(61, 149, 206, 0.2), rgba(61, 149, 206, 0.3)); color: #ffffff;">
-            <i class="fab fa-vimeo-v"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Venmo</div>
-            <div class="link-subtitle">Secure your spot today</div>
-          </div>
-        </div>
-        
-        <div class="link-card clickable cash dance-motion">
-          <div class="link-icon" style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.2), rgba(46, 204, 113, 0.3)); color: #ffffff;">
-            <i class="fas fa-money-bill-wave"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Cash</div>
-            <div class="link-subtitle">Pay when you arrive</div>
-          </div>
-        </div>
-      </div>
-      
-      <h2 class="section-title">Contact Me</h2>
-      <div class="links-grid">
-        <div class="link-card clickable contact dance-motion" data-url="mailto:contact@danielpbachata.com">
-          <div class="link-icon contact-icon">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Professional Inquiries</div>
-            <div class="link-subtitle">Bookings & partnerships</div>
+        <div class="link-text">
+          <div class="link-title">Estilo Dance Studio</div>
+          <div class="link-subtitle">
+            Fishtown, Philadelphia
+            <span class="schedule-detail">Saturdays at 4pm</span>
           </div>
         </div>
       </div>
     </div>
     
+    <!-- Registration Form -->
+    <div class="section-title">Join Our Academy</div>
+    <div class="registration-form">
+      <div class="form-title">Begin Your Dance Journey</div>
+      <form id="dance-registration">
+        <div class="form-group">
+          <input type="text" id="name" class="form-input" placeholder="Full Name" required>
+        </div>
+        
+        <div class="form-group">
+          <input type="email" id="email" class="form-input" placeholder="Email Address" required>
+        </div>
+        
+        <div class="form-group">
+          <select id="location" class="form-select">
+            <option value="">Select class location</option>
+            <option value="stardust">Stardust Ballroom - Mon/Thu 6:30pm</option>
+            <option value="letsbailar">Let's Bailar - Fridays 7pm</option>
+            <option value="estilo">Estilo Dance - Saturdays 4pm</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="submit-btn">Reserve Your Spot</button>
+      </form>
+      
+      <!-- Thank you message (hidden by default) -->
+      <div id="thank-you-message" class="thank-you-message">
+        <h3>Thank You for Registering!</h3>
+        <p>We're excited to welcome you to our dance academy!</p>
+        <p>Join our WhatsApp group for updates and to connect with fellow dancers:</p>
+        <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Join Class WhatsApp Group
+        </a>
+      </div>
+    </div>
+    
+    <!-- Payment Options -->
+    <div class="section-title">Payment Options</div>
+    <div class="payment-options">
+      <div class="payment-card venmo" onclick="openLink('https://venmo.com/code?user_id=2575920015605760344&created=1750346816')">
+        <div class="payment-icon">
+          <i class="fab fa-vimeo-v"></i>
+        </div>
+        <div class="payment-name">Venmo</div>
+        <div class="payment-desc">Secure your spot today</div>
+      </div>
+      
+      <div class="payment-card cash" onclick="alert('Cash accepted at all class locations! Exact change appreciated.')">
+        <div class="payment-icon">
+          <i class="fas fa-money-bill-wave"></i>
+        </div>
+        <div class="payment-name">Cash</div>
+        <div class="payment-desc">Pay when you arrive</div>
+      </div>
+    </div>
+    
+    <!-- Contact Information -->
+    <div class="section-title">Contact Us</div>
+    <div class="links-grid">
+      <div class="link-card contact" onclick="window.location.href='mailto:contact@danielpbachata.com'">
+        <div class="link-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Professional Inquiries</div>
+          <div class="link-subtitle">Bookings & partnerships</div>
+        </div>
+      </div>
+    </div>
+    
     <footer>
-      <p>© 2025 Daniel Palacios | Professional Dance Instruction</p>
-      <p>Transform your passion into movement</p>
+      <p>© 2025 Daniel P Bachata | Premium Dance Academy</p>
+      <p>Master the rhythm within you</p>
+      <p class="psychology-note">Color psychology: Blue (Trust) • Purple (Creativity) • Gold (Quality)</p>
     </footer>
   </div>
 
-  <!-- Particles.js Library -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  
   <script>
-    // Initialize particles background
-    particlesJS('particles-js', {
-      particles: {
-        number: {
-          value: 80,
-          density: {
-            enable: true,
-            value_area: 800
-          }
-        },
-        color: {
-          value: "#f1c40f"
-        },
-        shape: {
-          type: "circle",
-          stroke: {
-            width: 0,
-            color: "#000000"
-          }
-        },
-        opacity: {
-          value: 0.3,
-          random: true,
-          anim: {
-            enable: true,
-            speed: 1,
-            opacity_min: 0.1,
-            sync: false
-          }
-        },
-        size: {
-          value: 3,
-          random: true,
-          anim: {
-            enable: true,
-            speed: 2,
-            size_min: 0.3,
-            sync: false
-          }
-        },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#e67e22",
-          opacity: 0.2,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 1,
-          direction: "none",
-          random: true,
-          straight: false,
-          out_mode: "out",
-          bounce: false,
-          attract: {
-            enable: false,
-            rotateX: 600,
-            rotateY: 1200
-          }
-        }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: {
-            enable: true,
-            mode: "grab"
-          },
-          onclick: {
-            enable: true,
-            mode: "push"
-          },
-          resize: true
-        },
-        modes: {
-          grab: {
-            distance: 140,
-            line_linked: {
-              opacity: 0.4
-            }
-          },
-          push: {
-            particles_nb: 4
-          }
-        }
-      },
-      retina_detect: true
-    });
-    
-    // Create golden falling music notes at click position
-    function createMusicNote(event) {
-      const notesContainer = document.getElementById('music-notes-container');
-      const noteCount = 2 + Math.floor(Math.random() * 2); // 2-3 notes
-      
-      for (let i = 0; i < noteCount; i++) {
-        const note = document.createElement('div');
-        note.className = 'music-note';
-        note.innerHTML = '<i class="fas fa-music"></i>';
-        
-        // Position at click location with some randomness
-        const posX = event.clientX + (Math.random() - 0.5) * 40;
-        const posY = event.clientY + (Math.random() - 0.5) * 30;
-        
-        note.style.left = `${posX}px`;
-        note.style.top = `${posY}px`;
-        
-        // Random properties for variation
-        const size = 20 + Math.random() * 20; // 20-40px
-        const rotation = Math.random() * 360;
-        const translateX = (Math.random() - 0.5) * 60;
-        const delay = Math.random() * 0.5;
-        const duration = 1.2 + Math.random() * 0.8; // 1.2-2s
-        
-        note.style.setProperty('--rot', `${rotation}deg`);
-        note.style.setProperty('--tx', `${translateX}px`);
-        note.style.fontSize = `${size}px`;
-        note.style.animationDelay = `${delay}s`;
-        note.style.animationDuration = `${duration}s`;
-        
-        // Add to container
-        notesContainer.appendChild(note);
-        
-        // Remove after animation completes
-        setTimeout(() => {
-          if (note.parentNode) {
-            note.remove();
-          }
-        }, duration * 1000 + 500);
+    // Mobile-optimized link opening
+    function openLink(url) {
+      // Try to open in app if possible
+      if (url.includes('instagram.com')) {
+        window.location.href = 'instagram://user?username=danielp_bachata';
+        setTimeout(function() {
+          if (document.hidden) return;
+          window.location.href = url;
+        }, 500);
+      } else if (url.includes('tiktok.com')) {
+        window.location.href = 'tiktok://@danielp_bachata';
+        setTimeout(function() {
+          if (document.hidden) return;
+          window.location.href = url;
+        }, 500);
+      } else if (url.includes('facebook.com')) {
+        window.location.href = 'fb://profile/';
+        setTimeout(function() {
+          if (document.hidden) return;
+          window.location.href = url;
+        }, 500);
+      } else {
+        window.open(url, '_blank');
       }
     }
-    
-    // Handle card clicks
+
     document.addEventListener('DOMContentLoaded', function() {
-      const clickableElements = document.querySelectorAll('.clickable');
-      
-      clickableElements.forEach(el => {
-        el.addEventListener('click', function(e) {
-          // Create music notes
-          createMusicNote(e);
-          
-          // Handle specific actions
-          const url = this.getAttribute('data-url');
-          
-          if (this.classList.contains('cash')) {
-            setTimeout(() => {
-              alert('Cash accepted at all class locations! Exact change appreciated.');
-            }, 100);
-          } 
-          else if (url) {
-            setTimeout(() => {
-              window.open(url, '_blank');
-            }, 100);
-          }
-        });
-      });
-      
-      // Form handling
+      // Form submission
       const registrationForm = document.getElementById('dance-registration');
       const thankYouMessage = document.getElementById('thank-you-message');
       const submitBtn = registrationForm.querySelector('button[type="submit"]');
@@ -1049,60 +912,76 @@
       registrationForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // Get form values
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const location = document.getElementById('location').value;
         
-        // Validate form
-        if (!name.trim()) {
-          alert('Please enter your name.');
-          return;
-        }
-        
-        if (!email.trim()) {
-          alert('Please enter your email address.');
-          return;
-        }
-        
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          alert('Please enter a valid email address.');
-          return;
-        }
-        
-        if (!location) {
-          alert('Please select a class location.');
-          return;
-        }
-        
-        // Show loading state
-        submitBtn.textContent = 'Processing...';
+        // Disable button to prevent double submission
         submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Processing...';
         
-        // Simulate form submission
+        // Simulate a brief delay for better UX
         setTimeout(function() {
-          // Hide form, show thank you message
+          // Validate email
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Reserve Your Spot';
+            return;
+          }
+          
+          // Show thank you message and hide form
           registrationForm.style.display = 'none';
           thankYouMessage.style.display = 'block';
+          
+          // Reset form for future use
           registrationForm.reset();
-          
-          // Reset button
-          submitBtn.textContent = 'Start Dancing';
           submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Reserve Your Spot';
+        }, 800);
+      });
+      
+      // Add music note animation on click
+      const cards = document.querySelectorAll('.link-card, .payment-card');
+      cards.forEach(card => {
+        card.addEventListener('click', function(e) {
+          // Create music note element
+          const note = document.createElement('div');
+          note.innerHTML = '<i class="fas fa-music"></i>';
+          note.style.position = 'absolute';
+          note.style.left = `${Math.random() * 70 + 15}%`;
+          note.style.top = `${Math.random() * 70 + 15}%`;
+          note.style.fontSize = '24px';
+          note.style.color = '#daa520';
+          note.style.opacity = '0.8';
+          note.style.zIndex = '100';
+          note.style.animation = 'floatUp 1.5s forwards';
+          note.style.pointerEvents = 'none';
           
-          // Scroll to thank you message
-          thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Add to card
+          this.appendChild(note);
           
-          // Create celebration notes
-          for (let i = 0; i < 5; i++) {
-            setTimeout(() => {
-              const randomX = Math.random() * window.innerWidth;
-              const randomY = Math.random() * window.innerHeight;
-              const fakeEvent = { clientX: randomX, clientY: randomY };
-              createMusicNote(fakeEvent);
-            }, i * 200);
-          }
-        }, 1000);
+          // Remove after animation completes
+          setTimeout(() => {
+            if (this.contains(note)) {
+              this.removeChild(note);
+            }
+          }, 1500);
+        });
+      });
+      
+      // Focus on email field after name is entered
+      const nameField = document.getElementById('name');
+      const emailField = document.getElementById('email');
+      
+      nameField.addEventListener('blur', function() {
+        if (nameField.value.trim() !== '') {
+          setTimeout(function() {
+            emailField.focus();
+          }, 100);
+        }
       });
     });
   </script>
