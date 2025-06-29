@@ -250,44 +250,6 @@
       opacity: 1;
     }
     
-    /* Enhanced selection ring effect */
-    .link-card.selected {
-      position: relative;
-    }
-    
-    .link-card.selected::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 20px;
-      z-index: 5;
-      animation: selectionRing 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
-      pointer-events: none;
-      box-shadow: 0 0 0 3px rgba(216, 178, 32, 0.8);
-    }
-    
-    @keyframes selectionRing {
-      0% {
-        box-shadow: 0 0 0 0 rgba(216, 178, 32, 0);
-        border: 2px solid rgba(216, 178, 32, 0);
-      }
-      30% {
-        box-shadow: 0 0 0 10px rgba(216, 178, 32, 0.3);
-        border: 2px solid rgba(216, 178, 32, 0.9);
-      }
-      70% {
-        box-shadow: 0 0 0 15px rgba(216, 178, 32, 0.2);
-        border: 2px solid rgba(216, 178, 32, 0.7);
-      }
-      100% {
-        box-shadow: 0 0 0 25px rgba(216, 178, 32, 0);
-        border: 2px solid rgba(216, 178, 32, 0);
-      }
-    }
-    
     .link-icon {
       width: 65px;
       height: 65px;
@@ -303,30 +265,6 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-    }
-    
-    .link-icon::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      transform: scale(0);
-      transition: all 0.3s ease;
-      z-index: 1;
-    }
-    
-    .link-card:hover .link-icon::after {
-      transform: scale(1.8);
-      opacity: 0;
-    }
-    
-    .link-card:hover .link-icon {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(200, 200, 255, 0.2);
     }
     
     .facebook .link-icon {
@@ -375,68 +313,6 @@
       transform: scale(1.1);
     }
     
-    .facebook .link-icon i {
-      animation: none;
-    }
-    
-    .instagram .link-icon i {
-      animation: pulse 2s infinite ease-in-out;
-    }
-    
-    .tiktok .link-icon i {
-      animation: shake 1.8s infinite ease-in-out;
-    }
-    
-    .stardust .link-icon i {
-      animation: spin 5s infinite linear;
-    }
-    
-    .letsbailar .link-icon i {
-      animation: float 3s infinite ease-in-out;
-    }
-    
-    .estilo .link-icon i {
-      animation: pulse 2.5s infinite ease-in-out;
-    }
-    
-    .venmo .link-icon i {
-      animation: bounce 1.7s infinite ease-in-out;
-    }
-    
-    .cash .link-icon i {
-      animation: none;
-    }
-    
-    .contact .link-icon i {
-      /* Animation intentionally removed */
-    }
-    
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-    
-    @keyframes shake {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(3deg); }
-      75% { transform: rotate(-3deg); }
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    
     .link-text {
       flex: 1;
     }
@@ -482,38 +358,6 @@
       line-height: 1.6;
       background: rgba(15, 10, 30, 0.45);
       backdrop-filter: blur(6px);
-    }
-    
-    /* Enhanced Music Particles - More subtle */
-    .music-particle {
-      position: fixed;
-      color: rgba(255, 215, 0, 0.7); 
-      z-index: 100;
-      pointer-events: none;
-      opacity: 0;
-      font-size: 22px;
-      font-weight: normal;
-      transform-origin: center;
-      animation: floatParticle 1.6s ease-out forwards;
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
-    }
-    
-    @keyframes floatParticle {
-      0% {
-        transform: 
-          translate(0, 0) 
-          scale(0.9);
-        opacity: 0.8;
-      }
-      70% {
-        opacity: 0.6;
-      }
-      100% {
-        transform: 
-          translate(var(--tx, 0), var(--ty, -120px)) 
-          scale(0.4);
-        opacity: 0;
-      }
     }
     
     .registration-form {
@@ -781,37 +625,6 @@
       transform: none;
     }
     
-    /* Celebration animation for thank you message */
-    .confetti {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: #d8b220;
-      border-radius: 2px;
-      z-index: 1;
-      animation: confetti-fall 5s linear forwards;
-      opacity: 0;
-    }
-    
-    @keyframes confetti-fall {
-      0% {
-        transform: translateY(-20px) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) rotate(720deg);
-        opacity: 0;
-      }
-    }
-    
-    /* Improved form layout */
-    .form-notice {
-      text-align: center;
-      margin-top: 20px;
-      color: rgba(200, 200, 230, 0.8);
-      font-size: 1rem;
-    }
-    
     @media (max-width: 768px) {
       .links-grid {
         grid-template-columns: 1fr;
@@ -951,8 +764,6 @@
 <body>
   <div class="background"></div>
   
-  <div id="music-particles-container"></div>
-  
   <div class="container">
     <div class="corner-decoration corner-top-left"></div>
     <div class="corner-decoration corner-top-right"></div>
@@ -1049,7 +860,6 @@
         </div>
       </div>
       
-      <!-- Improved Registration Form Section -->
       <div class="registration-form">
         <div class="form-title">Class Registration</div>
         <form id="dance-registration">
@@ -1090,6 +900,7 @@
       
       <h2 class="section-title">Payment Options</h2>
       <div class="links-grid">
+        <!-- Venmo link reverted to original version -->
         <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
           <div class="link-icon">
             <i class="fab fa-vimeo-v"></i>
@@ -1132,99 +943,13 @@
   </div>
 
   <script>
-    function createMusicParticle(event) {
-      const container = document.getElementById('music-particles-container');
-      const particleCount = 2; // Fewer particles
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'music-particle';
-        
-        // Use musical symbols instead of icons
-        const symbols = ['♪', '♫'];
-        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
-        particle.textContent = symbol;
-        
-        const posX = event.clientX + (Math.random() - 0.5) * 50;
-        const posY = event.clientY + (Math.random() - 0.5) * 50;
-        
-        particle.style.left = `${posX}px`;
-        particle.style.top = `${posY}px`;
-        
-        // More natural movement
-        const translateX = (Math.random() - 0.5) * 80;
-        const translateY = -100 - Math.random() * 50;
-        
-        particle.style.setProperty('--tx', `${translateX}px`);
-        particle.style.setProperty('--ty', `${translateY}px`);
-        
-        // Size variations
-        const size = 18 + Math.random() * 6;
-        particle.style.fontSize = `${size}px`;
-        
-        // Animation duration
-        const duration = 1.2 + Math.random() * 0.5;
-        particle.style.animationDuration = `${duration}s`;
-        
-        container.appendChild(particle);
-        
-        // Clean up after animation
-        setTimeout(() => {
-          if (particle.parentNode) {
-            particle.remove();
-          }
-        }, duration * 1000);
-      }
-    }
-    
-    function createConfetti() {
-      const container = document.getElementById('thank-you-message');
-      if (!container) return;
-      
-      const confettiCount = 30;
-      for (let i = 0; i < confettiCount; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        
-        // Random colors
-        const colors = ['#d8b220', '#c96e1d', '#5548b0', '#1a8d88', '#ffffff'];
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        
-        // Position
-        const left = Math.random() * 100;
-        confetti.style.left = `${left}%`;
-        
-        // Size
-        const size = 6 + Math.random() * 6;
-        confetti.style.width = `${size}px`;
-        confetti.style.height = `${size}px`;
-        
-        // Animation delay
-        const delay = Math.random() * 2;
-        confetti.style.animationDelay = `${delay}s`;
-        
-        container.appendChild(confetti);
-        
-        // Clean up after animation
-        setTimeout(() => {
-          if (confetti.parentNode) {
-            confetti.remove();
-          }
-        }, 5000 + delay * 1000);
-      }
-    }
-    
     document.addEventListener('DOMContentLoaded', function() {
       const clickableElements = document.querySelectorAll('.clickable');
       
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
-          createMusicParticle(e);
-          
-          // Add selection effect
           this.classList.add('selected');
           
-          // Remove selection effect after animation completes
           setTimeout(() => {
             this.classList.remove('selected');
           }, 800);
@@ -1246,12 +971,8 @@
       
       const estiloCard = document.querySelector('.estilo');
       estiloCard.addEventListener('click', function(e) {
-        createMusicParticle(e);
-        
-        // Add selection effect to non-link card
         this.classList.add('selected');
         
-        // Remove selection effect after animation completes
         setTimeout(() => {
           this.classList.remove('selected');
         }, 800);
@@ -1262,30 +983,14 @@
       const submitBtn = registrationForm.querySelector('button[type="submit"]');
       const registerAgainBtn = document.getElementById('register-again-btn');
       
-      // Function to reset the form
       function resetForm() {
         registrationForm.reset();
         thankYouMessage.style.display = 'none';
         registrationForm.style.display = 'block';
       }
       
-      // Handle registration again button
       registerAgainBtn.addEventListener('click', function() {
         resetForm();
-      });
-      
-      // Add focus event listeners to prevent keyboard issues
-      const formInputs = document.querySelectorAll('.form-input, .form-select');
-      formInputs.forEach(input => {
-        input.addEventListener('focus', function() {
-          // Keep the form visible and prevent any scrolling issues
-          this.style.backgroundColor = 'rgba(50, 48, 70, 0.5)';
-        });
-        
-        input.addEventListener('blur', function() {
-          // Reset styles on blur
-          this.style.backgroundColor = 'rgba(40, 38, 60, 0.5)';
-        });
       });
       
       registrationForm.addEventListener('submit', function(e) {
@@ -1320,18 +1025,11 @@
         submitBtn.disabled = true;
         
         setTimeout(function() {
-          // Instead of hiding the form, just show the thank you message
           registrationForm.style.display = 'none';
           thankYouMessage.style.display = 'block';
-          
-          // Scroll to the thank you message smoothly
           thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          
           submitBtn.textContent = 'Complete Registration';
           submitBtn.disabled = false;
-          
-          // Create subtle confetti instead of particles
-          createConfetti();
         }, 1000);
       });
     });
