@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Palacios | Professional Dance Instructor</title>
+  <title>Daniel Palacios | Professional Dance Registration</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -477,29 +477,30 @@
       }
     }
     
-    /* Enhanced Registration Section */
+    /* Enhanced Registration Section - Professional Design */
     .registration-form {
-      background: rgba(25, 22, 42, 0.9);
+      background: rgba(25, 22, 42, 0.95);
       border-radius: 18px;
-      padding: 30px;
+      padding: 35px;
       margin: 40px 0;
-      border: 1px solid rgba(80, 80, 120, 0.2);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(10px);
+      border: 1px solid rgba(200, 170, 50, 0.2);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(12px);
       position: relative;
       overflow: hidden;
+      transition: all 0.5s ease;
     }
     
     .form-title {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 700;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       color: #d8b220;
       text-align: center;
       position: relative;
       padding-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      text-transform: none;
     }
     
     .form-title::after {
@@ -508,38 +509,46 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
+      width: 80px;
+      height: 3px;
       background: linear-gradient(to right, #c96e1d, #d8b220);
       border-radius: 2px;
     }
     
     .form-group {
-      margin-bottom: 22px;
+      margin-bottom: 25px;
       text-align: left;
       position: relative;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+      color: #d8b220;
+      font-weight: 500;
     }
     
     .form-input {
       width: 100%;
       padding: 16px 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(80, 80, 120, 0.3);
-      background: rgba(40, 38, 60, 0.5);
+      border-radius: 12px;
+      border: 1px solid rgba(200, 170, 50, 0.3);
+      background: rgba(35, 33, 50, 0.7);
       color: #e0e0ff;
       font-size: 1.05rem;
       transition: all 0.3s ease;
       -webkit-appearance: none;
       appearance: none;
       font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     }
     
     .form-input:focus {
       outline: none;
       border-color: #d8b220;
-      background: rgba(50, 48, 70, 0.5);
-      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.2);
+      background: rgba(45, 43, 60, 0.7);
+      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.15);
     }
     
     .form-input::placeholder {
@@ -550,9 +559,9 @@
     .form-select {
       width: 100%;
       padding: 16px 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(80, 80, 120, 0.3);
-      background: rgba(40, 38, 60, 0.5);
+      border-radius: 12px;
+      border: 1px solid rgba(200, 170, 50, 0.3);
+      background: rgba(35, 33, 50, 0.7);
       color: #e0e0ff;
       font-size: 1.05rem;
       appearance: none;
@@ -563,21 +572,21 @@
       transition: all 0.3s ease;
       -webkit-appearance: none;
       font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     }
     
     .form-select:focus {
       outline: none;
       border-color: #d8b220;
-      background: rgba(50, 48, 70, 0.5);
-      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.2);
+      background: rgba(45, 43, 60, 0.7);
+      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.15);
     }
     
     .submit-btn {
       background: linear-gradient(135deg, #c96e1d, #d8b220);
       color: #0a0915;
       border: none;
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 18px;
       font-size: 1.15rem;
       font-weight: 700;
@@ -599,7 +608,7 @@
     .submit-btn:hover {
       opacity: 0.95;
       box-shadow: 0 8px 25px rgba(180, 100, 34, 0.4);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
     
     .submit-btn:active {
@@ -743,6 +752,63 @@
     
     .non-link-card:hover .link-icon i {
       transform: none;
+    }
+    
+    .form-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .form-icon {
+      font-size: 2.5rem;
+      color: #d8b220;
+      margin-bottom: 15px;
+      animation: pulse 2s infinite ease-in-out;
+    }
+    
+    .form-description {
+      font-size: 1.1rem;
+      color: rgba(200, 200, 230, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .step-indicator {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    
+    .step {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(40, 38, 60, 0.7);
+      border: 2px solid #d8b220;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10px;
+      font-weight: 600;
+      color: #d8b220;
+      position: relative;
+    }
+    
+    .step.active {
+      background: #d8b220;
+      color: #0a0915;
+    }
+    
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: 20px;
+      height: 2px;
+      background: #d8b220;
+      transform: translateY(-50%);
     }
     
     @media (max-width: 768px) {
@@ -971,19 +1037,40 @@
         </div>
       </div>
       
-      <!-- Registration Form Section -->
+      <!-- Enhanced Professional Registration Form -->
       <div class="registration-form">
-        <div class="form-title">Register for Classes</div>
+        <div class="form-header">
+          <div class="form-icon">
+            <i class="fas fa-file-signature"></i>
+          </div>
+          <div class="form-title">Class Registration</div>
+          <p class="form-description">Secure your place in our dance classes with our streamlined registration process. All fields are required.</p>
+        </div>
+        
+        <div class="step-indicator">
+          <div class="step active">1</div>
+          <div class="step">2</div>
+          <div class="step">3</div>
+        </div>
+        
         <form id="dance-registration">
           <div class="form-group">
-            <input type="text" id="name" class="form-input" placeholder="Full Name" required>
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
           </div>
           
           <div class="form-group">
-            <input type="email" id="email" class="form-input" placeholder="Email Address" required>
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
           </div>
           
           <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" class="form-input" placeholder="Enter your phone number" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="location" class="form-label">Preferred Location</label>
             <select id="location" class="form-select" required>
               <option value="">Select class location</option>
               <option value="stardust">Stardust Ballroom - Mon/Thu 6:30pm</option>
@@ -992,12 +1079,26 @@
             </select>
           </div>
           
-          <button type="submit" class="submit-btn">Register</button>
+          <div class="form-group">
+            <label for="experience" class="form-label">Dance Experience</label>
+            <select id="experience" class="form-select" required>
+              <option value="">Select your experience level</option>
+              <option value="beginner">Beginner (0-6 months)</option>
+              <option value="intermediate">Intermediate (6-24 months)</option>
+              <option value="advanced">Advanced (2+ years)</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Submit Registration
+          </button>
         </form>
         
         <div id="thank-you-message" class="thank-you-message">
-          <h3>Thank You for Registering!</h3>
-          <p>We're excited to welcome you to our dance community! You'll receive a confirmation email shortly.</p>
+          <h3>Registration Confirmed!</h3>
+          <p>Thank you for registering with Daniel Palacios Dance Academy. You'll receive a confirmation email with class details shortly.</p>
+          <p>For immediate questions, please contact us at:</p>
+          <p style="margin: 15px 0; font-weight: 500; color: #d8b220;">contact@danielpbachata.com</p>
           <p>Join our WhatsApp group for updates and to connect with fellow dancers:</p>
           <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Join Dance Community
@@ -1128,7 +1229,9 @@
         
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
         const location = document.getElementById('location').value;
+        const experience = document.getElementById('experience').value;
         
         if (!name.trim()) {
           alert('Please enter your name.');
@@ -1146,12 +1249,22 @@
           return;
         }
         
+        if (!phone.trim()) {
+          alert('Please enter your phone number.');
+          return;
+        }
+        
         if (!location) {
           alert('Please select a class location.');
           return;
         }
         
-        submitBtn.textContent = 'Processing...';
+        if (!experience) {
+          alert('Please select your experience level.');
+          return;
+        }
+        
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
         submitBtn.disabled = true;
         
         setTimeout(function() {
@@ -1159,12 +1272,12 @@
           thankYouMessage.style.display = 'block';
           registrationForm.reset();
           
-          submitBtn.textContent = 'Register';
+          submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Registration';
           submitBtn.disabled = false;
           
           thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
           
-          for (let i = 0; i < 7; i++) {
+          for (let i = 0; i < 10; i++) {
             setTimeout(() => {
               const randomX = Math.random() * window.innerWidth;
               const randomY = Math.random() * window.innerHeight;
@@ -1172,7 +1285,7 @@
               createMusicNote(fakeEvent);
             }, i * 200);
           }
-        }, 1000);
+        }, 1500);
       });
     });
   </script>
