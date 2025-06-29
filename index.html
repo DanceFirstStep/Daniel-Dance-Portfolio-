@@ -18,12 +18,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0;
+      padding: 20px;
       overflow-x: hidden;
       position: relative;
       color: #e0e0ff;
       background: linear-gradient(135deg, #0a0915 0%, #151328 100%);
-      line-height: 1.6;
+      line-height: 1.65;
+      font-size: 1.05rem;
     }
     
     .background {
@@ -36,7 +37,7 @@
       background: 
         radial-gradient(circle at 20% 30%, rgba(180, 70, 0, 0.08) 0%, transparent 25%),
         radial-gradient(circle at 80% 70%, rgba(80, 70, 160, 0.08) 0%, transparent 25%);
-      animation: gradientBG 30s ease infinite;
+      animation: gradientBG 40s ease infinite;
       background-size: 400% 400%;
     }
     
@@ -47,8 +48,8 @@
     }
     
     .container {
-      width: calc(100% - 30px);
-      max-width: 920px;
+      width: 100%;
+      max-width: 980px;
       background: rgba(20, 18, 35, 0.96);
       backdrop-filter: blur(12px);
       border-radius: 24px;
@@ -57,15 +58,15 @@
       overflow: hidden;
       position: relative;
       z-index: 10;
-      margin: 15px;
+      margin: 0;
       transition: all 0.4s ease;
     }
     
     .logo-container {
       position: relative;
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 25px;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 20px;
     }
     
     .logo {
@@ -79,7 +80,6 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(180, 100, 34, 0.4);
-      animation: logoPulse 8s infinite ease-in-out;
       transition: all 0.4s ease;
       z-index: 2;
     }
@@ -92,7 +92,7 @@
       height: 100%;
       border: 2px solid rgba(200, 170, 50, 0.6);
       border-radius: 50%;
-      animation: pulseRing 6s infinite ease-out;
+      animation: pulseRing 8s infinite ease-out;
       z-index: 1;
       pointer-events: none;
     }
@@ -116,33 +116,21 @@
       box-shadow: 0 12px 35px rgba(180, 100, 34, 0.5);
     }
     
-    @keyframes logoPulse {
-      0%, 100% { 
-        transform: scale(1);
-        box-shadow: 0 10px 30px rgba(180, 100, 34, 0.4);
-      }
-      50% { 
-        transform: scale(1.05);
-        box-shadow: 0 15px 40px rgba(180, 100, 34, 0.5);
-      }
-    }
-    
     .logo i {
-      font-size: 65px;
+      font-size: 60px;
       color: #fff;
       z-index: 2;
       text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      animation: gentlePulse 6s infinite ease-in-out;
     }
     
     header {
-      padding: 40px 25px 15px;
+      padding: 35px 25px 15px;
       text-align: center;
       position: relative;
     }
     
     h1 {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       font-weight: 700;
       margin-bottom: 12px;
       letter-spacing: 0.5px;
@@ -155,28 +143,28 @@
     h1::after {
       content: '';
       position: absolute;
-      bottom: -12px;
+      bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
       width: 110px;
-      height: 5px;
+      height: 4px;
       background: linear-gradient(to right, #c96e1d, #d8b220);
       border-radius: 3px;
     }
     
     .tagline {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 300;
       color: rgba(210, 210, 230, 0.9);
-      margin-top: 25px;
-      max-width: 650px;
+      margin-top: 22px;
+      max-width: 700px;
       margin: 15px auto 0;
-      line-height: 1.65;
+      line-height: 1.7;
       padding: 0 15px;
     }
     
     .section-title {
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       font-weight: 600;
       margin: 35px 0 25px;
       text-align: center;
@@ -201,26 +189,26 @@
     }
     
     .content {
-      padding: 0 25px 25px;
+      padding: 0 30px 25px;
     }
     
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
       margin: 25px 0;
     }
     
     .link-card {
       background: rgba(40, 38, 60, 0.7);
       border-radius: 20px;
-      padding: 20px;
+      padding: 24px;
       border: 1px solid rgba(80, 80, 120, 0.2);
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
-      min-height: 110px;
+      min-height: 120px;
       cursor: pointer;
       transition: all 0.4s ease;
       backdrop-filter: blur(6px);
@@ -252,13 +240,13 @@
     }
     
     .link-icon {
-      width: 65px;
-      height: 65px;
+      width: 70px;
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 18px;
-      font-size: 1.8rem;
+      margin-right: 20px;
+      font-size: 1.9rem;
       border-radius: 18px;
       flex-shrink: 0;
       color: white;
@@ -338,92 +326,22 @@
       transform: scale(1.1);
     }
     
-    /* Updated icon animations */
-    .facebook .link-icon i {
-      animation: none;
-    }
-    
-    .instagram .link-icon i {
-      animation: gentlePulse 4s infinite ease-in-out;
-    }
-    
-    .tiktok .link-icon i {
-      animation: gentleShake 6s infinite ease-in-out;
-    }
-    
-    .stardust .link-icon i {
-      animation: gentleGlow 5s infinite ease-in-out;
-    }
-    
-    .letsbailar .link-icon i {
-      animation: gentleFloat 8s infinite ease-in-out;
-    }
-    
-    .estilo .link-icon i {
-      animation: gentlePulse 5s infinite ease-in-out;
-    }
-    
-    .venmo .link-icon i {
-      animation: gentleBounce 7s infinite ease-in-out;
-    }
-    
-    .cash .link-icon i {
-      animation: none;
-    }
-    
-    .contact .link-icon i {
-      animation: gentlePulse 6s infinite ease-in-out;
-    }
-    
-    /* New subtle animations */
-    @keyframes gentleBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-3px); }
-    }
-    
-    @keyframes gentlePulse {
-      0%, 100% { transform: scale(1); opacity: 0.9; }
-      50% { transform: scale(1.03); opacity: 1; }
-    }
-    
-    @keyframes gentleShake {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(1deg); }
-      75% { transform: rotate(-1deg); }
-    }
-    
-    @keyframes gentleGlow {
-      0%, 100% { 
-        transform: scale(1); 
-        text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
-      }
-      50% { 
-        transform: scale(1.05); 
-        text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-      }
-    }
-    
-    @keyframes gentleFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-3px); }
-    }
-    
     .link-text {
       flex: 1;
     }
     
     .link-title {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: #f0f0ff;
       letter-spacing: 0.3px;
     }
     
     .link-subtitle {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       color: rgba(200, 200, 230, 0.9);
-      line-height: 1.5;
+      line-height: 1.6;
     }
     
     .schedule-detail {
@@ -431,7 +349,7 @@
       margin-top: 8px;
       color: #d8b220;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
     
     .dance-style {
@@ -439,7 +357,7 @@
       margin-top: 6px;
       color: #c96e1d;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-style: italic;
     }
     
@@ -448,49 +366,17 @@
       padding: 25px;
       text-align: center;
       color: rgba(200, 200, 220, 0.8);
-      font-size: 1rem;
+      font-size: 1.05rem;
       border-top: 1px solid rgba(80, 80, 120, 0.2);
-      line-height: 1.6;
+      line-height: 1.7;
       background: rgba(15, 10, 30, 0.45);
       backdrop-filter: blur(6px);
-    }
-    
-    /* Enhanced Music Particles - More visible */
-    .music-particle {
-      position: fixed;
-      color: rgba(255, 215, 0, 0.85); 
-      z-index: 100;
-      pointer-events: none;
-      opacity: 0;
-      font-size: 24px;
-      font-weight: normal;
-      transform-origin: center;
-      animation: floatParticle 1.6s ease-out forwards;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-    }
-    
-    @keyframes floatParticle {
-      0% {
-        transform: 
-          translate(0, 0) 
-          scale(0.9);
-        opacity: 0.9;
-      }
-      70% {
-        opacity: 0.7;
-      }
-      100% {
-        transform: 
-          translate(var(--tx, 0), var(--ty, -120px)) 
-          scale(0.4);
-        opacity: 0;
-      }
     }
     
     .registration-form {
       background: rgba(25, 22, 42, 0.9);
       border-radius: 20px;
-      padding: 30px;
+      padding: 35px;
       margin: 35px 0;
       border: 1px solid rgba(80, 80, 120, 0.2);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
@@ -500,7 +386,7 @@
     }
     
     .form-title {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 700;
       margin-bottom: 15px;
       color: #d8b220;
@@ -526,26 +412,26 @@
     .partner-notice {
       text-align: center;
       margin-bottom: 25px;
-      color: rgba(200, 200, 230, 0.85); /* Changed to less prominent color */
-      font-size: 1.05rem; /* Slightly smaller */
-      font-weight: 500; /* Reduced weight */
-      display: block; /* Removed background/border */
+      color: rgba(200, 200, 230, 0.85);
+      font-size: 1.15rem;
+      font-weight: 500;
+      display: block;
     }
     
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       text-align: left;
       position: relative;
     }
     
     .form-input {
       width: 100%;
-      padding: 16px 20px;
+      padding: 18px 22px;
       border-radius: 16px;
       border: 1px solid rgba(80, 80, 120, 0.3);
       background: rgba(40, 38, 60, 0.5);
       color: #e0e0ff;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       transition: all 0.3s ease;
       -webkit-appearance: none;
       appearance: none;
@@ -562,22 +448,22 @@
     
     .form-input::placeholder {
       color: rgba(180, 180, 210, 0.7);
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
     
     .form-select {
       width: 100%;
-      padding: 16px 20px;
+      padding: 18px 22px;
       border-radius: 16px;
       border: 1px solid rgba(80, 80, 120, 0.3);
       background: rgba(40, 38, 60, 0.5);
       color: #e0e0ff;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d8b220'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 18px center;
-      background-size: 18px;
+      background-position: right 20px center;
+      background-size: 20px;
       transition: all 0.3s ease;
       -webkit-appearance: none;
       font-family: 'Segoe UI', sans-serif;
@@ -596,8 +482,8 @@
       color: #0a0915;
       border: none;
       border-radius: 16px;
-      padding: 18px;
-      font-size: 1.2rem;
+      padding: 20px;
+      font-size: 1.25rem;
       font-weight: 700;
       cursor: pointer;
       width: 100%;
@@ -626,7 +512,7 @@
     .thank-you-message {
       display: none;
       text-align: center;
-      padding: 35px 25px;
+      padding: 40px 30px;
       border-radius: 20px;
       background: rgba(25, 22, 42, 0.95);
       margin-top: 20px;
@@ -642,7 +528,7 @@
     }
     
     .thank-you-message h3 {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       color: #d8b220;
       margin-bottom: 25px;
       position: relative;
@@ -662,10 +548,10 @@
     }
     
     .thank-you-message p {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       margin-bottom: 30px;
       color: rgba(200, 200, 230, 0.95);
-      line-height: 1.6;
+      line-height: 1.7;
     }
     
     .whatsapp-btn {
@@ -675,10 +561,10 @@
       background: rgba(30, 180, 80, 0.15);
       color: #e0e0ff;
       text-decoration: none;
-      padding: 16px 30px;
+      padding: 18px 35px;
       border-radius: 16px;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       margin-top: 20px;
       transition: all 0.3s ease;
       touch-action: manipulation;
@@ -695,7 +581,7 @@
     
     .whatsapp-btn i {
       margin-right: 12px;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
     
     .corner-decoration {
@@ -763,22 +649,26 @@
     }
     
     @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
       .links-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
       
       .logo-container {
-        width: 130px;
-        height: 130px;
+        width: 120px;
+        height: 120px;
       }
       
       .logo i {
-        font-size: 55px;
+        font-size: 50px;
       }
       
       h1 {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
       }
       
       .tagline {
@@ -786,38 +676,37 @@
       }
       
       .link-card {
-        padding: 20px;
+        padding: 22px;
       }
       
       .link-icon {
-        width: 60px;
-        height: 60px;
+        width: 65px;
+        height: 65px;
         font-size: 1.8rem;
       }
       
       .section-title {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
         margin: 35px 0 20px;
       }
       
       .registration-form {
-        padding: 25px;
+        padding: 30px;
       }
       
       .form-title {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
       }
     }
     
     @media (max-width: 480px) {
       body {
-        padding: 0;
+        padding: 10px;
       }
       
       .container {
-        margin: 10px;
         border-radius: 20px;
-        width: calc(100% - 20px);
+        width: 100%;
       }
       
       header {
@@ -825,16 +714,16 @@
       }
       
       .content {
-        padding: 0 15px 15px;
+        padding: 0 20px 20px;
       }
       
       .logo-container {
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
       }
       
       h1 {
-        font-size: 2rem;
+        font-size: 1.9rem;
       }
       
       h1::after {
@@ -852,15 +741,15 @@
       }
       
       .link-card {
-        padding: 16px;
-        min-height: 100px;
+        padding: 20px;
+        min-height: 110px;
       }
       
       .link-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.6rem;
-        margin-right: 15px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.7rem;
+        margin-right: 16px;
       }
       
       .link-title {
@@ -868,22 +757,22 @@
       }
       
       .link-subtitle {
-        font-size: 0.95rem;
+        font-size: 1rem;
       }
       
       .registration-form {
-        padding: 20px;
+        padding: 25px;
         margin: 25px 0;
       }
       
       .form-input, .form-select {
-        padding: 14px 16px;
-        font-size: 1.05rem;
+        padding: 16px 18px;
+        font-size: 1.1rem;
       }
       
       .submit-btn {
-        padding: 16px;
-        font-size: 1.15rem;
+        padding: 18px;
+        font-size: 1.2rem;
       }
       
       .corner-decoration {
@@ -893,15 +782,13 @@
 
       footer {
         padding: 20px;
-        font-size: 0.95rem;
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="background"></div>
-  
-  <div id="music-particles-container"></div>
   
   <div class="container">
     <div class="corner-decoration corner-top-left"></div>
@@ -1025,8 +912,7 @@
         
         <div id="thank-you-message" class="thank-you-message">
           <h3>Thank You for Registering!</h3>
-          <p>We're excited to dance with you! Remember, no partner needed.</p>
-          <p>Join our private WhatsApp group for class updates:</p>
+          <p>We're excited to dance with you! Join our private WhatsApp group for class updates:</p>
           <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Join Class Group
           </a>
@@ -1080,53 +966,11 @@
   </div>
 
   <script>
-    function createMusicParticle(event) {
-      const container = document.getElementById('music-particles-container');
-      const particleCount = 3; 
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'music-particle';
-        
-        const symbols = ['♪', '♫'];
-        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
-        particle.textContent = symbol;
-        
-        const posX = event.clientX + (Math.random() - 0.5) * 50;
-        const posY = event.clientY + (Math.random() - 0.5) * 50;
-        
-        particle.style.left = `${posX}px`;
-        particle.style.top = `${posY}px`;
-        
-        const translateX = (Math.random() - 0.5) * 80;
-        const translateY = -100 - Math.random() * 50;
-        
-        particle.style.setProperty('--tx', `${translateX}px`);
-        particle.style.setProperty('--ty', `${translateY}px`);
-        
-        const size = 18 + Math.random() * 6;
-        particle.style.fontSize = `${size}px`;
-        
-        const duration = 1.2 + Math.random() * 0.5;
-        particle.style.animationDuration = `${duration}s`;
-        
-        container.appendChild(particle);
-        
-        setTimeout(() => {
-          if (particle.parentNode) {
-            particle.remove();
-          }
-        }, duration * 1000);
-      }
-    }
-    
     document.addEventListener('DOMContentLoaded', function() {
       const clickableElements = document.querySelectorAll('.clickable');
       
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
-          createMusicParticle(e);
-          
           this.classList.add('selected');
           
           setTimeout(() => {
@@ -1150,8 +994,6 @@
       
       const estiloCard = document.querySelector('.estilo');
       estiloCard.addEventListener('click', function(e) {
-        createMusicParticle(e);
-        
         this.classList.add('selected');
         
         setTimeout(() => {
