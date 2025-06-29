@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Palacios | Professional Dance Instructor</title>
+  <title>Daniel Palacios | Professional Dance Instruction</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -18,12 +18,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
-      background: linear-gradient(135deg, #0a0915 0%, #151328 100%);
-      color: #e0e0ff;
-      line-height: 1.6;
-      position: relative;
+      padding: 0;
       overflow-x: hidden;
+      position: relative;
+      color: #e0e0ff;
+      background: linear-gradient(135deg, #0a0915 0%, #151328 100%);
+      line-height: 1.6;
     }
     
     .background {
@@ -47,8 +47,8 @@
     }
     
     .container {
-      width: 100%;
-      max-width: 1000px;
+      width: calc(100% - 30px);
+      max-width: 920px;
       background: rgba(20, 18, 35, 0.96);
       backdrop-filter: blur(12px);
       border-radius: 24px;
@@ -58,21 +58,14 @@
       position: relative;
       z-index: 10;
       margin: 15px;
-    }
-    
-    header {
-      padding: 40px 25px 25px;
-      text-align: center;
-      position: relative;
-      background: linear-gradient(to bottom, rgba(25, 22, 42, 0.8), rgba(15, 10, 30, 0.5));
-      border-bottom: 1px solid rgba(80, 80, 120, 0.2);
+      transition: all 0.4s ease;
     }
     
     .logo-container {
       position: relative;
       width: 150px;
       height: 150px;
-      margin: 0 auto 20px;
+      margin: 0 auto 25px;
     }
     
     .logo {
@@ -86,6 +79,7 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(180, 100, 34, 0.4);
+      animation: logoPulse 8s infinite ease-in-out;
       transition: all 0.4s ease;
       z-index: 2;
     }
@@ -117,11 +111,33 @@
       }
     }
     
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 35px rgba(180, 100, 34, 0.5);
+    }
+    
+    @keyframes logoPulse {
+      0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(180, 100, 34, 0.4);
+      }
+      50% { 
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(180, 100, 34, 0.5);
+      }
+    }
+    
     .logo i {
       font-size: 65px;
       color: #fff;
       z-index: 2;
       text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    
+    header {
+      padding: 40px 25px 15px;
+      text-align: center;
+      position: relative;
     }
     
     h1 {
@@ -187,186 +203,518 @@
       padding: 0 25px 25px;
     }
     
-    .profile-grid {
+    .links-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
       margin: 25px 0;
     }
     
-    @media (max-width: 768px) {
-      .profile-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    .about-section {
+    .link-card {
       background: rgba(40, 38, 60, 0.7);
       border-radius: 20px;
-      padding: 30px;
-      border: 1px solid rgba(80, 80, 120, 0.2);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-    }
-    
-    .about-title {
-      font-size: 1.8rem;
-      color: #d8b220;
-      margin-bottom: 20px;
-      text-align: center;
-      position: relative;
-      padding-bottom: 15px;
-    }
-    
-    .about-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(to right, #c96e1d, #d8b220);
-      border-radius: 2px;
-    }
-    
-    .about-content p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: rgba(200, 200, 230, 0.9);
-      line-height: 1.7;
-    }
-    
-    .specialties {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 25px;
-    }
-    
-    .specialty {
-      background: rgba(50, 48, 70, 0.8);
-      padding: 10px 20px;
-      border-radius: 50px;
-      font-size: 0.95rem;
-      color: #d8b220;
-      border: 1px solid rgba(200, 170, 50, 0.3);
-    }
-    
-    .experience-section {
-      background: rgba(40, 38, 60, 0.7);
-      border-radius: 20px;
-      padding: 30px;
-      border: 1px solid rgba(80, 80, 120, 0.2);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-    }
-    
-    .experience-item {
-      margin-bottom: 25px;
-      padding-bottom: 25px;
-      border-bottom: 1px solid rgba(80, 80, 120, 0.2);
-    }
-    
-    .experience-item:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-    
-    .experience-title {
-      font-size: 1.3rem;
-      color: #f0f0ff;
-      margin-bottom: 8px;
-    }
-    
-    .experience-subtitle {
-      font-size: 1.1rem;
-      color: #d8b220;
-      margin-bottom: 12px;
-    }
-    
-    .experience-details {
-      font-size: 1.05rem;
-      color: rgba(200, 200, 230, 0.9);
-      line-height: 1.6;
-    }
-    
-    .social-section {
-      background: rgba(40, 38, 60, 0.7);
-      border-radius: 20px;
-      padding: 30px;
-      border: 1px solid rgba(80, 80, 120, 0.2);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-      margin-top: 30px;
-    }
-    
-    .social-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 25px;
-    }
-    
-    .social-card {
-      background: rgba(50, 48, 70, 0.8);
-      border-radius: 16px;
       padding: 20px;
       border: 1px solid rgba(80, 80, 120, 0.2);
       display: flex;
       align-items: center;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      color: #e0e0ff;
+      position: relative;
+      overflow: hidden;
+      min-height: 110px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
     }
     
-    .social-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    .link-card:hover {
+      background: rgba(50, 48, 70, 0.7);
       border-color: rgba(200, 170, 50, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      transform: translateY(-3px);
     }
     
-    .social-icon {
-      width: 60px;
-      height: 60px;
+    .link-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0.03) 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .link-card:hover::before {
+      opacity: 1;
+    }
+    
+    /* Enhanced selection ring effect */
+    .link-card.selected {
+      position: relative;
+    }
+    
+    .link-card.selected::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 20px;
+      z-index: 5;
+      animation: selectionRing 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+      pointer-events: none;
+      box-shadow: 0 0 0 3px rgba(216, 178, 32, 0.8);
+    }
+    
+    @keyframes selectionRing {
+      0% {
+        box-shadow: 0 0 0 0 rgba(216, 178, 32, 0);
+        border: 2px solid rgba(216, 178, 32, 0);
+      }
+      30% {
+        box-shadow: 0 0 0 10px rgba(216, 178, 32, 0.3);
+        border: 2px solid rgba(216, 178, 32, 0.9);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(216, 178, 32, 0.2);
+        border: 2px solid rgba(216, 178, 32, 0.7);
+      }
+      100% {
+        box-shadow: 0 0 0 25px rgba(216, 178, 32, 0);
+        border: 2px solid rgba(216, 178, 32, 0);
+      }
+    }
+    
+    .link-icon {
+      width: 65px;
+      height: 65px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-right: 18px;
       font-size: 1.8rem;
-      border-radius: 16px;
+      border-radius: 18px;
       flex-shrink: 0;
       color: white;
       box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
     
-    .facebook .social-icon {
+    .link-icon::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transform: scale(0);
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+    
+    .link-card:hover .link-icon::after {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+    
+    .link-card:hover .link-icon {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(200, 200, 255, 0.2);
+    }
+    
+    .facebook .link-icon {
       background: linear-gradient(135deg, #0f5fcf, #2a4a8a);
     }
     
-    .instagram .social-icon {
+    .instagram .link-icon {
       background: linear-gradient(135deg, #a02883, #c45c20);
     }
     
-    .tiktok .social-icon {
+    .tiktok .link-icon {
       background: linear-gradient(135deg, #000000, #4a9da0);
     }
     
-    .social-text {
+    .stardust-icon {
+      background: linear-gradient(135deg, #d8b220, #c96e1d) !important;
+    }
+    
+    .letsbailar-icon {
+      background: linear-gradient(135deg, #5548b0, #3a0066) !important;
+    }
+    
+    .estilo-icon {
+      background: linear-gradient(135deg, #1a8d88, #006d6d) !important;
+    }
+    
+    .contact-icon {
+      background: linear-gradient(135deg, #c96e1d, #b34700) !important;
+    }
+    
+    .venmo .link-icon {
+      background: linear-gradient(135deg, #2d7db0, #0066cc) !important;
+    }
+    
+    .cash .link-icon {
+      background: linear-gradient(135deg, #25a25a, #1d8c4f) !important;
+    }
+    
+    .link-icon i {
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s ease;
+    }
+    
+    .link-card:hover .link-icon i {
+      transform: scale(1.1);
+    }
+    
+    .facebook .link-icon i {
+      animation: none;
+    }
+    
+    .instagram .link-icon i {
+      animation: pulse 2s infinite ease-in-out;
+    }
+    
+    .tiktok .link-icon i {
+      animation: shake 1.8s infinite ease-in-out;
+    }
+    
+    .stardust .link-icon i {
+      animation: spin 5s infinite linear;
+    }
+    
+    .letsbailar .link-icon i {
+      animation: float 3s infinite ease-in-out;
+    }
+    
+    .estilo .link-icon i {
+      animation: pulse 2.5s infinite ease-in-out;
+    }
+    
+    .venmo .link-icon i {
+      animation: bounce 1.7s infinite ease-in-out;
+    }
+    
+    .cash .link-icon i {
+      animation: none;
+    }
+    
+    .contact .link-icon i {
+      /* Animation intentionally removed */
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(3deg); }
+      75% { transform: rotate(-3deg); }
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    .link-text {
       flex: 1;
     }
     
-    .social-title {
-      font-size: 1.25rem;
+    .link-title {
+      font-size: 1.3rem;
       font-weight: 700;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
       color: #f0f0ff;
+      letter-spacing: 0.3px;
     }
     
-    .social-subtitle {
-      font-size: 1rem;
+    .link-subtitle {
+      font-size: 1.05rem;
       color: rgba(200, 200, 230, 0.9);
+      line-height: 1.5;
+    }
+    
+    .schedule-detail {
+      display: block;
+      margin-top: 8px;
+      color: #d8b220;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    
+    .dance-style {
+      display: block;
+      margin-top: 6px;
+      color: #c96e1d;
+      font-weight: 600;
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+    
+    footer {
+      margin-top: 40px;
+      padding: 25px;
+      text-align: center;
+      color: rgba(200, 200, 220, 0.8);
+      font-size: 1rem;
+      border-top: 1px solid rgba(80, 80, 120, 0.2);
+      line-height: 1.6;
+      background: rgba(15, 10, 30, 0.45);
+      backdrop-filter: blur(6px);
+    }
+    
+    /* Enhanced Music Particles - More subtle */
+    .music-particle {
+      position: fixed;
+      color: rgba(255, 215, 0, 0.7); 
+      z-index: 100;
+      pointer-events: none;
+      opacity: 0;
+      font-size: 22px;
+      font-weight: normal;
+      transform-origin: center;
+      animation: floatParticle 1.6s ease-out forwards;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+    }
+    
+    @keyframes floatParticle {
+      0% {
+        transform: 
+          translate(0, 0) 
+          scale(0.9);
+        opacity: 0.8;
+      }
+      70% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: 
+          translate(var(--tx, 0), var(--ty, -120px)) 
+          scale(0.4);
+        opacity: 0;
+      }
+    }
+    
+    .registration-form {
+      background: rgba(25, 22, 42, 0.9);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 35px 0;
+      border: 1px solid rgba(80, 80, 120, 0.2);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .form-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #d8b220;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+      letter-spacing: 1px;
+    }
+    
+    .form-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 4px;
+      background: linear-gradient(to right, #c96e1d, #d8b220);
+      border-radius: 2px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+      position: relative;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(80, 80, 120, 0.3);
+      background: rgba(40, 38, 60, 0.5);
+      color: #e0e0ff;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      -webkit-appearance: none;
+      appearance: none;
+      font-family: 'Segoe UI', sans-serif;
+      box-shadow: inset 0 3px 8px rgba(0,0,0,0.15);
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: #d8b220;
+      background: rgba(50, 48, 70, 0.5);
+      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.15);
+    }
+    
+    .form-input::placeholder {
+      color: rgba(180, 180, 210, 0.7);
+      font-size: 1rem;
+    }
+    
+    .form-select {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(80, 80, 120, 0.3);
+      background: rgba(40, 38, 60, 0.5);
+      color: #e0e0ff;
+      font-size: 1.1rem;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d8b220'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 18px center;
+      background-size: 18px;
+      transition: all 0.3s ease;
+      -webkit-appearance: none;
+      font-family: 'Segoe UI', sans-serif;
+      box-shadow: inset 0 3px 8px rgba(0,0,0,0.15);
+    }
+    
+    .form-select:focus {
+      outline: none;
+      border-color: #d8b220;
+      background: rgba(50, 48, 70, 0.5);
+      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.15);
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, #c96e1d, #d8b220);
+      color: #0a0915;
+      border: none;
+      border-radius: 16px;
+      padding: 18px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      display: block;
+      touch-action: manipulation;
+      font-family: 'Segoe UI', sans-serif;
+      letter-spacing: 0.7px;
+      box-shadow: 0 8px 25px rgba(180, 100, 34, 0.4);
+      text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+    }
+    
+    .submit-btn:hover {
+      opacity: 0.95;
+      box-shadow: 0 10px 30px rgba(180, 100, 34, 0.5);
+      transform: translateY(-3px);
+    }
+    
+    .submit-btn:active {
+      transform: translateY(1px);
+    }
+    
+    .thank-you-message {
+      display: none;
+      text-align: center;
+      padding: 35px 25px;
+      border-radius: 20px;
+      background: rgba(25, 22, 42, 0.95);
+      margin-top: 20px;
+      border: 1px solid rgba(80, 80, 120, 0.2);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 0.8s ease-out;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .thank-you-message h3 {
+      font-size: 1.8rem;
+      color: #d8b220;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 18px;
+    }
+    
+    .thank-you-message h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 4px;
+      background: linear-gradient(to right, #c96e1d, #d8b220);
+      border-radius: 2px;
+    }
+    
+    .thank-you-message p {
+      font-size: 1.15rem;
+      margin-bottom: 30px;
+      color: rgba(200, 200, 230, 0.95);
+      line-height: 1.6;
+    }
+    
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 180, 80, 0.15);
+      color: #e0e0ff;
+      text-decoration: none;
+      padding: 16px 30px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      touch-action: manipulation;
+      font-family: 'Segoe UI', sans-serif;
+      border: 1px solid rgba(30, 180, 80, 0.25);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+    
+    .whatsapp-btn:hover {
+      background: rgba(30, 180, 80, 0.25);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+    
+    .whatsapp-btn i {
+      margin-right: 12px;
+      font-size: 1.3rem;
     }
     
     .corner-decoration {
@@ -409,19 +757,67 @@
       border-bottom-right-radius: 24px;
     }
     
-    footer {
-      margin-top: 40px;
-      padding: 25px;
+    .non-link-card {
+      cursor: default;
+    }
+    
+    .non-link-card:hover {
+      transform: none;
+      background: rgba(40, 38, 60, 0.7);
+      border-color: rgba(80, 80, 120, 0.2);
+    }
+    
+    .non-link-card .link-icon::after,
+    .non-link-card:hover .link-icon::after {
+      display: none;
+    }
+    
+    .non-link-card:hover .link-icon {
+      transform: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+    }
+    
+    .non-link-card:hover .link-icon i {
+      transform: none;
+    }
+    
+    /* Celebration animation for thank you message */
+    .confetti {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #d8b220;
+      border-radius: 2px;
+      z-index: 1;
+      animation: confetti-fall 5s linear forwards;
+      opacity: 0;
+    }
+    
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+    
+    /* Improved form layout */
+    .form-notice {
       text-align: center;
-      color: rgba(200, 200, 220, 0.8);
+      margin-top: 20px;
+      color: rgba(200, 200, 230, 0.8);
       font-size: 1rem;
-      border-top: 1px solid rgba(80, 80, 120, 0.2);
-      line-height: 1.6;
-      background: rgba(15, 10, 30, 0.45);
-      backdrop-filter: blur(6px);
     }
     
     @media (max-width: 768px) {
+      .links-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
       .logo-container {
         width: 130px;
         height: 130px;
@@ -439,24 +835,39 @@
         font-size: 1.15rem;
       }
       
+      .link-card {
+        padding: 20px;
+      }
+      
+      .link-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+      }
+      
       .section-title {
         font-size: 1.6rem;
         margin: 35px 0 20px;
       }
       
-      .about-section, .experience-section, .social-section {
+      .registration-form {
         padding: 25px;
+      }
+      
+      .form-title {
+        font-size: 1.6rem;
       }
     }
     
     @media (max-width: 480px) {
       body {
-        padding: 10px;
+        padding: 0;
       }
       
       .container {
         margin: 10px;
         border-radius: 20px;
+        width: calc(100% - 20px);
       }
       
       header {
@@ -490,21 +901,46 @@
         margin: 30px 0 20px;
       }
       
-      .social-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .social-card {
+      .link-card {
         padding: 16px;
+        min-height: 100px;
       }
       
-      .social-icon {
+      .link-icon {
         width: 50px;
         height: 50px;
         font-size: 1.6rem;
         margin-right: 15px;
       }
       
+      .link-title {
+        font-size: 1.2rem;
+      }
+      
+      .link-subtitle {
+        font-size: 0.95rem;
+      }
+      
+      .registration-form {
+        padding: 20px;
+        margin: 25px 0;
+      }
+      
+      .form-input, .form-select {
+        padding: 14px 16px;
+        font-size: 1.05rem;
+      }
+      
+      .submit-btn {
+        padding: 16px;
+        font-size: 1.15rem;
+      }
+      
+      .corner-decoration {
+        width: 60px;
+        height: 60px;
+      }
+
       footer {
         padding: 20px;
         font-size: 0.95rem;
@@ -514,6 +950,8 @@
 </head>
 <body>
   <div class="background"></div>
+  
+  <div id="music-particles-container"></div>
   
   <div class="container">
     <div class="corner-decoration corner-top-left"></div>
@@ -533,84 +971,156 @@
     </header>
     
     <div class="content">
-      <div class="profile-grid">
-        <div class="about-section">
-          <h2 class="about-title">About Me</h2>
-          <div class="about-content">
-            <p>With over 15 years of professional dance experience, I specialize in Latin dance styles including Salsa, Bachata, and Cha-Cha. My journey began in the vibrant dance communities of Colombia, where I developed a deep passion for the art of movement.</p>
-            <p>My teaching philosophy centers on creating a supportive, energetic environment where students can discover the joy of dance while developing strong technical skills. I believe dance is a universal language that connects people across cultures.</p>
-            <p>As a performer and choreographer, I've had the privilege to work with international dance companies and perform at prestigious events worldwide.</p>
+      <h2 class="section-title">Connect With Me</h2>
+      <div class="links-grid">
+        <div class="link-card clickable facebook" data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
+          <div class="link-icon">
+            <i class="fab fa-facebook-f"></i>
           </div>
-          
-          <div class="specialties">
-            <div class="specialty">Salsa Instruction</div>
-            <div class="specialty">Bachata Workshops</div>
-            <div class="specialty">Performance Coaching</div>
-            <div class="specialty">Choreography</div>
-            <div class="specialty">Dance Fitness</div>
+          <div class="link-text">
+            <div class="link-title">Daniel Palacios</div>
+            <div class="link-subtitle">Personal Facebook Profile</div>
           </div>
         </div>
         
-        <div class="experience-section">
-          <h2 class="about-title">Professional Experience</h2>
-          <div class="experience-item">
-            <h3 class="experience-title">Lead Instructor</h3>
-            <h4 class="experience-subtitle">Stardust Ballroom | 2018 - Present</h4>
-            <p class="experience-details">Teaching weekly Salsa and Bachata classes to students of all levels. Developed curriculum for progressive learning programs.</p>
+        <div class="link-card clickable instagram" data-url="https://www.instagram.com/danielp_bachata">
+          <div class="link-icon">
+            <i class="fab fa-instagram"></i>
           </div>
-          
-          <div class="experience-item">
-            <h3 class="experience-title">Dance Director</h3>
-            <h4 class="experience-subtitle">Latin Motion Dance Company | 2015 - 2020</h4>
-            <p class="experience-details">Directed performances, created choreography, and trained professional dancers for international competitions.</p>
+          <div class="link-text">
+            <div class="link-title">Instagram</div>
+            <div class="link-subtitle">@danielp_bachata</div>
           </div>
-          
-          <div class="experience-item">
-            <h3 class="experience-title">Guest Instructor</h3>
-            <h4 class="experience-subtitle">International Dance Festivals | 2012 - Present</h4>
-            <p class="experience-details">Conducted workshops at festivals across Europe, Asia, and North America, focusing on technique and musicality.</p>
+        </div>
+        
+        <div class="link-card clickable tiktok" data-url="https://www.tiktok.com/@danielp_bachata">
+          <div class="link-icon">
+            <i class="fab fa-tiktok"></i>
           </div>
-          
-          <div class="experience-item">
-            <h3 class="experience-title">Competition Judge</h3>
-            <h4 class="experience-subtitle">World Latin Dance Cup | 2019, 2021</h4>
-            <p class="experience-details">Served as a judge for professional division competitions, evaluating technique, musicality, and performance quality.</p>
+          <div class="link-text">
+            <div class="link-title">TikTok</div>
+            <div class="link-subtitle">@danielp_bachata</div>
           </div>
         </div>
       </div>
       
-      <div class="social-section">
-        <h2 class="section-title">Connect With Me</h2>
-        <div class="social-grid">
-          <a href="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr" class="social-card facebook" target="_blank">
-            <div class="social-icon">
-              <i class="fab fa-facebook-f"></i>
+      <h2 class="section-title">Class Schedule</h2>
+      <div class="links-grid">
+        <div class="link-card clickable stardust" data-url="https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr">
+          <div class="link-icon stardust-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Stardust Ballroom</div>
+            <div class="link-subtitle">
+              Bellmawr, New Jersey
+              <span class="schedule-detail">Mondays & Thursdays at 6:30pm</span>
+              <span class="dance-style">Salsa and Bachata</span>
             </div>
-            <div class="social-text">
-              <div class="social-title">Daniel Palacios</div>
-              <div class="social-subtitle">Personal Facebook Profile</div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable letsbailar" data-url="https://www.facebook.com/share/1QfGefKoK5/?mibextid=wwXIfr">
+          <div class="link-icon letsbailar-icon">
+            <i class="fas fa-city"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Let's Bailar Dance Studio</div>
+            <div class="link-subtitle">
+              Philadelphia
+              <span class="schedule-detail">Fridays at 7pm</span>
+              <span class="dance-style">Salsa and Bachata</span>
             </div>
-          </a>
+          </div>
+        </div>
+        
+        <div class="link-card estilo non-link-card">
+          <div class="link-icon estilo-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Estilo Dance Studio</div>
+            <div class="link-subtitle">
+              Fishtown, Philadelphia
+              <span class="schedule-detail">Saturdays at 4pm</span>
+              <span class="dance-style">Salsa and Bachata</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Improved Registration Form Section -->
+      <div class="registration-form">
+        <div class="form-title">Class Registration</div>
+        <form id="dance-registration">
+          <div class="form-group">
+            <input type="text" id="name" class="form-input" placeholder="Full Name" required>
+          </div>
           
-          <a href="https://www.instagram.com/danielp_bachata" class="social-card instagram" target="_blank">
-            <div class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </div>
-            <div class="social-text">
-              <div class="social-title">Instagram</div>
-              <div class="social-subtitle">@danielp_bachata</div>
-            </div>
-          </a>
+          <div class="form-group">
+            <input type="email" id="email" class="form-input" placeholder="Email Address" required>
+          </div>
           
-          <a href="https://www.tiktok.com/@danielp_bachata" class="social-card tiktok" target="_blank">
-            <div class="social-icon">
-              <i class="fab fa-tiktok"></i>
-            </div>
-            <div class="social-text">
-              <div class="social-title">TikTok</div>
-              <div class="social-subtitle">@danielp_bachata</div>
-            </div>
+          <div class="form-group">
+            <select id="location" class="form-select" required>
+              <option value="">Select class location</option>
+              <option value="stardust">Stardust Ballroom - Mon/Thu 6:30pm</option>
+              <option value="letsbailar">Let's Bailar - Fridays 7pm</option>
+              <option value="estilo">Estilo Dance - Saturdays 4pm</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="submit-btn">Complete Registration</button>
+          
+          <p class="form-notice">Your information is secure. We'll never share your details.</p>
+        </form>
+        
+        <div id="thank-you-message" class="thank-you-message">
+          <h3>Thank You for Registering!</h3>
+          <p>We're excited to dance with you!</p>
+          <p>Join our private WhatsApp group for class updates:</p>
+          <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Join Class Group
           </a>
+          <button class="submit-btn" id="register-again-btn" style="margin-top: 25px;">
+            Register Another Person
+          </button>
+        </div>
+      </div>
+      
+      <h2 class="section-title">Payment Options</h2>
+      <div class="links-grid">
+        <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
+          <div class="link-icon">
+            <i class="fab fa-vimeo-v"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Venmo</div>
+            <div class="link-subtitle">Secure payment option</div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable cash">
+          <div class="link-icon">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Cash</div>
+            <div class="link-subtitle">Pay at the studio</div>
+          </div>
+        </div>
+      </div>
+      
+      <h2 class="section-title">Contact Me</h2>
+      <div class="links-grid">
+        <div class="link-card clickable contact" data-url="mailto:contact@danielpbachata.com">
+          <div class="link-icon contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Professional Inquiries</div>
+            <div class="link-subtitle">Bookings and partnerships</div>
+          </div>
         </div>
       </div>
     </div>
@@ -622,31 +1132,207 @@
   </div>
 
   <script>
+    function createMusicParticle(event) {
+      const container = document.getElementById('music-particles-container');
+      const particleCount = 2; // Fewer particles
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'music-particle';
+        
+        // Use musical symbols instead of icons
+        const symbols = ['♪', '♫'];
+        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+        particle.textContent = symbol;
+        
+        const posX = event.clientX + (Math.random() - 0.5) * 50;
+        const posY = event.clientY + (Math.random() - 0.5) * 50;
+        
+        particle.style.left = `${posX}px`;
+        particle.style.top = `${posY}px`;
+        
+        // More natural movement
+        const translateX = (Math.random() - 0.5) * 80;
+        const translateY = -100 - Math.random() * 50;
+        
+        particle.style.setProperty('--tx', `${translateX}px`);
+        particle.style.setProperty('--ty', `${translateY}px`);
+        
+        // Size variations
+        const size = 18 + Math.random() * 6;
+        particle.style.fontSize = `${size}px`;
+        
+        // Animation duration
+        const duration = 1.2 + Math.random() * 0.5;
+        particle.style.animationDuration = `${duration}s`;
+        
+        container.appendChild(particle);
+        
+        // Clean up after animation
+        setTimeout(() => {
+          if (particle.parentNode) {
+            particle.remove();
+          }
+        }, duration * 1000);
+      }
+    }
+    
+    function createConfetti() {
+      const container = document.getElementById('thank-you-message');
+      if (!container) return;
+      
+      const confettiCount = 30;
+      for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        
+        // Random colors
+        const colors = ['#d8b220', '#c96e1d', '#5548b0', '#1a8d88', '#ffffff'];
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Position
+        const left = Math.random() * 100;
+        confetti.style.left = `${left}%`;
+        
+        // Size
+        const size = 6 + Math.random() * 6;
+        confetti.style.width = `${size}px`;
+        confetti.style.height = `${size}px`;
+        
+        // Animation delay
+        const delay = Math.random() * 2;
+        confetti.style.animationDelay = `${delay}s`;
+        
+        container.appendChild(confetti);
+        
+        // Clean up after animation
+        setTimeout(() => {
+          if (confetti.parentNode) {
+            confetti.remove();
+          }
+        }, 5000 + delay * 1000);
+      }
+    }
+    
     document.addEventListener('DOMContentLoaded', function() {
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
+      const clickableElements = document.querySelectorAll('.clickable');
+      
+      clickableElements.forEach(el => {
+        el.addEventListener('click', function(e) {
+          createMusicParticle(e);
           
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth'
-            });
+          // Add selection effect
+          this.classList.add('selected');
+          
+          // Remove selection effect after animation completes
+          setTimeout(() => {
+            this.classList.remove('selected');
+          }, 800);
+          
+          const url = this.getAttribute('data-url');
+          
+          if (this.classList.contains('cash')) {
+            setTimeout(() => {
+              alert('Cash payments accepted at all class locations. Exact change is appreciated.');
+            }, 100);
+          } 
+          else if (url) {
+            setTimeout(() => {
+              window.open(url, '_blank');
+            }, 100);
           }
         });
       });
       
-      // Logo animation on hover
-      const logo = document.querySelector('.logo');
-      logo.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.05)';
-        this.style.boxShadow = '0 12px 35px rgba(180, 100, 34, 0.5)';
+      const estiloCard = document.querySelector('.estilo');
+      estiloCard.addEventListener('click', function(e) {
+        createMusicParticle(e);
+        
+        // Add selection effect to non-link card
+        this.classList.add('selected');
+        
+        // Remove selection effect after animation completes
+        setTimeout(() => {
+          this.classList.remove('selected');
+        }, 800);
       });
       
-      logo.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-        this.style.boxShadow = '0 10px 30px rgba(180, 100, 34, 0.4)';
+      const registrationForm = document.getElementById('dance-registration');
+      const thankYouMessage = document.getElementById('thank-you-message');
+      const submitBtn = registrationForm.querySelector('button[type="submit"]');
+      const registerAgainBtn = document.getElementById('register-again-btn');
+      
+      // Function to reset the form
+      function resetForm() {
+        registrationForm.reset();
+        thankYouMessage.style.display = 'none';
+        registrationForm.style.display = 'block';
+      }
+      
+      // Handle registration again button
+      registerAgainBtn.addEventListener('click', function() {
+        resetForm();
+      });
+      
+      // Add focus event listeners to prevent keyboard issues
+      const formInputs = document.querySelectorAll('.form-input, .form-select');
+      formInputs.forEach(input => {
+        input.addEventListener('focus', function() {
+          // Keep the form visible and prevent any scrolling issues
+          this.style.backgroundColor = 'rgba(50, 48, 70, 0.5)';
+        });
+        
+        input.addEventListener('blur', function() {
+          // Reset styles on blur
+          this.style.backgroundColor = 'rgba(40, 38, 60, 0.5)';
+        });
+      });
+      
+      registrationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const location = document.getElementById('location').value;
+        
+        if (!name.trim()) {
+          alert('Please enter your name.');
+          return;
+        }
+        
+        if (!email.trim()) {
+          alert('Please enter your email address.');
+          return;
+        }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+        
+        if (!location) {
+          alert('Please select a class location.');
+          return;
+        }
+        
+        submitBtn.textContent = 'Processing...';
+        submitBtn.disabled = true;
+        
+        setTimeout(function() {
+          // Instead of hiding the form, just show the thank you message
+          registrationForm.style.display = 'none';
+          thankYouMessage.style.display = 'block';
+          
+          // Scroll to the thank you message smoothly
+          thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          submitBtn.textContent = 'Complete Registration';
+          submitBtn.disabled = false;
+          
+          // Create subtle confetti instead of particles
+          createConfetti();
+        }, 1000);
       });
     });
   </script>
