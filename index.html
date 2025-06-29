@@ -444,24 +444,24 @@
       backdrop-filter: blur(6px);
     }
     
-    .music-note {
+    /* Improved Music Note Particles */
+    .music-particle {
       position: fixed;
-      color: #d4b000;
+      color: rgba(255, 215, 0, 0.8); /* Softer gold color */
       z-index: 100;
       pointer-events: none;
       opacity: 0;
-      text-shadow: 0 0 8px rgba(200, 170, 0, 0.6);
-      animation: fallNote 2s ease-out forwards;
-      font-size: var(--size, 24px);
+      font-size: 16px; /* Smaller size */
       transform-origin: center;
+      animation: floatParticle 1.5s ease-out forwards;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
     }
     
-    @keyframes fallNote {
+    @keyframes floatParticle {
       0% {
         transform: 
           translate(0, 0) 
-          scale(1.1) 
-          rotate(0deg);
+          scale(0.8);
         opacity: 0.9;
       }
       70% {
@@ -469,9 +469,8 @@
       }
       100% {
         transform: 
-          translate(var(--tx, 0), var(--ty, 100px)) 
-          scale(0.4) 
-          rotate(var(--rot, 0deg));
+          translate(var(--tx, 0), var(--ty, -100px)) 
+          scale(0.4);
         opacity: 0;
       }
     }
@@ -869,7 +868,7 @@
 <body>
   <div class="background"></div>
   
-  <div id="music-notes-container"></div>
+  <div id="music-particles-container"></div>
   
   <div class="container">
     <div class="corner-decoration corner-top-left"></div>
@@ -1045,46 +1044,48 @@
   </div>
 
   <script>
-    function createMusicNote(event) {
-      const notesContainer = document.getElementById('music-notes-container');
-      const noteCount = 3 + Math.floor(Math.random() * 3);
+    function createMusicParticle(event) {
+      const container = document.getElementById('music-particles-container');
+      const particleCount = 2; // Fewer particles
       
-      for (let i = 0; i < noteCount; i++) {
-        const note = document.createElement('div');
-        note.className = 'music-note';
-        note.innerHTML = '<i class="fas fa-music"></i>';
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'music-particle';
         
-        const posX = event.clientX + (Math.random() - 0.5) * 80;
-        const posY = event.clientY + (Math.random() - 0.5) * 60;
+        // Use musical symbols instead of icons
+        const symbols = ['♪', '♫', '♬', '♩'];
+        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+        particle.textContent = symbol;
         
-        note.style.left = `${posX}px`;
-        note.style.top = `${posY}px`;
+        const posX = event.clientX + (Math.random() - 0.5) * 40;
+        const posY = event.clientY + (Math.random() - 0.5) * 40;
         
-        const sizeOptions = [16, 24, 32, 40];
-        const size = sizeOptions[Math.floor(Math.random() * sizeOptions.length)];
+        particle.style.left = `${posX}px`;
+        particle.style.top = `${posY}px`;
         
-        const rotation = (Math.random() - 0.5) * 180;
-        const translateX = (Math.random() - 0.5) * 150;
-        const translateY = 150 + Math.random() * 100;
-        const delay = Math.random() * 0.5;
-        const duration = 1.5 + Math.random() * 1.0;
+        // More subtle movement
+        const translateX = (Math.random() - 0.5) * 80;
+        const translateY = -100 - Math.random() * 50;
         
-        note.style.setProperty('--rot', `${rotation}deg`);
-        note.style.setProperty('--tx', `${translateX}px`);
-        note.style.setProperty('--ty', `${translateY}px`);
-        note.style.setProperty('--size', `${size}px`);
+        particle.style.setProperty('--tx', `${translateX}px`);
+        particle.style.setProperty('--ty', `${translateY}px`);
         
-        note.style.fontSize = `${size}px`;
-        note.style.animationDelay = `${delay}s`;
-        note.style.animationDuration = `${duration}s`;
+        // Random size for variation
+        const size = 16 + Math.random() * 8;
+        particle.style.fontSize = `${size}px`;
         
-        notesContainer.appendChild(note);
+        // Random animation duration
+        const duration = 1.2 + Math.random() * 0.6;
+        particle.style.animationDuration = `${duration}s`;
         
+        container.appendChild(particle);
+        
+        // Clean up after animation
         setTimeout(() => {
-          if (note.parentNode) {
-            note.remove();
+          if (particle.parentNode) {
+            particle.remove();
           }
-        }, (duration + delay) * 1000);
+        }, duration * 1000);
       }
     }
     
@@ -1093,7 +1094,7 @@
       
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
-          createMusicNote(e);
+          createMusicParticle(e);
           
           const url = this.getAttribute('data-url');
           
@@ -1112,7 +1113,7 @@
       
       const estiloCard = document.querySelector('.estilo');
       estiloCard.addEventListener('click', function(e) {
-        createMusicNote(e);
+        createMusicParticle(e);
       });
       
       const registrationForm = document.getElementById('dance-registration');
@@ -1160,13 +1161,14 @@
           
           thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
           
-          for (let i = 0; i < 7; i++) {
+          // Create celebration particles
+          for (let i = 0; i < 12; i++) {
             setTimeout(() => {
               const randomX = Math.random() * window.innerWidth;
               const randomY = Math.random() * window.innerHeight;
               const fakeEvent = { clientX: randomX, clientY: randomY };
-              createMusicNote(fakeEvent);
-            }, i * 200);
+              createMusicParticle(fakeEvent);
+            }, i * 150);
           }
         }, 1000);
       });
