@@ -1,543 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dance Registration | Daniel Palacios</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --primary: #28263c;
-      --secondary: #d8b220;
-      --accent: #ff4d94;
-      --light: #f8f7ff;
-      --dark: #1a1829;
-      --gray: #8a889e;
-      --success: #4caf50;
-      --card-bg: rgba(40, 38, 60, 0.9);
-      --card-border: rgba(80, 80, 120, 0.3);
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1a1829, #34315e);
-      color: var(--light);
-      min-height: 100vh;
-      padding: 20px;
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      animation: fadeIn 1s ease;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .logo-icon {
-      font-size: 2.5rem;
-      color: var(--secondary);
-      animation: pulse 2s infinite;
-    }
-
-    h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      background: linear-gradient(to right, var(--secondary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
-      font-family: 'Dancing Script', cursive;
-    }
-
-    .subtitle {
-      font-size: 1.2rem;
-      color: var(--gray);
-      max-width: 600px;
-      margin: 0 auto 30px;
-    }
-
-    .card-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 768px) {
-      .card-container {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    }
-
-    .card h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: var(--secondary);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .card h2 i {
-      color: var(--accent);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
-      color: var(--light);
-    }
-
-    .form-input, .form-select {
-      width: 100%;
-      padding: 15px;
-      border-radius: 12px;
-      border: 1px solid var(--card-border);
-      background: rgba(30, 28, 46, 0.7);
-      color: var(--light);
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .form-input:focus, .form-select:focus {
-      outline: none;
-      border-color: var(--secondary);
-      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.15);
-    }
-
-    button[type="submit"] {
-      background: linear-gradient(135deg, var(--secondary), #e0a800);
-      color: var(--dark);
-      border: none;
-      border-radius: 12px;
-      padding: 16px 30px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
-      margin-top: 10px;
-      box-shadow: 0 6px 18px rgba(216, 178, 32, 0.3);
-    }
-
-    button[type="submit"]:hover {
-      background: linear-gradient(135deg, #e0a800, var(--secondary));
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(216, 178, 32, 0.4);
-    }
-
-    .thank-you-message {
-      text-align: center;
-      padding: 30px;
-      border-radius: 20px;
-      background: rgba(30, 45, 30, 0.8);
-      border: 1px solid rgba(76, 175, 80, 0.3);
-      display: none;
-      animation: slideUp 0.5s ease;
-    }
-
-    .thank-you-message h3 {
-      font-size: 2.2rem;
-      color: var(--success);
-      margin-bottom: 20px;
-    }
-
-    .thank-you-message p {
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-    }
-
-    .additional-options {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .whatsapp-btn, .register-another-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 16px 30px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      text-align: center;
-    }
-
-    .whatsapp-btn {
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      color: white;
-      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
-    }
-
-    .whatsapp-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-    }
-
-    .register-another-btn {
-      background: var(--card-bg);
-      color: var(--light);
-      border: 1px solid var(--card-border);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-    }
-
-    .register-another-btn:hover {
-      background: rgba(50, 48, 70, 0.9);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-      border-color: rgba(200, 170, 50, 0.3);
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      margin-top: 50px;
-      color: var(--gray);
-      font-size: 0.9rem;
-    }
-
-    footer p:first-child {
-      margin-bottom: 10px;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { 
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to { 
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.8rem;
-      }
-      
-      .card {
-        padding: 20px;
-      }
-      
-      .form-input, .form-select {
-        padding: 12px;
-      }
-      
-      button[type="submit"], .whatsapp-btn, .register-another-btn {
-        padding: 14px 20px;
-        font-size: 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <div class="logo">
-        <i class="fas fa-heart logo-icon"></i>
-        <h1>Daniel Palacios</h1>
-      </div>
-      <p class="subtitle">Professional Dance Instruction - Where Passion Meets Movement</p>
-    </header>
-
-    <div class="card-container">
-      <div class="card">
-        <h2><i class="fas fa-info-circle"></i> About Our Classes</h2>
-        <p>Experience the joy of dance with our professional instruction. Our classes are designed for all skill levels, from beginners to advanced dancers.</p>
-        
-        <div class="form-group">
-          <h3><i class="fas fa-star"></i> Class Benefits</h3>
-          <ul>
-            <li>Professional instruction from award-winning dancers</li>
-            <li>Small class sizes for personalized attention</li>
-            <li>Flexible scheduling for busy lifestyles</li>
-            <li>Social events and dance parties</li>
-            <li>Performance opportunities</li>
-          </ul>
-        </div>
-        
-        <div class="form-group">
-          <h3><i class="fas fa-map-marker-alt"></i> Studio Locations</h3>
-          <p>We have multiple locations across the city for your convenience:</p>
-          <ul>
-            <li>Downtown Cultural Center</li>
-            <li>Westside Dance Academy</li>
-            <li>Riverside Arts Complex</li>
-            <li>South Park Dance Studio</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="card">
-        <h2><i class="fas fa-user-plus"></i> Register Now</h2>
-        <form id="dance-registration">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" class="form-input" placeholder="Enter your full name">
-          </div>
-          
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" class="form-input" placeholder="Enter your email">
-          </div>
-          
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" class="form-input" placeholder="Enter your phone number">
-          </div>
-          
-          <div class="form-group">
-            <label for="location">Preferred Location</label>
-            <select id="location" class="form-select">
-              <option value="">Select a location</option>
-              <option value="downtown">Downtown Cultural Center</option>
-              <option value="westside">Westside Dance Academy</option>
-              <option value="riverside">Riverside Arts Complex</option>
-              <option value="southpark">South Park Dance Studio</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="dance-style">Dance Style</label>
-            <select id="dance-style" class="form-select">
-              <option value="">Select a dance style</option>
-              <option value="salsa">Salsa</option>
-              <option value="bachata">Bachata</option>
-              <option value="tango">Tango</option>
-              <option value="swing">Swing</option>
-              <option value="ballroom">Ballroom</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="experience">Dance Experience</label>
-            <select id="experience" class="form-select">
-              <option value="">Select your experience level</option>
-              <option value="beginner">Beginner</option>
-              <option value="intermediate">Intermediate</option>
-              <option value="advanced">Advanced</option>
-            </select>
-          </div>
-          
-          <button type="submit">
-            <i class="fas fa-paper-plane"></i> Complete Registration
-          </button>
-        </form>
-        
-        <div id="thank-you-message" class="thank-you-message">
-          <h3>Thank You for Registering!</h3>
-          <p>We're excited to dance with you! A confirmation email has been sent to your inbox.</p>
-          
-          <div class="additional-options">
-            <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
-              <i class="fab fa-whatsapp"></i> Join Class Group
-            </a>
-            
-            <button id="register-another-btn" class="register-another-btn">
-              <i class="fas fa-user-plus"></i> Register Another Person
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <footer>
-      <p>© 2025 Daniel Palacios | Professional Dance Instruction</p>
-      <p>Dance is the hidden language of the soul</p>
-    </footer>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const registrationForm = document.getElementById('dance-registration');
-      const thankYouMessage = document.getElementById('thank-you-message');
-      const submitBtn = registrationForm.querySelector('button[type="submit"]');
-      const registerAnotherBtn = document.getElementById('register-another-btn');
-      
-      // Form validation and submission
-      registrationForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const location = document.getElementById('location').value;
-        
-        // Simple validation
-        if (!name.trim()) {
-          showError('Please enter your name.');
-          return;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Dance Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        if (!email.trim()) {
-          showError('Please enter your email address.');
-          return;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f9f7ff 0%, #eae6ff 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
         }
         
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          showError('Please enter a valid email address.');
-          return;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
         
-        if (!location) {
-          showError('Please select a class location.');
-          return;
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeIn 1s ease;
         }
         
-        // Show processing state
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-        submitBtn.disabled = true;
-        
-        // Simulate form submission
-        setTimeout(function() {
-          registrationForm.style.display = 'none';
-          thankYouMessage.style.display = 'block';
-          
-          // Reset form
-          registrationForm.reset();
-          
-          // Reset button state
-          submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Complete Registration';
-          submitBtn.disabled = false;
-          
-          // Create confetti celebration
-          createConfetti();
-        }, 1500);
-      });
-      
-      // Register another person functionality
-      registerAnotherBtn.addEventListener('click', function() {
-        thankYouMessage.style.display = 'none';
-        registrationForm.style.display = 'block';
-        
-        // Scroll to form
-        registrationForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      });
-      
-      // Show error message
-      function showError(message) {
-        const errorEl = document.createElement('div');
-        errorEl.className = 'error-message';
-        errorEl.innerHTML = `
-          <div style="background: #ff4d4d; color: white; padding: 10px; border-radius: 8px; margin-top: 15px; display: flex; align-items: center; gap: 10px;">
-            <i class="fas fa-exclamation-circle"></i> ${message}
-          </div>
-        `;
-        
-        // Remove any existing error
-        const existingError = registrationForm.querySelector('.error-message');
-        if (existingError) existingError.remove();
-        
-        registrationForm.appendChild(errorEl);
-        
-        // Auto remove after 5 seconds
-        setTimeout(() => {
-          errorEl.style.opacity = '0';
-          setTimeout(() => errorEl.remove(), 300);
-        }, 5000);
-      }
-      
-      // Confetti effect
-      function createConfetti() {
-        const duration = 5 * 1000;
-        const animationEnd = Date.now() + duration;
-        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-        
-        function randomInRange(min, max) {
-          return Math.random() * (max - min) + min;
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
         }
         
-        const interval = setInterval(function() {
-          const timeLeft = animationEnd - Date.now();
-          
-          if (timeLeft <= 0) {
-            return clearInterval(interval);
-          }
-          
-          const particleCount = 50 * (timeLeft / duration);
-          
-          // Since particles fall down, start a bit higher than random
-          confetti(
-            Object.assign({}, defaults, {
-              particleCount,
-              origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
-            })
-          );
-          confetti(
-            Object.assign({}, defaults, {
-              particleCount,
-              origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
-            })
-          );
-        }, 250);
-      }
-    });
-  </script>
-  
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-</body>
-</html>
+        .logo-icon {
+            font-size: 3.5rem;
+            color: #8a6dff;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: #4a3aff;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+        
+        .content-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        
+        .info-card {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(138, 109, 255, 0.12);
+            transition: transform 0.3s ease;
+        }
+        
+        .form-card {
+            flex: 1;
+            min-width: 350px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(138, 109, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #8a6dff, #5a7dff);
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #4a3aff;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .card h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #8a6dff, #5a7dff);
+            border-radius: 2px;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .benefits-list li {
+            padding: 12px 0 12px 45px;
+            position: relative;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+        
+        .benefits-list li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            background: rgba(138, 109, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8a6dff;
+        }
+        
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .location-card {
+            background: #f7f5ff;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(138, 109, 255, 0.1);
+        }
+        
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(138, 109, 255, 0.15);
+        }
+        
+        .location-card i {
+            font-size: 1.8rem;
+            color: #8a6dff;
+            margin-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+            font-size: 1.05rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid #e0daff;
+            background: #fcfbff;
+            color: #333;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #8a6dff;
+            box-shadow: 0 0 0 4px rgba(138, 109, 255, 0.2);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid #e0daff;
+            background: #fcfbff;
+            color: #333;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a6dff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: #8a6dff;
+            box-shadow: 0 0 0 4px rgba(138, 109, 255, 0.2);
+        }
+        
+        button[type="submit"] {
+            background: linear-gradient(135deg, #8a6dff, #5a7dff);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 18px 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+            box-shadow: 0 10px 25px rgba(138, 109, 255, 0.3);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        
+        button[type="submit"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(138, 109, 255, 0.4);
+        }
+        
+        button[type="submit"] i {
+            margin-right: 10px;
+        }
+        
+        .thank-you-message {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f1eeff 0%, #e8e4ff 100%);
+            display: none;
+            animation: slideUp 0.5s ease;
+            border: 1px solid rgba(138, 109, 255, 0.2);
+        }
+        
+        .thank-you-message h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #4a3aff;
+            margin-bottom: 20px;
+        }
+        
+        .thank-you-message p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .additional-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .whatsapp-btn, .register-another-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+        
+        .register-another-btn {
+            background: white
