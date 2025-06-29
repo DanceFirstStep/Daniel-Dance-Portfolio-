@@ -132,6 +132,7 @@
       color: #fff;
       z-index: 2;
       text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      animation: spin 5s infinite linear;
     }
     
     header {
@@ -267,6 +268,30 @@
       overflow: hidden;
     }
     
+    .link-icon::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transform: scale(0);
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+    
+    .link-card:hover .link-icon::after {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+    
+    .link-card:hover .link-icon {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(200, 200, 255, 0.2);
+    }
+    
     .facebook .link-icon {
       background: linear-gradient(135deg, #0f5fcf, #2a4a8a);
     }
@@ -311,6 +336,69 @@
     
     .link-card:hover .link-icon i {
       transform: scale(1.1);
+    }
+    
+    /* Restored icon animations */
+    .facebook .link-icon i {
+      animation: none;
+    }
+    
+    .instagram .link-icon i {
+      animation: pulse 2s infinite ease-in-out;
+    }
+    
+    .tiktok .link-icon i {
+      animation: shake 1.8s infinite ease-in-out;
+    }
+    
+    .stardust .link-icon i {
+      animation: spin 5s infinite linear;
+    }
+    
+    .letsbailar .link-icon i {
+      animation: float 3s infinite ease-in-out;
+    }
+    
+    .estilo .link-icon i {
+      animation: pulse 2.5s infinite ease-in-out;
+    }
+    
+    .venmo .link-icon i {
+      animation: bounce 1.7s infinite ease-in-out;
+    }
+    
+    .cash .link-icon i {
+      animation: none;
+    }
+    
+    .contact .link-icon i {
+      animation: pulse 2.2s infinite ease-in-out;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(3deg); }
+      75% { transform: rotate(-3deg); }
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
     
     .link-text {
@@ -360,6 +448,38 @@
       backdrop-filter: blur(6px);
     }
     
+    /* Enhanced Music Particles - More visible */
+    .music-particle {
+      position: fixed;
+      color: rgba(255, 215, 0, 0.85); 
+      z-index: 100;
+      pointer-events: none;
+      opacity: 0;
+      font-size: 24px;
+      font-weight: normal;
+      transform-origin: center;
+      animation: floatParticle 1.6s ease-out forwards;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    
+    @keyframes floatParticle {
+      0% {
+        transform: 
+          translate(0, 0) 
+          scale(0.9);
+        opacity: 0.9;
+      }
+      70% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: 
+          translate(var(--tx, 0), var(--ty, -120px)) 
+          scale(0.4);
+        opacity: 0;
+      }
+    }
+    
     .registration-form {
       background: rgba(25, 22, 42, 0.9);
       border-radius: 20px;
@@ -375,7 +495,7 @@
     .form-title {
       font-size: 1.8rem;
       font-weight: 700;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
       color: #d8b220;
       text-align: center;
       position: relative;
@@ -393,6 +513,19 @@
       height: 4px;
       background: linear-gradient(to right, #c96e1d, #d8b220);
       border-radius: 2px;
+    }
+    
+    .partner-notice {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #d8b220;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      background: rgba(216, 178, 32, 0.1);
+      border-radius: 12px;
+      display: inline-block;
+      border: 1px solid rgba(216, 178, 32, 0.3);
     }
     
     .form-group {
@@ -764,6 +897,8 @@
 <body>
   <div class="background"></div>
   
+  <div id="music-particles-container"></div>
+  
   <div class="container">
     <div class="corner-decoration corner-top-left"></div>
     <div class="corner-decoration corner-top-right"></div>
@@ -862,6 +997,7 @@
       
       <div class="registration-form">
         <div class="form-title">Class Registration</div>
+        <div class="partner-notice">No partner needed - come dance with us!</div>
         <form id="dance-registration">
           <div class="form-group">
             <input type="text" id="name" class="form-input" placeholder="Full Name" required>
@@ -881,13 +1017,11 @@
           </div>
           
           <button type="submit" class="submit-btn">Complete Registration</button>
-          
-          <p class="form-notice">Your information is secure. We'll never share your details.</p>
         </form>
         
         <div id="thank-you-message" class="thank-you-message">
           <h3>Thank You for Registering!</h3>
-          <p>We're excited to dance with you!</p>
+          <p>We're excited to dance with you! Remember, no partner needed.</p>
           <p>Join our private WhatsApp group for class updates:</p>
           <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Join Class Group
@@ -900,7 +1034,6 @@
       
       <h2 class="section-title">Payment Options</h2>
       <div class="links-grid">
-        <!-- Venmo link reverted to original version -->
         <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
           <div class="link-icon">
             <i class="fab fa-vimeo-v"></i>
@@ -943,11 +1076,53 @@
   </div>
 
   <script>
+    function createMusicParticle(event) {
+      const container = document.getElementById('music-particles-container');
+      const particleCount = 3; 
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'music-particle';
+        
+        const symbols = ['♪', '♫'];
+        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+        particle.textContent = symbol;
+        
+        const posX = event.clientX + (Math.random() - 0.5) * 50;
+        const posY = event.clientY + (Math.random() - 0.5) * 50;
+        
+        particle.style.left = `${posX}px`;
+        particle.style.top = `${posY}px`;
+        
+        const translateX = (Math.random() - 0.5) * 80;
+        const translateY = -100 - Math.random() * 50;
+        
+        particle.style.setProperty('--tx', `${translateX}px`);
+        particle.style.setProperty('--ty', `${translateY}px`);
+        
+        const size = 18 + Math.random() * 6;
+        particle.style.fontSize = `${size}px`;
+        
+        const duration = 1.2 + Math.random() * 0.5;
+        particle.style.animationDuration = `${duration}s`;
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => {
+          if (particle.parentNode) {
+            particle.remove();
+          }
+        }, duration * 1000);
+      }
+    }
+    
     document.addEventListener('DOMContentLoaded', function() {
       const clickableElements = document.querySelectorAll('.clickable');
       
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
+          createMusicParticle(e);
+          
           this.classList.add('selected');
           
           setTimeout(() => {
@@ -971,6 +1146,8 @@
       
       const estiloCard = document.querySelector('.estilo');
       estiloCard.addEventListener('click', function(e) {
+        createMusicParticle(e);
+        
         this.classList.add('selected');
         
         setTimeout(() => {
