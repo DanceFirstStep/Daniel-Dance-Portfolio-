@@ -250,7 +250,7 @@
       opacity: 1;
     }
     
-    /* New selection ring effect */
+    /* Enhanced selection ring effect */
     .link-card.selected {
       position: relative;
     }
@@ -266,6 +266,7 @@
       z-index: 5;
       animation: selectionRing 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
       pointer-events: none;
+      box-shadow: 0 0 0 3px rgba(216, 178, 32, 0.8);
     }
     
     @keyframes selectionRing {
@@ -275,7 +276,11 @@
       }
       30% {
         box-shadow: 0 0 0 10px rgba(216, 178, 32, 0.3);
-        border: 2px solid rgba(216, 178, 32, 0.8);
+        border: 2px solid rgba(216, 178, 32, 0.9);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(216, 178, 32, 0.2);
+        border: 2px solid rgba(216, 178, 32, 0.7);
       }
       100% {
         box-shadow: 0 0 0 25px rgba(216, 178, 32, 0);
@@ -799,6 +804,14 @@
       }
     }
     
+    /* Improved form layout */
+    .form-notice {
+      text-align: center;
+      margin-top: 20px;
+      color: rgba(200, 200, 230, 0.8);
+      font-size: 1rem;
+    }
+    
     @media (max-width: 768px) {
       .links-grid {
         grid-template-columns: 1fr;
@@ -1036,7 +1049,7 @@
         </div>
       </div>
       
-      <!-- Registration Form Section -->
+      <!-- Improved Registration Form Section -->
       <div class="registration-form">
         <div class="form-title">Class Registration</div>
         <form id="dance-registration">
@@ -1058,6 +1071,8 @@
           </div>
           
           <button type="submit" class="submit-btn">Complete Registration</button>
+          
+          <p class="form-notice">Your information is secure. We'll never share your details.</p>
         </form>
         
         <div id="thank-you-message" class="thank-you-message">
@@ -1067,6 +1082,9 @@
           <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Join Class Group
           </a>
+          <button class="submit-btn" id="register-again-btn" style="margin-top: 25px;">
+            Register Another Person
+          </button>
         </div>
       </div>
       
@@ -1196,18 +1214,6 @@
       }
     }
     
-    function clearFormHighlight() {
-      const inputs = document.querySelectorAll('.form-input, .form-select');
-      inputs.forEach(input => {
-        // Clear focus state
-        input.blur();
-        
-        // Remove any lingering focus styles
-        input.style.boxShadow = 'none';
-        input.style.borderColor = 'rgba(80, 80, 120, 0.3)';
-      });
-    }
-    
     document.addEventListener('DOMContentLoaded', function() {
       const clickableElements = document.querySelectorAll('.clickable');
       
@@ -1254,14 +1260,31 @@
       const registrationForm = document.getElementById('dance-registration');
       const thankYouMessage = document.getElementById('thank-you-message');
       const submitBtn = registrationForm.querySelector('button[type="submit"]');
+      const registerAgainBtn = document.getElementById('register-again-btn');
       
-      // Add blur event listeners to form inputs to clear highlighting
+      // Function to reset the form
+      function resetForm() {
+        registrationForm.reset();
+        thankYouMessage.style.display = 'none';
+        registrationForm.style.display = 'block';
+      }
+      
+      // Handle registration again button
+      registerAgainBtn.addEventListener('click', function() {
+        resetForm();
+      });
+      
+      // Add focus event listeners to prevent keyboard issues
       const formInputs = document.querySelectorAll('.form-input, .form-select');
       formInputs.forEach(input => {
+        input.addEventListener('focus', function() {
+          // Keep the form visible and prevent any scrolling issues
+          this.style.backgroundColor = 'rgba(50, 48, 70, 0.5)';
+        });
+        
         input.addEventListener('blur', function() {
           // Reset styles on blur
-          this.style.boxShadow = 'none';
-          this.style.borderColor = 'rgba(80, 80, 120, 0.3)';
+          this.style.backgroundColor = 'rgba(40, 38, 60, 0.5)';
         });
       });
       
@@ -1297,25 +1320,20 @@
         submitBtn.disabled = true;
         
         setTimeout(function() {
+          // Instead of hiding the form, just show the thank you message
           registrationForm.style.display = 'none';
           thankYouMessage.style.display = 'block';
-          registrationForm.reset();
           
-          // Clear any form highlighting
-          clearFormHighlight();
+          // Scroll to the thank you message smoothly
+          thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
           
           submitBtn.textContent = 'Complete Registration';
           submitBtn.disabled = false;
-          
-          thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
           
           // Create subtle confetti instead of particles
           createConfetti();
         }, 1000);
       });
-      
-      // Set timeout to clear form highlights after a few seconds
-      setInterval(clearFormHighlight, 5000);
     });
   </script>
 </body>
