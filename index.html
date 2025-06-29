@@ -745,85 +745,6 @@
       transform: none;
     }
     
-    .testimonial-section {
-      background: rgba(25, 22, 42, 0.7);
-      border-radius: 18px;
-      padding: 30px;
-      margin: 40px 0;
-      border: 1px solid rgba(80, 80, 120, 0.2);
-      backdrop-filter: blur(10px);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .testimonial {
-      text-align: center;
-      padding: 20px;
-    }
-    
-    .testimonial-text {
-      font-size: 1.2rem;
-      font-style: italic;
-      color: rgba(200, 200, 230, 0.9);
-      line-height: 1.7;
-      max-width: 700px;
-      margin: 0 auto 20px;
-      position: relative;
-    }
-    
-    .testimonial-text::before,
-    .testimonial-text::after {
-      content: '"';
-      font-size: 3rem;
-      color: #d8b220;
-      opacity: 0.3;
-      position: absolute;
-    }
-    
-    .testimonial-text::before {
-      top: -20px;
-      left: -15px;
-    }
-    
-    .testimonial-text::after {
-      bottom: -40px;
-      right: -15px;
-    }
-    
-    .testimonial-author {
-      font-weight: 600;
-      color: #d8b220;
-      font-size: 1.1rem;
-    }
-    
-    .dance-styles {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 25px;
-    }
-    
-    .style-pill {
-      background: rgba(40, 38, 60, 0.5);
-      border: 1px solid rgba(200, 170, 50, 0.3);
-      border-radius: 50px;
-      padding: 8px 18px;
-      font-size: 0.95rem;
-      color: #d8b220;
-      font-weight: 500;
-    }
-    
-    .style-pill.salsa {
-      background: rgba(180, 70, 0, 0.15);
-      border-color: rgba(180, 70, 0, 0.3);
-    }
-    
-    .style-pill.bachata {
-      background: rgba(80, 70, 160, 0.15);
-      border-color: rgba(80, 70, 160, 0.3);
-    }
-    
     @media (max-width: 768px) {
       .links-grid {
         grid-template-columns: 1fr;
@@ -1005,21 +926,6 @@
         </div>
       </div>
       
-      <div class="testimonial-section">
-        <div class="testimonial">
-          <p class="testimonial-text">Daniel's teaching style transformed my dancing in just a few weeks! His attention to technique while keeping classes fun and engaging is unmatched.</p>
-          <p class="testimonial-author">- Sarah M., Student since 2023</p>
-          
-          <div class="dance-styles">
-            <div class="style-pill salsa">Salsa</div>
-            <div class="style-pill bachata">Bachata</div>
-            <div class="style-pill">Partner Work</div>
-            <div class="style-pill">Musicality</div>
-            <div class="style-pill">Technique</div>
-          </div>
-        </div>
-      </div>
-      
       <h2 class="section-title">Class Schedule</h2>
       <div class="links-grid">
         <div class="link-card clickable stardust" data-url="https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr">
@@ -1031,7 +937,7 @@
             <div class="link-subtitle">
               Bellmawr, New Jersey
               <span class="schedule-detail">Mondays & Thursdays at 6:30pm</span>
-              <span class="dance-style">Beginner to Advanced Classes</span>
+              <span class="dance-style">Salsa and Bachata</span>
             </div>
           </div>
         </div>
@@ -1045,7 +951,7 @@
             <div class="link-subtitle">
               Philadelphia
               <span class="schedule-detail">Fridays at 7pm</span>
-              <span class="dance-style">Social Dance Focus</span>
+              <span class="dance-style">Salsa and Bachata</span>
             </div>
           </div>
         </div>
@@ -1059,7 +965,7 @@
             <div class="link-subtitle">
               Fishtown, Philadelphia
               <span class="schedule-detail">Saturdays at 4pm</span>
-              <span class="dance-style">Advanced Technique Workshops</span>
+              <span class="dance-style">Salsa and Bachata</span>
             </div>
           </div>
         </div>
@@ -1138,7 +1044,7 @@
     
     <footer>
       <p>© 2025 Daniel Palacios | Professional Dance Instruction</p>
-      <p>Dance is the hidden language of the soul</p>
+      <p>Transform your passion into movement</p>
     </footer>
   </div>
 
@@ -1211,9 +1117,6 @@
       const estiloCard = document.querySelector('.estilo');
       estiloCard.addEventListener('click', function(e) {
         createMusicNote(e);
-        setTimeout(() => {
-          alert('More details about Estilo Dance Studio coming soon!');
-        }, 100);
       });
       
       const registrationForm = document.getElementById('dance-registration');
