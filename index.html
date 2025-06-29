@@ -18,7 +18,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 0; /* Reduced from 20px */
       overflow-x: hidden;
       position: relative;
       color: #e0e0ff;
@@ -47,8 +47,8 @@
     }
     
     .container {
-      width: 100%;
-      max-width: 900px;
+      width: calc(100% - 30px); /* More width utilization */
+      max-width: 920px; /* Slightly wider */
       background: rgba(20, 18, 35, 0.96);
       backdrop-filter: blur(12px);
       border-radius: 24px;
@@ -57,7 +57,7 @@
       overflow: hidden;
       position: relative;
       z-index: 10;
-      margin: 20px;
+      margin: 15px; /* Reduced from 20px */
       transition: all 0.4s ease;
     }
     
@@ -65,7 +65,7 @@
       position: relative;
       width: 150px;
       height: 150px;
-      margin: 0 auto 35px;
+      margin: 0 auto 25px; /* Reduced from 35px */
     }
     
     .logo {
@@ -135,13 +135,13 @@
     }
     
     header {
-      padding: 55px 30px 25px;
+      padding: 40px 25px 15px; /* Reduced vertical padding */
       text-align: center;
       position: relative;
     }
     
     h1 {
-      font-size: 3rem;
+      font-size: 2.8rem; /* Slightly reduced */
       font-weight: 700;
       margin-bottom: 12px;
       letter-spacing: 0.5px;
@@ -164,26 +164,26 @@
     }
     
     .tagline {
-      font-size: 1.35rem;
+      font-size: 1.25rem; /* Slightly reduced */
       font-weight: 300;
       color: rgba(210, 210, 230, 0.9);
-      margin-top: 30px;
+      margin-top: 25px; /* Reduced from 30px */
       max-width: 650px;
-      margin: 20px auto 0;
+      margin: 15px auto 0; /* Reduced margins */
       line-height: 1.65;
-      padding: 0 20px;
+      padding: 0 15px; /* Reduced padding */
     }
     
     .section-title {
-      font-size: 1.8rem;
+      font-size: 1.7rem; /* Slightly reduced */
       font-weight: 600;
-      margin: 45px 0 30px;
+      margin: 35px 0 25px; /* Reduced margins */
       text-align: center;
       position: relative;
       display: block;
       width: 100%;
       color: #d8b220;
-      padding-bottom: 18px;
+      padding-bottom: 15px; /* Reduced padding */
     }
     
     .section-title::after {
@@ -200,26 +200,26 @@
     }
     
     .content {
-      padding: 0 35px 35px;
+      padding: 0 25px 25px; /* Reduced padding */
     }
     
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      margin: 30px 0;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly narrower cards */
+      gap: 20px; /* Reduced gap */
+      margin: 25px 0; /* Reduced margin */
     }
     
     .link-card {
       background: rgba(40, 38, 60, 0.7);
       border-radius: 20px;
-      padding: 25px;
+      padding: 20px; /* Reduced padding */
       border: 1px solid rgba(80, 80, 120, 0.2);
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
-      min-height: 120px;
+      min-height: 110px; /* Reduced height */
       cursor: pointer;
       transition: all 0.4s ease;
       backdrop-filter: blur(6px);
@@ -251,13 +251,13 @@
     }
     
     .link-icon {
-      width: 70px;
-      height: 70px;
+      width: 65px; /* Slightly smaller */
+      height: 65px; /* Slightly smaller */
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 22px;
-      font-size: 2rem;
+      margin-right: 18px; /* Reduced margin */
+      font-size: 1.8rem; /* Slightly smaller */
       border-radius: 18px;
       flex-shrink: 0;
       color: white;
@@ -404,44 +404,44 @@
     }
     
     .link-title {
-      font-size: 1.4rem;
+      font-size: 1.3rem; /* Slightly smaller */
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px; /* Reduced margin */
       color: #f0f0ff;
       letter-spacing: 0.3px;
     }
     
     .link-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.05rem; /* Slightly smaller */
       color: rgba(200, 200, 230, 0.9);
-      line-height: 1.6;
+      line-height: 1.5; /* Tighter line height */
     }
     
     .schedule-detail {
       display: block;
-      margin-top: 10px;
+      margin-top: 8px; /* Reduced margin */
       color: #d8b220;
       font-weight: 600;
-      font-size: 1.05rem;
+      font-size: 0.95rem; /* Slightly smaller */
     }
     
     .dance-style {
       display: block;
-      margin-top: 8px;
+      margin-top: 6px; /* Reduced margin */
       color: #c96e1d;
       font-weight: 600;
-      font-size: 1.05rem;
+      font-size: 0.95rem; /* Slightly smaller */
       font-style: italic;
     }
     
     footer {
-      margin-top: 50px;
-      padding: 35px 25px;
+      margin-top: 40px; /* Reduced margin */
+      padding: 25px; /* Reduced padding */
       text-align: center;
       color: rgba(200, 200, 220, 0.8);
-      font-size: 1.1rem;
+      font-size: 1rem; /* Slightly smaller */
       border-top: 1px solid rgba(80, 80, 120, 0.2);
-      line-height: 1.8;
+      line-height: 1.6; /* Tighter line height */
       background: rgba(15, 10, 30, 0.45);
       backdrop-filter: blur(6px);
     }
@@ -453,7 +453,7 @@
       z-index: 100;
       pointer-events: none;
       opacity: 0;
-      font-size: 26px; 
+      font-size: 24px; /* Slightly smaller */
       font-weight: bold;
       transform-origin: center;
       animation: floatParticle 1.6s ease-out forwards;
@@ -481,8 +481,8 @@
     .registration-form {
       background: rgba(25, 22, 42, 0.9);
       border-radius: 20px;
-      padding: 35px;
-      margin: 45px 0;
+      padding: 30px; /* Reduced padding */
+      margin: 35px 0; /* Reduced margin */
       border: 1px solid rgba(80, 80, 120, 0.2);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
@@ -491,13 +491,13 @@
     }
     
     .form-title {
-      font-size: 1.9rem;
+      font-size: 1.8rem; /* Slightly smaller */
       font-weight: 700;
-      margin-bottom: 30px;
+      margin-bottom: 25px; /* Reduced margin */
       color: #d8b220;
       text-align: center;
       position: relative;
-      padding-bottom: 18px;
+      padding-bottom: 15px; /* Reduced padding */
       letter-spacing: 1px;
     }
     
@@ -514,19 +514,19 @@
     }
     
     .form-group {
-      margin-bottom: 25px;
+      margin-bottom: 20px; /* Reduced margin */
       text-align: left;
       position: relative;
     }
     
     .form-input {
       width: 100%;
-      padding: 18px 22px;
+      padding: 16px 20px; /* Reduced padding */
       border-radius: 16px;
       border: 1px solid rgba(80, 80, 120, 0.3);
       background: rgba(40, 38, 60, 0.5);
       color: #e0e0ff;
-      font-size: 1.15rem;
+      font-size: 1.1rem; /* Slightly smaller */
       transition: all 0.3s ease;
       -webkit-appearance: none;
       appearance: none;
@@ -543,22 +543,22 @@
     
     .form-input::placeholder {
       color: rgba(180, 180, 210, 0.7);
-      font-size: 1.05rem;
+      font-size: 1rem; /* Slightly smaller */
     }
     
     .form-select {
       width: 100%;
-      padding: 18px 22px;
+      padding: 16px 20px; /* Reduced padding */
       border-radius: 16px;
       border: 1px solid rgba(80, 80, 120, 0.3);
       background: rgba(40, 38, 60, 0.5);
       color: #e0e0ff;
-      font-size: 1.15rem;
+      font-size: 1.1rem; /* Slightly smaller */
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d8b220'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 20px center;
-      background-size: 20px;
+      background-position: right 18px center; /* Adjusted position */
+      background-size: 18px; /* Slightly smaller */
       transition: all 0.3s ease;
       -webkit-appearance: none;
       font-family: 'Segoe UI', sans-serif;
@@ -577,19 +577,19 @@
       color: #0a0915;
       border: none;
       border-radius: 16px;
-      padding: 20px;
-      font-size: 1.25rem;
+      padding: 18px; /* Reduced padding */
+      font-size: 1.2rem; /* Slightly smaller */
       font-weight: 700;
       cursor: pointer;
       width: 100%;
-      margin-top: 25px;
+      margin-top: 20px; /* Reduced margin */
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
       display: block;
       touch-action: manipulation;
       font-family: 'Segoe UI', sans-serif;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.7px; /* Slightly reduced */
       box-shadow: 0 8px 25px rgba(180, 100, 34, 0.4);
       text-shadow: 0 1px 2px rgba(255,255,255,0.3);
     }
@@ -607,10 +607,10 @@
     .thank-you-message {
       display: none;
       text-align: center;
-      padding: 45px 35px;
+      padding: 35px 25px; /* Reduced padding */
       border-radius: 20px;
       background: rgba(25, 22, 42, 0.95);
-      margin-top: 25px;
+      margin-top: 20px; /* Reduced margin */
       border: 1px solid rgba(80, 80, 120, 0.2);
       backdrop-filter: blur(10px);
       animation: fadeIn 0.8s ease-out;
@@ -623,11 +623,11 @@
     }
     
     .thank-you-message h3 {
-      font-size: 2rem;
+      font-size: 1.8rem; /* Slightly smaller */
       color: #d8b220;
-      margin-bottom: 30px;
+      margin-bottom: 25px; /* Reduced margin */
       position: relative;
-      padding-bottom: 22px;
+      padding-bottom: 18px; /* Reduced padding */
     }
     
     .thank-you-message h3::after {
@@ -643,10 +643,10 @@
     }
     
     .thank-you-message p {
-      font-size: 1.25rem;
-      margin-bottom: 35px;
+      font-size: 1.15rem; /* Slightly smaller */
+      margin-bottom: 30px; /* Reduced margin */
       color: rgba(200, 200, 230, 0.95);
-      line-height: 1.8;
+      line-height: 1.6; /* Tighter line height */
     }
     
     .whatsapp-btn {
@@ -656,11 +656,11 @@
       background: rgba(30, 180, 80, 0.15);
       color: #e0e0ff;
       text-decoration: none;
-      padding: 18px 35px;
+      padding: 16px 30px; /* Reduced padding */
       border-radius: 16px;
       font-weight: 700;
-      font-size: 1.2rem;
-      margin-top: 25px;
+      font-size: 1.1rem; /* Slightly smaller */
+      margin-top: 20px; /* Reduced margin */
       transition: all 0.3s ease;
       touch-action: manipulation;
       font-family: 'Segoe UI', sans-serif;
@@ -675,14 +675,14 @@
     }
     
     .whatsapp-btn i {
-      margin-right: 15px;
-      font-size: 1.4rem;
+      margin-right: 12px; /* Reduced margin */
+      font-size: 1.3rem; /* Slightly smaller */
     }
     
     .corner-decoration {
       position: absolute;
-      width: 90px;
-      height: 90px;
+      width: 80px; /* Slightly smaller */
+      height: 80px; /* Slightly smaller */
       z-index: -1;
       opacity: 0.08;
     }
@@ -746,7 +746,7 @@
     @media (max-width: 768px) {
       .links-grid {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 20px; /* Reduced gap */
       }
       
       .logo-container {
@@ -759,62 +759,63 @@
       }
       
       h1 {
-        font-size: 2.6rem;
+        font-size: 2.4rem; /* Slightly reduced */
       }
       
       .tagline {
-        font-size: 1.25rem;
+        font-size: 1.15rem; /* Slightly reduced */
       }
       
       .link-card {
-        padding: 22px;
+        padding: 20px; /* Reduced padding */
       }
       
       .link-icon {
-        width: 65px;
-        height: 65px;
-        font-size: 1.9rem;
+        width: 60px; /* Slightly smaller */
+        height: 60px; /* Slightly smaller */
+        font-size: 1.8rem;
       }
       
       .section-title {
-        font-size: 1.7rem;
-        margin: 40px 0 25px;
+        font-size: 1.6rem; /* Slightly reduced */
+        margin: 35px 0 20px; /* Reduced margins */
       }
       
       .registration-form {
-        padding: 30px;
+        padding: 25px; /* Reduced padding */
       }
       
       .form-title {
-        font-size: 1.7rem;
+        font-size: 1.6rem; /* Slightly reduced */
       }
     }
     
     @media (max-width: 480px) {
       body {
-        padding: 15px;
+        padding: 0;
       }
       
       .container {
-        margin: 10px;
-        border-radius: 22px;
+        margin: 10px; /* Reduced margin */
+        border-radius: 20px; /* Slightly smaller */
+        width: calc(100% - 20px); /* More width */
       }
       
       header {
-        padding: 45px 20px 20px;
+        padding: 30px 15px 10px; /* Reduced padding */
       }
       
       .content {
-        padding: 0 20px 25px;
+        padding: 0 15px 15px; /* Reduced padding */
       }
       
       .logo-container {
-        width: 110px;
-        height: 110px;
+        width: 100px; /* Slightly smaller */
+        height: 100px; /* Slightly smaller */
       }
       
       h1 {
-        font-size: 2.3rem;
+        font-size: 2rem; /* Slightly reduced */
       }
       
       h1::after {
@@ -823,50 +824,57 @@
       }
       
       .tagline {
-        font-size: 1.15rem;
+        font-size: 1.05rem; /* Slightly reduced */
       }
       
       .section-title {
-        font-size: 1.6rem;
-        margin: 35px 0 25px;
+        font-size: 1.5rem; /* Slightly reduced */
+        margin: 30px 0 20px; /* Reduced margins */
       }
       
       .link-card {
-        padding: 20px;
+        padding: 16px; /* Reduced padding */
+        min-height: 100px; /* Reduced height */
       }
       
       .link-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.8rem;
-        margin-right: 18px;
+        width: 50px; /* Slightly smaller */
+        height: 50px; /* Slightly smaller */
+        font-size: 1.6rem; /* Slightly smaller */
+        margin-right: 15px;
       }
       
       .link-title {
-        font-size: 1.3rem;
+        font-size: 1.2rem; /* Slightly smaller */
       }
       
       .link-subtitle {
-        font-size: 1.05rem;
+        font-size: 0.95rem; /* Slightly smaller */
       }
       
       .registration-form {
-        padding: 25px;
+        padding: 20px; /* Reduced padding */
+        margin: 25px 0; /* Reduced margin */
       }
       
       .form-input, .form-select {
-        padding: 16px 18px;
-        font-size: 1.1rem;
+        padding: 14px 16px; /* Reduced padding */
+        font-size: 1.05rem; /* Slightly smaller */
       }
       
       .submit-btn {
-        padding: 18px;
-        font-size: 1.2rem;
+        padding: 16px; /* Reduced padding */
+        font-size: 1.15rem; /* Slightly smaller */
       }
       
       .corner-decoration {
-        width: 65px;
-        height: 65px;
+        width: 60px; /* Slightly smaller */
+        height: 60px; /* Slightly smaller */
+      }
+
+      footer {
+        padding: 20px; /* Reduced padding */
+        font-size: 0.95rem; /* Slightly smaller */
       }
     }
   </style>
@@ -1077,7 +1085,7 @@
         particle.style.setProperty('--ty', `${translateY}px`);
         
         // Size variations
-        const size = 24 + Math.random() * 10;
+        const size = 22 + Math.random() * 8; // Slightly smaller
         particle.style.fontSize = `${size}px`;
         
         // Animation duration
