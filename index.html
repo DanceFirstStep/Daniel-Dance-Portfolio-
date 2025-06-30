@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Palacios | Dance Instructor</title>
+  <title>Daniel Palacios | Professional Dance Instructor</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -59,45 +59,6 @@
       position: relative;
       z-index: 10;
       margin: 0;
-    }
-    
-    /* Simple Browser Notification */
-    .browser-notice {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(255, 157, 0, 0.9);
-      color: #0a0915;
-      text-align: center;
-      padding: 10px 15px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transform: translateY(-100%);
-      transition: transform 0.4s ease;
-    }
-    
-    .browser-notice.visible {
-      transform: translateY(0);
-    }
-    
-    .browser-notice i {
-      margin-right: 8px;
-      font-size: 1rem;
-    }
-    
-    .browser-notice .close-btn {
-      background: none;
-      border: none;
-      color: #0a0915;
-      margin-left: 15px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      padding: 5px;
     }
     
     .logo-container {
@@ -781,6 +742,69 @@
     .non-link-card:hover .link-icon i {
       transform: none;
     }
+
+    /* Browser Notification */
+    .browser-notice {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 500px;
+      background: linear-gradient(135deg, #ff9d00, #ffd700);
+      color: #0a0915;
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translate(-50%, 20px);
+    }
+    
+    .browser-notice.visible {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    
+    .browser-notice i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .browser-notice .close-btn {
+      background: none;
+      border: none;
+      color: #0a0915;
+      margin-left: 15px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .browser-notice .browser-btn {
+      background: rgba(25, 23, 45, 0.8);
+      color: #f0f0ff;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 15px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    
+    .browser-notice .browser-btn:hover {
+      background: rgba(25, 23, 45, 1);
+    }
     
     @media (max-width: 768px) {
       body {
@@ -830,6 +854,11 @@
       
       .form-title {
         font-size: 1.5rem;
+      }
+      
+      .browser-notice {
+        font-size: 0.9rem;
+        padding: 10px 15px;
       }
     }
     
@@ -920,17 +949,33 @@
         padding: 18px;
         font-size: 0.95rem;
       }
+      
+      .browser-notice {
+        flex-direction: column;
+        text-align: center;
+        padding: 12px;
+      }
+      
+      .browser-notice .browser-btn {
+        margin: 10px 0 0;
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <div class="background"></div>
   
-  <!-- Simple Browser Notice -->
+  <!-- Browser Notice -->
   <div class="browser-notice" id="browser-notice">
-    <i class="fas fa-external-link-alt"></i>
-    For best experience, open in Safari or Chrome
-    <button class="close-btn" id="close-notice">&times;</button>
+    <div>
+      <i class="fas fa-external-link-alt"></i>
+      <span>For best experience, open in Safari or Chrome</span>
+    </div>
+    <div>
+      <button class="browser-btn" id="open-browser-btn">Open in Browser</button>
+      <button class="close-btn" id="close-notice">&times;</button>
+    </div>
   </div>
   
   <div id="music-particles-container"></div>
@@ -1125,6 +1170,7 @@
       // Browser detection
       const notice = document.getElementById('browser-notice');
       const closeBtn = document.getElementById('close-notice');
+      const openBrowserBtn = document.getElementById('open-browser-btn');
       
       function isInAppBrowser() {
         const ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -1136,16 +1182,31 @@
         setTimeout(() => {
           notice.classList.add('visible');
           
-          // Auto-hide after 10 seconds
+          // Auto-hide after 15 seconds
           setTimeout(() => {
             notice.classList.remove('visible');
-          }, 10000);
+          }, 15000);
         }, 2000);
       }
       
       // Close button
       closeBtn.addEventListener('click', function() {
         notice.classList.remove('visible');
+      });
+      
+      // Open in browser button
+      openBrowserBtn.addEventListener('click', function() {
+        // Attempt to open in default browser
+        const currentUrl = window.location.href;
+        
+        // For iOS
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+          window.location.href = `x-web-search://?${encodeURIComponent(currentUrl)}`;
+        } 
+        // For Android
+        else {
+          window.open(`intent://${window.location.host}/#Intent;scheme=https;package=com.android.chrome;end`, '_blank');
+        }
       });
       
       // Existing functionality
