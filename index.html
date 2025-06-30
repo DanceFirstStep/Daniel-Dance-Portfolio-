@@ -725,65 +725,6 @@
     .link-card:nth-child(2) { animation-delay: 0.2s; }
     .link-card:nth-child(3) { animation-delay: 0.3s; }
     
-    /* Added new notification styles */
-    .link-notification {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(22, 20, 38, 0.95);
-      color: #e6c439;
-      padding: 15px 25px;
-      border-radius: 10px;
-      border: 1px solid rgba(230, 196, 57, 0.4);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      font-weight: 600;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      max-width: 90%;
-      width: 380px;
-    }
-    
-    .link-notification.show {
-      opacity: 1;
-    }
-    
-    .link-notification .close-btn {
-      position: absolute;
-      top: 5px;
-      right: 10px;
-      background: none;
-      border: none;
-      color: rgba(230, 230, 255, 0.7);
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-    
-    .link-notification p {
-      margin: 10px 0;
-      font-size: 1.1rem;
-    }
-    
-    .link-notification .copy-btn {
-      background: linear-gradient(135deg, #d8832a, #e6c439);
-      color: #0a0915;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 16px;
-      font-weight: 600;
-      margin-top: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .link-notification .copy-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(216, 131, 42, 0.4);
-    }
-    
     @media (max-width: 768px) {
       body {
         padding: 12px;
@@ -832,10 +773,6 @@
       
       .form-title {
         font-size: 1.5rem;
-      }
-      
-      .link-notification {
-        width: 320px;
       }
     }
     
@@ -926,15 +863,6 @@
         padding: 18px;
         font-size: 0.95rem;
       }
-      
-      .link-notification {
-        width: 280px;
-        padding: 12px 18px;
-      }
-      
-      .link-notification p {
-        font-size: 1rem;
-      }
     }
   </style>
 </head>
@@ -942,17 +870,6 @@
   <div class="background"></div>
   
   <div id="music-particles-container"></div>
-  
-  <!-- Link notification for in-app browsers -->
-  <div class="link-notification" id="link-notification">
-    <button class="close-btn" id="close-notification-btn">
-      <i class="fas fa-times"></i>
-    </button>
-    <h3>Link Copied!</h3>
-    <p>We've copied the school link to your clipboard since Facebook/Instagram blocks direct opening.</p>
-    <p>Paste it in your browser to visit the page.</p>
-    <button class="copy-btn" id="copy-again-btn">Copy Again</button>
-  </div>
   
   <div class="container">
     <div class="corner-decoration corner-top-left"></div>
@@ -1140,53 +1057,6 @@
   </div>
 
   <script>
-    // Function to detect Facebook/Instagram in-app browser
-    function isInAppBrowser() {
-      const ua = navigator.userAgent || navigator.vendor || window.opera;
-      return ua.includes("FBAN") || ua.includes("FBAV") || ua.includes("Instagram");
-    }
-    
-    // Function to copy text to clipboard
-    function copyToClipboard(text) {
-      const textarea = document.createElement('textarea');
-      textarea.value = text;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-    }
-    
-    // Show notification with link
-    function showLinkNotification(url) {
-      const notification = document.getElementById('link-notification');
-      const copyAgainBtn = document.getElementById('copy-again-btn');
-      const closeBtn = document.getElementById('close-notification-btn');
-      
-      // Copy the URL to clipboard
-      copyToClipboard(url);
-      
-      // Show notification
-      notification.classList.add('show');
-      
-      // Set up copy again button
-      copyAgainBtn.onclick = function() {
-        copyToClipboard(url);
-        notification.querySelector('h3').textContent = 'Copied Again!';
-        notification.querySelector('p').textContent = 'The school link has been re-copied to your clipboard.';
-        
-        // Reset after 2 seconds
-        setTimeout(() => {
-          notification.querySelector('h3').textContent = 'Link Copied!';
-          notification.querySelector('p').textContent = `We've copied the school link to your clipboard since Facebook/Instagram blocks direct opening.`;
-        }, 2000);
-      };
-      
-      // Set up close button
-      closeBtn.onclick = function() {
-        notification.classList.remove('show');
-      };
-    }
-    
     function createMusicParticle(event) {
       const container = document.getElementById('music-particles-container');
       const particleCount = 4; 
@@ -1245,8 +1115,6 @@
           }, 800);
           
           const url = this.getAttribute('data-url');
-          const isSchoolLink = this.classList.contains('stardust') || 
-                              this.classList.contains('letsbailar');
           
           if (this.classList.contains('cash')) {
             setTimeout(() => {
@@ -1255,12 +1123,14 @@
           } 
           else if (url) {
             setTimeout(() => {
-              // Special handling for school links in Facebook/Instagram browsers
-              if (isInAppBrowser() && isSchoolLink) {
-                showLinkNotification(url);
-              } else {
-                window.open(url, '_blank');
-              }
+              // The clean solution: Use a simple anchor tag click
+              const anchor = document.createElement('a');
+              anchor.href = url;
+              anchor.target = '_blank';
+              anchor.rel = 'noopener noreferrer';
+              document.body.appendChild(anchor);
+              anchor.click();
+              document.body.removeChild(anchor);
             }, 100);
           }
         });
