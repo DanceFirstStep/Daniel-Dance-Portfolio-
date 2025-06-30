@@ -21,8 +21,9 @@
       padding: 20px;
       overflow-x: hidden;
       position: relative;
-      color: #e0e0ff;
-      background: linear-gradient(135deg, #0a0915 0%, #151328 100%);
+      color: #f0f0ff;
+      /* Warmer, more inviting gradient background */
+      background: linear-gradient(135deg, #0f0c1c 0%, #1a182e 100%);
       line-height: 1.6;
       font-size: 1rem;
     }
@@ -35,8 +36,8 @@
       height: 100%;
       z-index: -2;
       background: 
-        radial-gradient(circle at 20% 30%, rgba(180, 70, 0, 0.08) 0%, transparent 25%),
-        radial-gradient(circle at 80% 70%, rgba(80, 70, 160, 0.08) 0%, transparent 25%);
+        radial-gradient(circle at 20% 30%, rgba(216, 131, 42, 0.08) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(42, 199, 194, 0.08) 0%, transparent 25%);
       animation: gradientBG 40s ease infinite;
       background-size: 400% 400%;
     }
@@ -50,7 +51,7 @@
     .container {
       width: 100%;
       max-width: 900px;
-      background: rgba(20, 18, 35, 0.96);
+      background: rgba(25, 23, 45, 0.96);
       backdrop-filter: blur(12px);
       border-radius: 20px;
       border: 1px solid rgba(100, 100, 150, 0.15);
@@ -71,14 +72,15 @@
     .logo {
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #b34700, #c96e1d);
+      /* More vibrant, energetic gradient */
+      background: linear-gradient(135deg, #d8832a, #e6c439);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(180, 100, 34, 0.4);
+      box-shadow: 0 10px 30px rgba(216, 131, 42, 0.4);
       transition: all 0.5s ease;
       z-index: 2;
     }
@@ -89,7 +91,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border: 2px solid rgba(200, 170, 50, 0.6);
+      border: 2px solid rgba(230, 196, 57, 0.6);
       border-radius: 50%;
       animation: pulseRing 8s infinite ease-out;
       z-index: 1;
@@ -112,7 +114,7 @@
     
     .logo:hover {
       transform: scale(1.05);
-      box-shadow: 0 12px 35px rgba(180, 100, 34, 0.5);
+      box-shadow: 0 12px 35px rgba(216, 131, 42, 0.5);
     }
     
     .logo i {
@@ -147,14 +149,15 @@
       transform: translateX(-50%);
       width: 100px;
       height: 4px;
-      background: linear-gradient(to right, #c96e1d, #d8b220);
+      /* More vibrant accent color */
+      background: linear-gradient(to right, #d8832a, #e6c439);
       border-radius: 3px;
     }
     
     .tagline {
       font-size: 1.2rem;
       font-weight: 300;
-      color: rgba(210, 210, 230, 0.9);
+      color: rgba(230, 230, 255, 0.9);
       margin-top: 20px;
       max-width: 600px;
       margin: 15px auto 0;
@@ -170,7 +173,8 @@
       position: relative;
       display: block;
       width: 100%;
-      color: #d8b220;
+      /* More vibrant gold */
+      color: #e6c439;
       padding-bottom: 12px;
     }
     
@@ -182,9 +186,9 @@
       transform: translateX(-50%);
       width: 100px;
       height: 4px;
-      background: linear-gradient(to right, #c96e1d, #d8b220);
+      background: linear-gradient(to right, #d8832a, #e6c439);
       border-radius: 3px;
-      box-shadow: 0 2px 8px rgba(180, 100, 34, 0.2);
+      box-shadow: 0 2px 8px rgba(216, 131, 42, 0.2);
     }
     
     .content {
@@ -199,7 +203,7 @@
     }
     
     .link-card {
-      background: rgba(40, 38, 60, 0.7);
+      background: rgba(45, 42, 70, 0.7);
       border-radius: 18px;
       padding: 18px;
       border: 1px solid rgba(80, 80, 120, 0.2);
@@ -215,8 +219,8 @@
     }
     
     .link-card:hover {
-      background: rgba(50, 48, 70, 0.7);
-      border-color: rgba(200, 170, 50, 0.3);
+      background: rgba(55, 52, 80, 0.7);
+      border-color: rgba(230, 196, 57, 0.3);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
       transform: translateY(-3px);
     }
@@ -288,7 +292,7 @@
     
     .link-card:hover .link-icon {
       transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(200, 200, 255, 0.2);
+      box-shadow: 0 0 20px rgba(230, 230, 255, 0.2);
     }
     
     .link-card:hover .link-icon i {
@@ -309,7 +313,7 @@
     }
     
     .stardust-icon {
-      background: linear-gradient(135deg, #d8b220, #c96e1d) !important;
+      background: linear-gradient(135deg, #d8832a, #e6c439) !important;
     }
     
     .letsbailar-icon {
@@ -317,11 +321,11 @@
     }
     
     .estilo-icon {
-      background: linear-gradient(135deg, #1a8d88, #006d6d) !important;
+      background: linear-gradient(135deg, #2ac7c2, #1a8d88) !important;
     }
     
     .contact-icon {
-      background: linear-gradient(135deg, #c96e1d, #b34700) !important;
+      background: linear-gradient(135deg, #d8832a, #e6c439) !important;
     }
     
     .venmo .link-icon {
@@ -346,14 +350,14 @@
     
     .link-subtitle {
       font-size: 0.95rem;
-      color: rgba(200, 200, 230, 0.9);
+      color: rgba(220, 220, 240, 0.9);
       line-height: 1.4;
     }
     
     .schedule-detail {
       display: block;
       margin-top: 4px;
-      color: #d8b220;
+      color: #e6c439;
       font-weight: 600;
       font-size: 0.9rem;
     }
@@ -361,7 +365,7 @@
     .dance-style {
       display: block;
       margin-top: 5px;
-      color: #c96e1d;
+      color: #d8832a;
       font-weight: 600;
       font-size: 0.95rem;
       font-style: italic;
@@ -380,29 +384,30 @@
     .schedule-day {
       font-weight: 600;
       min-width: 75px;
-      color: #d8b220;
+      color: #e6c439;
     }
     
     .schedule-info {
       flex: 1;
+      color: rgba(220, 220, 240, 0.9);
     }
     
     footer {
       margin-top: 35px;
       padding: 20px;
       text-align: center;
-      color: rgba(200, 200, 220, 0.8);
+      color: rgba(210, 210, 230, 0.8);
       font-size: 1rem;
       border-top: 1px solid rgba(80, 80, 120, 0.2);
       line-height: 1.6;
-      background: rgba(15, 10, 30, 0.45);
+      background: rgba(20, 18, 35, 0.45);
       backdrop-filter: blur(6px);
     }
     
     /* Music Particles */
     .music-particle {
       position: fixed;
-      color: rgba(255, 215, 0, 0.85); 
+      color: rgba(230, 196, 57, 0.85); 
       z-index: 100;
       pointer-events: none;
       opacity: 0;
@@ -410,7 +415,7 @@
       font-weight: normal;
       transform-origin: center;
       animation: floatParticle 1.6s ease-out forwards;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      text-shadow: 0 0 10px rgba(230, 196, 57, 0.5);
     }
     
     @keyframes floatParticle {
@@ -432,7 +437,7 @@
     }
     
     .registration-form {
-      background: rgba(25, 22, 42, 0.9);
+      background: rgba(30, 28, 50, 0.9);
       border-radius: 18px;
       padding: 25px;
       margin: 30px 0;
@@ -447,7 +452,7 @@
       font-size: 1.7rem;
       font-weight: 700;
       margin-bottom: 15px;
-      color: #d8b220;
+      color: #e6c439;
       text-align: center;
       position: relative;
       padding-bottom: 12px;
@@ -462,7 +467,7 @@
       transform: translateX(-50%);
       width: 100px;
       height: 4px;
-      background: linear-gradient(to right, #c96e1d, #d8b220);
+      background: linear-gradient(to right, #d8832a, #e6c439);
       border-radius: 2px;
     }
     
@@ -470,7 +475,7 @@
     .partner-notice {
       text-align: center;
       margin-bottom: 20px;
-      color: rgba(200, 200, 230, 0.85);
+      color: rgba(220, 220, 240, 0.85);
       font-size: 1.05rem;
       font-weight: 500;
       display: block;
@@ -486,9 +491,9 @@
       width: 100%;
       padding: 15px 18px;
       border-radius: 14px;
-      border: 1px solid rgba(80, 80, 120, 0.3);
-      background: rgba(40, 38, 60, 0.5);
-      color: #e0e0ff;
+      border: 1px solid rgba(100, 100, 150, 0.3);
+      background: rgba(45, 42, 70, 0.5);
+      color: #f0f0ff;
       font-size: 1.05rem;
       transition: all 0.3s ease;
       -webkit-appearance: none;
@@ -499,13 +504,13 @@
     
     .form-input:focus {
       outline: none;
-      border-color: #d8b220;
-      background: rgba(50, 48, 70, 0.5);
-      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.15);
+      border-color: #e6c439;
+      background: rgba(55, 52, 80, 0.5);
+      box-shadow: 0 0 0 3px rgba(230, 196, 57, 0.15);
     }
     
     .form-input::placeholder {
-      color: rgba(180, 180, 210, 0.7);
+      color: rgba(190, 190, 220, 0.7);
       font-size: 1rem;
     }
     
@@ -513,12 +518,12 @@
       width: 100%;
       padding: 15px 18px;
       border-radius: 14px;
-      border: 1px solid rgba(80, 80, 120, 0.3);
-      background: rgba(40, 38, 60, 0.5);
-      color: #e0e0ff;
+      border: 1px solid rgba(100, 100, 150, 0.3);
+      background: rgba(45, 42, 70, 0.5);
+      color: #f0f0ff;
       font-size: 1.05rem;
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d8b220'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e6c439'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 18px center;
       background-size: 18px;
@@ -530,13 +535,13 @@
     
     .form-select:focus {
       outline: none;
-      border-color: #d8b220;
-      background: rgba(50, 48, 70, 0.5);
-      box-shadow: 0 0 0 3px rgba(200, 170, 50, 0.15);
+      border-color: #e6c439;
+      background: rgba(55, 52, 80, 0.5);
+      box-shadow: 0 0 0 3px rgba(230, 196, 57, 0.15);
     }
     
     .submit-btn {
-      background: linear-gradient(135deg, #c96e1d, #d8b220);
+      background: linear-gradient(135deg, #d8832a, #e6c439);
       color: #0a0915;
       border: none;
       border-radius: 14px;
@@ -553,13 +558,13 @@
       touch-action: manipulation;
       font-family: 'Segoe UI', sans-serif;
       letter-spacing: 0.5px;
-      box-shadow: 0 8px 25px rgba(180, 100, 34, 0.4);
+      box-shadow: 0 8px 25px rgba(216, 131, 42, 0.4);
       text-shadow: 0 1px 2px rgba(255,255,255,0.3);
     }
     
     .submit-btn:hover {
       opacity: 0.95;
-      box-shadow: 0 10px 30px rgba(180, 100, 34, 0.5);
+      box-shadow: 0 10px 30px rgba(216, 131, 42, 0.5);
       transform: translateY(-3px);
     }
     
@@ -572,7 +577,7 @@
       text-align: center;
       padding: 30px 25px;
       border-radius: 18px;
-      background: rgba(25, 22, 42, 0.95);
+      background: rgba(30, 28, 50, 0.95);
       margin-top: 20px;
       border: 1px solid rgba(80, 80, 120, 0.2);
       backdrop-filter: blur(10px);
@@ -587,7 +592,7 @@
     
     .thank-you-message h3 {
       font-size: 1.7rem;
-      color: #d8b220;
+      color: #e6c439;
       margin-bottom: 20px;
       position: relative;
       padding-bottom: 15px;
@@ -601,14 +606,14 @@
       transform: translateX(-50%);
       width: 80px;
       height: 4px;
-      background: linear-gradient(to right, #c96e1d, #d8b220);
+      background: linear-gradient(to right, #d8832a, #e6c439);
       border-radius: 2px;
     }
     
     .thank-you-message p {
       font-size: 1.1rem;
       margin-bottom: 25px;
-      color: rgba(200, 200, 230, 0.95);
+      color: rgba(220, 220, 240, 0.95);
       line-height: 1.6;
     }
     
@@ -653,16 +658,16 @@
     .corner-top-left {
       top: 0;
       left: 0;
-      border-top: 4px solid #c96e1d;
-      border-left: 4px solid #c96e1d;
+      border-top: 4px solid #d8832a;
+      border-left: 4px solid #d8832a;
       border-top-left-radius: 20px;
     }
     
     .corner-top-right {
       top: 0;
       right: 0;
-      border-top: 4px solid #d8b220;
-      border-right: 4px solid #d8b220;
+      border-top: 4px solid #e6c439;
+      border-right: 4px solid #e6c439;
       border-top-right-radius: 20px;
     }
     
@@ -677,8 +682,8 @@
     .corner-bottom-right {
       bottom: 0;
       right: 0;
-      border-bottom: 4px solid #1a8d88;
-      border-right: 4px solid #1a8d88;
+      border-bottom: 4px solid #2ac7c2;
+      border-right: 4px solid #2ac7c2;
       border-bottom-right-radius: 20px;
     }
     
@@ -688,7 +693,7 @@
     
     .non-link-card:hover {
       transform: none;
-      background: rgba(40, 38, 60, 0.7);
+      background: rgba(45, 42, 70, 0.7);
       border-color: rgba(80, 80, 120, 0.2);
     }
     
@@ -704,23 +709,6 @@
     
     .non-link-card:hover .link-icon i {
       transform: none;
-    }
-
-    /* NEW: Class time indicators */
-    .class-time {
-      display: inline-block;
-      background: rgba(200, 170, 50, 0.15);
-      color: #d8b220;
-      padding: 3px 8px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-top: 5px;
-    }
-    
-    .time-highlight {
-      color: #d8b220;
-      font-weight: 700;
     }
     
     @media (max-width: 768px) {
@@ -985,23 +973,10 @@
           <div class="form-group">
             <select id="location" class="form-select" required>
               <option value="">Select class location</option>
-              <option value="stardust">
-                Stardust Ballroom - Mon: Bachata 6:30pm, Thu: Salsa 6:30pm & Bachata
-              </option>
-              <option value="letsbailar">
-                Let's Bailar - Fri 7pm: Salsa & Bachata
-              </option>
-              <option value="estilo">
-                Estilo Dance - Sat 4pm: Salsa & Bachata
-              </option>
+              <option value="stardust">Stardust Ballroom (Mon: Bachata 6:30pm, Thu: Salsa 6:30pm & Bachata)</option>
+              <option value="letsbailar">Let's Bailar (Fridays 7pm)</option>
+              <option value="estilo">Estilo Dance (Saturdays 4pm)</option>
             </select>
-          </div>
-          
-          <!-- NEW: Class time reminder -->
-          <div class="form-group">
-            <div class="class-time">
-              <i class="fas fa-clock"></i> Classes held weekly at scheduled times
-            </div>
           </div>
           
           <button type="submit" class="submit-btn">Complete Registration</button>
