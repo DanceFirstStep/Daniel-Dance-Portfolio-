@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Palacios | Professional Dance Instructor</title>
+  <title>Daniel Palacios | Professional Dance Instruction</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -346,6 +346,7 @@
       background: linear-gradient(135deg, #000000, #4a9da0);
     }
     
+    /* Consistent school card colors */
     .stardust-icon {
       background: linear-gradient(135deg, #ff9d00, #ffd700) !important;
     }
@@ -435,6 +436,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
+    /* Music Particles */
     .music-particle {
       position: fixed;
       color: rgba(255, 215, 0, 0.85); 
@@ -503,6 +505,7 @@
       animation: underlinePulse 3s infinite ease-in-out;
     }
     
+    /* Partner notice */
     .partner-notice {
       text-align: center;
       margin-bottom: 20px;
@@ -739,102 +742,89 @@
     .non-link-card:hover .link-icon i {
       transform: none;
     }
-
-    /* Enhanced Browser Notice */
-    .browser-notice {
+    
+    /* Browser Redirection Banner */
+    #browser-banner {
       position: fixed;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       width: 90%;
-      max-width: 500px;
+      max-width: 600px;
       background: rgba(25, 23, 45, 0.98);
-      color: #f0f0ff;
-      text-align: center;
-      padding: 16px 20px;
-      border-radius: 18px;
-      font-size: 1rem;
-      font-weight: 500;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      display: none;
       backdrop-filter: blur(10px);
-      opacity: 0;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      transform: translate(-50%, 20px);
+      animation: slideUp 0.5s ease forwards;
     }
     
-    .browser-notice.visible {
-      opacity: 1;
-      transform: translate(-50%, 0);
+    @keyframes slideUp {
+      from { bottom: -100px; opacity: 0; }
+      to { bottom: 20px; opacity: 1; }
     }
     
-    .browser-notice-content {
+    .banner-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .banner-content p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #f0f0ff;
+    }
+    
+    .banner-content p i {
+      color: #ffd700;
+      margin-right: 8px;
+    }
+    
+    .banner-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .banner-btn {
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
-      flex: 1;
+      gap: 8px;
+      font-size: 1rem;
+      border: none;
     }
     
-    .browser-notice i {
-      margin-right: 12px;
-      font-size: 1.4rem;
-      color: #ffd700;
-      flex-shrink: 0;
-    }
-    
-    .browser-notice-text {
-      text-align: left;
-      flex: 1;
-    }
-    
-    .browser-notice-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #ffd700;
-      margin-bottom: 4px;
-    }
-    
-    .browser-notice-message {
-      font-size: 0.95rem;
-      color: rgba(220, 220, 240, 0.9);
-    }
-    
-    .browser-notice .browser-btn {
+    .open-browser-btn {
       background: linear-gradient(135deg, #ff9d00, #ffd700);
       color: #0a0915;
-      border: none;
-      border-radius: 12px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      margin-left: 15px;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      box-shadow: 0 5px 15px rgba(255, 157, 0, 0.4);
     }
     
-    .browser-notice .browser-btn:hover {
-      opacity: 0.95;
-      box-shadow: 0 7px 20px rgba(255, 157, 0, 0.5);
-      transform: translateY(-2px);
+    .dismiss-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #f0f0ff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
     
-    .browser-notice .close-btn {
-      background: none;
-      border: none;
-      color: rgba(220, 220, 240, 0.7);
-      margin-left: 15px;
-      font-size: 1.3rem;
-      cursor: pointer;
-      padding: 5px;
-      transition: color 0.3s ease;
+    .platform-hint {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: rgba(220, 220, 240, 0.8);
+      line-height: 1.5;
     }
     
-    .browser-notice .close-btn:hover {
+    .platform-hint strong {
       color: #ffd700;
     }
     
@@ -888,30 +878,14 @@
         font-size: 1.5rem;
       }
       
-      .browser-notice {
-        padding: 14px 16px;
+      .banner-buttons {
         flex-direction: column;
-        text-align: center;
-      }
-      
-      .browser-notice-content {
-        margin-bottom: 12px;
         width: 100%;
       }
       
-      .browser-notice-text {
-        text-align: center;
-      }
-      
-      .browser-notice .browser-btn {
-        margin: 8px 0;
+      .banner-btn {
         width: 100%;
-      }
-      
-      .browser-notice .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
+        justify-content: center;
       }
     }
     
@@ -1007,19 +981,6 @@
 </head>
 <body>
   <div class="background"></div>
-  
-  <!-- Enhanced Browser Notice -->
-  <div class="browser-notice" id="browser-notice">
-    <div class="browser-notice-content">
-      <i class="fas fa-external-link-alt"></i>
-      <div class="browser-notice-text">
-        <div class="browser-notice-title">Enhanced Experience Available</div>
-        <div class="browser-notice-message">Open in Safari or Chrome for full functionality</div>
-      </div>
-    </div>
-    <button class="browser-btn" id="open-browser-btn">Open Now</button>
-    <button class="close-btn" id="close-notice">&times;</button>
-  </div>
   
   <div id="music-particles-container"></div>
   
@@ -1208,51 +1169,78 @@
     </footer>
   </div>
 
+  <!-- Browser Redirection Banner -->
+  <div id="browser-banner">
+    <div class="banner-content">
+      <p><i class="fas fa-exclamation-triangle"></i> You're viewing this page in an in-app browser. For the best experience, open in Safari or Chrome.</p>
+      <div class="banner-buttons">
+        <button id="open-browser-btn" class="banner-btn open-browser-btn">
+          <i class="fas fa-external-link-alt"></i> Open in Browser
+        </button>
+        <button id="dismiss-banner" class="banner-btn dismiss-btn">
+          <i class="fas fa-times"></i> Continue Here
+        </button>
+      </div>
+      <div class="platform-hint">
+        On iOS: Tap <strong>•••</strong> then "Open in Safari"<br>
+        On Android: Tap <strong>⋮</strong> then "Open in Chrome"
+      </div>
+    </div>
+  </div>
+
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Browser detection
-      const notice = document.getElementById('browser-notice');
-      const closeBtn = document.getElementById('close-notice');
-      const openBrowserBtn = document.getElementById('open-browser-btn');
+    function createMusicParticle(event) {
+      const container = document.getElementById('music-particles-container');
+      const particleCount = 3; 
       
-      function isInAppBrowser() {
-        const ua = navigator.userAgent || navigator.vendor || window.opera;
-        return (ua.includes('FBAN') || ua.includes('FBAV') || ua.includes('Instagram'));
-      }
-      
-      // Show notice if in Facebook/Instagram browser
-      if (isInAppBrowser()) {
-        setTimeout(() => {
-          notice.classList.add('visible');
-          
-          // Auto-hide after 20 seconds
-          setTimeout(() => {
-            notice.classList.remove('visible');
-          }, 20000);
-        }, 2000);
-      }
-      
-      // Close button
-      closeBtn.addEventListener('click', function() {
-        notice.classList.remove('visible');
-      });
-      
-      // Open in browser button - FIXED to open profile in Safari/Android
-      openBrowserBtn.addEventListener('click', function() {
-        // Get the current page URL
-        const currentUrl = window.location.href;
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'music-particle';
         
-        // Create a temporary link to force browser opening
-        const tempLink = document.createElement('a');
-        tempLink.href = currentUrl;
-        tempLink.target = '_system'; // Works in mobile contexts
-        tempLink.rel = 'noopener noreferrer';
-        document.body.appendChild(tempLink);
-        tempLink.click();
-        document.body.removeChild(tempLink);
-      });
+        const symbols = ['♪', '♫'];
+        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+        particle.textContent = symbol;
+        
+        const posX = event.clientX + (Math.random() - 0.5) * 50;
+        const posY = event.clientY + (Math.random() - 0.5) * 50;
+        
+        particle.style.left = `${posX}px`;
+        particle.style.top = `${posY}px`;
+        
+        const translateX = (Math.random() - 0.5) * 80;
+        const translateY = -150 - Math.random() * 50;
+        
+        particle.style.setProperty('--tx', `${translateX}px`);
+        particle.style.setProperty('--ty', `${translateY}px`);
+        
+        const size = 18 + Math.random() * 6;
+        particle.style.fontSize = `${size}px`;
+        
+        const duration = 1.8 + Math.random() * 0.5;
+        particle.style.animationDuration = `${duration}s`;
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => {
+          if (particle.parentNode) {
+            particle.remove();
+          }
+        }, duration * 1000);
+      }
+    }
+    
+    // Function to detect in-app browsers
+    function isInAppBrowser() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
       
-      // Existing functionality
+      // Check for Facebook, Instagram, and other in-app browsers
+      return (
+        /FBAN|FBAV|Instagram|Twitter|Pinterest|Snapchat|Line|KAKAOTALK|LinkedIn/.test(userAgent) ||
+        (userAgent.match(/Android/i) && userAgent.match(/wv/i))
+      );
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
       const clickableElements = document.querySelectorAll('.clickable');
       
       clickableElements.forEach(el => {
@@ -1345,47 +1333,40 @@
           submitBtn.disabled = false;
         }, 1000);
       });
-    });
-    
-    function createMusicParticle(event) {
-      const container = document.getElementById('music-particles-container');
-      const particleCount = 3; 
       
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'music-particle';
-        
-        const symbols = ['♪', '♫'];
-        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
-        particle.textContent = symbol;
-        
-        const posX = event.clientX + (Math.random() - 0.5) * 50;
-        const posY = event.clientY + (Math.random() - 0.5) * 50;
-        
-        particle.style.left = `${posX}px`;
-        particle.style.top = `${posY}px`;
-        
-        const translateX = (Math.random() - 0.5) * 80;
-        const translateY = -150 - Math.random() * 50;
-        
-        particle.style.setProperty('--tx', `${translateX}px`);
-        particle.style.setProperty('--ty', `${translateY}px`);
-        
-        const size = 18 + Math.random() * 6;
-        particle.style.fontSize = `${size}px`;
-        
-        const duration = 1.8 + Math.random() * 0.5;
-        particle.style.animationDuration = `${duration}s`;
-        
-        container.appendChild(particle);
-        
+      // Show browser redirection banner if in in-app browser
+      const banner = document.getElementById('browser-banner');
+      
+      if (isInAppBrowser()) {
+        // Show banner after a short delay
         setTimeout(() => {
-          if (particle.parentNode) {
-            particle.remove();
+          banner.style.display = 'block';
+        }, 3000);
+        
+        // Open in Browser button
+        document.getElementById('open-browser-btn').addEventListener('click', function() {
+          try {
+            // Try to open in system browser (works in some hybrid apps)
+            window.open(window.location.href, '_system');
+          } catch (e) {
+            // Fallback: open in new tab
+            window.open(window.location.href, '_blank');
           }
-        }, duration * 1000);
+        });
+        
+        // Dismiss banner button
+        document.getElementById('dismiss-banner').addEventListener('click', function() {
+          banner.style.display = 'none';
+          // Set cookie to remember dismissal for 24 hours
+          document.cookie = "bannerDismissed=true; max-age=86400; path=/";
+        });
+        
+        // Check if banner was previously dismissed
+        if (document.cookie.includes('bannerDismissed=true')) {
+          banner.style.display = 'none';
+        }
       }
-    }
+    });
   </script>
 </body>
 </html>
