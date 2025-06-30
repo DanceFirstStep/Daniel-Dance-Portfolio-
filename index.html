@@ -360,6 +360,31 @@
       font-style: italic;
     }
     
+    .day-schedule {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    
+    .day-item {
+      background: rgba(216, 178, 32, 0.15);
+      border-radius: 8px;
+      padding: 5px 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    
+    .day-item.monday {
+      background: rgba(180, 100, 34, 0.2);
+      color: #d8b220;
+    }
+    
+    .day-item.thursday {
+      background: rgba(80, 70, 160, 0.2);
+      color: #a5a5ff;
+    }
+    
     footer {
       margin-top: 35px;
       padding: 20px;
@@ -886,8 +911,10 @@
             <div class="link-title">Stardust Ballroom</div>
             <div class="link-subtitle">
               Bellmawr, New Jersey
-              <span class="schedule-detail">Mondays & Thursdays at 6:30pm</span>
-              <span class="dance-style">Salsa and Bachata</span>
+              <div class="day-schedule">
+                <div class="day-item monday">Monday: Bachata Intro at 6:30pm</div>
+                <div class="day-item thursday">Thursday: Salsa Intro at 6:30pm</div>
+              </div>
             </div>
           </div>
         </div>
@@ -936,7 +963,7 @@
           <div class="form-group">
             <select id="location" class="form-select" required>
               <option value="">Select class location</option>
-              <option value="stardust">Stardust Ballroom - Mon/Thu 6:30pm</option>
+              <option value="stardust">Stardust Ballroom - Mon: Bachata, Thu: Salsa</option>
               <option value="letsbailar">Let's Bailar - Fridays 7pm</option>
               <option value="estilo">Estilo Dance - Saturdays 4pm</option>
             </select>
