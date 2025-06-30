@@ -6,7 +6,6 @@
   <title>Daniel Palacios | Professional Dance Instruction</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* ALL STYLES REMAIN UNCHANGED FROM YOUR ORIGINAL DESIGN */
     * {
       margin: 0;
       padding: 0;
@@ -80,7 +79,7 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(180, 100, 34, 0.4);
-      transition: all 0.4s ease;
+      transition: all 0.5s ease;
       z-index: 2;
     }
     
@@ -202,15 +201,15 @@
     .link-card {
       background: rgba(40, 38, 60, 0.7);
       border-radius: 18px;
-      padding: 20px;
+      padding: 18px;
       border: 1px solid rgba(80, 80, 120, 0.2);
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
-      min-height: 110px;
+      min-height: 100px;
       cursor: pointer;
-      transition: all 0.4s ease;
+      transition: all 0.5s ease;
       backdrop-filter: blur(6px);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
     }
@@ -232,7 +231,7 @@
       background: linear-gradient(120deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0.03) 100%);
       z-index: -1;
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.5s ease;
     }
     
     .link-card:hover::before {
@@ -240,20 +239,32 @@
     }
     
     .link-icon {
-      width: 60px;
-      height: 60px;
+      width: 55px;
+      height: 55px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 18px;
-      font-size: 1.7rem;
+      margin-right: 16px;
+      font-size: 1.6rem;
       border-radius: 16px;
       flex-shrink: 0;
       color: white;
       box-shadow: 0 5px 15px rgba(0,0,0,0.25);
-      transition: all 0.3s ease;
+      transition: all 0.5s ease;
       position: relative;
       overflow: hidden;
+    }
+    
+    .link-icon i {
+      animation: gentlePulse 4s infinite ease-in-out;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.5s ease;
+    }
+    
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
     
     .link-icon::after {
@@ -266,7 +277,7 @@
       background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       transform: scale(0);
-      transition: all 0.3s ease;
+      transition: all 0.5s ease;
       z-index: 1;
     }
     
@@ -278,6 +289,11 @@
     .link-card:hover .link-icon {
       transform: scale(1.1);
       box-shadow: 0 0 20px rgba(200, 200, 255, 0.2);
+    }
+    
+    .link-card:hover .link-icon i {
+      transform: scale(1.1);
+      animation: none;
     }
     
     .facebook .link-icon {
@@ -316,40 +332,30 @@
       background: linear-gradient(135deg, #25a25a, #1d8c4f) !important;
     }
     
-    .link-icon i {
-      position: relative;
-      z-index: 2;
-      transition: transform 0.3s ease;
-    }
-    
-    .link-card:hover .link-icon i {
-      transform: scale(1.1);
-    }
-    
     .link-text {
       flex: 1;
     }
     
     .link-title {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       color: #f0f0ff;
       letter-spacing: 0.3px;
     }
     
     .link-subtitle {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: rgba(200, 200, 230, 0.9);
-      line-height: 1.5;
+      line-height: 1.4;
     }
     
     .schedule-detail {
       display: block;
-      margin-top: 6px;
+      margin-top: 4px;
       color: #d8b220;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
     
     .dance-style {
@@ -362,7 +368,7 @@
     }
     
     .schedule-list {
-      margin-top: 8px;
+      margin-top: 6px;
     }
     
     .schedule-item {
@@ -728,13 +734,13 @@
       }
       
       .link-card {
-        padding: 18px;
+        padding: 16px;
       }
       
       .link-icon {
-        width: 55px;
-        height: 55px;
-        font-size: 1.6rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
       }
       
       .section-title {
@@ -795,19 +801,19 @@
       }
       
       .link-card {
-        padding: 16px;
-        min-height: 100px;
+        padding: 14px;
+        min-height: 90px;
       }
       
       .link-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-        margin-right: 15px;
+        width: 45px;
+        height: 45px;
+        margin-right: 14px;
+        font-size: 1.4rem;
       }
       
       .link-title {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
       }
       
       .link-subtitle {
@@ -1054,7 +1060,7 @@
         const size = 18 + Math.random() * 6;
         particle.style.fontSize = `${size}px`;
         
-        const duration = 1.2 + Math.random() * 0.5;
+        const duration = 1.6 + Math.random() * 0.5; /* Slowed down */
         particle.style.animationDuration = `${duration}s`;
         
         container.appendChild(particle);
