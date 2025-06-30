@@ -360,29 +360,24 @@
       font-style: italic;
     }
     
-    .day-schedule {
+    .schedule-list {
+      margin-top: 8px;
+    }
+    
+    .schedule-item {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
+      margin-bottom: 5px;
+      line-height: 1.5;
     }
     
-    .day-item {
-      background: rgba(216, 178, 32, 0.15);
-      border-radius: 8px;
-      padding: 5px 10px;
-      font-size: 0.9rem;
+    .schedule-day {
       font-weight: 600;
-    }
-    
-    .day-item.monday {
-      background: rgba(180, 100, 34, 0.2);
+      min-width: 75px;
       color: #d8b220;
     }
     
-    .day-item.thursday {
-      background: rgba(80, 70, 160, 0.2);
-      color: #a5a5ff;
+    .schedule-info {
+      flex: 1;
     }
     
     footer {
@@ -911,9 +906,15 @@
             <div class="link-title">Stardust Ballroom</div>
             <div class="link-subtitle">
               Bellmawr, New Jersey
-              <div class="day-schedule">
-                <div class="day-item monday">Monday: Bachata Intro at 6:30pm</div>
-                <div class="day-item thursday">Thursday: Salsa Intro at 6:30pm</div>
+              <div class="schedule-list">
+                <div class="schedule-item">
+                  <span class="schedule-day">Monday:</span>
+                  <span class="schedule-info">Bachata Intro at 6:30pm</span>
+                </div>
+                <div class="schedule-item">
+                  <span class="schedule-day">Thursday:</span>
+                  <span class="schedule-info">Salsa Intro at 6:30pm</span>
+                </div>
               </div>
             </div>
           </div>
@@ -927,8 +928,12 @@
             <div class="link-title">Let's Bailar Dance Studio</div>
             <div class="link-subtitle">
               Philadelphia
-              <span class="schedule-detail">Fridays at 7pm</span>
-              <span class="dance-style">Salsa and Bachata</span>
+              <div class="schedule-list">
+                <div class="schedule-item">
+                  <span class="schedule-day">Friday:</span>
+                  <span class="schedule-info">Salsa & Bachata at 7pm</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -941,8 +946,12 @@
             <div class="link-title">Estilo Dance Studio</div>
             <div class="link-subtitle">
               Fishtown, Philadelphia
-              <span class="schedule-detail">Saturdays at 4pm</span>
-              <span class="dance-style">Salsa and Bachata</span>
+              <div class="schedule-list">
+                <div class="schedule-item">
+                  <span class="schedule-day">Saturday:</span>
+                  <span class="schedule-info">Salsa & Bachata at 4pm</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -963,9 +972,9 @@
           <div class="form-group">
             <select id="location" class="form-select" required>
               <option value="">Select class location</option>
-              <option value="stardust">Stardust Ballroom - Mon: Bachata, Thu: Salsa</option>
-              <option value="letsbailar">Let's Bailar - Fridays 7pm</option>
-              <option value="estilo">Estilo Dance - Saturdays 4pm</option>
+              <option value="stardust">Stardust Ballroom (Mon: Bachata, Thu: Salsa)</option>
+              <option value="letsbailar">Let's Bailar (Fridays 7pm)</option>
+              <option value="estilo">Estilo Dance (Saturdays 4pm)</option>
             </select>
           </div>
           
