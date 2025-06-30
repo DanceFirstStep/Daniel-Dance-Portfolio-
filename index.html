@@ -343,7 +343,7 @@
       line-height: 1.5;
     }
     
-    /* COMPACT SCHEDULE DESIGN - ONLY THIS SECTION MODIFIED */
+    /* ENHANCED SCHEDULE DESIGN */
     .schedule-list {
       margin-top: 8px;
     }
@@ -352,7 +352,6 @@
       display: flex;
       margin-bottom: 10px;
       line-height: 1.4;
-      align-items: center;
       padding: 8px 0;
       border-bottom: 1px solid rgba(80, 80, 120, 0.15);
     }
@@ -377,20 +376,38 @@
     .schedule-info {
       flex: 1;
       padding-left: 12px;
-      font-size: 0.95rem;
     }
     
     .schedule-style {
       font-weight: 500;
       color: #e0e0ff;
+      display: block;
     }
     
     .schedule-time {
       font-size: 0.9rem;
       color: rgba(180, 180, 210, 0.9);
-      margin-top: 2px;
+      display: block;
+      margin-top: 3px;
     }
-    /* END OF SCHEDULE MODIFICATIONS */
+    
+    .next-level {
+      color: #c96e1d;
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-top: 5px;
+      display: block;
+      position: relative;
+      padding-left: 18px;
+    }
+    
+    .next-level::before {
+      content: "→";
+      position: absolute;
+      left: 5px;
+      color: #d8b220;
+    }
+    /* END SCHEDULE ENHANCEMENTS */
     
     footer {
       margin-top: 35px;
@@ -932,15 +949,17 @@
                 <div class="schedule-item">
                   <span class="schedule-day">Mon</span>
                   <div class="schedule-info">
-                    <div class="schedule-style">Bachata</div>
-                    <div class="schedule-time">6:30 PM</div>
+                    <span class="schedule-style">Bachata</span>
+                    <span class="schedule-time">6:30 PM</span>
+                    <span class="next-level">Bachata Next Level</span>
                   </div>
                 </div>
                 <div class="schedule-item">
                   <span class="schedule-day">Thu</span>
                   <div class="schedule-info">
-                    <div class="schedule-style">Salsa + Bachata</div>
-                    <div class="schedule-time">6:30 PM</div>
+                    <span class="schedule-style">Salsa</span>
+                    <span class="schedule-time">6:30 PM</span>
+                    <span class="next-level">Bachata Next Level</span>
                   </div>
                 </div>
               </div>
@@ -960,8 +979,8 @@
                 <div class="schedule-item">
                   <span class="schedule-day">Fri</span>
                   <div class="schedule-info">
-                    <div class="schedule-style">Salsa & Bachata</div>
-                    <div class="schedule-time">7:00 PM</div>
+                    <span class="schedule-style">Salsa & Bachata</span>
+                    <span class="schedule-time">7:00 PM</span>
                   </div>
                 </div>
               </div>
@@ -981,8 +1000,8 @@
                 <div class="schedule-item">
                   <span class="schedule-day">Sat</span>
                   <div class="schedule-info">
-                    <div class="schedule-style">Salsa & Bachata</div>
-                    <div class="schedule-time">4:00 PM</div>
+                    <span class="schedule-style">Salsa & Bachata</span>
+                    <span class="schedule-time">4:00 PM</span>
                   </div>
                 </div>
               </div>
