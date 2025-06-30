@@ -951,7 +951,7 @@
       <h2 class="section-title">Connect With Me</h2>
       <div class="links-grid">
         <div class="link-card clickable facebook" 
-             data-app="fb://profile?id=100092605672027"
+             data-app="fb://profile/100092605672027"
              data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
           <div class="link-icon">
             <i class="fab fa-facebook-f"></i>
@@ -1138,7 +1138,7 @@
   
   <div id="link-notification" class="link-notification" style="display: none;">
     <i class="fas fa-external-link-alt"></i>
-    <div class="link-notification-text">Opening link in your default browser...</div>
+    <div class="link-notification-text">Opening app directly...</div>
     <button class="link-notification-close">
       <i class="fas fa-times"></i>
     </button>
@@ -1190,8 +1190,8 @@
       }
     }
     
-    // Function to open links in apps when possible
-    function openAppOrLink(card, event) {
+    // Function to open links in apps without confirmation
+    function openAppDirectly(card, event) {
       createMusicParticle(event);
       
       // Add visual feedback
@@ -1207,21 +1207,32 @@
         setTimeout(() => {
           alert('Cash payments accepted at all class locations. Exact change is appreciated.');
         }, 100);
+        return;
       } 
-      else if (appUrl) {
-        // Try to open the app
-        window.location.href = appUrl;
-        
-        // Fallback to web if app not installed
-        setTimeout(function() {
-          if (!document.webkitHidden && !document.hidden) {
-            window.open(webUrl, '_blank');
-          }
-        }, 500);
-      } else if (webUrl) {
+      
+      if (!appUrl) {
         // For links without app, open directly
         window.open(webUrl, '_blank');
+        return;
       }
+      
+      // Show notification
+      const notification = document.getElementById('link-notification');
+      notification.style.display = 'flex';
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 2000);
+      
+      // Use iframe technique to bypass confirmation prompts
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = appUrl;
+      document.body.appendChild(iframe);
+      
+      // Set timeout to remove iframe
+      setTimeout(() => {
+        document.body.removeChild(iframe);
+      }, 1000);
     }
     
     document.addEventListener('DOMContentLoaded', function() {
@@ -1236,7 +1247,7 @@
       // Handle all clickable cards
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
-          openAppOrLink(this, e);
+          openAppDirectly(this, e);
         });
       });
       
