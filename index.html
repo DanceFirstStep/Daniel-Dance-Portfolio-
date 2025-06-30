@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Palacios | Professional Dance Instruction</title>
+  <title>Daniel Palacios | Dance Instructor</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -59,6 +59,45 @@
       position: relative;
       z-index: 10;
       margin: 0;
+    }
+    
+    /* Simple Browser Notification */
+    .browser-notice {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 157, 0, 0.9);
+      color: #0a0915;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(-100%);
+      transition: transform 0.4s ease;
+    }
+    
+    .browser-notice.visible {
+      transform: translateY(0);
+    }
+    
+    .browser-notice i {
+      margin-right: 8px;
+      font-size: 1rem;
+    }
+    
+    .browser-notice .close-btn {
+      background: none;
+      border: none;
+      color: #0a0915;
+      margin-left: 15px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 5px;
     }
     
     .logo-container {
@@ -742,179 +781,6 @@
     .non-link-card:hover .link-icon i {
       transform: none;
     }
-
-    /* Browser modal */
-    .browser-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(10, 9, 20, 0.95);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      backdrop-filter: blur(8px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-    
-    .browser-modal.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    .modal-content {
-      background: rgba(30, 28, 50, 0.98);
-      border-radius: 20px;
-      padding: 35px;
-      max-width: 500px;
-      width: 90%;
-      border: 1px solid rgba(255, 215, 0, 0.2);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-    
-    .modal-content::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(255, 157, 0, 0.05), rgba(255, 215, 0, 0.05));
-      z-index: -1;
-    }
-    
-    .modal-close {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: none;
-      border: none;
-      color: rgba(220, 220, 240, 0.8);
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: color 0.3s ease;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-    }
-    
-    .modal-close:hover {
-      color: #ffd700;
-      background: rgba(255, 215, 0, 0.1);
-    }
-    
-    .modal-icon {
-      font-size: 3.5rem;
-      color: #ffd700;
-      margin-bottom: 20px;
-      animation: pulse 2s infinite ease-in-out;
-    }
-    
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-    
-    .modal-title {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: #ffd700;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
-    
-    .modal-message {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-      color: rgba(220, 220, 240, 0.9);
-      line-height: 1.6;
-    }
-    
-    .modal-instruction {
-      background: rgba(45, 42, 70, 0.7);
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 25px;
-      border: 1px solid rgba(100, 100, 150, 0.15);
-      text-align: left;
-    }
-    
-    .instruction-title {
-      color: #ffd700;
-      font-weight: 600;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-    }
-    
-    .instruction-title i {
-      margin-right: 10px;
-    }
-    
-    .instruction-steps {
-      padding-left: 20px;
-    }
-    
-    .instruction-steps li {
-      margin-bottom: 10px;
-      color: rgba(220, 220, 240, 0.9);
-      line-height: 1.5;
-    }
-    
-    .modal-btn {
-      background: linear-gradient(135deg, #ff9d00, #ffd700);
-      color: #0a0915;
-      border: none;
-      border-radius: 14px;
-      padding: 14px 30px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      cursor: pointer;
-      margin: 10px 5px;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 180px;
-      box-shadow: 0 8px 25px rgba(255, 157, 0, 0.4);
-    }
-    
-    .modal-btn i {
-      margin-right: 8px;
-      font-size: 1.2rem;
-    }
-    
-    .modal-btn:hover {
-      opacity: 0.95;
-      box-shadow: 0 10px 30px rgba(255, 157, 0, 0.6);
-      transform: translateY(-3px) scale(1.02);
-    }
-    
-    .modal-btn:active {
-      transform: translateY(1px);
-    }
-    
-    .btn-outline {
-      background: transparent;
-      border: 2px solid #ffd700;
-      color: #ffd700;
-      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
-    }
-    
-    .btn-outline:hover {
-      background: rgba(255, 215, 0, 0.1);
-    }
     
     @media (max-width: 768px) {
       body {
@@ -964,14 +830,6 @@
       
       .form-title {
         font-size: 1.5rem;
-      }
-      
-      .modal-content {
-        padding: 25px;
-      }
-      
-      .modal-title {
-        font-size: 1.6rem;
       }
     }
     
@@ -1062,60 +920,20 @@
         padding: 18px;
         font-size: 0.95rem;
       }
-      
-      .modal-title {
-        font-size: 1.5rem;
-      }
-      
-      .modal-message {
-        font-size: 1rem;
-      }
-      
-      .modal-btn {
-        min-width: auto;
-        width: 100%;
-        margin: 8px 0;
-      }
     }
   </style>
 </head>
 <body>
   <div class="background"></div>
   
-  <div id="music-particles-container"></div>
-  
-  <!-- Browser Detection Modal -->
-  <div class="browser-modal" id="browser-modal">
-    <div class="modal-content">
-      <button class="modal-close" id="modal-close">&times;</button>
-      <div class="modal-icon">
-        <i class="fas fa-external-link-alt"></i>
-      </div>
-      <h2 class="modal-title">Open in Browser</h2>
-      <p class="modal-message">For the best experience with Daniel's dance profile, please open this page in your device's default browser.</p>
-      
-      <div class="modal-instruction">
-        <div class="instruction-title">
-          <i class="fas fa-mobile-alt"></i>
-          How to open in browser:
-        </div>
-        <ol class="instruction-steps">
-          <li><strong>Tap the browser icon</strong> at the top right corner</li>
-          <li><strong>Select "Open in Safari"</strong> (iOS) or <strong>"Open in Chrome"</strong> (Android)</li>
-          <li><strong>Enjoy the full experience</strong> with Daniel's dance profile</li>
-        </ol>
-      </div>
-      
-      <p class="modal-message">This ensures you can navigate freely between apps and view all content properly.</p>
-      
-      <button class="modal-btn" id="open-browser-btn">
-        <i class="fas fa-external-link-alt"></i> Open in Browser
-      </button>
-      <button class="modal-btn btn-outline" id="continue-in-app">
-        <i class="fas fa-play-circle"></i> Continue in App
-      </button>
-    </div>
+  <!-- Simple Browser Notice -->
+  <div class="browser-notice" id="browser-notice">
+    <i class="fas fa-external-link-alt"></i>
+    For best experience, open in Safari or Chrome
+    <button class="close-btn" id="close-notice">&times;</button>
   </div>
+  
+  <div id="music-particles-container"></div>
   
   <div class="container">
     <div class="corner-decoration corner-top-left"></div>
@@ -1303,49 +1121,31 @@
   </div>
 
   <script>
-    // Browser detection and modal control
     document.addEventListener('DOMContentLoaded', function() {
-      const modal = document.getElementById('browser-modal');
-      const closeBtn = document.getElementById('modal-close');
-      const openBrowserBtn = document.getElementById('open-browser-btn');
-      const continueBtn = document.getElementById('continue-in-app');
+      // Browser detection
+      const notice = document.getElementById('browser-notice');
+      const closeBtn = document.getElementById('close-notice');
       
-      // Detect if user is in Facebook or Instagram in-app browser
       function isInAppBrowser() {
         const ua = navigator.userAgent || navigator.vendor || window.opera;
         return (ua.includes('FBAN') || ua.includes('FBAV') || ua.includes('Instagram'));
       }
       
-      // Show modal if in Facebook/Instagram browser
+      // Show notice if in Facebook/Instagram browser
       if (isInAppBrowser()) {
         setTimeout(() => {
-          modal.classList.add('active');
-        }, 1000);
+          notice.classList.add('visible');
+          
+          // Auto-hide after 10 seconds
+          setTimeout(() => {
+            notice.classList.remove('visible');
+          }, 10000);
+        }, 2000);
       }
       
-      // Close modal
+      // Close button
       closeBtn.addEventListener('click', function() {
-        modal.classList.remove('active');
-      });
-      
-      // Open in browser button
-      openBrowserBtn.addEventListener('click', function() {
-        // Attempt to open in default browser
-        const currentUrl = encodeURIComponent(window.location.href);
-        
-        // For iOS
-        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-          window.location.href = `x-web-search://?${currentUrl}`;
-        } 
-        // For Android
-        else {
-          window.open(`intent://${window.location.host}/#Intent;scheme=https;package=com.android.chrome;end`, '_blank');
-        }
-      });
-      
-      // Continue in app
-      continueBtn.addEventListener('click', function() {
-        modal.classList.remove('active');
+        notice.classList.remove('visible');
       });
       
       // Existing functionality
