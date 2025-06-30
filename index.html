@@ -18,7 +18,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 15px;
+      padding: 20px;
       overflow-x: hidden;
       position: relative;
       color: #e0e0ff;
@@ -343,42 +343,54 @@
       line-height: 1.5;
     }
     
-    .schedule-detail {
-      display: block;
-      margin-top: 6px;
-      color: #d8b220;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-    
-    .dance-style {
-      display: block;
-      margin-top: 5px;
-      color: #c96e1d;
-      font-weight: 600;
-      font-size: 0.95rem;
-      font-style: italic;
-    }
-    
+    /* COMPACT SCHEDULE DESIGN - ONLY THIS SECTION MODIFIED */
     .schedule-list {
       margin-top: 8px;
     }
     
     .schedule-item {
       display: flex;
-      margin-bottom: 5px;
-      line-height: 1.5;
+      margin-bottom: 10px;
+      line-height: 1.4;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(80, 80, 120, 0.15);
+    }
+    
+    .schedule-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
     
     .schedule-day {
       font-weight: 600;
-      min-width: 75px;
+      min-width: 65px;
       color: #d8b220;
+      font-size: 0.95rem;
+      padding: 4px 8px;
+      background: rgba(200, 170, 50, 0.1);
+      border-radius: 5px;
+      text-align: center;
     }
     
     .schedule-info {
       flex: 1;
+      padding-left: 12px;
+      font-size: 0.95rem;
     }
+    
+    .schedule-style {
+      font-weight: 500;
+      color: #e0e0ff;
+    }
+    
+    .schedule-time {
+      font-size: 0.9rem;
+      color: rgba(180, 180, 210, 0.9);
+      margin-top: 2px;
+    }
+    /* END OF SCHEDULE MODIFICATIONS */
     
     footer {
       margin-top: 35px;
@@ -837,6 +849,16 @@
         padding: 18px;
         font-size: 0.95rem;
       }
+      
+      /* Mobile schedule adjustments */
+      .schedule-day {
+        min-width: 55px;
+        font-size: 0.9rem;
+      }
+      
+      .schedule-info {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -908,12 +930,18 @@
               Bellmawr, New Jersey
               <div class="schedule-list">
                 <div class="schedule-item">
-                  <span class="schedule-day">Mon:</span>
-                  <span class="schedule-info">Bachata 6:30pm</span>
+                  <span class="schedule-day">Mon</span>
+                  <div class="schedule-info">
+                    <div class="schedule-style">Bachata</div>
+                    <div class="schedule-time">6:30 PM</div>
+                  </div>
                 </div>
                 <div class="schedule-item">
-                  <span class="schedule-day">Thu:</span>
-                  <span class="schedule-info">Salsa 6:30pm + Bachata</span>
+                  <span class="schedule-day">Thu</span>
+                  <div class="schedule-info">
+                    <div class="schedule-style">Salsa + Bachata</div>
+                    <div class="schedule-time">6:30 PM</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -930,8 +958,11 @@
               Philadelphia
               <div class="schedule-list">
                 <div class="schedule-item">
-                  <span class="schedule-day">Fri:</span>
-                  <span class="schedule-info">Salsa/Bachata 7pm</span>
+                  <span class="schedule-day">Fri</span>
+                  <div class="schedule-info">
+                    <div class="schedule-style">Salsa & Bachata</div>
+                    <div class="schedule-time">7:00 PM</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -948,8 +979,11 @@
               Fishtown, Philadelphia
               <div class="schedule-list">
                 <div class="schedule-item">
-                  <span class="schedule-day">Sat:</span>
-                  <span class="schedule-info">Salsa/Bachata 4pm</span>
+                  <span class="schedule-day">Sat</span>
+                  <div class="schedule-info">
+                    <div class="schedule-style">Salsa & Bachata</div>
+                    <div class="schedule-time">4:00 PM</div>
+                  </div>
                 </div>
               </div>
             </div>
