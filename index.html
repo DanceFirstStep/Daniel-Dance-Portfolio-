@@ -18,13 +18,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 15px;
       overflow-x: hidden;
       position: relative;
       color: #e0e0ff;
       background: linear-gradient(135deg, #0a0915 0%, #151328 100%);
-      line-height: 1.65;
-      font-size: 1.05rem;
+      line-height: 1.6;
+      font-size: 1rem;
     }
     
     .background {
@@ -49,17 +49,16 @@
     
     .container {
       width: 100%;
-      max-width: 980px;
+      max-width: 900px;
       background: rgba(20, 18, 35, 0.96);
       backdrop-filter: blur(12px);
-      border-radius: 24px;
+      border-radius: 20px;
       border: 1px solid rgba(100, 100, 150, 0.15);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
       overflow: hidden;
       position: relative;
       z-index: 10;
       margin: 0;
-      transition: all 0.4s ease;
     }
     
     .logo-container {
@@ -124,15 +123,15 @@
     }
     
     header {
-      padding: 35px 25px 15px;
+      padding: 30px 20px 15px;
       text-align: center;
       position: relative;
     }
     
     h1 {
-      font-size: 2.6rem;
+      font-size: 2.4rem;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       letter-spacing: 0.5px;
       color: #f0f0ff;
       text-shadow: 0 2px 10px rgba(0,0,0,0.4);
@@ -143,36 +142,36 @@
     h1::after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -8px;
       left: 50%;
       transform: translateX(-50%);
-      width: 110px;
+      width: 100px;
       height: 4px;
       background: linear-gradient(to right, #c96e1d, #d8b220);
       border-radius: 3px;
     }
     
     .tagline {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 300;
       color: rgba(210, 210, 230, 0.9);
-      margin-top: 22px;
-      max-width: 700px;
+      margin-top: 20px;
+      max-width: 600px;
       margin: 15px auto 0;
-      line-height: 1.7;
+      line-height: 1.6;
       padding: 0 15px;
     }
     
     .section-title {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 600;
-      margin: 35px 0 25px;
+      margin: 30px 0 20px;
       text-align: center;
       position: relative;
       display: block;
       width: 100%;
       color: #d8b220;
-      padding-bottom: 15px;
+      padding-bottom: 12px;
     }
     
     .section-title::after {
@@ -181,7 +180,7 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 110px;
+      width: 100px;
       height: 4px;
       background: linear-gradient(to right, #c96e1d, #d8b220);
       border-radius: 3px;
@@ -189,26 +188,26 @@
     }
     
     .content {
-      padding: 0 30px 25px;
+      padding: 0 25px 20px;
     }
     
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 22px;
-      margin: 25px 0;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin: 20px 0;
     }
     
     .link-card {
       background: rgba(40, 38, 60, 0.7);
-      border-radius: 20px;
-      padding: 24px;
+      border-radius: 18px;
+      padding: 20px;
       border: 1px solid rgba(80, 80, 120, 0.2);
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
-      min-height: 120px;
+      min-height: 110px;
       cursor: pointer;
       transition: all 0.4s ease;
       backdrop-filter: blur(6px);
@@ -240,14 +239,14 @@
     }
     
     .link-icon {
-      width: 70px;
-      height: 70px;
+      width: 60px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 20px;
-      font-size: 1.9rem;
-      border-radius: 18px;
+      margin-right: 18px;
+      font-size: 1.7rem;
+      border-radius: 16px;
       flex-shrink: 0;
       color: white;
       box-shadow: 0 5px 15px rgba(0,0,0,0.25);
@@ -331,53 +330,85 @@
     }
     
     .link-title {
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: #f0f0ff;
       letter-spacing: 0.3px;
     }
     
     .link-subtitle {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: rgba(200, 200, 230, 0.9);
-      line-height: 1.6;
+      line-height: 1.5;
     }
     
     .schedule-detail {
       display: block;
-      margin-top: 8px;
+      margin-top: 6px;
       color: #d8b220;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
     
     .dance-style {
       display: block;
-      margin-top: 6px;
+      margin-top: 5px;
       color: #c96e1d;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-style: italic;
     }
     
     footer {
-      margin-top: 40px;
-      padding: 25px;
+      margin-top: 35px;
+      padding: 20px;
       text-align: center;
       color: rgba(200, 200, 220, 0.8);
-      font-size: 1.05rem;
+      font-size: 1rem;
       border-top: 1px solid rgba(80, 80, 120, 0.2);
-      line-height: 1.7;
+      line-height: 1.6;
       background: rgba(15, 10, 30, 0.45);
       backdrop-filter: blur(6px);
     }
     
+    /* Music Particles */
+    .music-particle {
+      position: fixed;
+      color: rgba(255, 215, 0, 0.85); 
+      z-index: 100;
+      pointer-events: none;
+      opacity: 0;
+      font-size: 24px;
+      font-weight: normal;
+      transform-origin: center;
+      animation: floatParticle 1.6s ease-out forwards;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    
+    @keyframes floatParticle {
+      0% {
+        transform: 
+          translate(0, 0) 
+          scale(0.9);
+        opacity: 0.9;
+      }
+      70% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: 
+          translate(var(--tx, 0), var(--ty, -120px)) 
+          scale(0.4);
+        opacity: 0;
+      }
+    }
+    
     .registration-form {
       background: rgba(25, 22, 42, 0.9);
-      border-radius: 20px;
-      padding: 35px;
-      margin: 35px 0;
+      border-radius: 18px;
+      padding: 25px;
+      margin: 30px 0;
       border: 1px solid rgba(80, 80, 120, 0.2);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
@@ -386,14 +417,14 @@
     }
     
     .form-title {
-      font-size: 1.9rem;
+      font-size: 1.7rem;
       font-weight: 700;
       margin-bottom: 15px;
       color: #d8b220;
       text-align: center;
       position: relative;
-      padding-bottom: 15px;
-      letter-spacing: 1px;
+      padding-bottom: 12px;
+      letter-spacing: 0.5px;
     }
     
     .form-title::after {
@@ -402,36 +433,36 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 110px;
+      width: 100px;
       height: 4px;
       background: linear-gradient(to right, #c96e1d, #d8b220);
       border-radius: 2px;
     }
     
-    /* MODIFIED PARTNER NOTICE - made subtle per request */
+    /* Partner notice */
     .partner-notice {
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       color: rgba(200, 200, 230, 0.85);
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 500;
       display: block;
     }
     
     .form-group {
-      margin-bottom: 25px;
+      margin-bottom: 18px;
       text-align: left;
       position: relative;
     }
     
     .form-input {
       width: 100%;
-      padding: 18px 22px;
-      border-radius: 16px;
+      padding: 15px 18px;
+      border-radius: 14px;
       border: 1px solid rgba(80, 80, 120, 0.3);
       background: rgba(40, 38, 60, 0.5);
       color: #e0e0ff;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       transition: all 0.3s ease;
       -webkit-appearance: none;
       appearance: none;
@@ -448,22 +479,22 @@
     
     .form-input::placeholder {
       color: rgba(180, 180, 210, 0.7);
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
     
     .form-select {
       width: 100%;
-      padding: 18px 22px;
-      border-radius: 16px;
+      padding: 15px 18px;
+      border-radius: 14px;
       border: 1px solid rgba(80, 80, 120, 0.3);
       background: rgba(40, 38, 60, 0.5);
       color: #e0e0ff;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d8b220'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 20px center;
-      background-size: 20px;
+      background-position: right 18px center;
+      background-size: 18px;
       transition: all 0.3s ease;
       -webkit-appearance: none;
       font-family: 'Segoe UI', sans-serif;
@@ -481,20 +512,20 @@
       background: linear-gradient(135deg, #c96e1d, #d8b220);
       color: #0a0915;
       border: none;
-      border-radius: 16px;
-      padding: 20px;
-      font-size: 1.25rem;
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 1.15rem;
       font-weight: 700;
       cursor: pointer;
       width: 100%;
-      margin-top: 20px;
+      margin-top: 15px;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
       display: block;
       touch-action: manipulation;
       font-family: 'Segoe UI', sans-serif;
-      letter-spacing: 0.7px;
+      letter-spacing: 0.5px;
       box-shadow: 0 8px 25px rgba(180, 100, 34, 0.4);
       text-shadow: 0 1px 2px rgba(255,255,255,0.3);
     }
@@ -512,8 +543,8 @@
     .thank-you-message {
       display: none;
       text-align: center;
-      padding: 40px 30px;
-      border-radius: 20px;
+      padding: 30px 25px;
+      border-radius: 18px;
       background: rgba(25, 22, 42, 0.95);
       margin-top: 20px;
       border: 1px solid rgba(80, 80, 120, 0.2);
@@ -528,11 +559,11 @@
     }
     
     .thank-you-message h3 {
-      font-size: 1.9rem;
+      font-size: 1.7rem;
       color: #d8b220;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       position: relative;
-      padding-bottom: 18px;
+      padding-bottom: 15px;
     }
     
     .thank-you-message h3::after {
@@ -541,17 +572,17 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 90px;
+      width: 80px;
       height: 4px;
       background: linear-gradient(to right, #c96e1d, #d8b220);
       border-radius: 2px;
     }
     
     .thank-you-message p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
       color: rgba(200, 200, 230, 0.95);
-      line-height: 1.7;
+      line-height: 1.6;
     }
     
     .whatsapp-btn {
@@ -561,11 +592,11 @@
       background: rgba(30, 180, 80, 0.15);
       color: #e0e0ff;
       text-decoration: none;
-      padding: 18px 35px;
-      border-radius: 16px;
+      padding: 15px 28px;
+      border-radius: 14px;
       font-weight: 700;
-      font-size: 1.15rem;
-      margin-top: 20px;
+      font-size: 1.05rem;
+      margin-top: 15px;
       transition: all 0.3s ease;
       touch-action: manipulation;
       font-family: 'Segoe UI', sans-serif;
@@ -580,14 +611,14 @@
     }
     
     .whatsapp-btn i {
-      margin-right: 12px;
-      font-size: 1.4rem;
+      margin-right: 10px;
+      font-size: 1.25rem;
     }
     
     .corner-decoration {
       position: absolute;
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       z-index: -1;
       opacity: 0.08;
     }
@@ -597,7 +628,7 @@
       left: 0;
       border-top: 4px solid #c96e1d;
       border-left: 4px solid #c96e1d;
-      border-top-left-radius: 24px;
+      border-top-left-radius: 20px;
     }
     
     .corner-top-right {
@@ -605,7 +636,7 @@
       right: 0;
       border-top: 4px solid #d8b220;
       border-right: 4px solid #d8b220;
-      border-top-right-radius: 24px;
+      border-top-right-radius: 20px;
     }
     
     .corner-bottom-left {
@@ -613,7 +644,7 @@
       left: 0;
       border-bottom: 4px solid #5548b0;
       border-left: 4px solid #5548b0;
-      border-bottom-left-radius: 24px;
+      border-bottom-left-radius: 20px;
     }
     
     .corner-bottom-right {
@@ -621,7 +652,7 @@
       right: 0;
       border-bottom: 4px solid #1a8d88;
       border-right: 4px solid #1a8d88;
-      border-bottom-right-radius: 24px;
+      border-bottom-right-radius: 20px;
     }
     
     .non-link-card {
@@ -650,12 +681,12 @@
     
     @media (max-width: 768px) {
       body {
-        padding: 15px;
+        padding: 12px;
       }
       
       .links-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
       }
       
       .logo-container {
@@ -668,127 +699,131 @@
       }
       
       h1 {
-        font-size: 2.2rem;
+        font-size: 2.1rem;
       }
       
       .tagline {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
       }
       
       .link-card {
-        padding: 22px;
+        padding: 18px;
       }
       
       .link-icon {
-        width: 65px;
-        height: 65px;
-        font-size: 1.8rem;
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
       }
       
       .section-title {
-        font-size: 1.7rem;
-        margin: 35px 0 20px;
+        font-size: 1.5rem;
+        margin: 28px 0 18px;
       }
       
       .registration-form {
-        padding: 30px;
+        padding: 22px;
       }
       
       .form-title {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
       }
     }
     
     @media (max-width: 480px) {
       body {
         padding: 10px;
+        display: block;
       }
       
       .container {
-        border-radius: 20px;
-        width: 100%;
+        border-radius: 18px;
+        margin: 10px 0;
       }
       
       header {
-        padding: 30px 15px 10px;
+        padding: 25px 15px 10px;
       }
       
       .content {
-        padding: 0 20px 20px;
+        padding: 0 18px 18px;
       }
       
       .logo-container {
-        width: 110px;
-        height: 110px;
+        width: 100px;
+        height: 100px;
       }
       
       h1 {
-        font-size: 1.9rem;
+        font-size: 1.8rem;
       }
       
       h1::after {
-        width: 90px;
-        height: 4px;
+        width: 80px;
+        height: 3px;
       }
       
       .tagline {
-        font-size: 1.05rem;
-      }
-      
-      .section-title {
-        font-size: 1.5rem;
-        margin: 30px 0 20px;
-      }
-      
-      .link-card {
-        padding: 20px;
-        min-height: 110px;
-      }
-      
-      .link-icon {
-        width: 55px;
-        height: 55px;
-        font-size: 1.7rem;
-        margin-right: 16px;
-      }
-      
-      .link-title {
-        font-size: 1.2rem;
-      }
-      
-      .link-subtitle {
         font-size: 1rem;
       }
       
+      .section-title {
+        font-size: 1.35rem;
+        margin: 25px 0 16px;
+        padding-bottom: 10px;
+      }
+      
+      .link-card {
+        padding: 16px;
+        min-height: 100px;
+      }
+      
+      .link-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin-right: 15px;
+      }
+      
+      .link-title {
+        font-size: 1.15rem;
+      }
+      
+      .link-subtitle {
+        font-size: 0.95rem;
+      }
+      
       .registration-form {
-        padding: 25px;
+        padding: 20px;
         margin: 25px 0;
       }
       
       .form-input, .form-select {
-        padding: 16px 18px;
-        font-size: 1.1rem;
+        padding: 14px 16px;
+        font-size: 1rem;
       }
       
       .submit-btn {
-        padding: 18px;
-        font-size: 1.2rem;
+        padding: 15px;
+        font-size: 1.1rem;
       }
       
       .corner-decoration {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
       }
 
       footer {
-        padding: 20px;
-        font-size: 1rem;
+        padding: 18px;
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="background"></div>
+  
+  <div id="music-particles-container"></div>
   
   <div class="container">
     <div class="corner-decoration corner-top-left"></div>
@@ -916,7 +951,7 @@
           <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Join Class Group
           </a>
-          <button class="submit-btn" id="register-again-btn" style="margin-top: 25px;">
+          <button class="submit-btn" id="register-again-btn" style="margin-top: 20px;">
             Register Another Person
           </button>
         </div>
@@ -966,11 +1001,53 @@
   </div>
 
   <script>
+    function createMusicParticle(event) {
+      const container = document.getElementById('music-particles-container');
+      const particleCount = 3; 
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'music-particle';
+        
+        const symbols = ['♪', '♫'];
+        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+        particle.textContent = symbol;
+        
+        const posX = event.clientX + (Math.random() - 0.5) * 50;
+        const posY = event.clientY + (Math.random() - 0.5) * 50;
+        
+        particle.style.left = `${posX}px`;
+        particle.style.top = `${posY}px`;
+        
+        const translateX = (Math.random() - 0.5) * 80;
+        const translateY = -100 - Math.random() * 50;
+        
+        particle.style.setProperty('--tx', `${translateX}px`);
+        particle.style.setProperty('--ty', `${translateY}px`);
+        
+        const size = 18 + Math.random() * 6;
+        particle.style.fontSize = `${size}px`;
+        
+        const duration = 1.2 + Math.random() * 0.5;
+        particle.style.animationDuration = `${duration}s`;
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => {
+          if (particle.parentNode) {
+            particle.remove();
+          }
+        }, duration * 1000);
+      }
+    }
+    
     document.addEventListener('DOMContentLoaded', function() {
       const clickableElements = document.querySelectorAll('.clickable');
       
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
+          createMusicParticle(e);
+          
           this.classList.add('selected');
           
           setTimeout(() => {
@@ -994,6 +1071,8 @@
       
       const estiloCard = document.querySelector('.estilo');
       estiloCard.addEventListener('click', function(e) {
+        createMusicParticle(e);
+        
         this.classList.add('selected');
         
         setTimeout(() => {
