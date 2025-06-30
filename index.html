@@ -725,52 +725,6 @@
     .link-card:nth-child(2) { animation-delay: 0.2s; }
     .link-card:nth-child(3) { animation-delay: 0.3s; }
     
-    /* Link handling notification */
-    .link-notification {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(35, 33, 55, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 15px 25px;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      border: 1px solid rgba(100, 100, 150, 0.2);
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      z-index: 1000;
-      animation: slideUp 0.5s ease-out;
-      max-width: 90%;
-      width: max-content;
-    }
-    
-    @keyframes slideUp {
-      from { bottom: -100px; opacity: 0; }
-      to { bottom: 20px; opacity: 1; }
-    }
-    
-    .link-notification i {
-      font-size: 1.5rem;
-      color: #e6c439;
-    }
-    
-    .link-notification-text {
-      font-size: 0.95rem;
-      color: rgba(220, 220, 240, 0.95);
-    }
-    
-    .link-notification-close {
-      background: transparent;
-      border: none;
-      color: #e6c439;
-      font-size: 1.2rem;
-      cursor: pointer;
-      padding: 5px;
-      margin-left: 10px;
-    }
-    
     @media (max-width: 768px) {
       body {
         padding: 12px;
@@ -819,19 +773,6 @@
       
       .form-title {
         font-size: 1.5rem;
-      }
-      
-      .link-notification {
-        flex-direction: column;
-        text-align: center;
-        padding: 12px;
-        gap: 8px;
-      }
-      
-      .link-notification-close {
-        position: absolute;
-        top: 5px;
-        right: 5px;
       }
     }
     
@@ -1135,14 +1076,6 @@
       <p>Dance is the hidden language of the soul</p>
     </footer>
   </div>
-  
-  <div id="link-notification" class="link-notification" style="display: none;">
-    <i class="fas fa-external-link-alt"></i>
-    <div class="link-notification-text">Opening app directly...</div>
-    <button class="link-notification-close">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
 
   <script>
     // Function to create music particles
@@ -1190,8 +1123,8 @@
       }
     }
     
-    // Function to open links in apps without confirmation
-    function openAppDirectly(card, event) {
+    // Function to open links/apps without any notifications
+    function openDirectly(card, event) {
       createMusicParticle(event);
       
       // Add visual feedback
@@ -1204,50 +1137,32 @@
       const webUrl = card.getAttribute('data-url');
       
       if (card.classList.contains('cash')) {
-        setTimeout(() => {
-          alert('Cash payments accepted at all class locations. Exact change is appreciated.');
-        }, 100);
-        return;
+        return; // No action for cash card
       } 
       
-      if (!appUrl) {
-        // For links without app, open directly
+      if (appUrl) {
+        // Use iframe technique to open app directly
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = appUrl;
+        document.body.appendChild(iframe);
+        
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+        }, 100);
+      } else if (webUrl) {
+        // Open web links in new tab
         window.open(webUrl, '_blank');
-        return;
       }
-      
-      // Show notification
-      const notification = document.getElementById('link-notification');
-      notification.style.display = 'flex';
-      setTimeout(() => {
-        notification.style.display = 'none';
-      }, 2000);
-      
-      // Use iframe technique to bypass confirmation prompts
-      const iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      iframe.src = appUrl;
-      document.body.appendChild(iframe);
-      
-      // Set timeout to remove iframe
-      setTimeout(() => {
-        document.body.removeChild(iframe);
-      }, 1000);
     }
     
     document.addEventListener('DOMContentLoaded', function() {
       const clickableElements = document.querySelectorAll('.clickable');
-      const notificationClose = document.querySelector('.link-notification-close');
-      
-      // Close notification button
-      notificationClose.addEventListener('click', function() {
-        document.getElementById('link-notification').style.display = 'none';
-      });
       
       // Handle all clickable cards
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
-          openAppDirectly(this, e);
+          openDirectly(this, e);
         });
       });
       
