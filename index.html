@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Palacios | Professional Dance Instructor</title>
+  <title>Daniel Palacios | Professional Dance Instruction</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -21,8 +21,8 @@
       padding: 20px;
       overflow-x: hidden;
       position: relative;
-      color: #f5f5ff;
-      background: linear-gradient(135deg, #0e0b1b 0%, #18162d 100%);
+      color: #f0f0ff;
+      background: linear-gradient(135deg, #0f0c1c 0%, #1d1a30 100%);
       line-height: 1.6;
       font-size: 1rem;
     }
@@ -35,9 +35,9 @@
       height: 100%;
       z-index: -2;
       background: 
-        radial-gradient(circle at 20% 30%, rgba(216, 131, 42, 0.1) 0%, transparent 25%),
-        radial-gradient(circle at 80% 70%, rgba(80, 70, 160, 0.1) 0%, transparent 25%);
-      animation: gradientBG 45s ease infinite;
+        radial-gradient(circle at 20% 30%, rgba(255, 157, 0, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(230, 196, 57, 0.1) 0%, transparent 25%);
+      animation: gradientBG 40s ease infinite;
       background-size: 400% 400%;
     }
     
@@ -50,11 +50,11 @@
     .container {
       width: 100%;
       max-width: 900px;
-      background: rgba(22, 20, 38, 0.96);
+      background: rgba(25, 23, 45, 0.96);
       backdrop-filter: blur(12px);
       border-radius: 20px;
       border: 1px solid rgba(100, 100, 150, 0.15);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
       overflow: hidden;
       position: relative;
       z-index: 10;
@@ -71,16 +71,22 @@
     .logo {
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #d8832a, #e6c439);
+      background: linear-gradient(135deg, #ff9d00, #ffd700);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(216, 131, 42, 0.5);
-      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(255, 157, 0, 0.4);
+      transition: all 0.5s ease;
       z-index: 2;
+      animation: logoPulse 4s infinite ease-in-out;
+    }
+    
+    @keyframes logoPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 157, 0, 0.4); }
+      50% { transform: scale(1.02); box-shadow: 0 12px 35px rgba(255, 157, 0, 0.5); }
     }
     
     .logo-ring {
@@ -89,45 +95,56 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border: 2px solid rgba(230, 196, 57, 0.7);
+      border: 2px solid rgba(255, 215, 0, 0.6);
       border-radius: 50%;
-      animation: pulseRing 10s infinite ease-in-out;
+      animation: pulseRing 8s infinite ease-out;
       z-index: 1;
       pointer-events: none;
     }
     
     @keyframes pulseRing {
-      0%, 100% {
+      0% {
         transform: scale(1);
         opacity: 0.7;
       }
       50% {
-        transform: scale(1.15);
-        opacity: 0.4;
+        opacity: 0.3;
+      }
+      100% {
+        transform: scale(1.4);
+        opacity: 0;
       }
     }
     
     .logo:hover {
-      transform: scale(1.05) rotate(5deg);
-      box-shadow: 0 15px 40px rgba(216, 131, 42, 0.6);
+      animation: none;
+      transform: scale(1.05);
+      box-shadow: 0 12px 35px rgba(255, 157, 0, 0.6);
     }
     
     .logo i {
       font-size: 60px;
       color: #fff;
       z-index: 2;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-      transition: transform 0.5s ease;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      animation: rotateMusic 6s infinite linear;
     }
     
-    .logo:hover i {
-      transform: scale(1.1) rotate(-10deg);
+    @keyframes rotateMusic {
+      0% { transform: rotate(0); }
+      100% { transform: rotate(360deg); }
     }
     
     header {
       padding: 30px 20px 15px;
       text-align: center;
       position: relative;
+      animation: fadeInDown 1s ease-out;
+    }
+    
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
     h1 {
@@ -135,11 +152,10 @@
       font-weight: 700;
       margin-bottom: 10px;
       letter-spacing: 0.5px;
-      color: #fff;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      color: #f0f0ff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
       position: relative;
       display: inline-block;
-      animation: fadeInUp 1s ease-out;
     }
     
     h1::after {
@@ -150,19 +166,14 @@
       transform: translateX(-50%);
       width: 100px;
       height: 4px;
-      background: linear-gradient(to right, #d8832a, #e6c439);
+      background: linear-gradient(to right, #ff9d00, #ffd700);
       border-radius: 3px;
-      animation: growLine 1.2s ease-out;
+      animation: underlinePulse 3s infinite ease-in-out;
     }
     
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    @keyframes growLine {
-      from { width: 0; opacity: 0; }
-      to { width: 100px; opacity: 1; }
+    @keyframes underlinePulse {
+      0%, 100% { width: 100px; }
+      50% { width: 120px; }
     }
     
     .tagline {
@@ -174,7 +185,6 @@
       margin: 15px auto 0;
       line-height: 1.6;
       padding: 0 15px;
-      animation: fadeIn 1.5s ease-out;
     }
     
     .section-title {
@@ -185,9 +195,14 @@
       position: relative;
       display: block;
       width: 100%;
-      color: #e6c439;
+      color: #ffd700;
       padding-bottom: 12px;
-      animation: fadeIn 0.8s ease-out;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     
     .section-title::after {
@@ -198,9 +213,10 @@
       transform: translateX(-50%);
       width: 100px;
       height: 4px;
-      background: linear-gradient(to right, #d8832a, #e6c439);
+      background: linear-gradient(to right, #ff9d00, #ffd700);
       border-radius: 3px;
-      box-shadow: 0 2px 8px rgba(216, 131, 42, 0.3);
+      box-shadow: 0 2px 8px rgba(255, 157, 0, 0.2);
+      animation: underlinePulse 3s infinite ease-in-out;
     }
     
     .content {
@@ -215,10 +231,10 @@
     }
     
     .link-card {
-      background: rgba(35, 33, 55, 0.7);
+      background: rgba(45, 42, 70, 0.7);
       border-radius: 18px;
       padding: 18px;
-      border: 1px solid rgba(100, 100, 150, 0.2);
+      border: 1px solid rgba(100, 100, 150, 0.15);
       display: flex;
       align-items: center;
       position: relative;
@@ -228,14 +244,19 @@
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       backdrop-filter: blur(6px);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-      animation: fadeInUp 0.8s ease-out;
+      animation: cardAppear 0.6s ease-out;
+    }
+    
+    @keyframes cardAppear {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
     .link-card:hover {
-      background: rgba(45, 42, 70, 0.8);
-      border-color: rgba(230, 196, 57, 0.4);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
-      transform: translateY(-5px);
+      background: rgba(55, 52, 80, 0.8);
+      border-color: rgba(255, 215, 0, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      transform: translateY(-5px) scale(1.02);
     }
     
     .link-card::before {
@@ -266,14 +287,14 @@
       border-radius: 16px;
       flex-shrink: 0;
       color: white;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
       overflow: hidden;
     }
     
     .link-icon i {
-      animation: gentlePulse 5s infinite ease-in-out;
+      animation: gentlePulse 4s infinite ease-in-out;
       position: relative;
       z-index: 2;
       transition: transform 0.4s ease;
@@ -281,7 +302,7 @@
     
     @keyframes gentlePulse {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.08); }
+      50% { transform: scale(1.05); }
     }
     
     .link-icon::after {
@@ -294,18 +315,18 @@
       background: rgba(255, 255, 255, 0.15);
       border-radius: 50%;
       transform: scale(0);
-      transition: all 0.6s ease;
+      transition: all 0.5s ease;
       z-index: 1;
     }
     
     .link-card:hover .link-icon::after {
-      transform: scale(2);
+      transform: scale(1.8);
       opacity: 0;
     }
     
     .link-card:hover .link-icon {
       transform: scale(1.1);
-      box-shadow: 0 0 25px rgba(230, 230, 255, 0.25);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
     }
     
     .link-card:hover .link-icon i {
@@ -325,8 +346,9 @@
       background: linear-gradient(135deg, #000000, #4a9da0);
     }
     
+    /* Consistent school card colors */
     .stardust-icon {
-      background: linear-gradient(135deg, #d8832a, #e6c439) !important;
+      background: linear-gradient(135deg, #ff9d00, #ffd700) !important;
     }
     
     .letsbailar-icon {
@@ -338,7 +360,7 @@
     }
     
     .contact-icon {
-      background: linear-gradient(135deg, #d8832a, #e6c439) !important;
+      background: linear-gradient(135deg, #ff9d00, #ffd700) !important;
     }
     
     .venmo .link-icon {
@@ -357,7 +379,7 @@
       font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 6px;
-      color: #fff;
+      color: #f0f0ff;
       letter-spacing: 0.3px;
     }
     
@@ -370,7 +392,7 @@
     .schedule-detail {
       display: block;
       margin-top: 4px;
-      color: #e6c439;
+      color: #ffd700;
       font-weight: 600;
       font-size: 0.9rem;
     }
@@ -388,7 +410,7 @@
     .schedule-day {
       font-weight: 600;
       min-width: 75px;
-      color: #e6c439;
+      color: #ffd700;
     }
     
     .schedule-info {
@@ -404,23 +426,28 @@
       font-size: 1rem;
       border-top: 1px solid rgba(100, 100, 150, 0.15);
       line-height: 1.6;
-      background: rgba(20, 18, 35, 0.45);
+      background: rgba(25, 23, 45, 0.45);
       backdrop-filter: blur(6px);
-      animation: fadeIn 1.2s ease-out;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
     /* Music Particles */
     .music-particle {
       position: fixed;
-      color: rgba(230, 196, 57, 0.85); 
+      color: rgba(255, 215, 0, 0.85); 
       z-index: 100;
       pointer-events: none;
       opacity: 0;
       font-size: 24px;
       font-weight: normal;
       transform-origin: center;
-      animation: floatParticle 1.8s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
-      text-shadow: 0 0 12px rgba(230, 196, 57, 0.6);
+      animation: floatParticle 1.8s ease-out forwards;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     }
     
     @keyframes floatParticle {
@@ -435,7 +462,7 @@
       }
       100% {
         transform: 
-          translate(var(--tx, 0), var(--ty, -140px)) 
+          translate(var(--tx, 0), var(--ty, -150px)) 
           scale(0.4);
         opacity: 0;
       }
@@ -447,18 +474,18 @@
       padding: 25px;
       margin: 30px 0;
       border: 1px solid rgba(100, 100, 150, 0.15);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
       position: relative;
       overflow: hidden;
-      animation: fadeInUp 0.9s ease-out;
+      animation: fadeInUp 0.8s ease-out;
     }
     
     .form-title {
       font-size: 1.7rem;
       font-weight: 700;
       margin-bottom: 15px;
-      color: #e6c439;
+      color: #ffd700;
       text-align: center;
       position: relative;
       padding-bottom: 12px;
@@ -473,8 +500,9 @@
       transform: translateX(-50%);
       width: 100px;
       height: 4px;
-      background: linear-gradient(to right, #d8832a, #e6c439);
+      background: linear-gradient(to right, #ff9d00, #ffd700);
       border-radius: 2px;
+      animation: underlinePulse 3s infinite ease-in-out;
     }
     
     /* Partner notice */
@@ -485,6 +513,7 @@
       font-size: 1.05rem;
       font-weight: 500;
       display: block;
+      animation: fadeIn 1s ease-out;
     }
     
     .form-group {
@@ -498,21 +527,22 @@
       padding: 15px 18px;
       border-radius: 14px;
       border: 1px solid rgba(100, 100, 150, 0.25);
-      background: rgba(40, 38, 60, 0.5);
+      background: rgba(45, 42, 70, 0.5);
       color: #f0f0ff;
       font-size: 1.05rem;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       -webkit-appearance: none;
       appearance: none;
       font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 3px 10px rgba(0,0,0,0.2);
+      box-shadow: inset 0 3px 8px rgba(0,0,0,0.15);
     }
     
     .form-input:focus {
       outline: none;
-      border-color: #e6c439;
-      background: rgba(50, 48, 70, 0.5);
-      box-shadow: 0 0 0 3px rgba(230, 196, 57, 0.2);
+      border-color: #ffd700;
+      background: rgba(55, 52, 80, 0.5);
+      box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.15);
+      transform: translateY(-2px);
     }
     
     .form-input::placeholder {
@@ -525,29 +555,30 @@
       padding: 15px 18px;
       border-radius: 14px;
       border: 1px solid rgba(100, 100, 150, 0.25);
-      background: rgba(40, 38, 60, 0.5);
+      background: rgba(45, 42, 70, 0.5);
       color: #f0f0ff;
       font-size: 1.05rem;
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e6c439'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffd700'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 18px center;
       background-size: 18px;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       -webkit-appearance: none;
       font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 3px 10px rgba(0,0,0,0.2);
+      box-shadow: inset 0 3px 8px rgba(0,0,0,0.15);
     }
     
     .form-select:focus {
       outline: none;
-      border-color: #e6c439;
-      background: rgba(50, 48, 70, 0.5);
-      box-shadow: 0 0 0 3px rgba(230, 196, 57, 0.2);
+      border-color: #ffd700;
+      background: rgba(55, 52, 80, 0.5);
+      box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.15);
+      transform: translateY(-2px);
     }
     
     .submit-btn {
-      background: linear-gradient(135deg, #d8832a, #e6c439);
+      background: linear-gradient(135deg, #ff9d00, #ffd700);
       color: #0a0915;
       border: none;
       border-radius: 14px;
@@ -557,24 +588,25 @@
       cursor: pointer;
       width: 100%;
       margin-top: 15px;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
       overflow: hidden;
       display: block;
       touch-action: manipulation;
       font-family: 'Segoe UI', sans-serif;
       letter-spacing: 0.5px;
-      box-shadow: 0 8px 25px rgba(216, 131, 42, 0.5);
+      box-shadow: 0 8px 25px rgba(255, 157, 0, 0.4);
       text-shadow: 0 1px 2px rgba(255,255,255,0.3);
     }
     
     .submit-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 35px rgba(216, 131, 42, 0.6);
+      opacity: 0.95;
+      box-shadow: 0 10px 30px rgba(255, 157, 0, 0.6);
+      transform: translateY(-3px) scale(1.02);
     }
     
     .submit-btn:active {
-      transform: translateY(2px);
+      transform: translateY(1px);
     }
     
     .thank-you-message {
@@ -590,14 +622,9 @@
       box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     }
     
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
     .thank-you-message h3 {
       font-size: 1.7rem;
-      color: #e6c439;
+      color: #ffd700;
       margin-bottom: 20px;
       position: relative;
       padding-bottom: 15px;
@@ -611,7 +638,7 @@
       transform: translateX(-50%);
       width: 80px;
       height: 4px;
-      background: linear-gradient(to right, #d8832a, #e6c439);
+      background: linear-gradient(to right, #ff9d00, #ffd700);
       border-radius: 2px;
     }
     
@@ -634,7 +661,7 @@
       font-weight: 700;
       font-size: 1.05rem;
       margin-top: 15px;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       touch-action: manipulation;
       font-family: 'Segoe UI', sans-serif;
       border: 1px solid rgba(30, 180, 80, 0.25);
@@ -643,8 +670,8 @@
     
     .whatsapp-btn:hover {
       background: rgba(30, 180, 80, 0.25);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
     }
     
     .whatsapp-btn i {
@@ -663,16 +690,16 @@
     .corner-top-left {
       top: 0;
       left: 0;
-      border-top: 4px solid #d8832a;
-      border-left: 4px solid #d8832a;
+      border-top: 4px solid #ff9d00;
+      border-left: 4px solid #ff9d00;
       border-top-left-radius: 20px;
     }
     
     .corner-top-right {
       top: 0;
       right: 0;
-      border-top: 4px solid #e6c439;
-      border-right: 4px solid #e6c439;
+      border-top: 4px solid #ffd700;
+      border-right: 4px solid #ffd700;
       border-top-right-radius: 20px;
     }
     
@@ -698,8 +725,8 @@
     
     .non-link-card:hover {
       transform: none;
-      background: rgba(35, 33, 55, 0.7);
-      border-color: rgba(100, 100, 150, 0.2);
+      background: rgba(45, 42, 70, 0.7);
+      border-color: rgba(100, 100, 150, 0.15);
     }
     
     .non-link-card .link-icon::after,
@@ -709,21 +736,185 @@
     
     .non-link-card:hover .link-icon {
       transform: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
     }
     
     .non-link-card:hover .link-icon i {
       transform: none;
     }
-    
-    /* Improved animations */
-    .link-card, .registration-form, .section-title {
-      animation: fadeInUp 0.8s ease-out;
+
+    /* Browser modal */
+    .browser-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 9, 20, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
     }
     
-    .link-card:nth-child(1) { animation-delay: 0.1s; }
-    .link-card:nth-child(2) { animation-delay: 0.2s; }
-    .link-card:nth-child(3) { animation-delay: 0.3s; }
+    .browser-modal.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    .modal-content {
+      background: rgba(30, 28, 50, 0.98);
+      border-radius: 20px;
+      padding: 35px;
+      max-width: 500px;
+      width: 90%;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .modal-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 157, 0, 0.05), rgba(255, 215, 0, 0.05));
+      z-index: -1;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: rgba(220, 220, 240, 0.8);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    
+    .modal-close:hover {
+      color: #ffd700;
+      background: rgba(255, 215, 0, 0.1);
+    }
+    
+    .modal-icon {
+      font-size: 3.5rem;
+      color: #ffd700;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite ease-in-out;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    .modal-title {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #ffd700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    
+    .modal-message {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      color: rgba(220, 220, 240, 0.9);
+      line-height: 1.6;
+    }
+    
+    .modal-instruction {
+      background: rgba(45, 42, 70, 0.7);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(100, 100, 150, 0.15);
+      text-align: left;
+    }
+    
+    .instruction-title {
+      color: #ffd700;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .instruction-title i {
+      margin-right: 10px;
+    }
+    
+    .instruction-steps {
+      padding-left: 20px;
+    }
+    
+    .instruction-steps li {
+      margin-bottom: 10px;
+      color: rgba(220, 220, 240, 0.9);
+      line-height: 1.5;
+    }
+    
+    .modal-btn {
+      background: linear-gradient(135deg, #ff9d00, #ffd700);
+      color: #0a0915;
+      border: none;
+      border-radius: 14px;
+      padding: 14px 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin: 10px 5px;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      box-shadow: 0 8px 25px rgba(255, 157, 0, 0.4);
+    }
+    
+    .modal-btn i {
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+    
+    .modal-btn:hover {
+      opacity: 0.95;
+      box-shadow: 0 10px 30px rgba(255, 157, 0, 0.6);
+      transform: translateY(-3px) scale(1.02);
+    }
+    
+    .modal-btn:active {
+      transform: translateY(1px);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #ffd700;
+      color: #ffd700;
+      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+    }
+    
+    .btn-outline:hover {
+      background: rgba(255, 215, 0, 0.1);
+    }
     
     @media (max-width: 768px) {
       body {
@@ -773,6 +964,14 @@
       
       .form-title {
         font-size: 1.5rem;
+      }
+      
+      .modal-content {
+        padding: 25px;
+      }
+      
+      .modal-title {
+        font-size: 1.6rem;
       }
     }
     
@@ -863,6 +1062,20 @@
         padding: 18px;
         font-size: 0.95rem;
       }
+      
+      .modal-title {
+        font-size: 1.5rem;
+      }
+      
+      .modal-message {
+        font-size: 1rem;
+      }
+      
+      .modal-btn {
+        min-width: auto;
+        width: 100%;
+        margin: 8px 0;
+      }
     }
   </style>
 </head>
@@ -870,6 +1083,39 @@
   <div class="background"></div>
   
   <div id="music-particles-container"></div>
+  
+  <!-- Browser Detection Modal -->
+  <div class="browser-modal" id="browser-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-icon">
+        <i class="fas fa-external-link-alt"></i>
+      </div>
+      <h2 class="modal-title">Open in Browser</h2>
+      <p class="modal-message">For the best experience with Daniel's dance profile, please open this page in your device's default browser.</p>
+      
+      <div class="modal-instruction">
+        <div class="instruction-title">
+          <i class="fas fa-mobile-alt"></i>
+          How to open in browser:
+        </div>
+        <ol class="instruction-steps">
+          <li><strong>Tap the browser icon</strong> at the top right corner</li>
+          <li><strong>Select "Open in Safari"</strong> (iOS) or <strong>"Open in Chrome"</strong> (Android)</li>
+          <li><strong>Enjoy the full experience</strong> with Daniel's dance profile</li>
+        </ol>
+      </div>
+      
+      <p class="modal-message">This ensures you can navigate freely between apps and view all content properly.</p>
+      
+      <button class="modal-btn" id="open-browser-btn">
+        <i class="fas fa-external-link-alt"></i> Open in Browser
+      </button>
+      <button class="modal-btn btn-outline" id="continue-in-app">
+        <i class="fas fa-play-circle"></i> Continue in App
+      </button>
+    </div>
+  </div>
   
   <div class="container">
     <div class="corner-decoration corner-top-left"></div>
@@ -891,39 +1137,33 @@
     <div class="content">
       <h2 class="section-title">Connect With Me</h2>
       <div class="links-grid">
-        <div class="link-card clickable facebook" 
-             data-app="fb://profile/100092605672027"
-             data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
+        <div class="link-card clickable facebook" data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
           <div class="link-icon">
             <i class="fab fa-facebook-f"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Facebook Profile</div>
-            <div class="link-subtitle">Connect & see dance updates</div>
+            <div class="link-title">Daniel Palacios</div>
+            <div class="link-subtitle">Facebook Profile</div>
           </div>
         </div>
         
-        <div class="link-card clickable instagram" 
-             data-app="instagram://user?username=danielp_bachata"
-             data-url="https://www.instagram.com/danielp_bachata">
+        <div class="link-card clickable instagram" data-url="https://www.instagram.com/danielp_bachata">
           <div class="link-icon">
             <i class="fab fa-instagram"></i>
           </div>
           <div class="link-text">
             <div class="link-title">Instagram</div>
-            <div class="link-subtitle">Dance videos & tutorials</div>
+            <div class="link-subtitle">@danielp_bachata</div>
           </div>
         </div>
         
-        <div class="link-card clickable tiktok" 
-             data-app="tiktok://user?username=danielp_bachata"
-             data-url="https://www.tiktok.com/@danielp_bachata">
+        <div class="link-card clickable tiktok" data-url="https://www.tiktok.com/@danielp_bachata">
           <div class="link-icon">
             <i class="fab fa-tiktok"></i>
           </div>
           <div class="link-text">
             <div class="link-title">TikTok</div>
-            <div class="link-subtitle">Short dance clips & tips</div>
+            <div class="link-subtitle">@danielp_bachata</div>
           </div>
         </div>
       </div>
@@ -960,7 +1200,7 @@
             <div class="schedule-list">
               <div class="schedule-item">
                 <span class="schedule-day">Friday:</span>
-                <span class="schedule-info">7pm: Salsa & Bachata</span>
+                <span class="schedule-info">Salsa & Bachata at 7pm</span>
               </div>
             </div>
           </div>
@@ -1010,7 +1250,7 @@
         <div id="thank-you-message" class="thank-you-message">
           <h3>Thank You for Registering!</h3>
           <p>We're excited to dance with you! Join our private WhatsApp group for class updates:</p>
-          <a href="https://wa.me/12105551234" class="whatsapp-btn" target="_blank">
+          <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Join Class Group
           </a>
           <button class="submit-btn" id="register-again-btn" style="margin-top: 20px;">
@@ -1021,15 +1261,13 @@
       
       <h2 class="section-title">Payment Options</h2>
       <div class="links-grid">
-        <div class="link-card clickable venmo" 
-             data-app="venmo://"
-             data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
+        <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
           <div class="link-icon">
             <i class="fab fa-vimeo-v"></i>
           </div>
           <div class="link-text">
             <div class="link-title">Venmo</div>
-            <div class="link-subtitle">@DanielPalacios-Dance</div>
+            <div class="link-subtitle">Secure payment option</div>
           </div>
         </div>
         
@@ -1046,26 +1284,13 @@
       
       <h2 class="section-title">Contact Me</h2>
       <div class="links-grid">
-        <div class="link-card clickable contact" 
-             data-app="whatsapp://send?phone=12105551234"
-             data-url="https://wa.me/12105551234">
+        <div class="link-card clickable contact" data-url="mailto:contact@danielpbachata.com">
           <div class="link-icon contact-icon">
-            <i class="fab fa-whatsapp"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">WhatsApp</div>
-            <div class="link-subtitle">Quick questions & bookings</div>
-          </div>
-        </div>
-        
-        <div class="link-card clickable email" 
-             data-url="mailto:contact@danielpbachata.com">
-          <div class="link-icon" style="background: linear-gradient(135deg, #2ac7c2, #1a8d88);">
             <i class="fas fa-envelope"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Email</div>
-            <div class="link-subtitle">Professional inquiries</div>
+            <div class="link-title">Professional Inquiries</div>
+            <div class="link-subtitle">Bookings and partnerships</div>
           </div>
         </div>
       </div>
@@ -1078,105 +1303,90 @@
   </div>
 
   <script>
-    // Function to create music particles
-    function createMusicParticle(event) {
-      const container = document.getElementById('music-particles-container');
-      const particleCount = 4; 
-      const symbols = ['♪', '♫', '♩', '♬'];
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'music-particle';
-        
-        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
-        particle.textContent = symbol;
-        
-        const posX = event.clientX + (Math.random() - 0.5) * 60;
-        const posY = event.clientY + (Math.random() - 0.5) * 60;
-        
-        particle.style.left = `${posX}px`;
-        particle.style.top = `${posY}px`;
-        
-        const translateX = (Math.random() - 0.5) * 100;
-        const translateY = -120 - Math.random() * 60;
-        
-        particle.style.setProperty('--tx', `${translateX}px`);
-        particle.style.setProperty('--ty', `${translateY}px`);
-        
-        const size = 20 + Math.random() * 10;
-        particle.style.fontSize = `${size}px`;
-        
-        const duration = 1.8 + Math.random() * 0.6;
-        particle.style.animationDuration = `${duration}s`;
-        
-        // Random rotation
-        const rotation = (Math.random() - 0.5) * 90;
-        particle.style.transform = `rotate(${rotation}deg)`;
-        
-        container.appendChild(particle);
-        
-        setTimeout(() => {
-          if (particle.parentNode) {
-            particle.remove();
-          }
-        }, duration * 1000);
-      }
-    }
-    
-    // Function to open links/apps without any notifications
-    function openDirectly(card, event) {
-      createMusicParticle(event);
-      
-      // Add visual feedback
-      card.classList.add('selected');
-      setTimeout(() => {
-        card.classList.remove('selected');
-      }, 800);
-      
-      const appUrl = card.getAttribute('data-app');
-      const webUrl = card.getAttribute('data-url');
-      
-      if (card.classList.contains('cash')) {
-        return; // No action for cash card
-      } 
-      
-      if (appUrl) {
-        // Use iframe technique to open app directly
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = appUrl;
-        document.body.appendChild(iframe);
-        
-        setTimeout(() => {
-          document.body.removeChild(iframe);
-        }, 100);
-      } else if (webUrl) {
-        // Open web links in new tab
-        window.open(webUrl, '_blank');
-      }
-    }
-    
+    // Browser detection and modal control
     document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('browser-modal');
+      const closeBtn = document.getElementById('modal-close');
+      const openBrowserBtn = document.getElementById('open-browser-btn');
+      const continueBtn = document.getElementById('continue-in-app');
+      
+      // Detect if user is in Facebook or Instagram in-app browser
+      function isInAppBrowser() {
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+        return (ua.includes('FBAN') || ua.includes('FBAV') || ua.includes('Instagram'));
+      }
+      
+      // Show modal if in Facebook/Instagram browser
+      if (isInAppBrowser()) {
+        setTimeout(() => {
+          modal.classList.add('active');
+        }, 1000);
+      }
+      
+      // Close modal
+      closeBtn.addEventListener('click', function() {
+        modal.classList.remove('active');
+      });
+      
+      // Open in browser button
+      openBrowserBtn.addEventListener('click', function() {
+        // Attempt to open in default browser
+        const currentUrl = encodeURIComponent(window.location.href);
+        
+        // For iOS
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+          window.location.href = `x-web-search://?${currentUrl}`;
+        } 
+        // For Android
+        else {
+          window.open(`intent://${window.location.host}/#Intent;scheme=https;package=com.android.chrome;end`, '_blank');
+        }
+      });
+      
+      // Continue in app
+      continueBtn.addEventListener('click', function() {
+        modal.classList.remove('active');
+      });
+      
+      // Existing functionality
       const clickableElements = document.querySelectorAll('.clickable');
       
-      // Handle all clickable cards
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
-          openDirectly(this, e);
+          createMusicParticle(e);
+          
+          this.classList.add('selected');
+          
+          setTimeout(() => {
+            this.classList.remove('selected');
+          }, 800);
+          
+          const url = this.getAttribute('data-url');
+          
+          if (this.classList.contains('cash')) {
+            setTimeout(() => {
+              alert('Cash payments accepted at all class locations. Exact change is appreciated.');
+            }, 100);
+          } 
+          else if (url) {
+            setTimeout(() => {
+              window.open(url, '_blank');
+            }, 100);
+          }
         });
       });
       
-      // Handle Estilo card (non-link)
       const estiloCard = document.querySelector('.estilo');
       estiloCard.addEventListener('click', function(e) {
         createMusicParticle(e);
+        
         this.classList.add('selected');
+        
         setTimeout(() => {
           this.classList.remove('selected');
         }, 800);
       });
       
-      // Registration form handling
       const registrationForm = document.getElementById('dance-registration');
       const thankYouMessage = document.getElementById('thank-you-message');
       const submitBtn = registrationForm.querySelector('button[type="submit"]');
@@ -1229,24 +1439,49 @@
           thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
           submitBtn.textContent = 'Complete Registration';
           submitBtn.disabled = false;
-          
-          // Create celebration particles
-          const event = { clientX: window.innerWidth/2, clientY: window.innerHeight/2 };
-          createMusicParticle(event);
-          setTimeout(() => createMusicParticle(event), 200);
-          setTimeout(() => createMusicParticle(event), 400);
         }, 1000);
       });
-      
-      // Initial animations
-      setTimeout(() => {
-        document.querySelector('h1').style.animation = 'fadeInUp 1s ease-out forwards';
-      }, 300);
-      
-      setTimeout(() => {
-        document.querySelector('.tagline').style.animation = 'fadeIn 1.5s ease-out forwards';
-      }, 600);
     });
+    
+    function createMusicParticle(event) {
+      const container = document.getElementById('music-particles-container');
+      const particleCount = 3; 
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'music-particle';
+        
+        const symbols = ['♪', '♫'];
+        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+        particle.textContent = symbol;
+        
+        const posX = event.clientX + (Math.random() - 0.5) * 50;
+        const posY = event.clientY + (Math.random() - 0.5) * 50;
+        
+        particle.style.left = `${posX}px`;
+        particle.style.top = `${posY}px`;
+        
+        const translateX = (Math.random() - 0.5) * 80;
+        const translateY = -150 - Math.random() * 50;
+        
+        particle.style.setProperty('--tx', `${translateX}px`);
+        particle.style.setProperty('--ty', `${translateY}px`);
+        
+        const size = 18 + Math.random() * 6;
+        particle.style.fontSize = `${size}px`;
+        
+        const duration = 1.8 + Math.random() * 0.5;
+        particle.style.animationDuration = `${duration}s`;
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => {
+          if (particle.parentNode) {
+            particle.remove();
+          }
+        }, duration * 1000);
+      }
+    }
   </script>
 </body>
 </html>
