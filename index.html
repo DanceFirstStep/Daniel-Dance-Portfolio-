@@ -346,7 +346,6 @@
       background: linear-gradient(135deg, #000000, #4a9da0);
     }
     
-    /* Consistent school card colors */
     .stardust-icon {
       background: linear-gradient(135deg, #ff9d00, #ffd700) !important;
     }
@@ -436,7 +435,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Music Particles */
     .music-particle {
       position: fixed;
       color: rgba(255, 215, 0, 0.85); 
@@ -505,7 +503,6 @@
       animation: underlinePulse 3s infinite ease-in-out;
     }
     
-    /* Partner notice */
     .partner-notice {
       text-align: center;
       margin-bottom: 20px;
@@ -743,7 +740,7 @@
       transform: none;
     }
 
-    /* Enhanced Browser Notification */
+    /* Enhanced Browser Notice */
     .browser-notice {
       position: fixed;
       bottom: 20px;
@@ -1016,8 +1013,8 @@
     <div class="browser-notice-content">
       <i class="fas fa-external-link-alt"></i>
       <div class="browser-notice-text">
-        <div class="browser-notice-title">Better Experience in Browser</div>
-        <div class="browser-notice-message">Open in Safari or Chrome to view full profile</div>
+        <div class="browser-notice-title">Enhanced Experience Available</div>
+        <div class="browser-notice-message">Open in Safari or Chrome for full functionality</div>
       </div>
     </div>
     <button class="browser-btn" id="open-browser-btn">Open Now</button>
@@ -1245,19 +1242,14 @@
         // Get the current page URL
         const currentUrl = window.location.href;
         
-        // Create a hidden link
-        const link = document.createElement('a');
-        link.href = currentUrl;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        link.style.display = 'none';
-        
-        // Add to document and click it
-        document.body.appendChild(link);
-        link.click();
-        
-        // Clean up
-        document.body.removeChild(link);
+        // Create a temporary link to force browser opening
+        const tempLink = document.createElement('a');
+        tempLink.href = currentUrl;
+        tempLink.target = '_system'; // Works in mobile contexts
+        tempLink.rel = 'noopener noreferrer';
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
       });
       
       // Existing functionality
