@@ -725,6 +725,52 @@
     .link-card:nth-child(2) { animation-delay: 0.2s; }
     .link-card:nth-child(3) { animation-delay: 0.3s; }
     
+    /* Link handling notification */
+    .link-notification {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(35, 33, 55, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 25px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      border: 1px solid rgba(100, 100, 150, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 1000;
+      animation: slideUp 0.5s ease-out;
+      max-width: 90%;
+      width: max-content;
+    }
+    
+    @keyframes slideUp {
+      from { bottom: -100px; opacity: 0; }
+      to { bottom: 20px; opacity: 1; }
+    }
+    
+    .link-notification i {
+      font-size: 1.5rem;
+      color: #e6c439;
+    }
+    
+    .link-notification-text {
+      font-size: 0.95rem;
+      color: rgba(220, 220, 240, 0.95);
+    }
+    
+    .link-notification-close {
+      background: transparent;
+      border: none;
+      color: #e6c439;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 5px;
+      margin-left: 10px;
+    }
+    
     @media (max-width: 768px) {
       body {
         padding: 12px;
@@ -773,6 +819,19 @@
       
       .form-title {
         font-size: 1.5rem;
+      }
+      
+      .link-notification {
+        flex-direction: column;
+        text-align: center;
+        padding: 12px;
+        gap: 8px;
+      }
+      
+      .link-notification-close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
       }
     }
     
@@ -1055,8 +1114,39 @@
       <p>Dance is the hidden language of the soul</p>
     </footer>
   </div>
+  
+  <div id="link-notification" class="link-notification" style="display: none;">
+    <i class="fas fa-external-link-alt"></i>
+    <div class="link-notification-text">Opening link in your default browser...</div>
+    <button class="link-notification-close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
 
   <script>
+    // Function to detect iOS Safari
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+    
+    // Function to detect Android
+    function isAndroid() {
+      return /Android/i.test(navigator.userAgent);
+    }
+    
+    // Function to detect if we're in an in-app browser
+    function isInAppBrowser() {
+      const userAgent = navigator.userAgent.toLowerCase();
+      return (
+        userAgent.indexOf('fbav') > -1 || // Facebook app
+        userAgent.indexOf('instagram') > -1 || // Instagram
+        userAgent.indexOf('twitter') > -1 || // Twitter
+        userAgent.indexOf('snapchat') > -1 || // Snapchat
+        userAgent.indexOf('messenger') > -1 // Messenger
+      );
+    }
+    
+    // Function to create music particles
     function createMusicParticle(event) {
       const container = document.getElementById('music-particles-container');
       const particleCount = 4; 
@@ -1101,9 +1191,64 @@
       }
     }
     
+    // Function to handle link opening with platform detection
+    function openLinkInBrowser(url, event) {
+      const notification = document.getElementById('link-notification');
+      
+      // Show notification
+      notification.style.display = 'flex';
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 3000);
+      
+      // Create particle effect
+      createMusicParticle(event);
+      
+      // Handle iOS Safari
+      if (isIOS()) {
+        // Create hidden iframe to trigger Safari opening
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = url;
+        document.body.appendChild(iframe);
+        
+        // Remove iframe after delay
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+        }, 3000);
+      } 
+      // Handle Android
+      else if (isAndroid()) {
+        // Use window.location for in-app browsers, open in new tab for others
+        if (isInAppBrowser()) {
+          window.location.href = url;
+        } else {
+          window.open(url, '_blank');
+        }
+      } 
+      // Handle other platforms
+      else {
+        // Use standard method for desktop and other browsers
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    }
+    
     document.addEventListener('DOMContentLoaded', function() {
       const clickableElements = document.querySelectorAll('.clickable');
+      const notificationClose = document.querySelector('.link-notification-close');
       
+      // Close notification button
+      notificationClose.addEventListener('click', function() {
+        document.getElementById('link-notification').style.display = 'none';
+      });
+      
+      // Handle clickable elements
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
           createMusicParticle(e);
@@ -1123,12 +1268,13 @@
           } 
           else if (url) {
             setTimeout(() => {
-              window.open(url, '_blank');
+              openLinkInBrowser(url, e);
             }, 100);
           }
         });
       });
       
+      // Handle Estilo card (non-link)
       const estiloCard = document.querySelector('.estilo');
       estiloCard.addEventListener('click', function(e) {
         createMusicParticle(e);
@@ -1140,6 +1286,7 @@
         }, 800);
       });
       
+      // Registration form handling
       const registrationForm = document.getElementById('dance-registration');
       const thankYouMessage = document.getElementById('thank-you-message');
       const submitBtn = registrationForm.querySelector('button[type="submit"]');
