@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Palacios | Professional Dance Instruction</title>
+  <title>Daniel Palacios | Professional Dance Instructor</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -950,33 +950,39 @@
     <div class="content">
       <h2 class="section-title">Connect With Me</h2>
       <div class="links-grid">
-        <div class="link-card clickable facebook" data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
+        <div class="link-card clickable facebook" 
+             data-app="fb://profile?id=100092605672027"
+             data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
           <div class="link-icon">
             <i class="fab fa-facebook-f"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Daniel Palacios</div>
-            <div class="link-subtitle">Facebook Profile</div>
+            <div class="link-title">Facebook Profile</div>
+            <div class="link-subtitle">Connect & see dance updates</div>
           </div>
         </div>
         
-        <div class="link-card clickable instagram" data-url="https://www.instagram.com/danielp_bachata">
+        <div class="link-card clickable instagram" 
+             data-app="instagram://user?username=danielp_bachata"
+             data-url="https://www.instagram.com/danielp_bachata">
           <div class="link-icon">
             <i class="fab fa-instagram"></i>
           </div>
           <div class="link-text">
             <div class="link-title">Instagram</div>
-            <div class="link-subtitle">@danielp_bachata</div>
+            <div class="link-subtitle">Dance videos & tutorials</div>
           </div>
         </div>
         
-        <div class="link-card clickable tiktok" data-url="https://www.tiktok.com/@danielp_bachata">
+        <div class="link-card clickable tiktok" 
+             data-app="tiktok://user?username=danielp_bachata"
+             data-url="https://www.tiktok.com/@danielp_bachata">
           <div class="link-icon">
             <i class="fab fa-tiktok"></i>
           </div>
           <div class="link-text">
             <div class="link-title">TikTok</div>
-            <div class="link-subtitle">@danielp_bachata</div>
+            <div class="link-subtitle">Short dance clips & tips</div>
           </div>
         </div>
       </div>
@@ -1063,7 +1069,7 @@
         <div id="thank-you-message" class="thank-you-message">
           <h3>Thank You for Registering!</h3>
           <p>We're excited to dance with you! Join our private WhatsApp group for class updates:</p>
-          <a href="https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB" class="whatsapp-btn" target="_blank">
+          <a href="https://wa.me/12105551234" class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Join Class Group
           </a>
           <button class="submit-btn" id="register-again-btn" style="margin-top: 20px;">
@@ -1074,13 +1080,15 @@
       
       <h2 class="section-title">Payment Options</h2>
       <div class="links-grid">
-        <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
+        <div class="link-card clickable venmo" 
+             data-app="venmo://"
+             data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
           <div class="link-icon">
             <i class="fab fa-vimeo-v"></i>
           </div>
           <div class="link-text">
             <div class="link-title">Venmo</div>
-            <div class="link-subtitle">Secure payment option</div>
+            <div class="link-subtitle">@DanielPalacios-Dance</div>
           </div>
         </div>
         
@@ -1097,13 +1105,26 @@
       
       <h2 class="section-title">Contact Me</h2>
       <div class="links-grid">
-        <div class="link-card clickable contact" data-url="mailto:contact@danielpbachata.com">
+        <div class="link-card clickable contact" 
+             data-app="whatsapp://send?phone=12105551234"
+             data-url="https://wa.me/12105551234">
           <div class="link-icon contact-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">WhatsApp</div>
+            <div class="link-subtitle">Quick questions & bookings</div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable email" 
+             data-url="mailto:contact@danielpbachata.com">
+          <div class="link-icon" style="background: linear-gradient(135deg, #2ac7c2, #1a8d88);">
             <i class="fas fa-envelope"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Professional Inquiries</div>
-            <div class="link-subtitle">Bookings and partnerships</div>
+            <div class="link-title">Email</div>
+            <div class="link-subtitle">Professional inquiries</div>
           </div>
         </div>
       </div>
@@ -1124,28 +1145,6 @@
   </div>
 
   <script>
-    // Function to detect iOS Safari
-    function isIOS() {
-      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    }
-    
-    // Function to detect Android
-    function isAndroid() {
-      return /Android/i.test(navigator.userAgent);
-    }
-    
-    // Function to detect if we're in an in-app browser
-    function isInAppBrowser() {
-      const userAgent = navigator.userAgent.toLowerCase();
-      return (
-        userAgent.indexOf('fbav') > -1 || // Facebook app
-        userAgent.indexOf('instagram') > -1 || // Instagram
-        userAgent.indexOf('twitter') > -1 || // Twitter
-        userAgent.indexOf('snapchat') > -1 || // Snapchat
-        userAgent.indexOf('messenger') > -1 // Messenger
-      );
-    }
-    
     // Function to create music particles
     function createMusicParticle(event) {
       const container = document.getElementById('music-particles-container');
@@ -1191,51 +1190,37 @@
       }
     }
     
-    // Function to handle link opening with platform detection
-    function openLinkInBrowser(url, event) {
-      const notification = document.getElementById('link-notification');
-      
-      // Show notification
-      notification.style.display = 'flex';
-      setTimeout(() => {
-        notification.style.display = 'none';
-      }, 3000);
-      
-      // Create particle effect
+    // Function to open links in apps when possible
+    function openAppOrLink(card, event) {
       createMusicParticle(event);
       
-      // Handle iOS Safari
-      if (isIOS()) {
-        // Create hidden iframe to trigger Safari opening
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = url;
-        document.body.appendChild(iframe);
-        
-        // Remove iframe after delay
+      // Add visual feedback
+      card.classList.add('selected');
+      setTimeout(() => {
+        card.classList.remove('selected');
+      }, 800);
+      
+      const appUrl = card.getAttribute('data-app');
+      const webUrl = card.getAttribute('data-url');
+      
+      if (card.classList.contains('cash')) {
         setTimeout(() => {
-          document.body.removeChild(iframe);
-        }, 3000);
+          alert('Cash payments accepted at all class locations. Exact change is appreciated.');
+        }, 100);
       } 
-      // Handle Android
-      else if (isAndroid()) {
-        // Use window.location for in-app browsers, open in new tab for others
-        if (isInAppBrowser()) {
-          window.location.href = url;
-        } else {
-          window.open(url, '_blank');
-        }
-      } 
-      // Handle other platforms
-      else {
-        // Use standard method for desktop and other browsers
-        const a = document.createElement('a');
-        a.href = url;
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+      else if (appUrl) {
+        // Try to open the app
+        window.location.href = appUrl;
+        
+        // Fallback to web if app not installed
+        setTimeout(function() {
+          if (!document.webkitHidden && !document.hidden) {
+            window.open(webUrl, '_blank');
+          }
+        }, 500);
+      } else if (webUrl) {
+        // For links without app, open directly
+        window.open(webUrl, '_blank');
       }
     }
     
@@ -1248,29 +1233,10 @@
         document.getElementById('link-notification').style.display = 'none';
       });
       
-      // Handle clickable elements
+      // Handle all clickable cards
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
-          createMusicParticle(e);
-          
-          this.classList.add('selected');
-          
-          setTimeout(() => {
-            this.classList.remove('selected');
-          }, 800);
-          
-          const url = this.getAttribute('data-url');
-          
-          if (this.classList.contains('cash')) {
-            setTimeout(() => {
-              alert('Cash payments accepted at all class locations. Exact change is appreciated.');
-            }, 100);
-          } 
-          else if (url) {
-            setTimeout(() => {
-              openLinkInBrowser(url, e);
-            }, 100);
-          }
+          openAppOrLink(this, e);
         });
       });
       
@@ -1278,9 +1244,7 @@
       const estiloCard = document.querySelector('.estilo');
       estiloCard.addEventListener('click', function(e) {
         createMusicParticle(e);
-        
         this.classList.add('selected');
-        
         setTimeout(() => {
           this.classList.remove('selected');
         }, 800);
