@@ -398,51 +398,6 @@
       font-size: 0.9rem;
     }
     
-    footer {
-      margin-top: 30px;
-      padding: 22px;
-      text-align: center;
-      color: rgba(210, 210, 230, 0.85);
-      font-size: 0.95rem;
-      border-top: 1px solid rgba(100, 100, 150, 0.15);
-      line-height: 1.6;
-      background: rgba(22, 20, 35, 0.5);
-      backdrop-filter: blur(6px);
-      animation: fadeIn 1.2s ease-out;
-    }
-    
-    /* Music Particles */
-    .music-particle {
-      position: fixed;
-      color: rgba(241, 196, 15, 0.85); 
-      z-index: 100;
-      pointer-events: none;
-      opacity: 0;
-      font-size: 24px;
-      font-weight: normal;
-      transform-origin: center;
-      animation: floatParticle 1.8s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
-      text-shadow: 0 0 12px rgba(241, 196, 15, 0.6);
-    }
-    
-    @keyframes floatParticle {
-      0% {
-        transform: 
-          translate(0, 0) 
-          scale(0.9);
-        opacity: 0.9;
-      }
-      70% {
-        opacity: 0.7;
-      }
-      100% {
-        transform: 
-          translate(var(--tx, 0), var(--ty, -140px)) 
-          scale(0.4);
-        opacity: 0;
-      }
-    }
-    
     .registration-form {
       background: rgba(33, 31, 54, 0.92);
       border-radius: 18px;
@@ -479,7 +434,6 @@
       border-radius: 2px;
     }
     
-    /* Partner notice */
     .partner-notice {
       text-align: center;
       margin-bottom: 18px;
@@ -718,23 +672,27 @@
       transform: none;
     }
     
-    /* Improved animations */
-    .link-card, .registration-form, .section-title {
-      animation: fadeInUp 0.8s ease-out;
+    footer {
+      margin-top: 30px;
+      padding: 22px;
+      text-align: center;
+      color: rgba(210, 210, 230, 0.85);
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(100, 100, 150, 0.15);
+      line-height: 1.6;
+      background: rgba(22, 20, 35, 0.5);
+      backdrop-filter: blur(6px);
+      animation: fadeIn 1.2s ease-out;
     }
     
-    .link-card:nth-child(1) { animation-delay: 0.1s; }
-    .link-card:nth-child(2) { animation-delay: 0.2s; }
-    .link-card:nth-child(3) { animation-delay: 0.3s; }
-    
-    /* New Infinity Signature - Pure CSS */
+    /* NEW INFINITY SIGNATURE - PERFECTED */
     .infinity-container {
-      margin: 30px auto 10px;
+      margin: 25px auto 10px;
       display: flex;
       justify-content: center;
       position: relative;
       width: 300px;
-      height: 50px;
+      height: 60px;
     }
     
     .infinity-figure {
@@ -743,77 +701,57 @@
       height: 100%;
     }
     
-    .infinity-circle {
+    .infinity-loop {
       position: absolute;
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
+      border: 4px solid;
       border-radius: 50%;
-      border: 4px solid transparent;
-      animation: infinity-rotate 6s linear infinite;
+      animation: infinity-pulse 3s infinite ease-in-out;
+      top: -30px;
     }
     
-    .circle-left {
+    .loop-left {
       left: 0;
-      border-top-color: #ff5722;
-      border-right-color: #ff9800;
-      border-bottom-color: #ff5722;
-      border-left-color: #ff9800;
+      border-color: #ff5722 #ff9800 #ff5722 #ff9800;
       animation-delay: 0s;
     }
     
-    .circle-right {
+    .loop-right {
       right: 0;
-      border-top-color: #ff9800;
-      border-right-color: #ff5722;
-      border-bottom-color: #ff9800;
-      border-left-color: #ff5722;
-      animation-delay: -3s;
-    }
-    
-    @keyframes infinity-rotate {
-      0% {
-        transform: rotate(0deg);
-        box-shadow: 0 0 10px #ff5722, 0 0 20px #ff9800;
-      }
-      25% {
-        box-shadow: 0 0 15px #ff9800, 0 0 25px #ff5722;
-      }
-      50% {
-        transform: rotate(180deg);
-        box-shadow: 0 0 20px #ff5722, 0 0 30px #ff9800;
-      }
-      75% {
-        box-shadow: 0 0 15px #ff9800, 0 0 25px #ff5722;
-      }
-      100% {
-        transform: rotate(360deg);
-        box-shadow: 0 0 10px #ff5722, 0 0 20px #ff9800;
-      }
+      border-color: #ff9800 #ff5722 #ff9800 #ff5722;
+      animation-delay: -1.5s;
     }
     
     .infinity-connection {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 100px;
-      height: 50px;
+      width: 120px;
+      height: 4px;
+      background: linear-gradient(to right, #ff5722, #ff9800);
       transform: translate(-50%, -50%);
-      border: 4px solid transparent;
-      border-top-color: #ff9800;
-      border-radius: 100px 100px 0 0;
-      animation: infinity-pulse 3s ease-in-out infinite;
+      animation: infinity-glow 3s infinite ease-in-out;
+      z-index: 2;
     }
     
     @keyframes infinity-pulse {
       0%, 100% {
-        border-top-color: #ff9800;
-        border-width: 4px;
-        box-shadow: 0 -5px 10px rgba(255,152,0,0.5);
+        box-shadow: 0 0 15px rgba(255, 87, 34, 0.5);
+        transform: scale(1) rotate(0deg);
       }
       50% {
-        border-top-color: #ff5722;
-        border-width: 6px;
-        box-shadow: 0 -10px 20px rgba(255,87,34,0.8);
+        box-shadow: 0 0 30px rgba(255, 152, 0, 0.8);
+        transform: scale(1.05) rotate(5deg);
+      }
+    }
+    
+    @keyframes infinity-glow {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(255, 87, 34, 0.8);
       }
     }
     
@@ -825,7 +763,7 @@
       background: #ff9800;
       animation: fire-float 3s ease-out infinite;
       opacity: 0;
-      z-index: 2;
+      z-index: 1;
     }
     
     @keyframes fire-float {
@@ -898,17 +836,17 @@
       /* Infinity symbol adjustment */
       .infinity-container {
         width: 250px;
-        height: 40px;
+        height: 50px;
       }
       
-      .infinity-circle {
-        width: 80px;
-        height: 80px;
+      .infinity-loop {
+        width: 100px;
+        height: 100px;
+        top: -25px;
       }
       
       .infinity-connection {
-        width: 80px;
-        height: 40px;
+        width: 100px;
       }
     }
     
@@ -1014,17 +952,17 @@
       /* Infinity symbol adjustment */
       .infinity-container {
         width: 200px;
-        height: 35px;
+        height: 40px;
       }
       
-      .infinity-circle {
-        width: 70px;
-        height: 70px;
+      .infinity-loop {
+        width: 80px;
+        height: 80px;
+        top: -20px;
       }
       
       .infinity-connection {
-        width: 70px;
-        height: 35px;
+        width: 80px;
       }
     }
   </style>
@@ -1217,11 +1155,11 @@
       <p>© 2025 Daniel Palacios | Professional Instruction</p>
       <p>Dance is the hidden language of the soul</p>
       
-      <!-- New Infinity Fire Signature -->
-      <div class="infinity-container">
+      <!-- New Flaming Infinity Signature -->
+      <div class="infinity-container" id="infinity-signature">
         <div class="infinity-figure">
-          <div class="infinity-circle circle-left"></div>
-          <div class="infinity-circle circle-right"></div>
+          <div class="infinity-loop loop-left"></div>
+          <div class="infinity-loop loop-right"></div>
           <div class="infinity-connection"></div>
         </div>
       </div>
@@ -1273,9 +1211,8 @@
       }
     }
     
-    // Create fire particles for infinity symbol
     function createFireParticles() {
-      const container = document.querySelector('.infinity-container');
+      const container = document.getElementById('infinity-signature');
       if (!container) return;
       
       // Clear existing particles
