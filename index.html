@@ -59,6 +59,7 @@
       position: relative;
       z-index: 10;
       margin: 0;
+      padding: 25px 20px; /* Improved container padding */
     }
     
     .logo-container {
@@ -125,7 +126,7 @@
     }
     
     header {
-      padding: 26px 20px 12px;
+      padding: 26px 20px 16px; /* Improved bottom padding */
       text-align: center;
       position: relative;
     }
@@ -177,7 +178,7 @@
     .section-title {
       font-size: 1.5rem;
       font-weight: 600;
-      margin: 26px 0 18px;
+      margin: 26px 0 22px; /* Improved bottom margin */
       text-align: center;
       position: relative;
       display: block;
@@ -206,20 +207,20 @@
     .links-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      margin: 20px 0;
+      gap: 18px; /* Increased gap for better spacing */
+      margin: 24px 0; /* Improved vertical spacing */
     }
     
     .link-card {
       background: rgba(38, 36, 58, 0.75);
       border-radius: 16px;
-      padding: 16px;
+      padding: 18px; /* Increased padding for better spacing */
       border: 1px solid rgba(100, 100, 150, 0.2);
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
-      min-height: 90px;
+      min-height: 100px; /* Slightly increased height for balance */
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       backdrop-filter: blur(6px);
@@ -372,18 +373,21 @@
     }
     
     .schedule-list {
-      margin-top: 6px;
+      margin-top: 12px; /* Increased spacing */
     }
     
     .schedule-item {
       display: flex;
-      margin-bottom: 4px;
+      margin-bottom: 8px; /* Increased spacing */
       line-height: 1.5;
+      align-items: flex-start; /* Better alignment */
     }
     
     .schedule-day {
       font-weight: 600;
-      min-width: 75px;
+      min-width: 85px; /* Fixed width for alignment */
+      text-align: right; /* Right-align for consistency */
+      padding-right: 12px; /* Proper spacing after days */
       color: #f1c40f;
       font-size: 0.9rem;
     }
@@ -396,7 +400,7 @@
     
     footer {
       margin-top: 30px;
-      padding: 18px;
+      padding: 22px; /* Improved padding */
       text-align: center;
       color: rgba(210, 210, 230, 0.85);
       font-size: 0.95rem;
@@ -442,8 +446,8 @@
     .registration-form {
       background: rgba(33, 31, 54, 0.92);
       border-radius: 18px;
-      padding: 22px;
-      margin: 26px 0;
+      padding: 24px; /* Increased padding */
+      margin: 28px 0; /* Improved vertical spacing */
       border: 1px solid rgba(100, 100, 150, 0.15);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(10px);
@@ -486,7 +490,7 @@
     }
     
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 20px; /* Increased spacing */
       text-align: left;
       position: relative;
     }
@@ -578,7 +582,7 @@
     .thank-you-message {
       display: none;
       text-align: center;
-      padding: 26px 22px;
+      padding: 30px 24px; /* Improved padding */
       border-radius: 18px;
       background: rgba(33, 31, 54, 0.95);
       margin-top: 20px;
@@ -730,7 +734,7 @@
       
       .links-grid {
         grid-template-columns: 1fr;
-        gap: 14px;
+        gap: 16px; /* Maintained spacing */
       }
       
       .logo-container {
@@ -751,8 +755,8 @@
       }
       
       .link-card {
-        padding: 14px;
-        min-height: 85px;
+        padding: 16px; /* Maintained padding */
+        min-height: 95px; /* Adjusted for mobile */
       }
       
       .link-icon {
@@ -763,7 +767,7 @@
       
       .section-title {
         font-size: 1.4rem;
-        margin: 24px 0 16px;
+        margin: 24px 0 18px; /* Maintained spacing */
       }
       
       .registration-form {
@@ -773,6 +777,10 @@
       
       .form-title {
         font-size: 1.4rem;
+      }
+      
+      .schedule-day {
+        min-width: 80px; /* Maintained alignment */
       }
     }
     
@@ -785,10 +793,11 @@
       .container {
         border-radius: 18px;
         margin: 10px 0;
+        padding: 20px 16px; /* Maintained spacing */
       }
       
       header {
-        padding: 22px 15px 8px;
+        padding: 22px 15px 10px; /* Maintained spacing */
       }
       
       .content {
@@ -815,13 +824,13 @@
       
       .section-title {
         font-size: 1.25rem;
-        margin: 22px 0 14px;
+        margin: 22px 0 16px; /* Maintained spacing */
         padding-bottom: 8px;
       }
       
       .link-card {
-        padding: 13px;
-        min-height: 80px;
+        padding: 14px; /* Maintained padding */
+        min-height: 90px; /* Adjusted for mobile */
       }
       
       .link-icon {
@@ -861,8 +870,17 @@
       }
 
       footer {
-        padding: 16px;
+        padding: 18px; /* Maintained padding */
         font-size: 0.9rem;
+      }
+      
+      .schedule-day {
+        min-width: 75px; /* Maintained alignment */
+        font-size: 0.88rem; /* Better fit */
+      }
+      
+      .schedule-info {
+        font-size: 0.88rem; /* Better fit */
       }
     }
   </style>
