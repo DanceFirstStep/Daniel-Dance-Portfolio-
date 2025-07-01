@@ -22,7 +22,8 @@
       overflow-x: hidden;
       position: relative;
       color: #f5f5ff;
-      background: linear-gradient(135deg, #0e0b1b 0%, #18162d 100%);
+      /* Updated background for better contrast */
+      background: linear-gradient(135deg, #0c0817 0%, #141226 100%);
       line-height: 1.6;
       font-size: 1rem;
     }
@@ -34,9 +35,10 @@
       width: 100%;
       height: 100%;
       z-index: -2;
+      /* Enhanced radial gradients for depth */
       background: 
-        radial-gradient(circle at 20% 30%, rgba(216, 131, 42, 0.1) 0%, transparent 25%),
-        radial-gradient(circle at 80% 70%, rgba(80, 70, 160, 0.1) 0%, transparent 25%);
+        radial-gradient(circle at 20% 30%, rgba(216, 131, 42, 0.12) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(80, 70, 160, 0.12) 0%, transparent 25%);
       animation: gradientBG 45s ease infinite;
       background-size: 400% 400%;
     }
@@ -50,11 +52,12 @@
     .container {
       width: 100%;
       max-width: 900px;
-      background: rgba(22, 20, 38, 0.96);
-      backdrop-filter: blur(12极);
+      /* Slightly lighter background for better readability */
+      background: rgba(25, 23, 42, 0.96);
+      backdrop-filter: blur(12px);
       border-radius: 20px;
       border: 1px solid rgba(100, 100, 150, 0.15);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
       overflow: hidden;
       position: relative;
       z-index: 10;
@@ -71,14 +74,15 @@
     .logo {
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #d8832a, #e6c439);
+      /* More vibrant gradient for brand recognition */
+      background: linear-gradient(135deg, #e67e22, #f1c40f);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(216, 131, 42, 0.5);
+      box-shadow: 0 10px 30px rgba(230, 126, 34, 0.6);
       transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       z-index: 2;
     }
@@ -89,7 +93,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border: 2px solid rgba(230, 196, 57, 0.7);
+      border: 2px solid rgba(241, 196, 15, 0.7);
       border-radius: 50%;
       animation: pulseRing 10s infinite ease-in-out;
       z-index: 1;
@@ -109,7 +113,7 @@
     
     .logo:hover {
       transform: scale(1.05) rotate(5deg);
-      box-shadow: 0 15px 40px rgba(216, 131, 42, 0.6);
+      box-shadow: 0 15px 40px rgba(230, 126, 34, 0.7);
     }
     
     .logo i {
@@ -150,7 +154,8 @@
       transform: translateX(-50%);
       width: 100px;
       height: 4px;
-      background: linear-gradient(to right, #d8832a, #e6c439);
+      /* More vibrant gradient */
+      background: linear-gradient(to right, #e67e22, #f1c40f);
       border-radius: 3px;
       animation: growLine 1.2s ease-out;
     }
@@ -168,10 +173,10 @@
     .tagline {
       font-size: 1.2rem;
       font-weight: 300;
-      color: rgba(230, 230, 255, 0.9);
+      color: rgba(230, 230, 255, 0.92);
       margin-top: 20px;
       max-width: 600px;
-      margin: 15px auto;
+      margin: 15px auto 0;
     }
     
     .section-title {
@@ -182,7 +187,8 @@
       position: relative;
       display: block;
       width: 100%;
-      color: #e6c439;
+      /* More vibrant gold for attention */
+      color: #f1c40f;
       padding-bottom: 12px;
       animation: fadeIn 0.8s ease-out;
     }
@@ -195,8 +201,8 @@
       transform: translateX(-50%);
       width: 100px;
       height: 4px;
-      background: linear-gradient(to right, #d8832a, #e6c439);
-      border-radius: 2px;
+      background: linear-gradient(to right, #e67e22, #f1c40f);
+      border-radius: 3px;
     }
     
     .content {
@@ -211,7 +217,7 @@
     }
     
     .link-card {
-      background: rgba(35, 33, 55, 0.7);
+      background: rgba(38, 36, 58, 0.75);
       border-radius: 18px;
       padding: 18px;
       border: 1px solid rgba(100, 100, 150, 0.2);
@@ -223,14 +229,14 @@
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       backdrop-filter: blur(6px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
       animation: fadeInUp 0.8s ease-out;
     }
     
     .link-card:hover {
-      background: rgba(45, 42, 70, 0.8);
-      border-color: rgba(230, 196, 57, 0.4);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+      background: rgba(48, 45, 75, 0.85);
+      border-color: rgba(241, 196, 15, 0.5);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
       transform: translateY(-5px);
     }
     
@@ -241,7 +247,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(120deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.05) 100%);
+      background: linear-gradient(120deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.07) 100%);
       z-index: -1;
       opacity: 0;
       transition: opacity 0.5s ease;
@@ -262,7 +268,7 @@
       border-radius: 16px;
       flex-shrink: 0;
       color: white;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.35);
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
       overflow: hidden;
@@ -287,7 +293,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.18);
       border-radius: 50%;
       transform: scale(0);
       transition: all 0.6s ease;
@@ -301,7 +307,7 @@
     
     .link-card:hover .link-icon {
       transform: scale(1.1);
-      box-shadow: 0 0 25px rgba(230, 230, 255, 0.25);
+      box-shadow: 0 0 25px rgba(230, 230, 255, 0.3);
     }
     
     .link-card:hover .link-icon i {
@@ -310,23 +316,23 @@
     }
     
     .facebook .link-icon {
-      background: linear-gradient(135deg, #0f5fcf, #2a4a8a);
+      background: linear-gradient(135deg, #1877f2, #3b5998);
     }
     
     .instagram .link-icon {
-      background: linear-gradient(135deg, #a02883, #c45c20);
+      background: linear-gradient(135deg, #e1306c, #c13584);
     }
     
     .tiktok .link-icon {
-      background: linear-gradient(135deg, #000000, #4a9da0);
+      background: linear-gradient(135deg, #000000, #69c9d0);
     }
     
     .stardust-icon {
-      background: linear-gradient(135deg, #d8832a, #e6c439) !important;
+      background: linear-gradient(135deg, #e67e22, #f1c40f) !important;
     }
     
     .letsbailar-icon {
-      background: linear-gradient(135deg, #5548b0, #3a0066) !important;
+      background: linear-gradient(135deg, #5d54a4, #3a0066) !important;
     }
     
     .estilo-icon {
@@ -334,15 +340,15 @@
     }
     
     .contact-icon {
-      background: linear-gradient(135deg, #d8832a, #e6c439) !important;
+      background: linear-gradient(135deg, #e67e22, #f1c40f) !important;
     }
     
     .venmo .link-icon {
-      background: linear-gradient(135deg, #2d7db6, #0066cc) !important;
+      background: linear-gradient(135deg, #3d95ce, #008cff) !important;
     }
     
     .cash .link-icon {
-      background: linear-gradient(135deg, #25a25a, #1d8c4f) !important;
+      background: linear-gradient(135deg, #27ae60, #2ecc71) !important;
     }
     
     .link-text {
@@ -359,14 +365,14 @@
     
     .link-subtitle {
       font-size: 0.95rem;
-      color: rgba(240, 240, 255, 0.95); /* Improved contrast */
+      color: rgba(220, 220, 240, 0.92);
       line-height: 1.4;
     }
     
     .schedule-detail {
       display: block;
       margin-top: 4px;
-      color: #e6c439;
+      color: #f1c40f;
       font-weight: 600;
       font-size: 0.9rem;
     }
@@ -381,26 +387,26 @@
       line-height: 1.5;
     }
     
-    .极chedule-day {
+    .schedule-day {
       font-weight: 600;
       min-width: 75px;
-      color: #e6c439;
+      color: #f1c40f;
     }
     
     .schedule-info {
       flex: 1;
-      color: rgba(240, 240, 255, 0.95); /* Improved contrast */
+      color: rgba(220, 220, 240, 0.92);
     }
     
     footer {
       margin-top: 35px;
       padding: 20px;
       text-align: center;
-      color: rgba(210, 210, 230, 0.8);
+      color: rgba(210, 210, 230, 0.85);
       font-size: 1rem;
       border-top: 1px solid rgba(100, 100, 150, 0.15);
       line-height: 1.6;
-      background: rgba(20, 18, 35, 0.45);
+      background: rgba(22, 20, 35, 0.5);
       backdrop-filter: blur(6px);
       animation: fadeIn 1.2s ease-out;
     }
@@ -408,7 +414,7 @@
     /* Music Particles */
     .music-particle {
       position: fixed;
-      color: rgba(230, 196, 57, 0.85); 
+      color: rgba(241, 196, 15, 0.85); 
       z-index: 100;
       pointer-events: none;
       opacity: 0;
@@ -416,7 +422,7 @@
       font-weight: normal;
       transform-origin: center;
       animation: floatParticle 1.8s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
-      text-shadow: 0 0 12px rgba(230, 196, 57, 0.6);
+      text-shadow: 0 0 12px rgba(241, 196, 15, 0.6);
     }
     
     @keyframes floatParticle {
@@ -438,12 +444,12 @@
     }
     
     .registration-form {
-      background: rgba(30, 28, 50, 0.9);
+      background: rgba(33, 31, 54, 0.92);
       border-radius: 18px;
       padding: 25px;
       margin: 30px 0;
       border: 1px solid rgba(100, 100, 150, 0.15);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(10px);
       position: relative;
       overflow: hidden;
@@ -454,7 +460,7 @@
       font-size: 1.7rem;
       font-weight: 700;
       margin-bottom: 15px;
-      color: #e6c439;
+      color: #f1c40f;
       text-align: center;
       position: relative;
       padding-bottom: 12px;
@@ -469,7 +475,7 @@
       transform: translateX(-50%);
       width: 100px;
       height: 4px;
-      background: linear-gradient(to right, #d8832a, #e6c439);
+      background: linear-gradient(to right, #e67e22, #f1c40f);
       border-radius: 2px;
     }
     
@@ -477,7 +483,7 @@
     .partner-notice {
       text-align: center;
       margin-bottom: 20px;
-      color: rgba(220, 220, 240, 0.85);
+      color: rgba(220, 220, 240, 0.9);
       font-size: 1.05rem;
       font-weight: 500;
       display: block;
@@ -494,26 +500,25 @@
       padding: 15px 18px;
       border-radius: 14px;
       border: 1px solid rgba(100, 100, 150, 0.25);
-      background: rgba(40, 38, 60, 0.5);
+      background: rgba(43, 41, 64, 0.55);
       color: #f0f0ff;
       font-size: 1.05rem;
       transition: all 0.3s ease;
       -webkit-appearance: none;
       appearance: none;
       font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 3px 10px rgba(0,0,0,0.2);
+      box-shadow: inset 0 3px 10px rgba(0,0,0,0.25);
     }
     
     .form-input:focus {
       outline: none;
-      border-color: #e6c439;
-      background: rgba(50, 48, 70, 0.5);
-      /* Enhanced glow effect */
-      box-shadow: 0 0 0 4px rgba(230, 196, 57, 0.2);
+      border-color: #f1c40f;
+      background: rgba(53, 51, 74, 0.55);
+      box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.25);
     }
     
     .form-input::placeholder {
-      color: rgba(190, 190, 220, 0.7);
+      color: rgba(190, 190, 220, 0.75);
       font-size: 1rem;
     }
     
@@ -522,30 +527,29 @@
       padding: 15px 18px;
       border-radius: 14px;
       border: 1px solid rgba(100, 100, 150, 0.25);
-      background: rgba(40, 38, 60, 0.5);
+      background: rgba(43, 41, 64, 0.55);
       color: #f0f0ff;
       font-size: 1.05rem;
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e6c439'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f1c40f'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 18px center;
       background-size: 18px;
       transition: all 0.3s ease;
       -webkit-appearance: none;
       font-family: 'Segoe UI', sans-serif;
-      box-shadow: inset 0 3px 10px rgba(0,0,0,0.2);
+      box-shadow: inset 0 3px 10px rgba(0,0,0,0.25);
     }
     
     .form-select:focus {
       outline: none;
-      border-color: #e6c439;
-      background: rgba(50, 48, 70, 0.5);
-      /* Enhanced glow effect */
-      box-shadow: 0 0 0 4px rgba(230, 196, 57, 0.2);
+      border-color: #f1c40f;
+      background: rgba(53, 51, 74, 0.55);
+      box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.25);
     }
     
     .submit-btn {
-      background: linear-gradient(135deg, #d8832a, #e6c439);
+      background: linear-gradient(135deg, #e67e22, #f1c40f);
       color: #0a0915;
       border: none;
       border-radius: 14px;
@@ -562,25 +566,17 @@
       touch-action: manipulation;
       font-family: 'Segoe UI', sans-serif;
       letter-spacing: 0.5px;
-      box-shadow: 0 8px 25px rgba(216, 131, 42, 0.5);
+      box-shadow: 0 8px 25px rgba(230, 126, 34, 0.6);
       text-shadow: 0 1px 2px rgba(255,255,255,0.3);
     }
     
     .submit-btn:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 35px rgba(216, 131, 42, 0.6);
-      /* Added pulsing animation */
-      animation: pulse 1.5s infinite;
+      box-shadow: 0 12px 35px rgba(230, 126, 34, 0.7);
     }
     
     .submit-btn:active {
       transform: translateY(2px);
-    }
-    
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(216, 131, 42, 0.6); }
-      70% { box-shadow: 0 0 0 12px rgba(216, 131, 42, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(216, 131, 42, 0); }
     }
     
     .thank-you-message {
@@ -588,12 +584,12 @@
       text-align: center;
       padding: 30px 25px;
       border-radius: 18px;
-      background: rgba(30, 28, 50, 0.95);
+      background: rgba(33, 31, 54, 0.95);
       margin-top: 20px;
       border: 1px solid rgba(100, 100, 150, 0.15);
       backdrop-filter: blur(10px);
       animation: fadeIn 0.8s ease-out;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
     }
     
     @keyframes fadeIn {
@@ -603,7 +599,7 @@
     
     .thank-you-message h3 {
       font-size: 1.7rem;
-      color: #e6c439;
+      color: #f1c40f;
       margin-bottom: 20px;
       position: relative;
       padding-bottom: 15px;
@@ -617,7 +613,7 @@
       transform: translateX(-50%);
       width: 80px;
       height: 4px;
-      background: linear-gradient(to right, #d8832a, #e6c439);
+      background: linear-gradient(to right, #e67e22, #f1c40f);
       border-radius: 2px;
     }
     
@@ -632,8 +628,9 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(30, 180, 80, 0.15);
-      color: #e0e0ff;
+      /* More vibrant WhatsApp green */
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
       text-decoration: none;
       padding: 15px 28px;
       border-radius: 14px;
@@ -643,14 +640,14 @@
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       touch-action: manipulation;
       font-family: 'Segoe UI', sans-serif;
-      border: 1px solid rgba(30, 180, 80, 0.25);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      border: 1px solid rgba(30, 180, 80, 0.3);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
     }
     
     .whatsapp-btn:hover {
-      background: rgba(30, 180, 80, 0.25);
+      background: linear-gradient(135deg, #2be076, #139d8d);
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
     
     .whatsapp-btn i {
@@ -663,30 +660,30 @@
       width: 70px;
       height: 70px;
       z-index: -1;
-      opacity: 0.08;
+      opacity: 0.1;
     }
     
     .corner-top-left {
       top: 0;
       left: 0;
-      border-top: 4px solid #d8832a;
-      border-left: 4px solid #d8832a;
+      border-top: 4px solid #e67e22;
+      border-left: 4px solid #e67e22;
       border-top-left-radius: 20px;
     }
     
     .corner-top-right {
       top: 0;
       right: 0;
-      border-top: 4px solid #e6c439;
-      border-right: 4px solid #e6c439;
+      border-top: 4px solid #f1c40f;
+      border-right: 4px solid #f1c40f;
       border-top-right-radius: 20px;
     }
     
     .corner-bottom-left {
       bottom: 0;
       left: 0;
-      border-bottom: 4px solid #5548b0;
-      border-left: 4px solid #5548b0;
+      border-bottom: 4px solid #5d54a4;
+      border-left: 4px solid #5d54a4;
       border-bottom-left-radius: 20px;
     }
     
@@ -704,7 +701,7 @@
     
     .non-link-card:hover {
       transform: none;
-      background: rgba(35, 33, 55, 0.7);
+      background: rgba(38, 36, 58, 0.75);
       border-color: rgba(100, 100, 150, 0.2);
     }
     
@@ -715,7 +712,7 @@
     
     .non-link-card:hover .link-icon {
       transform: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.35);
     }
     
     .non-link-card:hover .link-icon i {
@@ -913,11 +910,11 @@
           </div>
           <div class="link-text">
             <div class="link-title">Instagram</div>
-            <div class="link-subtitle">@danielp_bachata</极>
+            <div class="link-subtitle">@danielp_bachata</div>
           </div>
         </div>
         
-        <div class="link-card clickable tikt极" data-url="https://www.tiktok.com/@danielp_bachata">
+        <div class="link-card clickable tiktok" data-url="https://www.tiktok.com/@danielp_bachata">
           <div class="link-icon">
             <i class="fab fa-tiktok"></i>
           </div>
@@ -1149,7 +1146,7 @@
         this.classList.add('selected');
         
         setTimeout(() => {
-            this.classList.remove('selected');
+          this.classList.remove('selected');
         }, 800);
       });
       
