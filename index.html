@@ -51,7 +51,7 @@
       width: 100%;
       max-width: 900px;
       background: rgba(22, 20, 38, 0.96);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(12极);
       border-radius: 20px;
       border: 1px solid rgba(100, 100, 150, 0.15);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
@@ -171,10 +171,7 @@
       color: rgba(230, 230, 255, 0.9);
       margin-top: 20px;
       max-width: 600px;
-      margin: 15px auto 0;
-      line-height: 1.6;
-      padding: 0 15px;
-      animation: fadeIn 1.5s ease-out;
+      margin: 15px auto;
     }
     
     .section-title {
@@ -199,8 +196,7 @@
       width: 100px;
       height: 4px;
       background: linear-gradient(to right, #d8832a, #e6c439);
-      border-radius: 3px;
-      box-shadow: 0 2px 8px rgba(216, 131, 42, 0.3);
+      border-radius: 2px;
     }
     
     .content {
@@ -342,7 +338,7 @@
     }
     
     .venmo .link-icon {
-      background: linear-gradient(135deg, #2d7db0, #0066cc) !important;
+      background: linear-gradient(135deg, #2d7db6, #0066cc) !important;
     }
     
     .cash .link-icon {
@@ -363,7 +359,7 @@
     
     .link-subtitle {
       font-size: 0.95rem;
-      color: rgba(220, 220, 240, 0.9);
+      color: rgba(240, 240, 255, 0.95); /* Improved contrast */
       line-height: 1.4;
     }
     
@@ -385,7 +381,7 @@
       line-height: 1.5;
     }
     
-    .schedule-day {
+    .极chedule-day {
       font-weight: 600;
       min-width: 75px;
       color: #e6c439;
@@ -393,7 +389,7 @@
     
     .schedule-info {
       flex: 1;
-      color: rgba(220, 220, 240, 0.9);
+      color: rgba(240, 240, 255, 0.95); /* Improved contrast */
     }
     
     footer {
@@ -512,7 +508,8 @@
       outline: none;
       border-color: #e6c439;
       background: rgba(50, 48, 70, 0.5);
-      box-shadow: 0 0 0 3px rgba(230, 196, 57, 0.2);
+      /* Enhanced glow effect */
+      box-shadow: 0 0 0 4px rgba(230, 196, 57, 0.2);
     }
     
     .form-input::placeholder {
@@ -543,7 +540,8 @@
       outline: none;
       border-color: #e6c439;
       background: rgba(50, 48, 70, 0.5);
-      box-shadow: 0 0 0 3px rgba(230, 196, 57, 0.2);
+      /* Enhanced glow effect */
+      box-shadow: 0 0 0 4px rgba(230, 196, 57, 0.2);
     }
     
     .submit-btn {
@@ -571,10 +569,18 @@
     .submit-btn:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 35px rgba(216, 131, 42, 0.6);
+      /* Added pulsing animation */
+      animation: pulse 1.5s infinite;
     }
     
     .submit-btn:active {
       transform: translateY(2px);
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(216, 131, 42, 0.6); }
+      70% { box-shadow: 0 0 0 12px rgba(216, 131, 42, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(216, 131, 42, 0); }
     }
     
     .thank-you-message {
@@ -885,7 +891,7 @@
         </div>
       </div>
       <h1>Daniel Palacios</h1>
-      <p class="tagline">Professional Salsa & Bachata Instructor | Transforming Passion into Movement</p>
+      <p class="tagline">Professional Salsa & Bachata Instruction | Transforming Passion into Movement</p>
     </header>
     
     <div class="content">
@@ -907,11 +913,11 @@
           </div>
           <div class="link-text">
             <div class="link-title">Instagram</div>
-            <div class="link-subtitle">@danielp_bachata</div>
+            <div class="link-subtitle">@danielp_bachata</极>
           </div>
         </div>
         
-        <div class="link-card clickable tiktok" data-url="https://www.tiktok.com/@danielp_bachata">
+        <div class="link-card clickable tikt极" data-url="https://www.tiktok.com/@danielp_bachata">
           <div class="link-icon">
             <i class="fab fa-tiktok"></i>
           </div>
@@ -1051,7 +1057,7 @@
     </div>
     
     <footer>
-      <p>© 2025 Daniel Palacios | Professional Dance Instruction</p>
+      <p>© 2025 Daniel Palacios | Professional Instruction</p>
       <p>Dance is the hidden language of the soul</p>
     </footer>
   </div>
@@ -1143,7 +1149,7 @@
         this.classList.add('selected');
         
         setTimeout(() => {
-          this.classList.remove('selected');
+            this.classList.remove('selected');
         }, 800);
       });
       
