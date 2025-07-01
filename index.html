@@ -685,73 +685,74 @@
       animation: fadeIn 1.2s ease-out;
     }
     
-    /* NEW INFINITY SIGNATURE - PERFECTED */
+    /* PERFECTED INFINITY SIGNATURE */
     .infinity-container {
       margin: 25px auto 10px;
       display: flex;
       justify-content: center;
       position: relative;
       width: 300px;
-      height: 60px;
+      height: 80px;
     }
     
     .infinity-figure {
       position: relative;
-      width: 100%;
-      height: 100%;
+      width: 180px;
+      height: 80px;
     }
     
-    .infinity-loop {
+    .infinity-path {
       position: absolute;
-      width: 120px;
-      height: 120px;
-      border: 4px solid;
+      width: 180px;
+      height: 80px;
+      border: 4px solid transparent;
+      border-top-color: #ff9800;
+      border-right-color: transparent;
+      border-bottom-color: #ff5722;
+      border-left-color: transparent;
       border-radius: 50%;
-      animation: infinity-pulse 3s infinite ease-in-out;
-      top: -30px;
+      box-sizing: border-box;
+      animation: infinity-rotate 4s infinite linear;
     }
     
-    .loop-left {
-      left: 0;
-      border-color: #ff5722 #ff9800 #ff5722 #ff9800;
+    .infinity-path:nth-child(1) {
       animation-delay: 0s;
+      transform: rotate(135deg);
     }
     
-    .loop-right {
-      right: 0;
-      border-color: #ff9800 #ff5722 #ff9800 #ff5722;
-      animation-delay: -1.5s;
+    .infinity-path:nth-child(2) {
+      animation-delay: -2s;
+      transform: rotate(315deg);
     }
     
-    .infinity-connection {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 120px;
-      height: 4px;
-      background: linear-gradient(to right, #ff5722, #ff9800);
-      transform: translate(-50%, -50%);
-      animation: infinity-glow 3s infinite ease-in-out;
-      z-index: 2;
-    }
-    
-    @keyframes infinity-pulse {
-      0%, 100% {
-        box-shadow: 0 0 15px rgba(255, 87, 34, 0.5);
-        transform: scale(1) rotate(0deg);
+    @keyframes infinity-rotate {
+      0% {
+        border-top-color: #ff9800;
+        border-bottom-color: #ff5722;
+        box-shadow: 0 0 10px rgba(255, 152, 0, 0.6);
+        transform: rotate(135deg);
+      }
+      25% {
+        border-top-color: #ff5722;
+        border-bottom-color: #ff9800;
+        box-shadow: 0 0 15px rgba(255, 87, 34, 0.7);
       }
       50% {
-        box-shadow: 0 0 30px rgba(255, 152, 0, 0.8);
-        transform: scale(1.05) rotate(5deg);
+        border-top-color: #ff9800;
+        border-bottom-color: #ff5722;
+        box-shadow: 0 0 20px rgba(255, 152, 0, 0.8);
+        transform: rotate(495deg);
       }
-    }
-    
-    @keyframes infinity-glow {
-      0%, 100% {
-        box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+      75% {
+        border-top-color: #ff5722;
+        border-bottom-color: #ff9800;
+        box-shadow: 0 0 15px rgba(255, 87, 34, 0.7);
       }
-      50% {
-        box-shadow: 0 0 25px rgba(255, 87, 34, 0.8);
+      100% {
+        border-top-color: #ff9800;
+        border-bottom-color: #ff5722;
+        box-shadow: 0 0 10px rgba(255, 152, 0, 0.6);
+        transform: rotate(855deg);
       }
     }
     
@@ -763,7 +764,7 @@
       background: #ff9800;
       animation: fire-float 3s ease-out infinite;
       opacity: 0;
-      z-index: 1;
+      z-index: 2;
     }
     
     @keyframes fire-float {
@@ -836,17 +837,12 @@
       /* Infinity symbol adjustment */
       .infinity-container {
         width: 250px;
-        height: 50px;
+        height: 70px;
       }
       
-      .infinity-loop {
-        width: 100px;
-        height: 100px;
-        top: -25px;
-      }
-      
-      .infinity-connection {
-        width: 100px;
+      .infinity-figure {
+        width: 150px;
+        height: 70px;
       }
     }
     
@@ -952,17 +948,12 @@
       /* Infinity symbol adjustment */
       .infinity-container {
         width: 200px;
-        height: 40px;
+        height: 60px;
       }
       
-      .infinity-loop {
-        width: 80px;
-        height: 80px;
-        top: -20px;
-      }
-      
-      .infinity-connection {
-        width: 80px;
+      .infinity-figure {
+        width: 120px;
+        height: 60px;
       }
     }
   </style>
@@ -1155,12 +1146,11 @@
       <p>© 2025 Daniel Palacios | Professional Instruction</p>
       <p>Dance is the hidden language of the soul</p>
       
-      <!-- New Flaming Infinity Signature -->
+      <!-- PERFECTED INFINITY SIGNATURE -->
       <div class="infinity-container" id="infinity-signature">
         <div class="infinity-figure">
-          <div class="infinity-loop loop-left"></div>
-          <div class="infinity-loop loop-right"></div>
-          <div class="infinity-connection"></div>
+          <div class="infinity-path"></div>
+          <div class="infinity-path"></div>
         </div>
       </div>
     </footer>
@@ -1220,26 +1210,26 @@
       existing.forEach(el => el.remove());
       
       // Create new particles
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 10; i++) {
         const particle = document.createElement('div');
         particle.className = 'fire-particle';
         
         // Position near the infinity figure
-        const x = 100 + Math.random() * 100;
-        const y = 20 + Math.random() * 10;
+        const x = 100 + (Math.random() - 0.5) * 100;
+        const y = 40 + (Math.random() - 0.5) * 30;
         
         particle.style.left = `${x}px`;
         particle.style.top = `${y}px`;
         
         // Random movement direction
-        const tx = (Math.random() - 0.5) * 40;
-        const ty = (Math.random() - 0.5) * 40 - 20;
+        const tx = (Math.random() - 0.5) * 80;
+        const ty = (Math.random() - 0.5) * 80 - 40;
         
         particle.style.setProperty('--tx', `${tx}px`);
         particle.style.setProperty('--ty', `${ty}px`);
         
         // Random size and animation delay
-        const size = 4 + Math.random() * 4;
+        const size = 4 + Math.random() * 6;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         particle.style.animationDelay = `${Math.random() * 2}s`;
