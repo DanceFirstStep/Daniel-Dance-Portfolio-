@@ -697,8 +697,8 @@
     
     .infinity-figure {
       position: relative;
-      width: 200px;
-      height: 100px;
+      width: 180px;
+      height: 90px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -710,38 +710,51 @@
       height: 90px;
     }
     
-    .infinity::before,
-    .infinity::after {
-      content: '';
+    .loop {
       position: absolute;
-      top: 0;
       width: 90px;
       height: 90px;
-      border: 6px solid;
+      border: 6px solid transparent;
       border-radius: 50%;
       animation: infinity-pulse 3s infinite ease-in-out;
+    }
+    
+    .loop.left {
+      left: 0;
+      border-top-color: #ff5722;
+      border-right-color: #ff5722;
       transform: rotate(45deg);
     }
     
-    .infinity::before {
-      left: 0;
-      border-color: transparent #ff5722 #ff5722 transparent;
+    .loop.right {
+      right: 0;
+      border-bottom-color: #ff9800;
+      border-left-color: #ff9800;
+      transform: rotate(45deg);
+      animation-delay: -1.5s;
     }
     
-    .infinity::after {
-      right: 0;
-      border-color: #ff9800 transparent transparent #ff9800;
-      animation-delay: -1.5s;
+    .connector {
+      position: absolute;
+      top: 42px;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      background: #ff9800;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px rgba(255, 152, 0, 0.7);
+      z-index: 2;
     }
     
     @keyframes infinity-pulse {
       0%, 100% {
-        box-shadow: 0 0 15px rgba(255, 87, 34, 0.6);
         transform: rotate(45deg) scale(1);
+        box-shadow: 0 0 15px rgba(255, 87, 34, 0.6);
       }
       50% {
-        box-shadow: 0 0 30px rgba(255, 152, 0, 0.8);
         transform: rotate(45deg) scale(1.05);
+        box-shadow: 0 0 30px rgba(255, 152, 0, 0.8);
       }
     }
     
@@ -830,8 +843,8 @@
       }
       
       .infinity-figure {
-        width: 180px;
-        height: 90px;
+        width: 160px;
+        height: 80px;
       }
       
       .infinity {
@@ -839,10 +852,13 @@
         height: 80px;
       }
       
-      .infinity::before,
-      .infinity::after {
+      .loop {
         width: 80px;
         height: 80px;
+      }
+      
+      .connector {
+        top: 37px;
       }
     }
     
@@ -952,19 +968,22 @@
       }
       
       .infinity-figure {
-        width: 150px;
-        height: 70px;
-      }
-      
-      .infinity {
-        width: 130px;
+        width: 140px;
         height: 60px;
       }
       
-      .infinity::before,
-      .infinity::after {
-        width: 65px;
-        height: 65px;
+      .infinity {
+        width: 140px;
+        height: 60px;
+      }
+      
+      .loop {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .connector {
+        top: 30px;
       }
     }
   </style>
@@ -1160,7 +1179,11 @@
       <!-- PERFECT FIGURE EIGHT SIGNATURE -->
       <div class="infinity-container" id="infinity-signature">
         <div class="infinity-figure">
-          <div class="infinity"></div>
+          <div class="infinity">
+            <div class="loop left"></div>
+            <div class="loop right"></div>
+            <div class="connector"></div>
+          </div>
         </div>
       </div>
     </footer>
