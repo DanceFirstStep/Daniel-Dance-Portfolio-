@@ -727,73 +727,103 @@
     .link-card:nth-child(2) { animation-delay: 0.2s; }
     .link-card:nth-child(3) { animation-delay: 0.3s; }
     
-    /* New Infinity Fire Signature */
+    /* New Infinity Signature - Pure CSS */
     .infinity-container {
       margin: 30px auto 10px;
       display: flex;
       justify-content: center;
       position: relative;
       width: 300px;
-      height: 80px;
+      height: 50px;
     }
     
-    .infinity-symbol {
-      width: 100%;
-      height: 100%;
+    .infinity-figure {
       position: relative;
-    }
-    
-    .infinity-path {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      fill: none;
-      stroke-width: 8;
-      stroke-linecap: round;
-      stroke-dasharray: 300;
-      stroke-dashoffset: 300;
-      animation: infinity-draw 3s linear infinite;
     }
     
-    .fire-path {
-      stroke: url(#fire-gradient);
-      filter: url(#fire-glow);
-      animation: infinity-fire 3s ease-in-out infinite;
+    .infinity-circle {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 4px solid transparent;
+      animation: infinity-rotate 6s linear infinite;
     }
     
-    @keyframes infinity-draw {
+    .circle-left {
+      left: 0;
+      border-top-color: #ff5722;
+      border-right-color: #ff9800;
+      border-bottom-color: #ff5722;
+      border-left-color: #ff9800;
+      animation-delay: 0s;
+    }
+    
+    .circle-right {
+      right: 0;
+      border-top-color: #ff9800;
+      border-right-color: #ff5722;
+      border-bottom-color: #ff9800;
+      border-left-color: #ff5722;
+      animation-delay: -3s;
+    }
+    
+    @keyframes infinity-rotate {
       0% {
-        stroke-dashoffset: 300;
+        transform: rotate(0deg);
+        box-shadow: 0 0 10px #ff5722, 0 0 20px #ff9800;
+      }
+      25% {
+        box-shadow: 0 0 15px #ff9800, 0 0 25px #ff5722;
       }
       50% {
-        stroke-dashoffset: 0;
+        transform: rotate(180deg);
+        box-shadow: 0 0 20px #ff5722, 0 0 30px #ff9800;
+      }
+      75% {
+        box-shadow: 0 0 15px #ff9800, 0 0 25px #ff5722;
       }
       100% {
-        stroke-dashoffset: -300;
+        transform: rotate(360deg);
+        box-shadow: 0 0 10px #ff5722, 0 0 20px #ff9800;
       }
     }
     
-    @keyframes infinity-fire {
+    .infinity-connection {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 50px;
+      transform: translate(-50%, -50%);
+      border: 4px solid transparent;
+      border-top-color: #ff9800;
+      border-radius: 100px 100px 0 0;
+      animation: infinity-pulse 3s ease-in-out infinite;
+    }
+    
+    @keyframes infinity-pulse {
       0%, 100% {
-        stroke-width: 8;
-        filter: drop-shadow(0 0 10px #ff5722);
+        border-top-color: #ff9800;
+        border-width: 4px;
+        box-shadow: 0 -5px 10px rgba(255,152,0,0.5);
       }
       50% {
-        stroke-width: 10;
-        filter: drop-shadow(0 0 20px #ff9800);
+        border-top-color: #ff5722;
+        border-width: 6px;
+        box-shadow: 0 -10px 20px rgba(255,87,34,0.8);
       }
     }
     
-    /* Fire particles */
     .fire-particle {
       position: absolute;
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: #ff9800;
-      animation: fire-float 2s ease-out infinite;
+      animation: fire-float 3s ease-out infinite;
       opacity: 0;
       z-index: 2;
     }
@@ -868,7 +898,17 @@
       /* Infinity symbol adjustment */
       .infinity-container {
         width: 250px;
-        height: 70px;
+        height: 40px;
+      }
+      
+      .infinity-circle {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .infinity-connection {
+        width: 80px;
+        height: 40px;
       }
     }
     
@@ -974,7 +1014,17 @@
       /* Infinity symbol adjustment */
       .infinity-container {
         width: 200px;
-        height: 60px;
+        height: 35px;
+      }
+      
+      .infinity-circle {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .infinity-connection {
+        width: 70px;
+        height: 35px;
       }
     }
   </style>
@@ -1169,24 +1219,11 @@
       
       <!-- New Infinity Fire Signature -->
       <div class="infinity-container">
-        <svg class="infinity-symbol" viewBox="0 0 300 80">
-          <defs>
-            <linearGradient id="fire-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#ff9800" />
-              <stop offset="50%" stop-color="#ff5722" />
-              <stop offset="100%" stop-color="#ff9800" />
-            </linearGradient>
-            <filter id="fire-glow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
-              <feColorMatrix in="blur" type="matrix" 
-                values="1 0 0 0 0 
-                        0 1 0 0 0 
-                        0 0 1 0 0 
-                        0 0 0 20 -8" />
-            </filter>
-          </defs>
-          <path class="infinity-path fire-path" d="M50,40 C100,10 200,10 250,40 C200,70 100,70 50,40" />
-        </svg>
+        <div class="infinity-figure">
+          <div class="infinity-circle circle-left"></div>
+          <div class="infinity-circle circle-right"></div>
+          <div class="infinity-connection"></div>
+        </div>
       </div>
     </footer>
   </div>
@@ -1246,14 +1283,13 @@
       existing.forEach(el => el.remove());
       
       // Create new particles
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 8; i++) {
         const particle = document.createElement('div');
         particle.className = 'fire-particle';
         
-        // Position along the infinity path
-        const angle = Math.random() * Math.PI * 2;
-        const x = 150 + Math.cos(angle) * 100;
-        const y = 40 + Math.sin(angle) * 30;
+        // Position near the infinity figure
+        const x = 100 + Math.random() * 100;
+        const y = 20 + Math.random() * 10;
         
         particle.style.left = `${x}px`;
         particle.style.top = `${y}px`;
@@ -1270,6 +1306,10 @@
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         particle.style.animationDelay = `${Math.random() * 2}s`;
+        
+        // Random fire color
+        const colors = ['#ff5722', '#ff9800', '#ffc107', '#ff5722'];
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
         
         container.appendChild(particle);
       }
