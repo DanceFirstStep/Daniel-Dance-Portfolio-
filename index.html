@@ -685,82 +685,98 @@
       animation: fadeIn 1.2s ease-out;
     }
     
-    /* PERFECT INFINITY SIGNATURE */
-    .infinity-container {
+    /* SIGNATURE LINE WITH HIDDEN ACCESS */
+    .signature-container {
       margin: 25px auto 10px;
       display: flex;
       justify-content: center;
       position: relative;
       width: 300px;
-      height: 120px;
+      height: 20px;
     }
     
-    .infinity-figure {
-      position: relative;
+    .signature-line {
       width: 200px;
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #e67e22, #f1c40f, transparent);
+      position: relative;
+      transition: all 0.4s ease;
     }
     
-    .infinity-svg {
-      width: 100%;
-      height: 100%;
-      overflow: visible;
-    }
-    
-    .infinity-path {
-      animation: infinity-pulse 3s infinite ease-in-out;
-      stroke-linecap: round;
-    }
-    
-    @keyframes infinity-pulse {
-      0%, 100% {
-        stroke-width: 8;
-        filter: drop-shadow(0 0 5px rgba(255, 87, 34, 0.7));
-      }
-      50% {
-        stroke-width: 9;
-        filter: drop-shadow(0 0 15px rgba(255, 152, 0, 0.9));
-      }
-    }
-    
-    .center-connector {
-      animation: glow 3s infinite ease-in-out;
-    }
-    
-    @keyframes glow {
-      0%, 100% { 
-        fill: #ff9800;
-        filter: drop-shadow(0 0 5px rgba(255, 152, 0, 0.7));
-      }
-      50% { 
-        fill: #ff5722;
-        filter: drop-shadow(0 0 15px rgba(255, 87, 34, 1));
-      }
-    }
-    
-    .fire-particle {
+    .signature-line::before {
+      content: '';
       position: absolute;
-      width: 8px;
+      top: -3px;
+      left: 0;
+      width: 100%;
       height: 8px;
-      border-radius: 50%;
-      background: #ff9800;
-      animation: fire-float 3s ease-out infinite;
-      opacity: 0;
-      z-index: 0;
+      cursor: pointer;
     }
     
-    @keyframes fire-float {
-      0% {
-        transform: translate(0, 0);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(var(--tx), var(--ty));
-        opacity: 0;
-      }
+    .signature-line:hover {
+      height: 3px;
+      background: linear-gradient(to right, transparent, #f1c40f, #e67e22, transparent);
+    }
+    
+    .hidden-access-message {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(33, 31, 54, 0.98);
+      padding: 25px;
+      border-radius: 18px;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+      border: 1px solid #f1c40f;
+      max-width: 90%;
+      width: 400px;
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    .hidden-access-message h3 {
+      color: #f1c40f;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
+    
+    .hidden-access-message p {
+      color: rgba(220, 220, 240, 0.95);
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    
+    .access-btn {
+      background: linear-gradient(135deg, #e67e22, #f1c40f);
+      color: #0a0915;
+      border: none;
+      border-radius: 14px;
+      padding: 14px 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+    
+    .access-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(230, 126, 34, 0.6);
+    }
+    
+    .close-access {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: #f1c40f;
+      font-size: 1.5rem;
+      cursor: pointer;
     }
     
     @media (max-width: 768px) {
@@ -819,10 +835,8 @@
         min-width: 80px;
       }
       
-      /* Infinity symbol adjustment */
-      .infinity-container {
+      .signature-container {
         width: 250px;
-        height: 100px;
       }
     }
     
@@ -925,10 +939,8 @@
         font-size: 0.88rem;
       }
       
-      /* Infinity symbol adjustment */
-      .infinity-container {
+      .signature-container {
         width: 200px;
-        height: 80px;
       }
     }
   </style>
@@ -1121,33 +1133,61 @@
       <p>© 2025 Daniel Palacios | Professional Instruction</p>
       <p>Dance is the hidden language of the soul</p>
       
-      <!-- PERFECT INFINITY SIGNATURE -->
-      <div class="infinity-container" id="infinity-signature">
-        <div class="infinity-figure">
-          <svg class="infinity-svg" viewBox="0 0 200 100">
-            <path class="infinity-path" 
-                  d="M50,50 
-                     C100,0 100,0 150,50 
-                     C200,100 100,100 50,50 
-                     C0,0 0,0 50,50" 
-                  fill="none" 
-                  stroke="url(#gradient)" 
-                  stroke-width="8" 
-                  stroke-linecap="round" />
-            <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#ff5722" />
-                <stop offset="100%" stop-color="#ff9800" />
-              </linearGradient>
-            </defs>
-            <circle class="center-connector" cx="100" cy="50" r="5" fill="#ff9800" />
-          </svg>
-        </div>
+      <!-- SIGNATURE LINE WITH HIDDEN ACCESS -->
+      <div class="signature-container">
+        <div class="signature-line" id="signature-line"></div>
       </div>
     </footer>
   </div>
 
+  <!-- HIDDEN ACCESS MESSAGE -->
+  <div id="hidden-access-message" class="hidden-access-message">
+    <button class="close-access" id="close-access">×</button>
+    <h3>Students Portal</h3>
+    <p>Welcome to the exclusive student access area. This portal is for registered students only.</p>
+    <a href="#" class="access-btn">View Attendance Records</a>
+    <a href="#" class="access-btn">Access Class Materials</a>
+    <a href="#" class="access-btn">Track Progress</a>
+  </div>
+
   <script>
+    // Signature line access functionality
+    const signatureLine = document.getElementById('signature-line');
+    const hiddenAccessMessage = document.getElementById('hidden-access-message');
+    const closeAccessBtn = document.getElementById('close-access');
+    
+    let clickCount = 0;
+    let clickTimer;
+    
+    signatureLine.addEventListener('click', function() {
+      clickCount++;
+      
+      if (clickCount === 1) {
+        // First click - start timer
+        clickTimer = setTimeout(() => {
+          clickCount = 0;
+        }, 1500);
+      } else if (clickCount === 3) {
+        // Triple click detected
+        clearTimeout(clickTimer);
+        clickCount = 0;
+        hiddenAccessMessage.style.display = 'block';
+      }
+    });
+    
+    // Close access message
+    closeAccessBtn.addEventListener('click', function() {
+      hiddenAccessMessage.style.display = 'none';
+    });
+    
+    // Close if clicked outside the message
+    window.addEventListener('click', function(event) {
+      if (event.target === hiddenAccessMessage) {
+        hiddenAccessMessage.style.display = 'none';
+      }
+    });
+
+    // Original functionality
     function createMusicParticle(event) {
       const container = document.getElementById('music-particles-container');
       const particleCount = 4; 
@@ -1189,47 +1229,6 @@
             particle.remove();
           }
         }, duration * 1000);
-      }
-    }
-    
-    function createFireParticles() {
-      const container = document.getElementById('infinity-signature');
-      if (!container) return;
-      
-      // Clear existing particles
-      const existing = document.querySelectorAll('.fire-particle');
-      existing.forEach(el => el.remove());
-      
-      // Create new particles
-      for (let i = 0; i < 10; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'fire-particle';
-        
-        // Position near the infinity figure
-        const x = 100 + (Math.random() - 0.5) * 100;
-        const y = 50 + (Math.random() - 0.5) * 30;
-        
-        particle.style.left = `${x}px`;
-        particle.style.top = `${y}px`;
-        
-        // Random movement direction
-        const tx = (Math.random() - 0.5) * 80;
-        const ty = (Math.random() - 0.5) * 80 - 40;
-        
-        particle.style.setProperty('--tx', `${tx}px`);
-        particle.style.setProperty('--ty', `${ty}px`);
-        
-        // Random size and animation delay
-        const size = 4 + Math.random() * 6;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.animationDelay = `${Math.random() * 2}s`;
-        
-        // Random fire color
-        const colors = ['#ff5722', '#ff9800', '#ffc107', '#ff5722'];
-        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-        
-        container.appendChild(particle);
       }
     }
     
@@ -1348,10 +1347,6 @@
       setTimeout(() => {
         document.querySelector('.tagline').style.animation = 'fadeIn 1.5s ease-out forwards';
       }, 600);
-      
-      // Create fire particles
-      createFireParticles();
-      setInterval(createFireParticles, 2000);
     });
   </script>
 </body>
