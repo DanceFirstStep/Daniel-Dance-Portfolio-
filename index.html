@@ -727,17 +727,18 @@
     .link-card:nth-child(2) { animation-delay: 0.2s; }
     .link-card:nth-child(3) { animation-delay: 0.3s; }
     
-    /* Infinity Fire Signature */
+    /* Infinity Fire Signature - Improved */
     .infinity-container {
-      margin-top: 25px;
+      margin-top: 30px;
       display: flex;
       justify-content: center;
       position: relative;
+      height: 40px; /* Fixed height for the infinity symbol */
     }
     
     .infinity-symbol {
-      width: 100px;
-      height: 50px;
+      width: 300px; /* Wider for a more elegant look */
+      height: 40px; /* Shorter height as requested */
       position: relative;
     }
     
@@ -755,7 +756,8 @@
     
     .fire-path {
       stroke: url(#fire-gradient);
-      animation-delay: 0.5s;
+      filter: url(#glow);
+      animation: infinity-fire 3s ease-in-out infinite;
     }
     
     .glow-path {
@@ -793,8 +795,44 @@
       }
     }
     
-    .fire-path {
-      animation: infinity-fire 3s ease-in-out infinite;
+    .comet {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #ff8c00, #ff4500);
+      border-radius: 50%;
+      filter: blur(5px);
+      animation: comet-trail 4s infinite linear;
+      z-index: 2;
+    }
+    
+    @keyframes comet-trail {
+      0% {
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1;
+      }
+      25% {
+        left: 25%;
+        top: 10%;
+        opacity: 0.8;
+      }
+      50% {
+        left: 50%;
+        top: 50%;
+        opacity: 1;
+      }
+      75% {
+        left: 75%;
+        top: 90%;
+        opacity: 0.8;
+      }
+      100% {
+        left: 100%;
+        top: 50%;
+        opacity: 0;
+      }
     }
     
     @media (max-width: 768px) {
@@ -855,8 +893,8 @@
       
       /* Infinity symbol adjustment */
       .infinity-symbol {
-        width: 80px;
-        height: 40px;
+        width: 250px;
+        height: 35px;
       }
     }
     
@@ -961,8 +999,8 @@
       
       /* Infinity symbol adjustment */
       .infinity-symbol {
-        width: 70px;
-        height: 35px;
+        width: 200px;
+        height: 30px;
       }
     }
   </style>
@@ -1155,18 +1193,24 @@
       <p>© 2025 Daniel Palacios | Professional Instruction</p>
       <p>Dance is the hidden language of the soul</p>
       
-      <!-- Infinity Fire Signature -->
+      <!-- Improved Infinity Fire Signature -->
       <div class="infinity-container">
-        <svg class="infinity-symbol" viewBox="0 0 100 50">
+        <svg class="infinity-symbol" viewBox="0 0 300 40" preserveAspectRatio="xMidYMid meet">
           <defs>
             <linearGradient id="fire-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stop-color="#f1c40f" />
               <stop offset="50%" stop-color="#e67e22" />
               <stop offset="100%" stop-color="#d35400" />
             </linearGradient>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+              <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -5" />
+              <feBlend in="SourceGraphic" in2="blur" mode="screen" />
+            </filter>
           </defs>
-          <path class="infinity-path glow-path" d="M20,25 C35,5 65,5 80,25 C65,45 35,45 20,25 Z" />
-          <path class="infinity-path fire-path" d="M20,25 C35,5 65,5 80,25 C65,45 35,45 20,25 Z" />
+          <path class="infinity-path glow-path" d="M0,20 C60,5 120,5 150,20 C180,35 240,35 300,20" fill="none" />
+          <path class="infinity-path fire-path" d="M0,20 C60,5 120,5 150,20 C180,35 240,35 300,20" fill="none" />
+          <circle class="comet" r="8" />
         </svg>
       </div>
     </footer>
