@@ -727,110 +727,84 @@
     .link-card:nth-child(2) { animation-delay: 0.2s; }
     .link-card:nth-child(3) { animation-delay: 0.3s; }
     
-    /* Infinity Fire Signature - Improved */
+    /* New Infinity Fire Signature */
     .infinity-container {
-      margin-top: 30px;
+      margin: 30px auto 10px;
       display: flex;
       justify-content: center;
       position: relative;
-      height: 40px; /* Fixed height for the infinity symbol */
+      width: 300px;
+      height: 80px;
     }
     
     .infinity-symbol {
-      width: 300px; /* Wider for a more elegant look */
-      height: 40px; /* Shorter height as requested */
+      width: 100%;
+      height: 100%;
       position: relative;
     }
     
     .infinity-path {
       position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       fill: none;
-      stroke-width: 4;
+      stroke-width: 8;
       stroke-linecap: round;
-      stroke-dasharray: 200;
-      stroke-dashoffset: 200;
-      animation: infinity-draw 4s linear infinite;
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+      animation: infinity-draw 3s linear infinite;
     }
     
     .fire-path {
       stroke: url(#fire-gradient);
-      filter: url(#glow);
+      filter: url(#fire-glow);
       animation: infinity-fire 3s ease-in-out infinite;
     }
     
-    .glow-path {
-      stroke: rgba(241, 196, 15, 0.2);
-      filter: blur(4px);
-      stroke-width: 6;
-    }
-    
     @keyframes infinity-draw {
-      to {
+      0% {
+        stroke-dashoffset: 300;
+      }
+      50% {
         stroke-dashoffset: 0;
+      }
+      100% {
+        stroke-dashoffset: -300;
       }
     }
     
     @keyframes infinity-fire {
-      0% {
-        stroke: #f1c40f;
-        filter: drop-shadow(0 0 5px rgba(241, 196, 15, 0.5));
-      }
-      25% {
-        stroke: #e67e22;
-        filter: drop-shadow(0 0 8px rgba(230, 126, 34, 0.7));
+      0%, 100% {
+        stroke-width: 8;
+        filter: drop-shadow(0 0 10px #ff5722);
       }
       50% {
-        stroke: #d35400;
-        filter: drop-shadow(0 0 10px rgba(211, 84, 0, 0.8));
-      }
-      75% {
-        stroke: #e67e22;
-        filter: drop-shadow(0 0 8px rgba(230, 126, 34, 0.7));
-      }
-      100% {
-        stroke: #f1c40f;
-        filter: drop-shadow(0 0 5px rgba(241, 196, 15, 0.5));
+        stroke-width: 10;
+        filter: drop-shadow(0 0 20px #ff9800);
       }
     }
     
-    .comet {
+    /* Fire particles */
+    .fire-particle {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background: radial-gradient(circle, #ff8c00, #ff4500);
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      filter: blur(5px);
-      animation: comet-trail 4s infinite linear;
+      background: #ff9800;
+      animation: fire-float 2s ease-out infinite;
+      opacity: 0;
       z-index: 2;
     }
     
-    @keyframes comet-trail {
+    @keyframes fire-float {
       0% {
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
+        transform: translate(0, 0);
         opacity: 1;
-      }
-      25% {
-        left: 25%;
-        top: 10%;
-        opacity: 0.8;
-      }
-      50% {
-        left: 50%;
-        top: 50%;
-        opacity: 1;
-      }
-      75% {
-        left: 75%;
-        top: 90%;
-        opacity: 0.8;
       }
       100% {
-        left: 100%;
-        top: 50%;
+        transform: translate(var(--tx), var(--ty));
         opacity: 0;
       }
     }
@@ -892,9 +866,9 @@
       }
       
       /* Infinity symbol adjustment */
-      .infinity-symbol {
+      .infinity-container {
         width: 250px;
-        height: 35px;
+        height: 70px;
       }
     }
     
@@ -998,9 +972,9 @@
       }
       
       /* Infinity symbol adjustment */
-      .infinity-symbol {
+      .infinity-container {
         width: 200px;
-        height: 30px;
+        height: 60px;
       }
     }
   </style>
@@ -1193,24 +1167,25 @@
       <p>© 2025 Daniel Palacios | Professional Instruction</p>
       <p>Dance is the hidden language of the soul</p>
       
-      <!-- Improved Infinity Fire Signature -->
+      <!-- New Infinity Fire Signature -->
       <div class="infinity-container">
-        <svg class="infinity-symbol" viewBox="0 0 300 40" preserveAspectRatio="xMidYMid meet">
+        <svg class="infinity-symbol" viewBox="0 0 300 80">
           <defs>
             <linearGradient id="fire-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#f1c40f" />
-              <stop offset="50%" stop-color="#e67e22" />
-              <stop offset="100%" stop-color="#d35400" />
+              <stop offset="0%" stop-color="#ff9800" />
+              <stop offset="50%" stop-color="#ff5722" />
+              <stop offset="100%" stop-color="#ff9800" />
             </linearGradient>
-            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
-              <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -5" />
-              <feBlend in="SourceGraphic" in2="blur" mode="screen" />
+            <filter id="fire-glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+              <feColorMatrix in="blur" type="matrix" 
+                values="1 0 0 0 0 
+                        0 1 0 0 0 
+                        0 0 1 0 0 
+                        0 0 0 20 -8" />
             </filter>
           </defs>
-          <path class="infinity-path glow-path" d="M0,20 C60,5 120,5 150,20 C180,35 240,35 300,20" fill="none" />
-          <path class="infinity-path fire-path" d="M0,20 C60,5 120,5 150,20 C180,35 240,35 300,20" fill="none" />
-          <circle class="comet" r="8" />
+          <path class="infinity-path fire-path" d="M50,40 C100,10 200,10 250,40 C200,70 100,70 50,40" />
         </svg>
       </div>
     </footer>
@@ -1258,6 +1233,45 @@
             particle.remove();
           }
         }, duration * 1000);
+      }
+    }
+    
+    // Create fire particles for infinity symbol
+    function createFireParticles() {
+      const container = document.querySelector('.infinity-container');
+      if (!container) return;
+      
+      // Clear existing particles
+      const existing = document.querySelectorAll('.fire-particle');
+      existing.forEach(el => el.remove());
+      
+      // Create new particles
+      for (let i = 0; i < 12; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'fire-particle';
+        
+        // Position along the infinity path
+        const angle = Math.random() * Math.PI * 2;
+        const x = 150 + Math.cos(angle) * 100;
+        const y = 40 + Math.sin(angle) * 30;
+        
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+        
+        // Random movement direction
+        const tx = (Math.random() - 0.5) * 40;
+        const ty = (Math.random() - 0.5) * 40 - 20;
+        
+        particle.style.setProperty('--tx', `${tx}px`);
+        particle.style.setProperty('--ty', `${ty}px`);
+        
+        // Random size and animation delay
+        const size = 4 + Math.random() * 4;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.animationDelay = `${Math.random() * 2}s`;
+        
+        container.appendChild(particle);
       }
     }
     
@@ -1376,6 +1390,10 @@
       setTimeout(() => {
         document.querySelector('.tagline').style.animation = 'fadeIn 1.5s ease-out forwards';
       }, 600);
+      
+      // Create fire particles
+      createFireParticles();
+      setInterval(createFireParticles, 2000);
     });
   </script>
 </body>
