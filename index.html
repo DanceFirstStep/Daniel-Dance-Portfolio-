@@ -28,6 +28,7 @@
             font-size: 1rem;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            touch-action: manipulation;
         }
         
         .background {
@@ -229,6 +230,7 @@
             backdrop-filter: blur(6px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
             animation: fadeInUp 0.8s ease-out;
+            -webkit-tap-highlight-color: transparent;
         }
         
         .link-card:hover {
@@ -236,6 +238,10 @@
             border-color: rgba(241, 196, 15, 0.5);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             transform: translateY(-5px);
+        }
+        
+        .link-card:active {
+            transform: scale(0.98) translateY(-3px);
         }
         
         .link-card::before {
@@ -270,6 +276,7 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
+            z-index: 2;
         }
         
         .link-icon i {
@@ -311,6 +318,41 @@
         .link-card:hover .link-icon i {
             transform: scale(1.1);
             animation: none;
+        }
+        
+        /* Enhanced click animations */
+        .link-card.clickable {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .ripple.active {
+            animation: rippleEffect 0.6s linear;
+        }
+        
+        @keyframes rippleEffect {
+            to {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+        
+        .bounce {
+            animation: bounceEffect 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes bounceEffect {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
         }
         
         .facebook .link-icon {
@@ -722,18 +764,34 @@
             background: linear-gradient(to right, transparent, #f1c40f, #e67e22, transparent);
         }
         
-        /* Improved music particles with SVG icons */
+        /* Fixed music particles container */
+        #music-particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        /* Enhanced music particles with psychological colors */
         .music-particle {
             position: absolute;
             z-index: 9999;
             pointer-events: none;
             animation: floatUp var(--duration) ease-out forwards,
-                       fadeOut var(--duration) ease-out forwards;
+                       fadeOut var(--duration) ease-out forwards,
+                       rotateNote var(--duration) linear forwards;
             width: 30px;
             height: 30px;
             background-size: contain;
             background-repeat: no-repeat;
-            filter: drop-shadow(0 0 5px rgba(241, 196, 15, 0.8));
+            filter: drop-shadow(0 0 8px rgba(241, 196, 15, 0.8));
+            transform-origin: center;
+            left: calc(var(--x) * 1px);
+            top: calc(var(--y) * 1px);
+            will-change: transform, opacity;
         }
         
         @keyframes floatUp {
@@ -749,6 +807,11 @@
             0% { opacity: 0.9; }
             70% { opacity: 0.8; }
             100% { opacity: 0; }
+        }
+        
+        @keyframes rotateNote {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(calc(var(--rotation) * 1deg)); }
         }
         
         /* Sensual City special glow effect */
@@ -801,6 +864,46 @@
             }
             50% {
                 transform: translate(20px, -30px);
+            }
+        }
+        
+        /* Device-specific optimizations */
+        /* Mobile devices */
+        @media (hover: none) and (pointer: coarse) {
+            .link-card {
+                min-height: 100px;
+                padding: 20px;
+            }
+            
+            .link-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.5rem;
+            }
+            
+            .link-title {
+                font-size: 1.15rem;
+            }
+            
+            .link-subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .music-particle {
+                width: 24px;
+                height: 24px;
+            }
+        }
+        
+        /* Tablets */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .link-card {
+                min-height: 105px;
+            }
+            
+            .link-icon {
+                width: 50px;
+                height: 50px;
             }
         }
         
@@ -1209,6 +1312,10 @@
   </div>
 
   <script>
+    // Device detection for optimized animations
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isTablet = /iPad|Android(?!.*mobile)|Tablet/i.test(navigator.userAgent);
+    
     // Signature line access functionality
     const signatureLine = document.getElementById('signature-line');
     const portalUrl = "https://dancefirststep.github.io/Member-portal-access/";
@@ -1231,10 +1338,10 @@
         
         // Create magical particles for portal access
         const event = { clientX: window.innerWidth/2, clientY: window.innerHeight/2 };
-        createMusicParticle(event);
-        setTimeout(() => createMusicParticle(event), 100);
-        setTimeout(() => createMusicParticle(event), 200);
-        setTimeout(() => createMusicParticle(event), 300);
+        createMusicParticle(event, 'portal');
+        setTimeout(() => createMusicParticle(event, 'portal'), 100);
+        setTimeout(() => createMusicParticle(event, 'portal'), 200);
+        setTimeout(() => createMusicParticle(event, 'portal'), 300);
         
         // Open portal in new tab
         setTimeout(() => {
@@ -1243,10 +1350,14 @@
       }
     });
 
-    // Enhanced musical particle animation with SVG icons
-    function createMusicParticle(event) {
+    // Enhanced musical particle animation with device optimization
+    function createMusicParticle(event, context = 'default') {
       const container = document.getElementById('music-particles-container');
-      const particleCount = 8;
+      
+      // Adjust particle count based on device
+      let particleCount = 8;
+      if (isMobile) particleCount = 5;
+      if (isTablet) particleCount = 6;
       
       // SVG music note paths
       const noteIcons = [
@@ -1256,9 +1367,55 @@
         'M20.5 3.5L19 2l-1.5 1.5L16 2l-1.5 1.5L13 2l-1.5 1.5L10 2 8.5 3.5 7 2v5h13V2l-1.5 1.5z'
       ];
       
+      // Psychological color palettes
+      const colorPalettes = {
+        default: {
+          base: '#f1c40f', // Yellow - joy, energy
+          range: {
+            h: [35, 45],   // Hue range (golden yellows)
+            s: [70, 90],   // Saturation (vibrant)
+            l: [50, 70]    // Lightness (bright)
+          }
+        },
+        sensual: {
+          base: '#9b59b6', // Purple - luxury, creativity
+          range: {
+            h: [270, 300], // Purple hues
+            s: [60, 80],
+            l: [50, 70]
+          }
+        },
+        registration: {
+          base: '#2ac7c2', // Teal - calm, focus
+          range: {
+            h: [170, 190],
+            s: [70, 90],
+            l: [50, 70]
+          }
+        },
+        portal: {
+          base: '#e74c3c', // Red - excitement, passion
+          range: {
+            h: [0, 15],
+            s: [70, 90],
+            l: [50, 70]
+          }
+        }
+      };
+      
+      // Select palette based on context
+      let palette = colorPalettes.default;
+      if (context === 'sensual') palette = colorPalettes.sensual;
+      if (context === 'registration') palette = colorPalettes.registration;
+      if (context === 'portal') palette = colorPalettes.portal;
+      
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'music-particle';
+        
+        // Set position based on click coordinates
+        particle.style.setProperty('--x', event.clientX);
+        particle.style.setProperty('--y', event.clientY);
         
         // Create SVG element
         const svgNS = "http://www.w3.org/2000/svg";
@@ -1269,36 +1426,60 @@
         
         const path = document.createElementNS(svgNS, "path");
         path.setAttribute("d", noteIcons[Math.floor(Math.random() * noteIcons.length)]);
-        path.setAttribute("fill", "#f1c40f");
         svg.appendChild(path);
         
         particle.appendChild(svg);
         
-        const posX = event.clientX + (Math.random() - 0.5) * 100;
-        const posY = event.clientY + (Math.random() - 0.5) * 100;
+        // Adjust movement based on device
+        let spreadFactor = 300;
+        let verticalRange = 200;
         
-        particle.style.left = `${posX}px`;
-        particle.style.top = `${posY}px`;
+        if (isMobile) {
+          spreadFactor = 180;
+          verticalRange = 150;
+        } else if (isTablet) {
+          spreadFactor = 250;
+          verticalRange = 180;
+        }
         
-        // Wider horizontal spread
-        const translateX = (Math.random() - 0.5) * 200;
-        const translateY = -250 - Math.random() * 100;
+        if (context === 'portal') {
+          spreadFactor *= 2;
+          verticalRange *= 1.5;
+        }
+        
+        const translateX = (Math.random() - 0.5) * spreadFactor;
+        const translateY = -150 - Math.random() * verticalRange;
         
         // Random rotation between -360 and 360 degrees
         const rotation = Math.random() * 720 - 360;
         
-        // Random duration between 1.5s and 3s
-        const duration = 1.5 + Math.random() * 1.5;
+        // Adjust duration based on device
+        let duration = 1.5 + Math.random() * 1.5;
+        if (isMobile) duration *= 0.8;
         
         // Set CSS variables
         particle.style.setProperty('--tx', `${translateX}px`);
         particle.style.setProperty('--ty', `${translateY}px`);
+        particle.style.setProperty('--rotation', `${rotation}`);
         particle.style.setProperty('--duration', `${duration}s`);
         
-        // Random size between 20px and 40px
-        const size = 20 + Math.random() * 20;
+        // Adjust size based on device
+        let size = 30;
+        if (isMobile) size = 24;
+        if (isTablet) size = 28;
+        
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
+        
+        // Generate color based on psychological palette
+        const h = palette.range.h[0] + Math.random() * (palette.range.h[1] - palette.range.h[0]);
+        const s = palette.range.s[0] + Math.random() * (palette.range.s[1] - palette.range.s[0]);
+        const l = palette.range.l[0] + Math.random() * (palette.range.l[1] - palette.range.l[0]);
+        const color = `hsl(${h}, ${s}%, ${l}%)`;
+        path.setAttribute("fill", color);
+        
+        // Add glow effect
+        particle.style.filter = `drop-shadow(0 0 8px ${color})`;
         
         container.appendChild(particle);
         
@@ -1316,32 +1497,66 @@
       
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
-          createMusicParticle(e);
+          // Create ripple effect
+          const ripple = document.createElement('span');
+          ripple.classList.add('ripple');
           
-          this.classList.add('selected');
+          // Position ripple at click point
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          ripple.style.width = ripple.style.height = `${size}px`;
+          ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+          ripple.style.top = `${e.clientY - rect.top - size/2}px`;
           
+          this.appendChild(ripple);
+          
+          // Add bounce effect to icon
+          const icon = this.querySelector('.link-icon');
+          icon.classList.add('bounce');
+          
+          // Determine context for music particles
+          let context = 'default';
+          if (this.classList.contains('sensual')) context = 'sensual';
+          
+          // Create music particles with context
+          createMusicParticle(e, context);
+          
+          // Remove ripple after animation
           setTimeout(() => {
-            this.classList.remove('selected');
-          }, 800);
+            ripple.remove();
+            icon.classList.remove('bounce');
+          }, 600);
           
           const url = this.getAttribute('data-url');
           
           if (this.classList.contains('cash')) {
             setTimeout(() => {
-              alert('Cash payments accepted at all class locations. Exact change is appreciated.');
-            }, 100);
+              // Enhanced cash notification
+              const cashMsg = document.createElement('div');
+              cashMsg.textContent = '💵 Cash accepted at all locations!';
+              cashMsg.style.position = 'fixed';
+              cashMsg.style.bottom = '20px';
+              cashMsg.style.left = '50%';
+              cashMsg.style.transform = 'translateX(-50%)';
+              cashMsg.style.backgroundColor = 'rgba(39, 174, 96, 0.9)';
+              cashMsg.style.color = 'white';
+              cashMsg.style.padding = '12px 24px';
+              cashMsg.style.borderRadius = '25px';
+              cashMsg.style.zIndex = '10000';
+              cashMsg.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+              cashMsg.style.animation = 'fadeInUp 0.4s ease-out';
+              document.body.appendChild(cashMsg);
+              
+              setTimeout(() => {
+                cashMsg.style.animation = 'fadeOut 0.4s ease-out';
+                setTimeout(() => cashMsg.remove(), 400);
+              }, 2000);
+            }, 150);
           } 
           else if (url) {
             setTimeout(() => {
-              // Open link in new tab
-              const anchor = document.createElement('a');
-              anchor.href = url;
-              anchor.target = '_blank';
-              anchor.rel = 'noopener noreferrer';
-              document.body.appendChild(anchor);
-              anchor.click();
-              document.body.removeChild(anchor);
-            }, 100);
+              window.open(url, '_blank');
+            }, 300);
           }
         });
       });
@@ -1350,13 +1565,32 @@
       const nonLinkCards = document.querySelectorAll('.non-link-card');
       nonLinkCards.forEach(card => {
         card.addEventListener('click', function(e) {
-          createMusicParticle(e);
+          // Create ripple effect
+          const ripple = document.createElement('span');
+          ripple.classList.add('ripple');
           
-          this.classList.add('selected');
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          ripple.style.width = ripple.style.height = `${size}px`;
+          ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+          ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+          
+          this.appendChild(ripple);
+          
+          // Add bounce effect to icon
+          const icon = this.querySelector('.link-icon');
+          icon.classList.add('bounce');
+          
+          // Determine context for music particles
+          let context = 'default';
+          if (this.classList.contains('sensual')) context = 'sensual';
+          
+          createMusicParticle(e, context);
           
           setTimeout(() => {
-            this.classList.remove('selected');
-          }, 800);
+            ripple.remove();
+            icon.classList.remove('bounce');
+          }, 600);
         });
       });
       
@@ -1423,12 +1657,16 @@
           submitBtn.textContent = 'Complete Registration';
           submitBtn.disabled = false;
           
-          // Create magical celebration particles
-          const event = { clientX: window.innerWidth/2, clientY: window.innerHeight/2 };
-          createMusicParticle(event);
-          setTimeout(() => createMusicParticle(event), 150);
-          setTimeout(() => createMusicParticle(event), 300);
-          setTimeout(() => createMusicParticle(event), 450);
+          // Create magical celebration particles at form center
+          const formRect = registrationForm.getBoundingClientRect();
+          const event = { 
+            clientX: formRect.left + formRect.width/2,
+            clientY: formRect.top + formRect.height/2
+          };
+          createMusicParticle(event, 'registration');
+          setTimeout(() => createMusicParticle(event, 'registration'), 150);
+          setTimeout(() => createMusicParticle(event, 'registration'), 300);
+          setTimeout(() => createMusicParticle(event, 'registration'), 450);
         }, 1000);
       });
       
