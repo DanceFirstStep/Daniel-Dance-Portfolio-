@@ -335,7 +335,7 @@
     }
     
     .contact-icon {
-      background: linear-gradient(135deg, #e67e22, #f1c40f) !important;
+      background: linear-gradient(135deg, #2ac7c2, #3498db) !important;
     }
     
     .venmo .link-icon {
@@ -526,6 +526,7 @@
     
     .submit-btn:hover {
       transform: translateY(-5px);
+      background: linear-gradient(135deg, #e74c3c, #e67e22);
       box-shadow: 0 12px 35px rgba(230, 126, 34, 0.7);
     }
     
@@ -804,6 +805,70 @@
       z-index: 999;
     }
     
+    /* Color Psychology Info Section */
+    .color-info {
+      background: rgba(33, 31, 54, 0.85);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 30px 0;
+      border: 1px solid rgba(100, 100, 150, 0.15);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .color-info h3 {
+      text-align: center;
+      color: #f1c40f;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+    
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    
+    .color-card {
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .color-card h4 {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+    
+    .color-card p {
+      font-size: 0.85rem;
+      color: rgba(220, 220, 240, 0.9);
+    }
+    
+    .color-1 {
+      background: linear-gradient(135deg, #e67e22, #f1c40f);
+    }
+    
+    .color-2 {
+      background: linear-gradient(135deg, #0c0817, #141226);
+    }
+    
+    .color-3 {
+      background: linear-gradient(135deg, #5d54a4, #3a0066);
+    }
+    
+    .color-4 {
+      background: linear-gradient(135deg, #2ac7c2, #3498db);
+    }
+    
+    .color-5 {
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+    }
+    
     @media (max-width: 768px) {
       body {
         padding: 12px;
@@ -867,6 +932,10 @@
       .hidden-access-message {
         width: 90%;
         padding: 20px;
+      }
+      
+      .color-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       }
     }
     
@@ -971,6 +1040,14 @@
       
       .signature-container {
         width: 200px;
+      }
+      
+      .color-info {
+        padding: 15px;
+      }
+      
+      .color-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -1154,6 +1231,33 @@
           <div class="link-text">
             <div class="link-title">Professional Inquiries</div>
             <div class="link-subtitle">Bookings and partnerships</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Color Psychology Section -->
+      <div class="color-info">
+        <h3>Color Psychology in This Design</h3>
+        <div class="color-grid">
+          <div class="color-card color-1">
+            <h4>Orange-Yellow</h4>
+            <p>Energy, enthusiasm, creativity - perfect for dance!</p>
+          </div>
+          <div class="color-card color-2">
+            <h4>Deep Blue</h4>
+            <p>Trust, professionalism, depth - establishes credibility</p>
+          </div>
+          <div class="color-card color-3">
+            <h4>Purple</h4>
+            <p>Creativity, luxury - enhances sense of special experience</p>
+          </div>
+          <div class="color-card color-4">
+            <h4>Teal</h4>
+            <p>Calm, balance - provides relief from warm tones</p>
+          </div>
+          <div class="color-card color-5">
+            <h4>Red</h4>
+            <p>Passion, excitement - stimulates action (used in hover states)</p>
           </div>
         </div>
       </div>
