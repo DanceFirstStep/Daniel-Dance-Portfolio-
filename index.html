@@ -1,1 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Palacios | Professional Dance Instruction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            overflow-x: hidden;
+            position: relative;
+            color: #333;
+            background: #f8f9fa;
+            line-height: 1.6;
+            font-size: 1rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+            margin: 0;
+            padding: 40px 30px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+        }
+        
+        .header-container {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .logo-container {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 25px;
+        }
+        
+        .logo {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e67e22, #f1c40f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.15);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .logo i {
+            font-size: 60px;
+            color: #fff;
+            z-index: 2;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo:hover i {
+            transform: scale(1.1);
+        }
+        
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #7f8c8d;
+            margin: 15px auto 0;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        
+        .divider {
+            height: 4px;
+            width: 100px;
+            background: linear-gradient(to right, #e67e22, #f1c40f);
+            border-radius: 3px;
+            margin: 25px auto;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 40px 0 30px;
+            text-align: center;
+            position: relative;
+            display: block;
+            width: 100%;
+            color: #2c3e50;
+            padding-bottom: 12px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #e67e22, #f1c40f);
+            border-radius: 3px;
+        }
+        
+        .content {
+            padding: 0 15px 10px;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .link-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+            min-height: 120px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border-color: #f1c40f;
+        }
+        
+        .link-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.8rem;
+            border-radius: 14px;
+            flex-shrink: 0;
+            color: white;
+            background: #e67e22;
+        }
+        
+        .facebook .link-icon {
+            background: linear-gradient(135deg, #1877f2, #3b5998);
+        }
+        
+        .instagram .link-icon {
+            background: linear-gradient(135deg, #e1306c, #c13584);
+        }
+        
+        .tiktok .link-icon {
+            background: linear-gradient(135deg, #000000, #69c9d0);
+        }
+        
+        .stardust-icon {
+            background: linear-gradient(135deg, #e67e22, #f1c40f) !important;
+        }
+        
+        .letsbailar-icon {
+            background: linear-gradient(135deg, #5d54a4, #3a0066) !important;
+        }
+        
+        .estilo-icon {
+            background: linear-gradient(135deg, #2ac7c2, #1a8d88) !important;
+        }
+        
+        .contact-icon {
+            background: linear-gradient(135deg, #2ac7c2, #3498db) !important;
+        }
+        
+        .venmo .link-icon {
+            background: linear-gradient(135deg, #3d95ce, #008cff) !important;
+        }
+        
+        .cash .link-icon {
+            background: linear-gradient(135deg, #27ae60, #2ecc71) !important;
+        }
+        
+        .sensual-icon {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad) !important;
+        }
+        
+        .link-text {
+            flex: 1;
+        }
+        
+        .link-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            letter-spacing: 0.3px;
+        }
+        
+        .link-subtitle {
+            font-size: 1.05rem;
+            color: #7f8c8d;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        
+        .schedule-list {
+            margin-top: 15px;
+        }
+        
+        .schedule-item {
+            display: flex;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            align-items: flex-start;
+            font-size: 1.05rem;
+        }
+        
+        .schedule-day {
+            font-weight: 600;
+            min-width: 95px;
+            text-align: right;
+            padding-right: 16px;
+            color: #e67e22;
+        }
+        
+        .schedule-info {
+            flex: 1;
+            color: #34495e;
+        }
+        
+        .registration-form {
+            background: #fff;
+            border-radius: 18px;
+            padding: 35px 30px;
+            margin: 40px 0;
+            border: 1px solid #eee;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #e67e22, #f1c40f);
+            border-radius: 2px;
+        }
+        
+        .partner-notice {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #7f8c8d;
+            font-size: 1.15rem;
+            font-weight: 500;
+            display: block;
+            line-height: 1.7;
+        }
+        
+        .form-group {
+            margin-bottom: 28px;
+            text-align: left;
+            position: relative;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            background: #f9f9f9;
+            color: #333;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #f1c40f;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.15);
+        }
+        
+        .form-input::placeholder {
+            color: #95a5a6;
+            font-size: 1.05rem;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            background: #f9f9f9;
+            color: #333;
+            font-size: 1.1rem;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e67e22'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            background-size: 20px;
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: #f1c40f;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.15);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #e67e22, #f1c40f);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 17px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: block;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.3);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(230, 126, 34, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 18px;
+            background: #fff;
+            margin-top: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+        }
+        
+        .thank-you-message h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .thank-you-message h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #e67e22, #f1c40f);
+            border-radius: 2px;
+        }
+        
+        .thank-you-message p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            color: #7f8c8d;
+            line-height: 1.7;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 30px 20px 20px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.05rem;
+            border-top: 1px solid #eee;
+            line-height: 1.7;
+        }
+        
+        .signature-container {
+            margin: 30px auto 15px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: 300px;
+            height: 20px;
+        }
+        
+        .signature-line {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e67e22, #f1c40f, transparent);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        
+        .signature-line::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+        }
+        
+        .signature-line:hover {
+            height: 3px;
+            background: linear-gradient(to right, transparent, #f1c40f, #e67e22, transparent);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin: 25px 0;
+            }
+            
+            .logo-container {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 20px;
+            }
+            
+            .logo i {
+                font-size: 50px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 12px;
+            }
+            
+            .tagline {
+                font-size: 1.15rem;
+                margin-top: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+                margin: 35px 0 25px;
+            }
+            
+            .link-card {
+                padding: 20px;
+                min-height: 110px;
+            }
+            
+            .link-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.7rem;
+                margin-right: 18px;
+            }
+            
+            .registration-form {
+                padding: 30px 25px;
+                margin: 35px 0;
+            }
+            
+            .form-title {
+                font-size: 1.6rem;
+                margin-bottom: 18px;
+            }
+            
+            .schedule-day {
+                min-width: 85px;
+                padding-right: 14px;
+            }
+            
+            .signature-container {
+                width: 260px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 15px 10px;
+            }
+            
+            .container {
+                border-radius: 16px;
+                padding: 25px 18px;
+            }
+            
+            header {
+                padding: 20px 0 15px;
+            }
+            
+            .content {
+                padding: 0 10px 10px;
+            }
+            
+            .logo-container {
+                width: 110px;
+                height: 110px;
+                margin-bottom: 18px;
+            }
+            
+            h1 {
+                font-size: 2.0rem;
+                margin-bottom: 10px;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+                margin-top: 12px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+                margin: 30px 0 20px;
+            }
+            
+            .link-card {
+                padding: 18px;
+                min-height: 100px;
+            }
+            
+            .link-icon {
+                width: 50px;
+                height: 50px;
+                margin-right: 15px;
+                font-size: 1.6rem;
+            }
+            
+            .link-title {
+                font-size: 1.2rem;
+            }
+            
+            .link-subtitle {
+                font-size: 1.0rem;
+            }
+            
+            .registration-form {
+                padding: 25px 20px;
+                margin: 30px 0;
+            }
+            
+            .form-input, .form-select {
+                padding: 15px 18px;
+                font-size: 1.05rem;
+            }
+            
+            .submit-btn {
+                padding: 16px;
+                font-size: 1.15rem;
+                margin-top: 18px;
+            }
+            
+            footer {
+                padding: 25px 15px 15px;
+                font-size: 1.0rem;
+                margin-top: 40px;
+            }
+            
+            .schedule-day {
+                min-width: 80px;
+                font-size: 1.0rem;
+                padding-right: 12px;
+            }
+            
+            .schedule-info {
+                font-size: 1.0rem;
+            }
+            
+            .schedule-item {
+                margin-bottom: 12px;
+            }
+            
+            .signature-container {
+                width: 220px;
+                margin: 25px auto 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+  <div class="background"></div>
+  
+  <div class="container">
+    <div class="header-container">
+      <div class="logo-container">
+        <div class="logo">
+          <i class="fas fa-music"></i>
+        </div>
+      </div>
+      <h1>Daniel Palacios</h1>
+      <div class="divider"></div>
+      <p class="tagline">Professional Salsa & Bachata Instruction | Transforming Passion into Movement</p>
+    </div>
+    
+    <div class="content">
+      <h2 class="section-title">Connect With Me</h2>
+      <div class="links-grid">
+        <div class="link-card clickable facebook" data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
+          <div class="link-icon">
+            <i class="fab fa-facebook-f"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Daniel Palacios</div>
+            <div class="link-subtitle">Facebook Profile</div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable instagram" data-url="https://www.instagram.com/danielp_bachata">
+          <div class="link-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Instagram</div>
+            <div class="link-subtitle">@danielp_bachata</div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable tiktok" data-url="https://www.tiktok.com/@danielp_bachata">
+          <div class="link-icon">
+            <i class="fab fa-tiktok"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">TikTok</div>
+            <div class="link-subtitle">@danielp_bachata</div>
+          </div>
+        </div>
+      </div>
+      
+      <h2 class="section-title">Class Schedule</h2>
+      <div class="links-grid">
+        <div class="link-card clickable stardust" data-url="https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr">
+          <div class="link-icon stardust-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Stardust Ballroom</div>
+            <div class="link-subtitle">Bellmawr, New Jersey</div>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <span class="schedule-day">Monday:</span>
+                <span class="schedule-info">Bachata 6:30pm + next level</span>
+              </div>
+              <div class="schedule-item">
+                <span class="schedule-day">Thursday:</span>
+                <span class="schedule-info">Salsa 6:30pm & Bachata</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable letsbailar" data-url="https://www.facebook.com/share/1QfGefKoK5/?mibextid=wwXIfr">
+          <div class="link-icon letsbailar-icon">
+            <i class="fas fa-city"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Let's Bailar Dance Studio</div>
+            <div class="link-subtitle">Philly - Chinese Assoc.</div>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <span class="schedule-day">Friday:</span>
+                <span class="schedule-info">7pm: Salsa & Bachata</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="link-card estilo non-link-card">
+          <div class="link-icon estilo-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Estilo Dance Studio</div>
+            <div class="link-subtitle">Fishtown, Philadelphia</div>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <span class="schedule-day">Saturday:</span>
+                <span class="schedule-info">Salsa & Bachata at 4pm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sensual City Card with W Girard Ave -->
+        <div class="link-card sensual non-link-card">
+          <div class="link-icon sensual-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Sensual City</div>
+            <div class="link-subtitle">W Girard Ave, Philadelphia</div>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <span class="schedule-day">Tuesday:</span>
+                <span class="schedule-info">8:30pm Bachata</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="registration-form">
+        <div class="form-title">Class Registration</div>
+        <div class="partner-notice">No partner needed - come dance with us!</div>
+        <form id="dance-registration">
+          <div class="form-group">
+            <input type="text" id="name" class="form-input" placeholder="Full Name" required>
+          </div>
+          
+          <div class="form-group">
+            <input type="email" id="email" class="form-input" placeholder="Email Address" required>
+          </div>
+          
+          <div class="form-group">
+            <select id="location" class="form-select" required>
+              <option value="">Select class location</option>
+              <option value="stardust">Stardust Ballroom - Mon: 6:30pm Bachata, Thu: 6:30pm Salsa & Bachata</option>
+              <option value="letsbailar">Let's Bailar - Fri: 7pm Salsa & Bachata</option>
+              <option value="estilo">Estilo Dance - Sat: 4pm Salsa & Bachata</option>
+              <option value="sensual">Sensual City - Tue: 8:30pm Bachata</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="submit-btn">Complete Registration</button>
+        </form>
+        
+        <div id="thank-you-message" class="thank-you-message">
+          <h3>Thank You for Registering!</h3>
+          <p>We're excited to dance with you! You'll receive a confirmation email with class details shortly.</p>
+          <button class="submit-btn" id="register-again-btn" style="margin-top: 20px;">
+            Register Another Person
+          </button>
+        </div>
+      </div>
+      
+      <h2 class="section-title">Payment Options</h2>
+      <div class="links-grid">
+        <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
+          <div class="link-icon">
+            <i class="fab fa-vimeo-v"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Venmo</div>
+            <div class="link-subtitle">Secure payment option</div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable cash">
+          <div class="link-icon">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Cash</div>
+            <div class="link-subtitle">Pay at the studio</div>
+          </div>
+        </div>
+      </div>
+      
+      <h2 class="section-title">Contact Me</h2>
+      <div class="links-grid">
+        <div class="link-card clickable contact" data-url="mailto:contact@danielpbachata.com">
+          <div class="link-icon contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Professional Inquiries</div>
+            <div class="link-subtitle">Bookings and partnerships</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p>© 2025 Daniel Palacios | Professional Instruction</p>
+      <p>Dance is the hidden language of the soul</p>
+      
+      <div class="signature-container">
+        <div class="signature-line" id="signature-line"></div>
+      </div>
+    </footer>
+  </div>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const clickableElements = document.querySelectorAll('.clickable');
+      
+      clickableElements.forEach(el => {
+        el.addEventListener('click', function(e) {
+          const url = this.getAttribute('data-url');
+          
+          if (this.classList.contains('cash')) {
+            setTimeout(() => {
+              // Enhanced cash notification
+              const cashMsg = document.createElement('div');
+              cashMsg.textContent = '💵 Cash accepted at all locations!';
+              cashMsg.style.position = 'fixed';
+              cashMsg.style.bottom = '20px';
+              cashMsg.style.left = '50%';
+              cashMsg.style.transform = 'translateX(-50%)';
+              cashMsg.style.backgroundColor = 'rgba(39, 174, 96, 0.9)';
+              cashMsg.style.color = 'white';
+              cashMsg.style.padding = '12px 24px';
+              cashMsg.style.borderRadius = '25px';
+              cashMsg.style.zIndex = '10000';
+              cashMsg.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+              cashMsg.style.animation = 'fadeInUp 0.4s ease-out';
+              document.body.appendChild(cashMsg);
+              
+              setTimeout(() => {
+                cashMsg.style.animation = 'fadeOut 0.4s ease-out';
+                setTimeout(() => cashMsg.remove(), 400);
+              }, 2000);
+            }, 150);
+          } 
+          else if (url) {
+            setTimeout(() => {
+              window.open(url, '_blank');
+            }, 300);
+          }
+        });
+      });
+      
+      const registrationForm = document.getElementById('dance-registration');
+      const thankYouMessage = document.getElementById('thank-you-message');
+      const submitBtn = registrationForm.querySelector('button[type="submit"]');
+      const registerAgainBtn = document.getElementById('register-again-btn');
+      
+      function resetForm() {
+        registrationForm.reset();
+        thankYouMessage.style.display = 'none';
+        registrationForm.style.display = 'block';
+      }
+      
+      registerAgainBtn.addEventListener('click', function() {
+        resetForm();
+      });
+      
+      registrationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const location = document.getElementById('location').value;
+        
+        if (!name.trim()) {
+          alert('Please enter your name.');
+          return;
+        }
+        
+        if (!email.trim()) {
+          alert('Please enter your email address.');
+          return;
+        }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+        
+        if (!location) {
+          alert('Please select a class location.');
+          return;
+        }
+        
+        submitBtn.textContent = 'Processing...';
+        submitBtn.disabled = true;
+        
+        setTimeout(function() {
+          registrationForm.style.display = 'none';
+          thankYouMessage.style.display = 'block';
+          thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          submitBtn.textContent = 'Complete Registration';
+          submitBtn.disabled = false;
+        }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>
