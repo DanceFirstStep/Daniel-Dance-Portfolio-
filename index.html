@@ -722,18 +722,18 @@
             background: linear-gradient(to right, transparent, #f1c40f, #e67e22, transparent);
         }
         
-        /* Magic music particles with improved animation */
+        /* Improved music particles with SVG icons */
         .music-particle {
             position: absolute;
-            font-size: 24px;
-            color: #f1c40f;
-            text-shadow: 0 0 15px rgba(241, 196, 15, 0.8);
-            opacity: 0.9;
             z-index: 9999;
             pointer-events: none;
             animation: floatUp var(--duration) ease-out forwards,
-                       fadeOut var(--duration) ease-out forwards,
-                       rotateNote var(--duration) linear forwards;
+                       fadeOut var(--duration) ease-out forwards;
+            width: 30px;
+            height: 30px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: drop-shadow(0 0 5px rgba(241, 196, 15, 0.8));
         }
         
         @keyframes floatUp {
@@ -749,11 +749,6 @@
             0% { opacity: 0.9; }
             70% { opacity: 0.8; }
             100% { opacity: 0; }
-        }
-        
-        @keyframes rotateNote {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(calc(var(--rotation) * 1deg)); }
         }
         
         /* Sensual City special glow effect */
@@ -1210,9 +1205,6 @@
       <div class="signature-container">
         <div class="signature-line" id="signature-line"></div>
       </div>
-      <p class="member-access" style="margin-top: 15px; font-size: 0.9rem; opacity: 0.7;">
-        <i class="fas fa-lock"></i> Exclusive member access available
-      </p>
     </footer>
   </div>
 
@@ -1251,20 +1243,36 @@
       }
     });
 
-    // Enhanced magical music particles with correct symbols
+    // Enhanced musical particle animation with SVG icons
     function createMusicParticle(event) {
       const container = document.getElementById('music-particles-container');
       const particleCount = 8;
       
-      // Correct music note symbols
-      const symbols = ['♪', '♩', '♫', '♬', '♭', '♯', '𝅗𝅥', '𝅘𝅥𝅮', '𝅘𝅥𝅯', '𝅘𝅥𝅰', '𝅘𝅥𝅱', '𝅘𝅥𝅲'];
+      // SVG music note paths
+      const noteIcons = [
+        'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z',
+        'M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z',
+        'M10 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V3z',
+        'M20.5 3.5L19 2l-1.5 1.5L16 2l-1.5 1.5L13 2l-1.5 1.5L10 2 8.5 3.5 7 2v5h13V2l-1.5 1.5z'
+      ];
       
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'music-particle';
         
-        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
-        particle.textContent = symbol;
+        // Create SVG element
+        const svgNS = "http://www.w3.org/2000/svg";
+        const svg = document.createElementNS(svgNS, "svg");
+        svg.setAttribute("viewBox", "0 0 24 24");
+        svg.setAttribute("width", "100%");
+        svg.setAttribute("height", "100%");
+        
+        const path = document.createElementNS(svgNS, "path");
+        path.setAttribute("d", noteIcons[Math.floor(Math.random() * noteIcons.length)]);
+        path.setAttribute("fill", "#f1c40f");
+        svg.appendChild(path);
+        
+        particle.appendChild(svg);
         
         const posX = event.clientX + (Math.random() - 0.5) * 100;
         const posY = event.clientY + (Math.random() - 0.5) * 100;
@@ -1285,20 +1293,12 @@
         // Set CSS variables
         particle.style.setProperty('--tx', `${translateX}px`);
         particle.style.setProperty('--ty', `${translateY}px`);
-        particle.style.setProperty('--rotation', `${rotation}`);
         particle.style.setProperty('--duration', `${duration}s`);
         
         // Random size between 20px and 40px
         const size = 20 + Math.random() * 20;
-        particle.style.fontSize = `${size}px`;
-        
-        // Random color from golden to white
-        const colorValue = 0.5 + Math.random() * 0.5;
-        const color = `rgba(255, ${Math.floor(200 + colorValue * 55)}, ${Math.floor(100 + colorValue * 55)}, 1)`;
-        particle.style.color = color;
-        
-        // Add a slight glow effect
-        particle.style.textShadow = `0 0 ${size/2}px ${color}`;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
         
         container.appendChild(particle);
         
