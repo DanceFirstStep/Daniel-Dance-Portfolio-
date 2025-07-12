@@ -1219,15 +1219,27 @@
       function updateClassHighlights() {
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const now = new Date();
-        const todayIndex = now.getDay();
+        const currentHour = now.getHours();
+        const currentDayIndex = now.getDay();
+        
+        // Adjust day index based on late night hours
+        let todayIndex = currentDayIndex;
+        let tomorrowIndex = (todayIndex + 1) % 7;
+        
+        // If it's between 12am-2am, adjust day references
+        if (currentHour < 2) {
+          todayIndex = (currentDayIndex - 1 + 7) % 7;
+          tomorrowIndex = (todayIndex + 1) % 7;
+        }
+        
         const todayName = days[todayIndex];
-        const tomorrowName = days[(todayIndex + 1) % 7];
+        const tomorrowName = days[tomorrowIndex];
         
         let allSessions = [];
         classSchedule.forEach(studio => {
           studio.schedule.forEach(session => {
             const minutesUntil = minutesUntilClass(session.day, session.time);
-            if (minutesUntil > 0) {
+            if (minutesUntil > 0) { // Only future sessions
               allSessions.push({
                 ...session,
                 studio: studio.studio,
@@ -1251,7 +1263,8 @@
         const notificationText = document.getElementById('notification-text');
         
         if (todaySessions.length > 0) {
-          let message = "Join us tonight";
+          // After 2am, show today's classes as "today"
+          let message = currentHour < 2 ? "Join us later today" : "Join us today";
           if (todaySessions.length === 1) {
             const session = todaySessions[0];
             message += ` at ${session.time} for ${session.class}!`;
@@ -1268,6 +1281,7 @@
           }
           notificationText.textContent = message;
         } else if (tomorrowSessions.length > 0) {
+          // Before 2am, show tomorrow's classes as "tomorrow"
           let message = "Join us tomorrow";
           if (tomorrowSessions.length === 1) {
             const session = tomorrowSessions[0];
@@ -1285,6 +1299,7 @@
           }
           notificationText.textContent = message;
         } else if (allSessions.length > 0) {
+          // Show next available class
           const nextSession = allSessions[0];
           notificationText.textContent = `Next class on ${nextSession.day} at ${nextSession.time} for ${nextSession.class}!`;
         } else {
@@ -1425,7 +1440,7 @@
       }
 
       initPage();
-      setInterval(updateClassHighlights, 300000);
+      setInterval(updateClassHighlights, 300000); // Update every 5 minutes
     });
   </script>
 </body>
