@@ -22,10 +22,10 @@
             padding: 30px 20px;
             overflow-x: hidden;
             position: relative;
-            color: #444;
-            background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
-            line-height: 1.7;
-            font-size: 1.05rem;
+            color: #333;
+            background: linear-gradient(135deg, #f0f5ff, #e6eeff);
+            line-height: 1.65;
+            font-size: 1.08rem;
             letter-spacing: 0.3px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -34,15 +34,15 @@
         .container {
             width: 100%;
             max-width: 900px;
-            background: #fff;
+            background: #ffffff;
             border-radius: 18px;
             overflow: hidden;
             position: relative;
             z-index: 10;
             margin: 0;
             padding: 40px 30px;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
         
         .header-container {
@@ -93,7 +93,7 @@
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: 0.5px;
-            color: #2c3e50;
+            color: #263445;
             position: relative;
             display: inline-block;
             font-family: 'Playfair Display', serif;
@@ -125,7 +125,7 @@
             position: relative;
             display: block;
             width: 100%;
-            color: #2c3e50;
+            color: #263445;
             padding-bottom: 12px;
             font-family: 'Playfair Display', serif;
         }
@@ -157,7 +157,7 @@
             background: #fff;
             border-radius: 18px;
             padding: 28px;
-            border: 1px solid #eef2f7;
+            border: 1px solid #f0f2f5;
             display: flex;
             align-items: flex-start;
             position: relative;
@@ -165,13 +165,13 @@
             min-height: 120px;
             cursor: pointer;
             transition: all 0.4s ease;
-            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
         }
         
         .link-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            border-color: #3498db;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border-color: rgba(52, 152, 219, 0.25);
         }
         
         .link-icon {
@@ -186,7 +186,7 @@
             flex-shrink: 0;
             color: white;
             background: #3498db;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -236,13 +236,13 @@
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 8px;
-            color: #2c3e50;
+            color: #263445;
             letter-spacing: 0.3px;
         }
         
         .link-subtitle {
             font-size: 1.05rem;
-            color: #666;
+            color: #555;
             line-height: 1.5;
             margin-bottom: 10px;
             font-weight: 500;
@@ -260,27 +260,30 @@
         .schedule-day-header {
             font-weight: 700;
             color: #3498db;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             padding-bottom: 3px;
             border-bottom: 1px dashed #e0e0e0;
+            font-size: 1.1rem;
         }
         
         .schedule-class {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             line-height: 1.6;
         }
         
         .class-time {
             font-weight: 600;
             min-width: 65px;
-            color: #2c3e50;
+            color: #263445;
+            font-size: 1.05rem;
         }
         
         .class-name {
             flex: 1;
             padding-left: 10px;
+            font-size: 1.05rem;
         }
         
         .salsa-text {
@@ -298,10 +301,29 @@
         }
         
         .today .schedule-day-header {
-            background: linear-gradient(to right, rgba(52, 152, 219, 0.1), transparent);
+            background: linear-gradient(to right, rgba(52, 152, 219, 0.08), transparent);
             border-radius: 4px;
             padding: 3px 8px;
             margin-right: -8px;
+        }
+        
+        .next-class .schedule-day-header {
+            background: linear-gradient(to right, rgba(52, 152, 219, 0.08), transparent);
+            border-radius: 4px;
+            padding: 3px 8px;
+            margin-right: -8px;
+            position: relative;
+        }
+        
+        .next-class .schedule-day-header::after {
+            content: '↑';
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #3498db;
+            font-weight: bold;
+            animation: bounce 2s infinite;
         }
         
         .registration-form {
@@ -310,7 +332,7 @@
             padding: 35px 30px;
             margin: 30px 0;
             border: 1px solid #eee;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
             position: relative;
             overflow: hidden;
         }
@@ -319,7 +341,7 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 20px;
-            color: #2c3e50;
+            color: #263445;
             text-align: center;
             position: relative;
             padding-bottom: 15px;
@@ -359,7 +381,7 @@
             width: 100%;
             padding: 18px 22px;
             border-radius: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #e0e0e0;
             background: #f9f9f9;
             color: #333;
             font-size: 1.1rem;
@@ -372,7 +394,7 @@
             outline: none;
             border-color: #3498db;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.12);
         }
         
         .form-input::placeholder {
@@ -384,7 +406,7 @@
             width: 100%;
             padding: 18px 22px;
             border-radius: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #e0e0e0;
             background: #f9f9f9;
             color: #333;
             font-size: 1.1rem;
@@ -401,7 +423,7 @@
             outline: none;
             border-color: #3498db;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.12);
         }
         
         .submit-btn {
@@ -420,12 +442,12 @@
             overflow: hidden;
             display: block;
             letter-spacing: 0.5px;
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
         }
         
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 12px 30px rgba(52, 152, 219, 0.25);
         }
         
         .submit-btn:active {
@@ -440,12 +462,12 @@
             background: #fff;
             margin-top: 20px;
             border: 1px solid #eee;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.02);
         }
         
         .thank-you-message h3 {
             font-size: 1.8rem;
-            color: #2c3e50;
+            color: #263445;
             margin-bottom: 25px;
             position: relative;
             padding-bottom: 15px;
@@ -479,6 +501,7 @@
             font-size: 1.05rem;
             border-top: 1px solid #eee;
             line-height: 1.7;
+            position: relative;
         }
         
         .signature-container {
@@ -498,16 +521,6 @@
             transition: all 0.4s ease;
         }
         
-        .signature-line::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            cursor: pointer;
-        }
-        
         .signature-line:hover {
             height: 3px;
             background: linear-gradient(to right, transparent, #3498db, #2c3e50, transparent);
@@ -523,7 +536,7 @@
             font-size: 1.1rem;
             font-weight: 500;
             z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
             animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in 2.5s forwards;
             display: flex;
             align-items: center;
@@ -550,140 +563,104 @@
             to { opacity: 0; bottom: -100px; }
         }
         
-        .lang-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 30px;
-            padding: 5px 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 20;
-        }
-        
-        .lang-btn {
-            background: transparent;
-            border: none;
-            color: #555;
-            border-radius: 15px;
-            padding: 5px 12px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-        
-        .lang-btn.active {
-            background: #3498db;
-            color: white;
-        }
-
+        /* Optimized CTA Section Only */
         .class-cta-container {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            border-radius: 18px;
-            padding: 25px;
-            margin: 25px 0 35px;
+            background: linear-gradient(135deg, #f0f7ff, #f6fbff);
+            border-radius: 16px;
+            padding: 25px 30px;
+            margin: 20px 0 25px;
             display: flex;
             flex-direction: column;
-            color: white;
+            color: #2c3e50;
             text-align: center;
-            box-shadow: 0 10px 35px rgba(52, 152, 219, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e8f0;
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.4s ease;
-        }
-        
-        .class-cta-container:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(52, 152, 219, 0.4);
-        }
-        
-        .cta-header {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .cta-header i {
-            font-size: 1.8rem;
-            color: rgba(255, 255, 255, 0.85);
-        }
-        
-        .cta-schedule {
-            background: rgba(255, 255, 255, 0.12);
-            border-radius: 12px;
-            padding: 18px;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        
-        .class-cta-container .salsa-text {
-            color: #FFD700;
-            font-weight: 700;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        
-        .class-cta-container .bachata-text {
-            color: #FF6EC7;
-            font-weight: 700;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        
-        .cta-action {
-            font-size: 1.2rem;
-            font-weight: 600;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
             transition: all 0.3s ease;
         }
         
+        .class-cta-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .cta-header {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #2c3e50;
+        }
+        
+        .cta-header i {
+            font-size: 1.4rem;
+            color: #3498db;
+        }
+        
+        .cta-schedule {
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #2c3e50;
+        }
+        
+        .cta-action {
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 14px;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.15);
+        }
+        
         .cta-action:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.03);
+            background: linear-gradient(135deg, #253342, #2d85c5);
+            transform: scale(1.02);
         }
         
         .cta-action i {
-            margin-left: 10px;
-            font-size: 1.1rem;
+            margin-left: 8px;
+            font-size: 0.9rem;
             animation: bounce 2s infinite;
         }
         
         .date-section {
             text-align: right;
-            margin: 0 0 25px auto;
-            padding: 12px 20px;
-            background: rgba(52, 152, 219, 0.08);
+            margin: 0 0 20px auto;
+            padding: 10px 16px;
+            background: rgba(52, 152, 219, 0.06);
             border-radius: 12px;
             display: inline-block;
             clear: both;
             color: #555;
             font-weight: 500;
+            font-size: 1.05rem;
         }
         
         .date-section strong {
             font-weight: 700;
-            color: #2c3e50;
+            color: #263445;
         }
         
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+            50% { transform: translateY(-3px); }
         }
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.03); }
             100% { transform: scale(1); }
         }
         
@@ -691,54 +668,117 @@
             animation: pulse 1.5s infinite;
         }
         
-        @keyframes shake {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(3deg); }
-            75% { transform: rotate(-3deg); }
+        .new-class-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25);
+            z-index: 2;
+            animation: pulse 2s infinite;
+            white-space: nowrap;
         }
         
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(155, 89, 182, 0.35); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25); }
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+        .class-cta-container:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            border-radius: 18px;
+            z-index: -1;
+            opacity: 0.1;
+            filter: blur(8px);
         }
         
-        .instagram .link-icon i {
-            animation: pulse 2s infinite ease-in-out;
+        /* Enhanced Language Switcher at Bottom */
+        .lang-switcher-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
         
-        .tiktok .link-icon i {
-            animation: shake 1.8s infinite ease-in-out;
+        .lang-switcher {
+            display: flex;
+            gap: 0;
+            background: #f9f9f9;
+            border-radius: 40px;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 20;
+            border: 1px solid rgba(0,0,0,0.05);
         }
         
-        .stardust .link-icon i {
-            animation: spin 5s infinite linear;
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: #555;
+            border-radius: 40px;
+            padding: 10px 30px;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
         }
         
-        .letsbailar .link-icon i {
-            animation: float 3s infinite ease-in-out;
+        .lang-btn.active {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
         }
         
-        .venmo .link-icon i {
-            animation: bounce 1.7s infinite ease-in-out;
+        .lang-btn:not(.active):hover {
+            color: #3498db;
         }
         
-        .sensual .link-icon i {
-            animation: pulse 2.5s infinite ease-in-out;
+        .lang-label {
+            position: absolute;
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #3498db;
+            white-space: nowrap;
         }
         
-        .contact .link-icon i {
-            animation: float 3.5s infinite ease-in-out;
+        .lang-switcher:after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            height: calc(100% - 10px);
+            width: calc(50% - 5px);
+            background: white;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
-        .cash .link-icon i {
-            animation: none !important;
+        .lang-switcher.es:after {
+            transform: translateX(100%);
         }
         
+        /* Media query adjustments */
         @media (max-width: 768px) {
             .links-grid {
                 grid-template-columns: 1fr;
@@ -757,20 +797,30 @@
             }
             
             .cta-header {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .cta-schedule {
-                font-size: 1.0rem;
-                padding: 15px;
+                font-size: 0.9rem;
+                padding: 10px;
             }
             
             .cta-action {
-                font-size: 1.1rem;
+                font-size: 0.95rem;
+            }
+            
+            .lang-btn {
+                padding: 10px 25px;
+                font-size: 0.95rem;
             }
         }
         
         @media (max-width: 480px) {
+            body {
+                font-size: 1.05rem;
+                padding: 15px;
+            }
+            
             .container {
                 padding: 30px 20px;
             }
@@ -805,36 +855,37 @@
                 height: 50px;
                 font-size: 1.5rem;
             }
-
-            .lang-switcher {
-                top: 15px;
-                right: 15px;
-                gap: 5px;
-                padding: 4px 6px;
-            }
-            
-            .lang-btn {
-                padding: 4px 10px;
-                font-size: 0.8rem;
-            }
             
             .cta-header {
                 flex-direction: column;
-                gap: 8px;
+                gap: 6px;
             }
             
             .cta-header i {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
             
             .cta-schedule {
-                font-size: 0.95rem;
-                padding: 12px;
+                font-size: 0.85rem;
+                padding: 8px 10px;
             }
             
             .cta-action {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+            
+            .schedule-day-header {
+                font-size: 1.05rem;
+            }
+            
+            .class-time, .class-name {
                 font-size: 1.0rem;
-                padding: 12px;
+            }
+            
+            .lang-btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -842,11 +893,6 @@
 <body>
   <div class="container">
     <div class="header-container">
-      <div class="lang-switcher">
-        <button class="lang-btn active" id="lang-en" data-lang="en">EN</button>
-        <button class="lang-btn" id="lang-es" data-lang="es">ES</button>
-      </div>
-      
       <div class="logo-container" id="logo-container">
         <div class="logo">
           <i class="fas fa-music"></i>
@@ -897,16 +943,16 @@
       
       <h2 class="section-title translatable" data-i18n="classesTitle">Join Our Classes</h2>
       
+      <!-- Optimized CTA Section -->
       <div id="class-cta" class="class-cta-container">
         <div class="cta-header">
           <i class="fas fa-calendar-day pulse"></i>
-          <div class="translatable" data-i18n="ctaTitle">Tomorrow's Classes at Stardust</div>
+          <div id="cta-title" class="translatable" data-i18n="ctaTitle">Next Class at Stardust Ballroom</div>
           <i class="fas fa-star pulse"></i>
         </div>
         
-        <div class="cta-schedule">
-          6:30pm <span class="salsa-text">Salsa</span> | 7:00pm <span class="salsa-text">Salsa</span> | 
-          8:00pm <span class="bachata-text">Bachata</span> | 9:15pm <span class="bachata-text">Bachata</span>
+        <div class="cta-schedule" id="cta-schedule">
+          Loading next class schedule...
         </div>
         
         <div class="cta-action translatable" data-i18n="ctaAction">
@@ -917,6 +963,111 @@
       <h3 class="section-title translatable" data-i18n="scheduleTitle">Class Schedule</h3>
       
       <div class="links-grid" id="schedule-grid">
+        <!-- Studio cards will be generated here -->
+        <div class="link-card clickable stardust" 
+             data-studio="Stardust Ballroom" 
+             data-url="#"
+             id="stardust-card">
+          <div class="link-icon stardust-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Stardust Ballroom</div>
+            <div class="link-subtitle">Bellmawr, New Jersey</div>
+            <div class="schedule-list">
+              <div class="schedule-day-group" data-day="Monday">
+                <div class="schedule-day-header">Monday</div>
+                <div class="schedule-class">
+                  <span class="class-time">6:30pm</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span> Intro</span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">7:00pm</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span> Fundamentals</span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">8:00pm</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span> Next Level</span>
+                </div>
+              </div>
+              <div class="schedule-day-group" data-day="Thursday">
+                <div class="schedule-day-header">Thursday</div>
+                <div class="schedule-class">
+                  <span class="class-time">6:30pm</span>
+                  <span class="class-name">Intro to <span class="salsa-text">Salsa</span></span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">7:00pm</span>
+                  <span class="class-name"><span class="salsa-text">Salsa</span> Open Level</span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">8:00pm</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span> Open Level</span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">9:15pm</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span> ELITE*</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable letsbailar" 
+             data-studio="Let's Bailar Dance Studio" 
+             data-url="#"
+             id="letsbailar-card">
+          <div class="link-icon letsbailar-icon">
+            <i class="fas fa-city"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Let's Bailar Dance Studio</div>
+            <div class="link-subtitle">Philly - Chinese Assoc.</div>
+            <div class="schedule-list">
+              <div class="schedule-day-group" data-day="Friday">
+                <div class="schedule-day-header">Friday</div>
+                <div class="schedule-class">
+                  <span class="class-time">7:00pm</span>
+                  <span class="class-name"><span class="salsa-text">Salsa</span></span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">8:00pm</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="link-card clickable sensual" 
+             data-studio="Sensual City" 
+             data-url="#"
+             id="sensual-card">
+          <div class="link-icon sensual-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Sensual City</div>
+            <div class="link-subtitle">W Girard Ave, Philadelphia</div>
+            <div class="schedule-list">
+              <div class="schedule-day-group" data-day="Tuesday">
+                <div class="schedule-day-header">Tuesday</div>
+                <div class="schedule-class">
+                  <span class="class-time">8:00pm</span>
+                  <span class="class-name">Intro <span class="bachata-text">Bachata</span></span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">9:00pm</span>
+                  <span class="class-name">Sensual Fundamentals</span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">10:00pm</span>
+                  <span class="class-name">Practica</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       
       <div class="registration-form">
@@ -997,6 +1148,15 @@
         <div class="signature-container">
           <div class="signature-line" id="signature-line"></div>
         </div>
+        
+        <!-- Enhanced Language Switcher at Bottom -->
+        <div class="lang-switcher-container">
+          <div class="lang-label translatable" data-i18n="language">Language</div>
+          <div class="lang-switcher en">
+            <button class="lang-btn active" id="lang-en" data-lang="en">EN</button>
+            <button class="lang-btn" id="lang-es" data-lang="es">ES</button>
+          </div>
+        </div>
       </footer>
     </div>
   </div>
@@ -1034,9 +1194,13 @@
           thankYouTitle: "Thank You for Registering!",
           thankYouText: "We're excited to dance with you! Your spot is being saved.",
           registerAgain: "Register Another Person",
-          ctaTitle: "Tomorrow's Classes at Stardust",
           ctaAction: "Register Now",
-          cashNotification: "All locations accept cash. Exact change appreciated!"
+          ctaTitle: "Next Class at Stardust Ballroom",
+          cashNotification: "All locations accept cash. $20 day pass only at the studio",
+          todayText: "Today",
+          tomorrowText: "Tomorrow",
+          thisText: "This",
+          language: "Language"
         },
         es: {
           title: "Daniel Palacios",
@@ -1068,9 +1232,13 @@
           thankYouTitle: "¡Gracias por Registrarte!",
           thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo guardado.",
           registerAgain: "Registrar Otra Persona",
-          ctaTitle: "Clases de Mañana en Stardust",
           ctaAction: "Regístrate Ahora",
-          cashNotification: "Todas las ubicaciones aceptan efectivo. Se agradece el cambio exacto."
+          ctaTitle: "Próxima Clase en Stardust Ballroom",
+          cashNotification: "Todas las ubicaciones aceptan efectivo. Pase diario de $20 solo en el estudio",
+          todayText: "Hoy",
+          tomorrowText: "Mañana",
+          thisText: "Este",
+          language: "Idioma"
         }
       };
 
@@ -1113,8 +1281,13 @@
         document.getElementById('lang-en').classList.toggle('active', lang === 'en');
         document.getElementById('lang-es').classList.toggle('active', lang === 'es');
         
+        // Update switcher visual state
+        const switcher = document.querySelector('.lang-switcher');
+        switcher.classList.toggle('en', lang === 'en');
+        switcher.classList.toggle('es', lang === 'es');
+        
         updateCurrentDate();
-        reorderStudioCards();
+        updateCTASection();
       }
 
       document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
@@ -1124,63 +1297,6 @@
       if (savedLang && ['en', 'es'].includes(savedLang)) {
         setLanguage(savedLang);
       }
-
-      const classSchedule = [
-        {
-          studio: "Stardust Ballroom",
-          location: "Bellmawr, New Jersey",
-          icon: "stardust-icon",
-          iconSymbol: "fas fa-star",
-          schedule: [
-            { day: "Monday", time: "6:30pm", class: "Bachata Intro" },
-            { day: "Monday", time: "7:00pm", class: "Bachata Fundamentals" },
-            { day: "Monday", time: "8:00pm", class: "Bachata Next Level" },
-            { day: "Thursday", time: "6:30pm", class: "Intro to Salsa" },
-            { day: "Thursday", time: "7:00pm", class: "Salsa Open Level" },
-            { day: "Thursday", time: "8:00pm", class: "Bachata Open Level" },
-            { day: "Thursday", time: "9:15pm", class: "Bachata ELITE* (instructor approval required)" }
-          ],
-          url: "https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr",
-          id: "stardust",
-          dayPassText: {
-            en: "Every Monday & Thursday • $20 day pass",
-            es: "Todos los lunes y jueves • Pase diario $20"
-          }
-        },
-        {
-          studio: "Let's Bailar Dance Studio",
-          location: "Philly - Chinese Assoc.",
-          icon: "letsbailar-icon",
-          iconSymbol: "fas fa-city",
-          schedule: [
-            { day: "Friday", time: "7:00pm", class: "Salsa" },
-            { day: "Friday", time: "8:00pm", class: "Bachata" }
-          ],
-          url: "https://www.facebook.com/share/1QfGefKoK5/?mibextid=wwXIfr",
-          id: "letsbailar",
-          dayPassText: {
-            en: "Every Friday • $20 day pass",
-            es: "Todos los viernes • Pase diario $20"
-          }
-        },
-        {
-          studio: "Sensual City",
-          location: "W Girard Ave, Philadelphia",
-          icon: "sensual-icon",
-          iconSymbol: "fas fa-building",
-          schedule: [
-            { day: "Tuesday", time: "8:00pm", class: "Intro Bachata" },
-            { day: "Tuesday", time: "9:00pm", class: "Sensual Fundamentals" },
-            { day: "Tuesday", time: "10:00pm", class: "Practica" }
-          ],
-          url: "#",
-          id: "sensual",
-          dayPassText: {
-            en: "Every Tuesday • $20 day pass",
-            es: "Todos los martes • Pase diario $20"
-          }
-        }
-      ];
 
       function updateCurrentDate() {
         const now = new Date();
@@ -1205,155 +1321,98 @@
         document.getElementById('date-text').textContent = dateString;
       }
 
-      function groupScheduleByDay(schedule) {
-        const grouped = {};
-        const dayOrder = [];
-        
-        schedule.forEach(session => {
-          if (!grouped[session.day]) {
-            grouped[session.day] = [];
-            dayOrder.push(session.day);
-          }
-          grouped[session.day].push(session);
-        });
-        
-        return { grouped, dayOrder };
-      }
-
-      function createStudioCard(studio, isActive = false) {
-        const { grouped, dayOrder } = groupScheduleByDay(studio.schedule);
-        
-        let cardHTML = `
-          <div class="link-card clickable ${studio.id} ${isActive ? 'active-studio' : ''}" 
-               data-studio="${studio.studio}" 
-               data-url="${studio.url}"
-               id="${studio.id}-card">
-            <div class="link-icon ${studio.icon}">
-              <i class="${studio.iconSymbol}"></i>
-            </div>
-            <div class="link-text">
-              <div class="link-title">${studio.studio}</div>
-              <div class="link-subtitle">${studio.location}</div>
-              <div class="schedule-list">
-        `;
-        
-        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        const todayIndex = new Date().getDay();
-        const todayName = days[todayIndex];
-        
-        dayOrder.forEach(day => {
-          const translatedDay = dayTranslations[currentLang][day] || day;
-          
-          cardHTML += `
-            <div class="schedule-day-group ${day === todayName ? 'today' : ''}">
-              <div class="schedule-day-header">${translatedDay}</div>
-          `;
-          
-          grouped[day].forEach(session => {
-            let className = session.class
-              .replace(/Salsa/g, '<span class="salsa-text">Salsa</span>')
-              .replace(/Bachata/g, '<span class="bachata-text">Bachata</span>');
-              
-            cardHTML += `
-              <div class="schedule-class">
-                <span class="class-time">${session.time}</span>
-                <span class="class-name">${className}</span>
-              </div>
-            `;
-          });
-          
-          cardHTML += `</div>`;
-        });
-        
-        cardHTML += `
-              </div>
-            </div>
-          </div>
-        `;
-        
-        return cardHTML;
-      }
-
-      function reorderStudioCards() {
-        const grid = document.getElementById('schedule-grid');
-        grid.innerHTML = '';
-        
-        const studios = [...classSchedule];
-        
+      // Function to get the next class day and schedule
+      function getNextClassInfo() {
         const now = new Date();
-        const currentDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][now.getDay()];
-        const currentHour = now.getHours();
-        const currentMinutes = now.getMinutes();
-        
-        const activeStudios = studios.filter(studio => {
-          const todayClasses = studio.schedule.filter(session => session.day === currentDay);
-          if (todayClasses.length === 0) return false;
-          
-          const lastClass = todayClasses[todayClasses.length - 1];
-          const [time, modifier] = lastClass.time.toLowerCase().split(/(am|pm)/);
-          let [hours, minutes] = time.split(':').map(Number);
-          
-          if (modifier === 'pm' && hours !== 12) hours += 12;
-          if (modifier === 'am' && hours === 12) hours = 0;
-          
-          const endHour = hours + 1;
-          
-          if (currentHour < endHour || 
-              (currentHour === endHour && currentMinutes < minutes)) {
-            return true;
-          }
-          return false;
-        });
-        
-        const inactiveStudios = studios.filter(studio => !activeStudios.includes(studio));
-        
-        inactiveStudios.sort((a, b) => {
-          const aMinTime = Math.min(...a.schedule.map(session => 
-            minutesUntilClass(session.day, session.time)
-          ));
-          const bMinTime = Math.min(...b.schedule.map(session => 
-            minutesUntilClass(session.day, session.time)
-          ));
-          
-          return aMinTime - bMinTime;
-        });
-        
-        activeStudios.forEach(studio => {
-          grid.innerHTML += createStudioCard(studio, true);
-        });
-        
-        inactiveStudios.forEach(studio => {
-          grid.innerHTML += createStudioCard(studio);
-        });
-        
-        addClickHandlers();
-      }
-
-      function minutesUntilClass(day, time) {
-        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        const dayIndex = days.indexOf(day);
-        
-        if (dayIndex === -1) return Infinity;
-        
-        const now = new Date();
-        const currentDay = now.getDay();
+        const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
         const currentHours = now.getHours();
         const currentMinutes = now.getMinutes();
         
-        const [timeStr, modifier] = time.replace(/ /g, '').toLowerCase().split(/(am|pm)/);
-        let [hours, minutes] = timeStr.split(':').map(Number);
+        // Define class days with their schedules
+        const classDays = {
+          // Monday classes at Stardust
+          1: {
+            day: "Monday",
+            schedule: [
+              "6:30pm Bachata Intro",
+              "7:00pm Bachata Fundamentals",
+              "8:00pm Bachata Next Level"
+            ],
+            isToday: currentDay === 1
+          },
+          // Tuesday classes at Sensual City
+          2: {
+            day: "Tuesday",
+            schedule: [
+              "8:00pm Intro Bachata",
+              "9:00pm Sensual Fundamentals",
+              "10:00pm Practica"
+            ],
+            isToday: currentDay === 2
+          },
+          // Thursday classes at Stardust
+          4: {
+            day: "Thursday",
+            schedule: [
+              "6:30pm Intro to Salsa",
+              "7:00pm Salsa Open Level",
+              "8:00pm Bachata Open Level",
+              "9:15pm Bachata ELITE*"
+            ],
+            isToday: currentDay === 4
+          },
+          // Friday classes at Let's Bailar
+          5: {
+            day: "Friday",
+            schedule: [
+              "7:00pm Salsa",
+              "8:00pm Bachata"
+            ],
+            isToday: currentDay === 5
+          }
+        };
         
-        if (modifier === 'pm' && hours !== 12) hours += 12;
-        if (modifier === 'am' && hours === 12) hours = 0;
-        
-        let daysUntil = dayIndex - currentDay;
-        if (daysUntil < 0 || (daysUntil === 0 && 
-            (hours < currentHours || 
-             (hours === currentHours && minutes < currentMinutes)))) {
-          daysUntil += 7;
+        // If today is a class day and before 10pm, show today's class
+        if (classDays[currentDay] && (currentHours < 22 || (currentHours === 22 && currentMinutes === 0))) {
+          return classDays[currentDay];
         }
         
-        return daysUntil * 24 * 60 + (hours * 60 + minutes - (currentHours * 60 + currentMinutes));
+        // Find the next class day
+        for (let i = 1; i <= 7; i++) {
+          const nextDay = (currentDay + i) % 7;
+          if (classDays[nextDay]) {
+            return classDays[nextDay];
+          }
+        }
+        
+        // Default to Monday if no class found
+        return classDays[1];
+      }
+
+      // Update the CTA section with the next class info
+      function updateCTASection() {
+        const nextClass = getNextClassInfo();
+        const dayName = dayTranslations[currentLang][nextClass.day];
+        const dayPrefix = nextClass.isToday ? 
+          translations[currentLang].todayText : 
+          (nextClass.day === (new Date().getDay() + 1) % 7 ? 
+            translations[currentLang].tomorrowText : 
+            translations[currentLang].thisText);
+        
+        // Update the CTA title
+        document.getElementById('cta-title').textContent = 
+          `${dayPrefix} ${dayName}: ${translations[currentLang].ctaTitle}`;
+        
+        // Update the schedule
+        document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
+        
+        // Update the highlight in the schedule grid
+        document.querySelectorAll('.schedule-day-group').forEach(group => {
+          group.classList.remove('next-class');
+          if (group.dataset.day === nextClass.day) {
+            group.classList.add('next-class');
+          }
+        });
       }
 
       function addClickHandlers() {
@@ -1364,7 +1423,6 @@
             const url = this.getAttribute('data-url');
             
             if (this.classList.contains('cash')) {
-              // Create and show cash notification
               const cashNotification = document.createElement('div');
               cashNotification.className = 'notification notification-success';
               cashNotification.innerHTML = `
@@ -1373,7 +1431,6 @@
               `;
               document.body.appendChild(cashNotification);
               
-              // Remove notification after 3 seconds
               setTimeout(() => { 
                 cashNotification.remove(); 
               }, 3000);
@@ -1383,27 +1440,31 @@
             }
           });
         });
-      }
-
-      const ctaContainer = document.getElementById('class-cta');
-      ctaContainer.addEventListener('click', function() {
-        const registrationForm = document.querySelector('.registration-form');
-        if (registrationForm) {
-          registrationForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Update CTA click handler
+        const ctaContainer = document.getElementById('class-cta');
+        ctaContainer.addEventListener('click', function() {
+          document.getElementById('location').value = 'stardust';
           
-          registrationForm.style.boxShadow = '0 0 0 3px rgba(52, 152, 219, 0.5)';
-          setTimeout(() => {
-            registrationForm.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.04)';
-          }, 1500);
-        }
-      });
+          const registrationForm = document.querySelector('.registration-form');
+          if (registrationForm) {
+            registrationForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            registrationForm.style.boxShadow = '0 0 0 3px rgba(52, 152, 219, 0.3)';
+            setTimeout(() => {
+              registrationForm.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.03)';
+            }, 1500);
+          }
+        });
+      }
 
       function initPage() {
         updateCurrentDate();
         setInterval(updateCurrentDate, 3600000);
         
-        reorderStudioCards();
-        setInterval(reorderStudioCards, 900000);
+        updateCTASection();
+        
+        addClickHandlers();
         
         const registrationForm = document.getElementById('dance-registration');
         const thankYouMessage = document.getElementById('thank-you-message');
