@@ -7,6 +7,125 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Daniel's Color Palette */
+        :root {
+            --primary: #3498db;
+            --primary-light: #5dade2;
+            --primary-lighter: #85c1e9;
+            --primary-dark: #2c3e50;
+            --primary-gradient: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            --dark-bg: #1a1a2e;
+            --darker-bg: #16213e;
+            --text-dark: #222;
+            --text-medium: #444;
+            --text-light: #777;
+            --light-bg: #f0f5ff;
+            --lighter-bg: #e6eeff;
+            --white: #ffffff;
+            --success: #27ae60;
+            --info: #3498db;
+            --elegant-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            --subtle-border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        /* Welcome overlay refinements */
+        #welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--darker-bg), var(--dark-bg));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease-out;
+        }
+        
+        #welcome-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .welcome-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .welcome-logo {
+            width: 150px;
+            height: 150px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: gentle-beat 3s infinite ease-in-out;
+            box-shadow: 0 0 40px rgba(52, 152, 219, 0.4);
+        }
+        
+        .welcome-logo i {
+            font-size: 5rem;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        .welcome-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        
+        .welcome-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+        
+        .welcome-progress {
+            width: 0%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            border-radius: 3px;
+            margin: 0 auto;
+            max-width: 400px;
+            transition: width 3s linear;
+        }
+        
+        .welcome-overlay.active .welcome-progress {
+            width: 100%;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes gentle-beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Rest of Daniel's CSS */
         * {
             margin: 0;
             padding: 0;
@@ -25,8 +144,8 @@
             padding: 20px 15px;
             overflow-x: hidden;
             position: relative;
-            color: #333;
-            background: linear-gradient(135deg, #f0f5ff, #e6eeff);
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--light-bg), var(--lighter-bg));
             line-height: 1.65;
             font-size: 1.08rem;
             letter-spacing: 0.3px;
@@ -35,15 +154,15 @@
         .container {
             width: 100%;
             max-width: 900px;
-            background: #ffffff;
+            background: var(--white);
             border-radius: 20px;
             overflow: hidden;
             position: relative;
             z-index: 10;
             margin: 0;
             padding: 35px 25px;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: var(--elegant-shadow);
+            border: var(--subtle-border);
         }
         
         .header-container {
@@ -60,12 +179,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
         }
         
         .logo {
             width: 150px;
             height: 150px;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            background: var(--primary-gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -127,23 +247,12 @@
             }
         }
         
-        @keyframes gentle-beat {
-            0%, 100% { 
-                transform: scale(1); 
-                box-shadow: 0 10px 30px rgba(52, 152, 219, 0.2);
-            }
-            50% { 
-                transform: scale(1.015); 
-                box-shadow: 0 15px 35px rgba(52, 152, 219, 0.3);
-            }
-        }
-        
         h1 {
             font-size: 2.6rem;
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: 0.5px;
-            color: #263445;
+            color: var(--primary-dark);
             position: relative;
             display: inline-block;
             font-family: 'Playfair Display', serif;
@@ -152,7 +261,7 @@
         .tagline {
             font-size: 1.3rem;
             font-weight: 400;
-            color: #555;
+            color: var(--text-medium);
             margin: 15px auto 0;
             max-width: 600px;
             line-height: 1.7;
@@ -162,7 +271,7 @@
         .divider {
             height: 4px;
             width: 100px;
-            background: linear-gradient(to right, #2c3e50, #3498db);
+            background: var(--primary-gradient);
             border-radius: 3px;
             margin: 25px auto;
         }
@@ -175,7 +284,7 @@
             position: relative;
             display: block;
             width: 100%;
-            color: #263445;
+            color: var(--primary-dark);
             padding-bottom: 12px;
             font-family: 'Playfair Display', serif;
         }
@@ -188,7 +297,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(to right, #2c3e50, #3498db);
+            background: var(--primary-gradient);
             border-radius: 2px;
         }
         
@@ -236,7 +345,7 @@
             border-radius: 14px;
             flex-shrink: 0;
             color: white;
-            background: #3498db;
+            background: var(--primary);
             box-shadow: 0 5px 12px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
@@ -309,7 +418,7 @@
         }
         
         .stardust-icon {
-            background: linear-gradient(135deg, #2c3e50, #3498db) !important;
+            background: var(--primary-gradient) !important;
         }
         
         .letsbailar-icon {
@@ -325,7 +434,7 @@
         }
         
         .contact-icon {
-            background: linear-gradient(135deg, #2ac7c2, #3498db) !important;
+            background: var(--primary-gradient) !important;
         }
         
         .venmo .link-icon {
@@ -344,13 +453,13 @@
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 8px;
-            color: #263445;
+            color: var(--primary-dark);
             letter-spacing: 0.3px;
         }
         
         .link-subtitle {
             font-size: 1.05rem;
-            color: #555;
+            color: var(--text-medium);
             line-height: 1.5;
             margin-bottom: 10px;
             font-weight: 500;
@@ -367,7 +476,7 @@
         
         .schedule-day-header {
             font-weight: 700;
-            color: #3498db;
+            color: var(--primary);
             margin-bottom: 10px;
             padding-bottom: 3px;
             border-bottom: 1px dashed #e0e0e0;
@@ -384,7 +493,7 @@
         .class-time {
             font-weight: 600;
             min-width: 65px;
-            color: #263445;
+            color: var(--primary-dark);
             font-size: 1.05rem;
         }
         
@@ -402,7 +511,7 @@
         }
         
         .bachata-text {
-            color: #3498db;
+            color: var(--primary);
             font-weight: 700;
             padding: 0 4px;
             border-radius: 3px;
@@ -438,7 +547,7 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 20px;
-            color: #263445;
+            color: var(--primary-dark);
             text-align: center;
             position: relative;
             padding-bottom: 15px;
@@ -454,14 +563,14 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: linear-gradient(to right, #2c3e50, #3498db);
+            background: var(--primary-gradient);
             border-radius: 2px;
         }
         
         .partner-notice {
             text-align: center;
             margin-bottom: 30px;
-            color: #555;
+            color: var(--text-medium);
             font-size: 1.15rem;
             font-weight: 500;
             display: block;
@@ -489,7 +598,7 @@
         
         .form-input:focus {
             outline: none;
-            border-color: #3498db;
+            border-color: var(--primary);
             background: #fff;
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.12);
         }
@@ -518,13 +627,13 @@
         
         .form-select:focus {
             outline: none;
-            border-color: #3498db;
+            border-color: var(--primary);
             background: #fff;
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.12);
         }
         
         .submit-btn {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            background: var(--primary-gradient);
             color: #fff;
             border: none;
             border-radius: 12px;
@@ -564,7 +673,7 @@
         
         .thank-you-message h3 {
             font-size: 1.8rem;
-            color: #263445;
+            color: var(--primary-dark);
             margin-bottom: 25px;
             position: relative;
             padding-bottom: 15px;
@@ -579,7 +688,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: linear-gradient(to right, #2c3e50, #3498db);
+            background: var(--primary-gradient);
             border-radius: 2px;
         }
         
@@ -613,14 +722,14 @@
         .signature-line {
             width: 200px;
             height: 2px;
-            background: linear-gradient(to right, transparent, #2c3e50, #3498db, transparent);
+            background: linear-gradient(to right, transparent, var(--primary-dark), var(--primary), transparent);
             position: relative;
             transition: all 0.4s ease;
         }
         
         .signature-line:hover {
             height: 3px;
-            background: linear-gradient(to right, transparent, #3498db, #2c3e50, transparent);
+            background: linear-gradient(to right, transparent, var(--primary), var(--primary-dark), transparent);
         }
         
         .notification {
@@ -667,7 +776,7 @@
             margin: 20px 0 25px;
             display: flex;
             flex-direction: column;
-            color: #2c3e50;
+            color: var(--primary-dark);
             text-align: center;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
             border: 1px solid #e0e8f0;
@@ -684,12 +793,12 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            color: #2c3e50;
+            color: var(--primary-dark);
         }
         
         .cta-header i {
             font-size: 1.4rem;
-            color: #3498db;
+            color: var(--primary);
         }
         
         .cta-schedule {
@@ -699,14 +808,14 @@
             margin-bottom: 15px;
             font-size: 0.95rem;
             line-height: 1.5;
-            color: #2c3e50;
+            color: var(--primary-dark);
         }
         
         .cta-action {
             font-size: 1.1rem;
             font-weight: 600;
             padding: 14px;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            background: var(--primary-gradient);
             color: white;
             border-radius: 50px;
             transition: all 0.3s ease;
@@ -731,14 +840,14 @@
             border-radius: 12px;
             display: inline-block;
             clear: both;
-            color: #555;
+            color: var(--text-medium);
             font-weight: 500;
             font-size: 1.05rem;
         }
         
         .date-section strong {
             font-weight: 700;
-            color: #263445;
+            color: var(--primary-dark);
         }
         
         @keyframes pulse {
@@ -845,13 +954,13 @@
         }
         
         .lang-btn.active {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            background: var(--primary-gradient);
             color: white;
             box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
         }
         
         .lang-btn:not(.active):hover {
-            color: #3498db;
+            color: var(--primary);
         }
         
         .lang-label {
@@ -861,7 +970,7 @@
             transform: translateX(-50%);
             font-size: 0.9rem;
             font-weight: 600;
-            color: #3498db;
+            color: var(--primary);
             white-space: nowrap;
         }
         
@@ -907,14 +1016,14 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid #3498db;
-            color: #3498db;
+            border: 2px solid var(--primary);
+            color: var(--primary);
             background: white;
             box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15);
         }
         
         .participant-btn:hover {
-            background: #3498db;
+            background: var(--primary);
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(52, 152, 219, 0.25);
@@ -946,7 +1055,7 @@
             left: 0;
             width: 5px;
             height: 100%;
-            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
         }
         
         .participant-label {
@@ -1019,6 +1128,14 @@
             
             .thank-you-message {
                 padding: 30px 20px;
+            }
+            
+            .welcome-title {
+                font-size: 2.5rem;
+            }
+            
+            .welcome-subtitle {
+                font-size: 1.4rem;
             }
         }
         
@@ -1166,13 +1283,42 @@
             .signature-line {
                 width: 180px;
             }
+            
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .welcome-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .welcome-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .welcome-logo i {
+                font-size: 3rem;
+            }
         }
     </style>
 </head>
 <body>
+  <!-- Welcome Overlay for Portal Access -->
+  <div id="welcome-overlay">
+    <div class="welcome-content">
+      <div class="welcome-logo">
+        <i class="fas fa-music"></i>
+      </div>
+      <h1 class="welcome-title">Welcome</h1>
+      <p class="welcome-subtitle">Daniel & Rebecca Dance Portal</p>
+      <div class="welcome-progress"></div>
+    </div>
+  </div>
+
   <div class="container">
     <div class="header-container">
-      <div class="logo-container">
+      <div class="logo-container" id="music-note">
         <div class="radiating-ring ring-1"></div>
         <div class="radiating-ring ring-2"></div>
         <div class="radiating-ring ring-3"></div>
@@ -2085,12 +2231,50 @@
         });
       }
       
+      // Triple-click functionality for logo
+      function initWelcomeOverlay() {
+        const musicNote = document.getElementById('music-note');
+        const overlay = document.getElementById('welcome-overlay');
+        let clickCount = 0;
+        let clickTimer = null;
+        
+        musicNote.addEventListener('click', function() {
+          // Reset count if too much time has passed between clicks
+          if (clickTimer === null) {
+            clickCount = 1;
+            clickTimer = setTimeout(() => {
+              clickCount = 0;
+              clickTimer = null;
+            }, 500);
+          } else {
+            clickCount++;
+            
+            // Triple click detected
+            if (clickCount === 3) {
+              clearTimeout(clickTimer);
+              clickTimer = null;
+              clickCount = 0;
+              
+              // Show the welcome overlay
+              overlay.classList.add('active');
+              
+              // After 3 seconds, hide overlay and redirect
+              setTimeout(() => {
+                overlay.classList.remove('active');
+                window.location.href = 'https://dancefirststep.github.io/Member-portal-access/';
+              }, 3000);
+            }
+          }
+        });
+      }
+      
       // Initialize the page
       function initPage() {
         updateCTASection();
         updateScheduleDisplay();
         initForm();
         initRegistrationFlow();
+        initWelcomeOverlay();
         
         // Update every minute
         setInterval(() => {
