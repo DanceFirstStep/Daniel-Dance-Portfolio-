@@ -7,25 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Daniel's Color Palette */
+        /* Enhanced Color Palette */
         :root {
-            --primary: #3498db;
+            --primary: #2c6e9d;
             --primary-light: #5dade2;
             --primary-lighter: #85c1e9;
-            --primary-dark: #2c3e50;
+            --primary-dark: #1e3a5f;
             --primary-gradient: linear-gradient(135deg, var(--primary-dark), var(--primary));
             --dark-bg: #1a1a2e;
             --darker-bg: #16213e;
             --text-dark: #222;
             --text-medium: #444;
-            --text-light: #777;
-            --light-bg: #f0f5ff;
-            --lighter-bg: #e6eeff;
+            --text-light: #666;
+            --light-bg: #f5f9ff;
+            --lighter-bg: #eaf0fa;
             --white: #ffffff;
             --success: #27ae60;
             --info: #3498db;
-            --elegant-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            --elegant-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             --subtle-border: 1px solid rgba(0, 0, 0, 0.04);
+            --card-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         /* Welcome overlay refinements */
@@ -81,7 +83,7 @@
             font-weight: 800;
             color: white;
             margin-bottom: 1rem;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
             text-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
             opacity: 0;
             transform: translateY(30px);
@@ -125,7 +127,7 @@
             50% { transform: scale(1.05); }
         }
         
-        /* Rest of Daniel's CSS */
+        /* Enhanced base styles */
         * {
             margin: 0;
             padding: 0;
@@ -146,7 +148,7 @@
             position: relative;
             color: var(--text-dark);
             background: linear-gradient(135deg, var(--light-bg), var(--lighter-bg));
-            line-height: 1.65;
+            line-height: 1.7;
             font-size: 1.08rem;
             letter-spacing: 0.3px;
         }
@@ -160,7 +162,7 @@
             position: relative;
             z-index: 10;
             margin: 0;
-            padding: 35px 25px;
+            padding: 40px 30px;
             box-shadow: var(--elegant-shadow);
             border: var(--subtle-border);
         }
@@ -193,7 +195,7 @@
             position: relative;
             z-index: 2;
             box-shadow: 0 10px 30px rgba(52, 152, 219, 0.2);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: var(--transition);
             overflow: hidden;
             animation: gentle-beat 4s infinite ease-in-out;
         }
@@ -248,10 +250,10 @@
         }
         
         h1 {
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             font-weight: 800;
             margin-bottom: 15px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
             color: var(--primary-dark);
             position: relative;
             display: inline-block;
@@ -259,10 +261,10 @@
         }
         
         .tagline {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 400;
             color: var(--text-medium);
-            margin: 15px auto 0;
+            margin: 20px auto 0;
             max-width: 600px;
             line-height: 1.7;
             font-weight: 500;
@@ -273,19 +275,19 @@
             width: 100px;
             background: var(--primary-gradient);
             border-radius: 3px;
-            margin: 25px auto;
+            margin: 30px auto;
         }
         
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: 700;
-            margin: 40px 0 25px;
+            margin: 45px 0 30px;
             text-align: center;
             position: relative;
             display: block;
             width: 100%;
             color: var(--primary-dark);
-            padding-bottom: 12px;
+            padding-bottom: 15px;
             font-family: 'Playfair Display', serif;
         }
         
@@ -316,22 +318,22 @@
             background: #fff;
             border-radius: 18px;
             padding: 28px;
-            border: 1px solid #f0f2f5;
+            border: 1px solid rgba(0, 0, 0, 0.04);
             display: flex;
             align-items: flex-start;
             position: relative;
             overflow: hidden;
             min-height: 120px;
             cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+            box-shadow: var(--card-shadow);
             text-decoration: none !important;
         }
         
         .link-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            border-color: rgba(52, 152, 219, 0.25);
+            border-color: rgba(52, 152, 219, 0.15);
         }
         
         .link-icon {
@@ -349,7 +351,7 @@
             box-shadow: 0 5px 12px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
         
         .social-icon-container {
@@ -361,7 +363,7 @@
             flex-shrink: 0;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
+            transition: var(--transition);
             animation: pulseSocial 3s infinite;
         }
         
@@ -398,7 +400,7 @@
             height: 100%;
             z-index: 1;
             opacity: 0.9;
-            transition: all 0.5s ease;
+            transition: var(--transition);
         }
         
         .social-icon-container:hover .social-gradient {
@@ -450,7 +452,7 @@
         }
         
         .link-title {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 700;
             margin-bottom: 8px;
             color: var(--primary-dark);
@@ -458,7 +460,7 @@
         }
         
         .link-subtitle {
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             color: var(--text-medium);
             line-height: 1.5;
             margin-bottom: 10px;
@@ -479,8 +481,8 @@
             color: var(--primary);
             margin-bottom: 10px;
             padding-bottom: 3px;
-            border-bottom: 1px dashed #e0e0e0;
-            font-size: 1.1rem;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+            font-size: 1.15rem;
         }
         
         .schedule-class {
@@ -537,16 +539,16 @@
             border-radius: 18px;
             padding: 35px 30px;
             margin: 30px 0;
-            border: 1px solid #eee;
+            border: 1px solid rgba(0, 0, 0, 0.03);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
             position: relative;
             overflow: hidden;
         }
         
         .form-title {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--primary-dark);
             text-align: center;
             position: relative;
@@ -587,11 +589,11 @@
             width: 100%;
             padding: 18px 22px;
             border-radius: 12px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid rgba(0, 0, 0, 0.08);
             background: #f9f9f9;
             color: #333;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             -webkit-appearance: none;
             appearance: none;
         }
@@ -612,7 +614,7 @@
             width: 100%;
             padding: 18px 22px;
             border-radius: 12px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid rgba(0, 0, 0, 0.08);
             background: #f9f9f9;
             color: #333;
             font-size: 1.1rem;
@@ -621,7 +623,7 @@
             background-repeat: no-repeat;
             background-position: right 18px center;
             background-size: 20px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             -webkit-appearance: none;
         }
         
@@ -637,13 +639,13 @@
             color: #fff;
             border: none;
             border-radius: 12px;
-            padding: 17px;
+            padding: 18px;
             font-size: 1.2rem;
             font-weight: 700;
             cursor: pointer;
             width: 100%;
             margin-top: 20px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
             display: block;
@@ -667,12 +669,12 @@
             border-radius: 18px;
             background: #fff;
             margin-top: 20px;
-            border: 1px solid #eee;
+            border: 1px solid rgba(0, 0, 0, 0.03);
             box-shadow: 0 15px 40px rgba(0,0,0,0.02);
         }
         
         .thank-you-message h3 {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: var(--primary-dark);
             margin-bottom: 25px;
             position: relative;
@@ -705,7 +707,7 @@
             text-align: center;
             color: #555;
             font-size: 1.05rem;
-            border-top: 1px solid #eee;
+            border-top: 1px solid rgba(0,0,0,0.05);
             line-height: 1.7;
             position: relative;
         }
@@ -724,7 +726,7 @@
             height: 2px;
             background: linear-gradient(to right, transparent, var(--primary-dark), var(--primary), transparent);
             position: relative;
-            transition: all 0.4s ease;
+            transition: var(--transition);
         }
         
         .signature-line:hover {
@@ -779,13 +781,13 @@
             color: var(--primary-dark);
             text-align: center;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e0e8f0;
+            border: 1px solid rgba(52, 152, 219, 0.1);
             position: relative;
             overflow: hidden;
         }
         
         .cta-header {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 700;
             margin-bottom: 15px;
             letter-spacing: 0.3px;
@@ -818,7 +820,7 @@
             background: var(--primary-gradient);
             color: white;
             border-radius: 50px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             box-shadow: 0 5px 15px rgba(52, 152, 219, 0.15);
             cursor: pointer;
             display: flex;
@@ -875,7 +877,7 @@
             justify-content: center;
             font-size: 16px;
             color: white;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: var(--transition);
         }
         
         .location-icon:hover {
@@ -947,7 +949,7 @@
             padding: 10px 30px;
             font-size: 1.05rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             font-weight: 600;
             position: relative;
             z-index: 2;
@@ -1015,7 +1017,7 @@
             font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border: 2px solid var(--primary);
             color: var(--primary);
             background: white;
@@ -1045,7 +1047,7 @@
             margin-bottom: 15px;
             position: relative;
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: var(--transition);
         }
         
         .participant-fields::before {
