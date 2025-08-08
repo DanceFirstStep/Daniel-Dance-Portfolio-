@@ -44,7 +44,7 @@
             z-index: 9999;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 1s ease-out; /* Smoother transition */
+            transition: opacity 1s ease-out;
         }
         
         #welcome-overlay.active {
@@ -176,18 +176,19 @@
         
         .logo-container {
             position: relative;
-            width: 170px; /* Slightly reduced */
-            height: 170px; /* Slightly reduced */
-            margin: 35px auto 20px; /* Better vertical spacing */
+            width: 170px;
+            height: 170px;
+            margin: 35px auto 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
         
         .logo {
-            width: 140px; /* Adjusted */
-            height: 140px; /* Adjusted */
+            width: 140px;
+            height: 140px;
             background: var(--primary-gradient);
             border-radius: 50%;
             display: flex;
@@ -245,7 +246,7 @@
                 opacity: 0.85;
             }
             100% {
-                transform: scale(1.4); /* More subtle effect */
+                transform: scale(1.4);
                 opacity: 0;
             }
         }
@@ -262,7 +263,7 @@
         }
         
         .tagline {
-            font-size: 1.4rem; /* Slightly larger */
+            font-size: 1.4rem;
             font-weight: 400;
             color: var(--text-medium);
             margin: 20px auto 0;
@@ -276,11 +277,11 @@
             width: 100px;
             background: var(--primary-gradient);
             border-radius: 3px;
-            margin: 25px auto; /* Better spacing */
+            margin: 25px auto;
         }
         
         .section-title {
-            font-size: 2rem; /* Slightly larger */
+            font-size: 2rem;
             font-weight: 700;
             margin: 45px 0 30px;
             text-align: center;
@@ -290,6 +291,7 @@
             color: var(--primary-dark);
             padding-bottom: 15px;
             font-family: 'Playfair Display', serif;
+            scroll-margin-top: 80px;
         }
         
         .section-title::after {
@@ -311,14 +313,14 @@
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 22px; /* Increased gap */
+            gap: 22px;
             margin: 30px 0;
         }
         
         .link-card {
             background: #fff;
             border-radius: 18px;
-            padding: 28px 25px; /* Balanced padding */
+            padding: 28px 25px;
             border: 1px solid rgba(0, 0, 0, 0.04);
             display: flex;
             align-items: flex-start;
@@ -329,11 +331,12 @@
             transition: var(--transition);
             box-shadow: var(--card-shadow);
             text-decoration: none !important;
+            scroll-margin-top: 120px;
         }
         
         .link-card:hover {
-            transform: translateY(-3px); /* More subtle lift */
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             border-color: rgba(52, 152, 219, 0.15);
         }
         
@@ -589,7 +592,7 @@
         .form-input {
             width: 100%;
             padding: 18px 22px;
-            border-radius: 14px; /* Consistent rounding */
+            border-radius: 14px;
             border: 1px solid rgba(0, 0, 0, 0.08);
             background: #f9f9f9;
             color: #333;
@@ -614,7 +617,7 @@
         .form-select {
             width: 100%;
             padding: 18px 22px;
-            border-radius: 14px; /* Consistent rounding */
+            border-radius: 14px;
             border: 1px solid rgba(0, 0, 0, 0.08);
             background: #f9f9f9;
             color: #333;
@@ -639,8 +642,8 @@
             background: var(--primary-gradient);
             color: #fff;
             border: none;
-            border-radius: 14px; /* Softer corners */
-            padding: 16px; /* Better proportion */
+            border-radius: 14px;
+            padding: 16px;
             font-size: 1.2rem;
             font-weight: 700;
             cursor: pointer;
@@ -786,6 +789,7 @@
             border: 1px solid rgba(52, 152, 219, 0.1);
             position: relative;
             overflow: hidden;
+            scroll-margin-top: 80px;
         }
         
         .cta-header {
@@ -856,12 +860,12 @@
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.04); } /* More subtle pulse */
+            50% { transform: scale(1.04); }
             100% { transform: scale(1); }
         }
         
         .pulse {
-            animation: pulse 2s infinite; /* Smoother animation */
+            animation: pulse 2s infinite;
         }
         
         .location-icons {
@@ -1079,23 +1083,34 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Updated top-nav-buttons positioning */
+        /* ELEGANT NAVIGATION BUTTONS */
         .top-nav-buttons {
-            position: absolute;
-            top: 15px;
-            right: 15px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
             display: flex;
             gap: 8px;
-            padding: 5px;
+            padding: 10px;
             z-index: 100;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+            opacity: 0.9;
+        }
+        
+        .top-nav-buttons:hover {
+            opacity: 1;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
         
         .nav-btn {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(44, 110, 157, 0.2);
+            background: transparent;
+            border: 1px solid rgba(44, 110, 157, 0.15);
             border-radius: 20px;
-            padding: 9px 16px; /* Better touch target */
+            padding: 9px 16px;
             font-size: 0.85rem;
             font-weight: 500;
             color: var(--primary-dark);
@@ -1105,17 +1120,53 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            background: rgba(255, 255, 255, 0.7);
         }
         
         .nav-btn:hover {
             background: var(--primary);
             color: white;
-            box-shadow: 0 4px 12px rgba(44, 110, 157, 0.25);
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(44, 110, 157, 0.25);
+        }
+        
+        .nav-btn.active-section {
+            background: rgba(52, 152, 219, 0.2);
+            color: var(--primary-dark);
         }
         
         .nav-btn i {
             font-size: 0.9rem;
+        }
+        
+        /* Logo highlight effect for pull-down */
+        .logo-container.highlight {
+            animation: pulseHighlight 1.5s ease;
+        }
+        
+        @keyframes pulseHighlight {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(52, 152, 219, 0.6); }
+        }
+        
+        /* Next class highlight improvements */
+        .next-class-highlight {
+            border-left: 4px solid var(--primary-light);
+            box-shadow: 0 0 30px rgba(52, 152, 219, 0.15);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .next-class-highlight::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.03), rgba(52, 152, 219, 0.01));
+            z-index: -1;
+            border-radius: 18px;
         }
         
         /* Mobile-specific enhancements */
@@ -1181,12 +1232,11 @@
                 font-size: 1.4rem;
             }
             
-            /* Mobile nav buttons */
             .top-nav-buttons {
-                position: static;
-                justify-content: center;
-                margin-top: 20px;
-                flex-wrap: wrap;
+                top: 15px;
+                right: 15px;
+                padding: 8px;
+                gap: 6px;
             }
             
             .nav-btn {
@@ -1212,12 +1262,12 @@
             }
             
             .logo {
-                width: 100px; /* Better proportion */
-                height: 100px; /* Better proportion */
+                width: 100px;
+                height: 100px;
             }
             
             .logo i {
-                font-size: 45px; /* Adjusted */
+                font-size: 45px;
             }
             
             h1 {
@@ -1237,7 +1287,7 @@
             
             .section-title {
                 font-size: 1.4rem;
-                margin: 30px 0 25px; /* Better hierarchy */
+                margin: 30px 0 25px;
             }
             
             .section-title::after {
@@ -1245,7 +1295,7 @@
             }
             
             .link-card {
-                padding: 20px; /* Better spacing */
+                padding: 20px;
                 min-height: 110px;
             }
             
@@ -1308,7 +1358,7 @@
             
             .form-title {
                 font-size: 1.5rem;
-                margin-bottom: 20px; /* Tighter spacing */
+                margin-bottom: 20px;
             }
             
             .partner-notice {
@@ -1358,9 +1408,11 @@
                 font-size: 3rem;
             }
             
-            /* Mobile nav buttons */
             .top-nav-buttons {
-                gap: 6px;
+                top: 10px;
+                right: 10px;
+                gap: 4px;
+                padding: 6px;
             }
             
             .nav-btn {
@@ -1386,7 +1438,7 @@
   <div class="container">
     <div class="header-container">
       <!-- Navigation buttons -->
-      <div class="top-nav-buttons">
+      <div class="top-nav-buttons" id="nav-buttons">
         <button class="nav-btn" id="btn-social">
           <i class="fas fa-hashtag"></i> Social Media
         </button>
@@ -1725,7 +1777,6 @@
               <option value="">Select class location</option>
               <option value="stardust">Stardust Ballroom</option>
               <option value="letsbailar">Let's Bailar</option>
-              <!-- Estilo option removed -->
               <option value="serrata">Serrata Studio</option>
             </select>
           </div>
@@ -2399,6 +2450,83 @@
         });
       }
       
+      // Set active section based on scroll position
+      function setActiveSection() {
+        const sections = [
+          {id: 'connect-title', btn: 'btn-social'},
+          {id: 'class-cta', btn: 'btn-next-class'},
+          {id: 'schedule-title', btn: 'btn-schedule'},
+          {id: 'schedule-grid', btn: 'btn-location'}
+        ];
+        
+        // Reset active states
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+          btn.classList.remove('active-section');
+        });
+        
+        // Find current active section
+        const currentSection = sections.find(section => {
+          const el = document.getElementById(section.id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            return rect.top <= 200 && rect.bottom >= 100;
+          }
+          return false;
+        });
+        
+        // Set active state
+        if (currentSection) {
+          document.getElementById(currentSection.btn).classList.add('active-section');
+        }
+      }
+      
+      // Smart navigation buttons visibility
+      function initSmartNavigation() {
+        const navButtons = document.getElementById('nav-buttons');
+        const logoContainer = document.getElementById('music-note');
+        
+        let lastScrollY = window.scrollY;
+        let touchStartY = 0;
+        
+        // Scroll event handler
+        function handleScroll() {
+          const currentScrollY = window.scrollY;
+          
+          // Update active section
+          setActiveSection();
+          lastScrollY = currentScrollY;
+        }
+        
+        // Touch events for pull-down gesture
+        function handleTouchStart(e) {
+          if (window.scrollY === 0) {
+            touchStartY = e.touches[0].clientY;
+          }
+        }
+        
+        function handleTouchMove(e) {
+          if (window.scrollY === 0 && touchStartY) {
+            const currentY = e.touches[0].clientY;
+            const diff = currentY - touchStartY;
+            
+            if (diff > 50) { // Pull down threshold
+              logoContainer.classList.add('highlight');
+            }
+          }
+        }
+        
+        function handleTouchEnd() {
+          touchStartY = 0;
+          logoContainer.classList.remove('highlight');
+        }
+        
+        // Event listeners
+        window.addEventListener('scroll', handleScroll);
+        document.addEventListener('touchstart', handleTouchStart);
+        document.addEventListener('touchmove', handleTouchMove);
+        document.addEventListener('touchend', handleTouchEnd);
+      }
+      
       // Universal link handling
       function openSocialApp(e, webUrl) {
         e.preventDefault();
@@ -2435,6 +2563,7 @@
         initRegistrationFlow();
         initWelcomeOverlay();
         initNavButtons();
+        initSmartNavigation();
         
         // Update every minute
         setInterval(() => {
