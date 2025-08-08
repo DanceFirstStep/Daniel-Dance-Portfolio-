@@ -44,7 +44,7 @@
             z-index: 9999;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.8s ease-out;
+            transition: opacity 1s ease-out; /* Smoother transition */
         }
         
         #welcome-overlay.active {
@@ -171,13 +171,14 @@
             text-align: center;
             margin-bottom: 35px;
             position: relative;
+            padding-top: 50px;
         }
         
         .logo-container {
             position: relative;
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 25px;
+            width: 170px; /* Slightly reduced */
+            height: 170px; /* Slightly reduced */
+            margin: 35px auto 20px; /* Better vertical spacing */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -185,8 +186,8 @@
         }
         
         .logo {
-            width: 150px;
-            height: 150px;
+            width: 140px; /* Adjusted */
+            height: 140px; /* Adjusted */
             background: var(--primary-gradient);
             border-radius: 50%;
             display: flex;
@@ -224,17 +225,17 @@
         }
         
         .ring-1 {
-            animation: radiate 4.5s infinite ease-in-out;
+            animation: radiate 5s infinite ease-in-out;
             animation-delay: 0.5s;
         }
         
         .ring-2 {
-            animation: radiate 4.5s infinite ease-in-out;
+            animation: radiate 5s infinite ease-in-out;
             animation-delay: 1.0s;
         }
         
         .ring-3 {
-            animation: radiate 4.5s infinite ease-in-out;
+            animation: radiate 5s infinite ease-in-out;
             animation-delay: 1.5s;
         }
         
@@ -244,7 +245,7 @@
                 opacity: 0.85;
             }
             100% {
-                transform: scale(1.6);
+                transform: scale(1.4); /* More subtle effect */
                 opacity: 0;
             }
         }
@@ -261,7 +262,7 @@
         }
         
         .tagline {
-            font-size: 1.35rem;
+            font-size: 1.4rem; /* Slightly larger */
             font-weight: 400;
             color: var(--text-medium);
             margin: 20px auto 0;
@@ -275,11 +276,11 @@
             width: 100px;
             background: var(--primary-gradient);
             border-radius: 3px;
-            margin: 30px auto;
+            margin: 25px auto; /* Better spacing */
         }
         
         .section-title {
-            font-size: 1.9rem;
+            font-size: 2rem; /* Slightly larger */
             font-weight: 700;
             margin: 45px 0 30px;
             text-align: center;
@@ -310,14 +311,14 @@
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 22px; /* Increased gap */
             margin: 30px 0;
         }
         
         .link-card {
             background: #fff;
             border-radius: 18px;
-            padding: 28px;
+            padding: 28px 25px; /* Balanced padding */
             border: 1px solid rgba(0, 0, 0, 0.04);
             display: flex;
             align-items: flex-start;
@@ -331,8 +332,8 @@
         }
         
         .link-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px); /* More subtle lift */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
             border-color: rgba(52, 152, 219, 0.15);
         }
         
@@ -588,7 +589,7 @@
         .form-input {
             width: 100%;
             padding: 18px 22px;
-            border-radius: 12px;
+            border-radius: 14px; /* Consistent rounding */
             border: 1px solid rgba(0, 0, 0, 0.08);
             background: #f9f9f9;
             color: #333;
@@ -613,7 +614,7 @@
         .form-select {
             width: 100%;
             padding: 18px 22px;
-            border-radius: 12px;
+            border-radius: 14px; /* Consistent rounding */
             border: 1px solid rgba(0, 0, 0, 0.08);
             background: #f9f9f9;
             color: #333;
@@ -638,8 +639,8 @@
             background: var(--primary-gradient);
             color: #fff;
             border: none;
-            border-radius: 12px;
-            padding: 18px;
+            border-radius: 14px; /* Softer corners */
+            padding: 16px; /* Better proportion */
             font-size: 1.2rem;
             font-weight: 700;
             cursor: pointer;
@@ -727,6 +728,7 @@
             background: linear-gradient(to right, transparent, var(--primary-dark), var(--primary), transparent);
             position: relative;
             transition: var(--transition);
+            cursor: pointer;
         }
         
         .signature-line:hover {
@@ -854,12 +856,12 @@
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
+            50% { transform: scale(1.04); } /* More subtle pulse */
             100% { transform: scale(1); }
         }
         
         .pulse {
-            animation: pulse 1.5s infinite;
+            animation: pulse 2s infinite; /* Smoother animation */
         }
         
         .location-icons {
@@ -1077,6 +1079,45 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        /* Updated top-nav-buttons positioning */
+        .top-nav-buttons {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 8px;
+            padding: 5px;
+            z-index: 100;
+        }
+        
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(44, 110, 157, 0.2);
+            border-radius: 20px;
+            padding: 9px 16px; /* Better touch target */
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .nav-btn:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(44, 110, 157, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn i {
+            font-size: 0.9rem;
+        }
+        
         /* Mobile-specific enhancements */
         @media (max-width: 768px) {
             .links-grid {
@@ -1139,6 +1180,19 @@
             .welcome-subtitle {
                 font-size: 1.4rem;
             }
+            
+            /* Mobile nav buttons */
+            .top-nav-buttons {
+                position: static;
+                justify-content: center;
+                margin-top: 20px;
+                flex-wrap: wrap;
+            }
+            
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1158,12 +1212,12 @@
             }
             
             .logo {
-                width: 110px;
-                height: 110px;
+                width: 100px; /* Better proportion */
+                height: 100px; /* Better proportion */
             }
             
             .logo i {
-                font-size: 50px;
+                font-size: 45px; /* Adjusted */
             }
             
             h1 {
@@ -1183,7 +1237,7 @@
             
             .section-title {
                 font-size: 1.4rem;
-                margin: 30px 0 20px;
+                margin: 30px 0 25px; /* Better hierarchy */
             }
             
             .section-title::after {
@@ -1191,7 +1245,7 @@
             }
             
             .link-card {
-                padding: 22px;
+                padding: 20px; /* Better spacing */
                 min-height: 110px;
             }
             
@@ -1254,6 +1308,7 @@
             
             .form-title {
                 font-size: 1.5rem;
+                margin-bottom: 20px; /* Tighter spacing */
             }
             
             .partner-notice {
@@ -1302,6 +1357,16 @@
             .welcome-logo i {
                 font-size: 3rem;
             }
+            
+            /* Mobile nav buttons */
+            .top-nav-buttons {
+                gap: 6px;
+            }
+            
+            .nav-btn {
+                padding: 5px 10px;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -1320,6 +1385,22 @@
 
   <div class="container">
     <div class="header-container">
+      <!-- Navigation buttons -->
+      <div class="top-nav-buttons">
+        <button class="nav-btn" id="btn-social">
+          <i class="fas fa-hashtag"></i> Social Media
+        </button>
+        <button class="nav-btn" id="btn-next-class">
+          <i class="fas fa-calendar"></i> Next Class
+        </button>
+        <button class="nav-btn" id="btn-schedule">
+          <i class="fas fa-clock"></i> Schedule
+        </button>
+        <button class="nav-btn" id="btn-location">
+          <i class="fas fa-map-marker-alt"></i> Location
+        </button>
+      </div>
+      
       <div class="logo-container" id="music-note">
         <div class="radiating-ring ring-1"></div>
         <div class="radiating-ring ring-2"></div>
@@ -1336,7 +1417,9 @@
     <div class="content">
       <h2 class="section-title" id="connect-title">Connect With Me</h2>
       <div class="links-grid">
-        <a href="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr" target="_blank" class="link-card facebook">
+        <a href="fb://profile/danielp_bachata" 
+           onclick="return openSocialApp(event, 'https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr')"
+           class="link-card facebook">
           <div class="social-icon-container facebook-icon-container">
             <div class="social-gradient"></div>
             <div class="social-icon">
@@ -1349,7 +1432,9 @@
           </div>
         </a>
         
-        <a href="https://www.instagram.com/danielp_bachata" target="_blank" class="link-card instagram">
+        <a href="instagram://user?username=danielp_bachata" 
+           onclick="return openSocialApp(event, 'https://www.instagram.com/danielp_bachata')"
+           class="link-card instagram">
           <div class="social-icon-container instagram-icon-container">
             <div class="social-gradient"></div>
             <div class="social-icon">
@@ -1362,7 +1447,9 @@
           </div>
         </a>
         
-        <a href="https://www.tiktok.com/@danielp_bachata" target="_blank" class="link-card tiktok">
+        <a href="snssdk1233://user/profile/danielp_bachata" 
+           onclick="return openSocialApp(event, 'https://www.tiktok.com/@danielp_bachata')"
+           class="link-card tiktok">
           <div class="social-icon-container tiktok-icon-container">
             <div class="social-gradient"></div>
             <div class="social-icon">
@@ -1638,7 +1725,7 @@
               <option value="">Select class location</option>
               <option value="stardust">Stardust Ballroom</option>
               <option value="letsbailar">Let's Bailar</option>
-              <option value="estilo">Estilo Dance Studio</option>
+              <!-- Estilo option removed -->
               <option value="serrata">Serrata Studio</option>
             </select>
           </div>
@@ -1659,7 +1746,9 @@
       
       <h2 class="section-title" id="payment-title">Payment Options</h2>
       <div class="links-grid">
-        <a href="https://venmo.com/code?user_id=2575920015605760344&created=1750346816" class="link-card venmo" target="_blank">
+        <a href="https://venmo.com/danielpalacios?txn=pay&amount=25&note=Dance+Class" 
+           onclick="return openVenmo(event)" 
+           class="link-card venmo">
           <div class="link-icon">
             <i class="fab fa-vimeo-v"></i>
           </div>
@@ -1707,7 +1796,9 @@
         <p id="quote">Dance is the hidden language of the soul</p>
         
         <div class="signature-container">
-          <div class="signature-line" id="signature-line"></div>
+          <div class="signature-line" id="signature-line" 
+               ondblclick="window.open('https://dancefirststep.github.io/class-schedule-/', '_blank')"
+               style="cursor: pointer;"></div>
         </div>
       </footer>
     </div>
@@ -2270,6 +2361,72 @@
         });
       }
       
+      // Navigation button functionality
+      function initNavButtons() {
+        // Button 1: Social media section
+        document.getElementById('btn-social').addEventListener('click', () => {
+          document.getElementById('connect-title').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        });
+        
+        // Button 2: Next class section
+        document.getElementById('btn-next-class').addEventListener('click', () => {
+          document.getElementById('class-cta').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        });
+        
+        // Button 3: Schedule section
+        document.getElementById('btn-schedule').addEventListener('click', () => {
+          document.getElementById('schedule-title').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        });
+        
+        // Button 4: First location card
+        document.getElementById('btn-location').addEventListener('click', () => {
+          const firstCard = document.querySelector('#schedule-grid > .link-card:first-child');
+          if (firstCard) {
+            firstCard.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start' 
+            });
+          }
+        });
+      }
+      
+      // Universal link handling
+      function openSocialApp(e, webUrl) {
+        e.preventDefault();
+        const appUrl = e.currentTarget.getAttribute('href');
+        
+        window.location = appUrl;
+        setTimeout(function() {
+          if (!document.hidden) {
+            window.location.href = webUrl;
+          }
+        }, 500);
+        return false;
+      }
+      
+      function openVenmo(e) {
+        e.preventDefault();
+        const appUrl = 'venmo://pay?recipients=danielpalacios&amount=25&note=Dance%20Class';
+        const webUrl = 'https://venmo.com/danielpalacios?txn=pay&amount=25&note=Dance+Class';
+        
+        window.location = appUrl;
+        setTimeout(function() {
+          if (!document.hidden) {
+            window.location.href = webUrl;
+          }
+        }, 500);
+        return false;
+      }
+      
       // Initialize the page
       function initPage() {
         updateCTASection();
@@ -2277,6 +2434,7 @@
         initForm();
         initRegistrationFlow();
         initWelcomeOverlay();
+        initNavButtons();
         
         // Update every minute
         setInterval(() => {
