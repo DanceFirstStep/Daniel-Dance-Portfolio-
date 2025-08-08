@@ -1558,10 +1558,11 @@
               <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Stardust Ballroom on Facebook" aria-label="Stardust Ballroom Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=Stardust+Ballroom+Bellmawr+NJ" 
+              <a href="https://maps.app.goo.gl/uVeMAnfnnrQZwtSNA?g_st=ipc" 
                  class="location-icon maps-icon" 
                  title="Directions to Stardust Ballroom" 
-                 aria-label="Stardust Ballroom on Google Maps">
+                 aria-label="Stardust Ballroom on Google Maps"
+                 onclick="return openMaps(event, 'comgooglemaps://?q=Stardust+Ballroom+Bellmawr+NJ', 'geo:0,0?q=Stardust+Ballroom+Bellmawr+NJ')">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1622,10 +1623,11 @@
               <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Let's Bailar Dance Studio on Facebook" aria-label="Let's Bailar Dance Studio Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=Chinese+Association+of+Greater+Philadelphia" 
+              <a href="https://maps.app.goo.gl/CDf3d1Y3qmp7Pua26?g_st=ipc" 
                  class="location-icon maps-icon" 
                  title="Directions to Let's Bailar Dance Studio" 
-                 aria-label="Let's Bailar Dance Studio on Google Maps">
+                 aria-label="Let's Bailar Dance Studio on Google Maps"
+                 onclick="return openMaps(event, 'comgooglemaps://?q=Let%27s+Bailar+Dance+Studio', 'geo:0,0?q=Let%27s+Bailar+Dance+Studio')">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1660,10 +1662,11 @@
               </div>
             </div>
             <div class="location-icons">
-              <a href="https://www.google.com/maps/search/?api=1&query=Estilo+Dance+Studio+Fishtown+Philadelphia" 
+              <a href="https://maps.app.goo.gl/KDZ5uZbr7h9sWMgy8?g_st=ipc" 
                  class="location-icon maps-icon" 
                  title="Directions to Estilo Dance Studio" 
-                 aria-label="Estilo Dance Studio on Google Maps">
+                 aria-label="Estilo Dance Studio on Google Maps"
+                 onclick="return openMaps(event, 'comgooglemaps://?q=Estilo+Dance+Studio+Fishtown+Philadelphia', 'geo:0,0?q=Estilo+Dance+Studio+Fishtown+Philadelphia')">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1709,9 +1712,9 @@
               </a>
               <a href="https://maps.app.goo.gl/FY4U7T8F5fs2nB2Q8?g_st=ipc" 
                  class="location-icon maps-icon" 
-                 target="_blank" 
                  title="Directions to Serrata Studio" 
-                 aria-label="Serrata Studio on Google Maps">
+                 aria-label="Serrata Studio on Google Maps"
+                 onclick="return openMaps(event, 'comgooglemaps://?q=Serrata+Studio+Philadelphia', 'geo:0,0?q=Serrata+Studio+Philadelphia')">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1797,15 +1800,15 @@
       
       <h2 class="section-title" id="payment-title">Payment Options</h2>
       <div class="links-grid">
-        <a href="https://venmo.com/danielpalacios?txn=pay&amount=25&note=Dance+Class" 
-           onclick="return openVenmo(event)" 
+        <a href="venmo://account?username=Rebecca_Rose_Bachata" 
+           onclick="return openVenmo(event, 'https://venmo.com/u/Rebecca_Rose_Bachata')" 
            class="link-card venmo">
           <div class="link-icon">
             <i class="fab fa-vimeo-v"></i>
           </div>
           <div class="link-text">
             <div class="link-title">Venmo</div>
-            <div class="link-subtitle" id="venmo-sub">Secure payment option</div>
+            <div class="link-subtitle" id="venmo-sub">Rebecca Rose Bachata</div>
           </div>
         </a>
         
@@ -1898,7 +1901,7 @@
           thankYouText: "We're excited to dance with you! Your spot is being saved.",
           registerAgainText: "Register Another Person",
           paymentTitle: "Payment Options",
-          venmoSub: "Secure payment option",
+          venmoSub: "Rebecca Rose Bachata",
           cashTitle: "Cash",
           cashSub: "Pay at the studio",
           contactTitle: "Contact Me",
@@ -1927,7 +1930,7 @@
           thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo reservado.",
           registerAgainText: "Registrar Otra Persona",
           paymentTitle: "Opciones de Pago",
-          venmoSub: "Opción de pago segura",
+          venmoSub: "Rebecca Rose Bachata",
           cashTitle: "Efectivo",
           cashSub: "Paga en el estudio",
           contactTitle: "Contáctame",
@@ -2541,15 +2544,32 @@
         return false;
       }
       
-      function openVenmo(e) {
+      // Open Venmo with fallback to web
+      function openVenmo(e, webUrl) {
         e.preventDefault();
-        const appUrl = 'venmo://pay?recipients=danielpalacios&amount=25&note=Dance%20Class';
-        const webUrl = 'https://venmo.com/danielpalacios?txn=pay&amount=25&note=Dance+Class';
+        const appUrl = e.currentTarget.getAttribute('href');
         
         window.location = appUrl;
         setTimeout(function() {
           if (!document.hidden) {
             window.location.href = webUrl;
+          }
+        }, 500);
+        return false;
+      }
+      
+      // Open Maps with app if available
+      function openMaps(e, iosUrl, androidUrl) {
+        e.preventDefault();
+        
+        // Detect iOS devices
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        const appUrl = isIOS ? iosUrl : androidUrl;
+        
+        window.location = appUrl;
+        setTimeout(function() {
+          if (!document.hidden) {
+            window.location.href = e.currentTarget.href;
           }
         }, 500);
         return false;
