@@ -762,8 +762,30 @@
         }
         
         .notification-info {
-            background: linear-gradient(to right, #3498db, #2980b9);
+            background: linear-gradient(135deg, #3498db, #2980b9);
             color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .notification-info button.open-external {
+            background: white;
+            color: #3498db;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .notification-info button.open-external:hover {
+            background: #f0f7ff;
+            transform: scale(1.05);
         }
         
         @keyframes slideIn {
@@ -1098,12 +1120,18 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.3);
             transition: all 0.4s ease;
-            opacity: 0.9;
+            opacity: 0.3;
         }
         
-        .top-nav-buttons:hover {
+        .top-nav-buttons:hover,
+        .top-nav-buttons.active {
             opacity: 1;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .top-nav-buttons.hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
         }
         
         .nav-btn {
@@ -2488,16 +2516,26 @@
         const navButtons = document.getElementById('nav-buttons');
         const logoContainer = document.getElementById('music-note');
         
-        let lastScrollY = window.scrollY;
-        let touchStartY = 0;
+        let lastScrollTop = 0;
+        const hideThreshold = 100;
         
         // Scroll event handler
         function handleScroll() {
           const currentScrollY = window.scrollY;
           
-          // Update active section
+          // Auto-hide/show nav based on scroll direction
+          if (currentScrollY > hideThreshold) {
+            if (currentScrollY > lastScrollTop) {
+              navButtons.classList.add('hidden');
+            } else {
+              navButtons.classList.remove('hidden');
+            }
+          } else {
+            navButtons.classList.remove('hidden');
+          }
+          
+          lastScrollTop = currentScrollY;
           setActiveSection();
-          lastScrollY = currentScrollY;
         }
         
         // Touch events for pull-down gesture
@@ -2562,15 +2600,36 @@
       function openMaps(e, iosUrl, androidUrl) {
         e.preventDefault();
         
+        // Check if in Facebook in-app browser
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const isFacebookApp = /FBAN|FBAV|FBSN/i.test(userAgent);
+        
+        if (isFacebookApp) {
+          // Create a visible prompt to open in external browser
+          const prompt = document.createElement('div');
+          prompt.className = 'notification notification-info';
+          prompt.innerHTML = `
+            <i class="fas fa-external-link-alt"></i> 
+            ${currentLanguage === 'es' ? 'Abre en navegador externo para ver mapa' : 'Open in external browser for maps'}
+            <button class="open-external">OK</button>
+          `;
+          document.body.appendChild(prompt);
+          
+          prompt.querySelector('.open-external').addEventListener('click', () => {
+            window.open(e.currentTarget.href, '_blank');
+            prompt.remove();
+          });
+          
+          return false;
+        }
+        
         // Detect iOS devices
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
         const appUrl = isIOS ? iosUrl : androidUrl;
         
         window.location = appUrl;
-        setTimeout(function() {
-          if (!document.hidden) {
-            window.location.href = e.currentTarget.href;
-          }
+        setTimeout(() => {
+          if (!document.hidden) window.location.href = e.currentTarget.href;
         }, 500);
         return false;
       }
