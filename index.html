@@ -1105,66 +1105,92 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* ELEGANT NAVIGATION BUTTONS */
+        /* IMPROVED NAVIGATION BUTTONS */
         .top-nav-buttons {
             position: fixed;
             top: 20px;
-            right: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            gap: 8px;
-            padding: 10px;
+            gap: 12px;
+            padding: 12px 20px;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.4s ease;
-            opacity: 0.3;
-        }
-        
-        .top-nav-buttons:hover,
-        .top-nav-buttons.active {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(44, 110, 157, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             opacity: 1;
-        }
-        
-        .top-nav-buttons.hidden {
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
+            max-width: 95%;
+            width: auto;
         }
         
         .nav-btn {
             background: transparent;
-            border: 1px solid rgba(44, 110, 157, 0.15);
+            border: none;
             border-radius: 20px;
-            padding: 9px 16px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--primary-dark);
+            padding: 12px 22px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c6e9d;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.7);
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(44, 110, 157, 0.1), transparent);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
         .nav-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(44, 110, 157, 0.25);
+            background: rgba(44, 110, 157, 0.1);
+            color: #1e3a5f;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(44, 110, 157, 0.2);
+        }
+        
+        .nav-btn:hover::before {
+            opacity: 1;
         }
         
         .nav-btn.active-section {
-            background: rgba(52, 152, 219, 0.2);
-            color: var(--primary-dark);
+            background: linear-gradient(135deg, #2c6e9d, #1e3a5f);
+            color: white;
+            box-shadow: 0 6px 20px rgba(44, 110, 157, 0.3);
         }
         
         .nav-btn i {
-            font-size: 0.9rem;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-btn:hover i {
+            transform: scale(1.15);
+        }
+        
+        .nav-btn.active-section i {
+            color: white;
+        }
+        
+        .top-nav-buttons.hidden {
+            transform: translate(-50%, -100%);
+            opacity: 0;
+            pointer-events: none;
         }
         
         /* Logo highlight effect for pull-down */
@@ -1195,6 +1221,22 @@
             background: linear-gradient(135deg, rgba(52, 152, 219, 0.03), rgba(52, 152, 219, 0.01));
             z-index: -1;
             border-radius: 18px;
+        }
+        
+        /* Form loading spinner */
+        .spinner {
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            display: none;
+            margin-left: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
         
         /* Mobile-specific enhancements */
@@ -1261,19 +1303,21 @@
             }
             
             .top-nav-buttons {
-                top: 15px;
-                right: 15px;
-                padding: 8px;
-                gap: 6px;
+                padding: 10px 16px;
+                gap: 8px;
             }
             
             .nav-btn {
-                padding: 6px 12px;
-                font-size: 0.8rem;
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+            
+            .nav-btn i {
+                font-size: 1rem;
             }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
             body {
                 font-size: 1.05rem;
                 padding: 15px 10px;
@@ -1437,15 +1481,23 @@
             }
             
             .top-nav-buttons {
-                top: 10px;
-                right: 10px;
-                gap: 4px;
-                padding: 6px;
+                padding: 8px 12px;
+                gap: 6px;
+                top: 15px;
             }
             
             .nav-btn {
-                padding: 5px 10px;
-                font-size: 0.75rem;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .nav-btn span {
+                display: none;
+            }
+            
+            .nav-btn i {
+                font-size: 1rem;
+                margin: 0;
             }
         }
     </style>
@@ -1465,19 +1517,19 @@
 
   <div class="container">
     <div class="header-container">
-      <!-- Navigation buttons -->
+      <!-- Improved Navigation buttons -->
       <div class="top-nav-buttons" id="nav-buttons">
         <button class="nav-btn" id="btn-social">
-          <i class="fas fa-hashtag"></i> Social Media
+          <i class="fas fa-hashtag"></i> <span>Social Media</span>
         </button>
         <button class="nav-btn" id="btn-next-class">
-          <i class="fas fa-calendar"></i> Next Class
+          <i class="fas fa-calendar"></i> <span>Next Class</span>
         </button>
         <button class="nav-btn" id="btn-schedule">
-          <i class="fas fa-clock"></i> Schedule
+          <i class="fas fa-clock"></i> <span>Schedule</span>
         </button>
         <button class="nav-btn" id="btn-location">
-          <i class="fas fa-map-marker-alt"></i> Location
+          <i class="fas fa-map-marker-alt"></i> <span>Location</span>
         </button>
       </div>
       
@@ -1561,7 +1613,7 @@
         </div>
         
         <div class="cta-action" id="register-cta">
-          <span id="register-cta-text">Register Now</span> <span class="down-arrow"><i class="fas fa-arrow-down"></i></span>
+          <span id="register-cta-text">Register Now</span> <i class="fas fa-arrow-down"></i>
         </div>
       </div>
       
@@ -1813,7 +1865,8 @@
           </div>
           
           <button type="submit" class="submit-btn">
-            <span id="register-button">Complete Registration</span> <i class="fas fa-check-circle"></i>
+            <span id="register-button">Complete Registration</span> 
+            <span class="spinner" id="form-spinner"></span>
           </button>
         </form>
         
@@ -2307,6 +2360,7 @@
         const thankYouMessage = document.getElementById('thank-you-message');
         const submitBtn = registrationForm.querySelector('button[type="submit"]');
         const registerAgainBtn = document.getElementById('register-again-btn');
+        const spinner = document.getElementById('form-spinner');
         
         function resetForm() {
           registrationForm.reset();
@@ -2364,22 +2418,26 @@
             return;
           }
           
-          submitBtn.textContent = currentLanguage === 'es' ? 'Procesando...' : 'Processing...';
+          // Show loading spinner
           submitBtn.disabled = true;
+          spinner.style.display = 'inline-block';
           
           setTimeout(function() {
+            // Hide spinner and show success
+            spinner.style.display = 'none';
+            submitBtn.disabled = false;
+            
             registrationForm.style.display = 'none';
             thankYouMessage.style.display = 'block';
             thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            submitBtn.textContent = translations[currentLanguage].registerButton;
-            submitBtn.disabled = false;
+            
             showNotification(
               currentLanguage === 'es' ? 
                 "¡Registro exitoso! Tu lugar está siendo reservado" : 
                 "Registration successful! Your spot is being saved", 
               "success"
             );
-          }, 1000);
+          }, 1500);
         });
       }
       
