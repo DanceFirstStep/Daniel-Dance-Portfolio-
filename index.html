@@ -2322,12 +2322,6 @@
         const locationCard = document.getElementById(nextClass.locationId);
         if (locationCard) {
           locationCard.classList.add('next-class-highlight');
-          
-          // Scroll to highlight if it's not visible
-          const rect = locationCard.getBoundingClientRect();
-          if (rect.top < 0 || rect.bottom > window.innerHeight) {
-            locationCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
         }
       }
       
@@ -2539,40 +2533,40 @@
       // Navigation button functionality
       function initNavButtons() {
         // Button 1: Social media section
-        document.getElementById('btn-social').addEventListener('click', () => {
+        document.getElementById('btn-social').addEventListener('click', (e) => {
+          e.preventDefault();
           document.getElementById('connect-title').scrollIntoView({ 
             behavior: 'smooth', 
-            block: 'center',
-            inline: 'nearest'
+            block: 'start'
           });
         });
         
         // Button 2: Next class section
-        document.getElementById('btn-next-class').addEventListener('click', () => {
+        document.getElementById('btn-next-class').addEventListener('click', (e) => {
+          e.preventDefault();
           document.getElementById('class-cta').scrollIntoView({ 
             behavior: 'smooth', 
-            block: 'center',
-            inline: 'nearest'
+            block: 'start'
           });
         });
         
         // Button 3: Schedule section
-        document.getElementById('btn-schedule').addEventListener('click', () => {
+        document.getElementById('btn-schedule').addEventListener('click', (e) => {
+          e.preventDefault();
           document.getElementById('schedule-title').scrollIntoView({ 
             behavior: 'smooth', 
-            block: 'center',
-            inline: 'nearest'
+            block: 'start'
           });
         });
         
         // Button 4: First location card
-        document.getElementById('btn-location').addEventListener('click', () => {
+        document.getElementById('btn-location').addEventListener('click', (e) => {
+          e.preventDefault();
           const firstCard = document.querySelector('#schedule-grid > .link-card:first-child');
           if (firstCard) {
             firstCard.scrollIntoView({ 
               behavior: 'smooth', 
-              block: 'center',
-              inline: 'nearest'
+              block: 'start'
             });
           }
         });
@@ -2615,6 +2609,7 @@
         
         let lastScrollTop = 0;
         const hideThreshold = 100;
+        let touchStartY = 0;
         
         // Scroll event handler
         function handleScroll() {
@@ -2733,6 +2728,9 @@
       
       // Initialize the page
       function initPage() {
+        // Force page to start at top
+        window.scrollTo(0, 0);
+        
         updateCTASection();
         updateScheduleDisplay();
         initForm();
