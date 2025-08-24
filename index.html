@@ -485,6 +485,7 @@
         
         .link-text {
             flex: 1;
+            position: relative;
         }
         
         .link-title {
@@ -926,6 +927,7 @@
             display: flex;
             gap: 10px;
             margin-top: 15px;
+            flex-wrap: wrap;
         }
         
         .location-icon {
@@ -1251,6 +1253,196 @@
             to { transform: rotate(360deg); }
         }
         
+        /* Events Carousel Styles */
+        .events-carousel-container {
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .events-carousel-container.hidden {
+            display: none;
+        }
+        
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: var(--card-shadow);
+            background: white;
+            padding: 20px 0;
+        }
+        
+        .carousel-track-container {
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            flex: 0 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        .event-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            border: var(--subtle-border);
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .event-date {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed rgba(52, 152, 219, 0.2);
+        }
+        
+        .event-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .event-location {
+            color: var(--text-medium);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .event-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .event-button {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        
+        .event-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+        
+        .carousel-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-button.prev {
+            left: 15px;
+        }
+        
+        .carousel-button.next {
+            right: 15px;
+        }
+        
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-indicator.current-slide {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+        
+        .events-loading {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-medium);
+        }
+        
+        .events-error {
+            text-align: center;
+            padding: 40px 0;
+            color: #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .events-empty {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-medium);
+            font-style: italic;
+        }
+        
+        .refresh-button {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .refresh-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
         /* Mobile-specific enhancements */
         @media (max-width: 768px) {
             .links-grid {
@@ -1326,6 +1518,20 @@
             
             .nav-btn i {
                 font-size: 1rem;
+            }
+            
+            .carousel-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .event-card {
+                padding: 20px;
+            }
+            
+            .event-title {
+                font-size: 1.2rem;
             }
         }
         
@@ -1511,6 +1717,24 @@
                 font-size: 1rem;
                 margin: 0;
             }
+            
+            .carousel-button {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+            
+            .event-card {
+                padding: 15px;
+            }
+            
+            .event-title {
+                font-size: 1.1rem;
+            }
+            
+            .event-date {
+                font-size: 1.05rem;
+            }
         }
     </style>
 </head>
@@ -1609,6 +1833,30 @@
       
       <div class="date-section" id="current-date-discreet">
         <strong id="today-label">Today is:</strong> <span id="date-text"></span>
+      </div>
+      
+      <!-- Events Carousel Section -->
+      <div class="events-carousel-container" id="events-carousel">
+        <h2 class="section-title">Upcoming Events</h2>
+        <div class="carousel">
+          <button class="carousel-button prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="carousel-track-container">
+            <ul class="carousel-track" id="events-track">
+              <li class="carousel-slide">
+                <div class="events-loading">
+                  <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                  <p>Loading events from calendar...</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <button class="carousel-button next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="carousel-nav" id="events-nav"></div>
       </div>
       
       <h2 class="section-title" id="upcoming-title">Join Our Classes</h2>
@@ -1749,7 +1997,7 @@
           <div class="link-text">
             <div class="studio-info">
               <div class="studio-name-address">
-                <div class="link-title">Estilo Dance Studio</div>
+                <div class="link-title">Estilio Dance Studio</div>
                 <div class="link-subtitle">Fishtown, Philadelphia</div>
               </div>
             </div>
@@ -1796,7 +2044,7 @@
             <div class="location-icons">
               <a href="https://www.facebook.com/share/16giYF2o67/?mibextid=wwXIfr" 
                  class="location-icon facebook-icon" 
-                 target="_blank" 
+                 target: "_blank" 
                  rel="noopener"
                  title="Serrata Studio on Facebook" 
                  aria-label="Serrata Studio Facebook Page">
@@ -2104,6 +2352,283 @@
         setLanguage(savedLanguage);
       } else {
         updateCurrentDate('en');
+      }
+      
+      // Google Calendar Integration
+      async function fetchCalendarEvents() {
+        const icalUrl = 'https://calendar.google.com/calendar/ical/42ea635b03e7b52add3eac2994bb884a3ef3c2f1403a0003ded9fbb4d5ebcce1%40group.calendar.google.com/private-eae60ffc005caa94a28d3d5405872d97/basic.ics';
+        
+        try {
+          const eventsTrack = document.getElementById('events-track');
+          eventsTrack.innerHTML = `
+            <li class="carousel-slide">
+              <div class="events-loading">
+                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                <p>Loading events from calendar...</p>
+              </div>
+            </li>
+          `;
+          
+          const proxyUrl = 'https://corsproxy.io/?';
+          const response = await fetch(proxyUrl + encodeURIComponent(icalUrl));
+          
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          
+          const icalData = await response.text();
+          
+          const events = parseICalData(icalData);
+          
+          updateEventsCarousel(events);
+        } catch (error) {
+          console.error('Error fetching calendar events:', error);
+          
+          const eventsTrack = document.getElementById('events-track');
+          eventsTrack.innerHTML = `
+            <li class="carousel-slide">
+              <div class="events-error">
+                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                <p>Failed to load events from calendar.</p>
+                <button class="refresh-button" onclick="fetchCalendarEvents()">
+                  <i class="fas fa-sync-alt"></i> Try Again
+                </button>
+              </div>
+            </li>
+          `;
+        }
+      }
+      
+      function parseICalData(icalData) {
+        const events = [];
+        const lines = icalData.split('\n');
+        let currentEvent = null;
+        let inEvent = false;
+        let inDescription = false;
+        let descriptionLines = [];
+        
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i].trim();
+          
+          if (line === 'BEGIN:VEVENT') {
+            inEvent = true;
+            currentEvent = {};
+          } else if (line === 'END:VEVENT') {
+            inEvent = false;
+            inDescription = false;
+            
+            if (descriptionLines.length > 0) {
+              currentEvent.description = descriptionLines.join('\n')
+                .replace(/\\,/g, ',')
+                .replace(/\\;/g, ';')
+                .replace(/\\n/g, '\n')
+                .trim();
+              descriptionLines = [];
+            }
+            
+            if (currentEvent && currentEvent.summary && currentEvent.start) {
+              const eventDate = new Date(currentEvent.start);
+              const now = new Date();
+              
+              if (eventDate >= now) {
+                events.push(currentEvent);
+              }
+            }
+            currentEvent = null;
+          } else if (inEvent && currentEvent !== null) {
+            if (line.startsWith('SUMMARY:')) {
+              currentEvent.summary = line.substring(8).replace(/\\,/g, ',').replace(/\\;/g, ';');
+            } else if (line.startsWith('DTSTART:')) {
+              const dateStr = line.substring(8);
+              currentEvent.start = parseICalDate(dateStr);
+            } else if (line.startsWith('DTEND:')) {
+              const dateStr = line.substring(6);
+              currentEvent.end = parseICalDate(dateStr);
+            } else if (line.startsWith('LOCATION:')) {
+              currentEvent.location = line.substring(9).replace(/\\,/g, ',').replace(/\\;/g, ';');
+            } else if (line.startsWith('DESCRIPTION:')) {
+              inDescription = true;
+              descriptionLines.push(line.substring(12));
+            } else if (inDescription && line.startsWith(' ')) {
+              descriptionLines.push(line.substring(1));
+            } else if (line.indexOf(':') !== -1) {
+              inDescription = false;
+            }
+          }
+        }
+        
+        events.sort((a, b) => new Date(a.start) - new Date(b.start));
+        
+        return events;
+      }
+      
+      function parseICalDate(dateStr) {
+        if (dateStr.includes('T')) {
+          const year = dateStr.substring(0, 4);
+          const month = dateStr.substring(4, 6) - 1;
+          const day = dateStr.substring(6, 8);
+          const hour = dateStr.substring(9, 11) || 0;
+          const minute = dateStr.substring(11, 13) || 0;
+          const second = dateStr.substring(13, 15) || 0;
+          
+          if (dateStr.endsWith('Z')) {
+            return new Date(Date.UTC(year, month, day, hour, minute, second));
+          }
+          
+          return new Date(year, month, day, hour, minute, second);
+        } else {
+          const year = dateStr.substring(0, 4);
+          const month = dateStr.substring(4, 6) - 1;
+          const day = dateStr.substring(6, 8);
+          
+          return new Date(year, month, day);
+        }
+      }
+      
+      function updateEventsCarousel(events) {
+        const eventsTrack = document.getElementById('events-track');
+        const eventsNav = document.getElementById('events-nav');
+        const eventsContainer = document.getElementById('events-carousel');
+        
+        eventsTrack.innerHTML = '';
+        eventsNav.innerHTML = '';
+        
+        if (events.length === 0) {
+          eventsContainer.classList.add('hidden');
+          return;
+        }
+        
+        // Show the container if there are events
+        eventsContainer.classList.remove('hidden');
+        
+        events.forEach((event, index) => {
+          const slide = document.createElement('li');
+          slide.className = 'carousel-slide';
+          
+          const eventDate = new Date(event.start);
+          const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit'
+          };
+          const formattedDate = eventDate.toLocaleDateString('en-US', options);
+          
+          let description = event.description || '';
+          if (description.length > 150) {
+            description = description.substring(0, 150) + '...';
+          }
+          
+          slide.innerHTML = `
+            <div class="event-card">
+              <div class="event-date">${formattedDate}</div>
+              <h3 class="event-title">${event.summary || 'Dance Event'}</h3>
+              ${event.location ? `<div class="event-location"><i class="fas fa-map-marker-alt"></i> ${event.location}</div>` : ''}
+              ${description ? `<p class="event-description">${description}</p>` : ''}
+              <a href="#registration-form" class="event-button">Register Now</a>
+            </div>
+          `;
+          
+          eventsTrack.appendChild(slide);
+          
+          const indicator = document.createElement('button');
+          indicator.className = 'carousel-indicator';
+          indicator.dataset.index = index;
+          eventsNav.appendChild(indicator);
+        });
+        
+        initCarouselFunctionality();
+      }
+      
+      function initCarouselFunctionality() {
+        const track = document.getElementById('events-track');
+        const nav = document.getElementById('events-nav');
+        const slides = Array.from(track.children);
+        const indicators = Array.from(nav.children);
+        const nextButton = document.querySelector('.carousel-button.next');
+        const prevButton = document.querySelector('.carousel-button.prev');
+        
+        if (slides.length <= 1) {
+          nextButton.style.display = 'none';
+          prevButton.style.display = 'none';
+          nav.style.display = 'none';
+          return;
+        }
+        
+        let currentIndex = 0;
+        
+        function setActiveSlide(index) {
+          indicators.forEach(indicator => {
+            indicator.classList.remove('current-slide');
+          });
+          if (indicators[index]) {
+            indicators[index].classList.add('current-slide');
+          }
+          
+          track.style.transform = `translateX(-${index * 100}%)`;
+          
+          prevButton.style.display = index === 0 ? 'none' : 'flex';
+          nextButton.style.display = index === slides.length - 1 ? 'none' : 'flex';
+        }
+        
+        nextButton.addEventListener('click', () => {
+          if (currentIndex < slides.length - 1) {
+            currentIndex++;
+            setActiveSlide(currentIndex);
+          }
+        });
+        
+        prevButton.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            setActiveSlide(currentIndex);
+          }
+        });
+        
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', () => {
+            currentIndex = index;
+            setActiveSlide(currentIndex);
+          });
+        });
+        
+        let autoAdvance = setInterval(() => {
+          if (currentIndex < slides.length - 1) {
+            currentIndex++;
+            setActiveSlide(currentIndex);
+          } else {
+            currentIndex = 0;
+            setActiveSlide(currentIndex);
+          }
+        }, 5000);
+        
+        const carousel = document.querySelector('.carousel');
+        carousel.addEventListener('mouseenter', () => {
+          clearInterval(autoAdvance);
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+          autoAdvance = setInterval(() => {
+            if (currentIndex < slides.length - 1) {
+              currentIndex++;
+              setActiveSlide(currentIndex);
+            } else {
+              currentIndex = 0;
+              setActiveSlide(currentIndex);
+            }
+          }, 5000);
+        });
+        
+        setActiveSlide(0);
+      }
+      
+      function initEventsCarousel() {
+        fetchCalendarEvents();
+        
+        // Refresh events every hour
+        setInterval(fetchCalendarEvents, 60 * 60 * 1000);
       }
       
       // Participant Registration Functionality
@@ -2733,6 +3258,7 @@
         
         updateCTASection();
         updateScheduleDisplay();
+        initEventsCarousel();
         initForm();
         initRegistrationFlow();
         initWelcomeOverlay();
