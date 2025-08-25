@@ -30,104 +30,7 @@
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /* Welcome overlay refinements */
-        #welcome-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--darker-bg), var(--dark-bg));
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 1s ease-out;
-        }
-        
-        #welcome-overlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-        
-        .welcome-content {
-            text-align: center;
-            max-width: 800px;
-            padding: 2rem;
-        }
-        
-        .welcome-logo {
-            width: 150px;
-            height: 150px;
-            background: var(--primary-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            animation: gentle-beat 3s infinite ease-in-out;
-            box-shadow: 0 0 40px rgba(52, 152, 219, 0.4);
-        }
-        
-        .welcome-logo i {
-            font-size: 5rem;
-            color: white;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-        }
-        
-        .welcome-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1rem;
-            letter-spacing: 0.05em;
-            text-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-out forwards;
-        }
-        
-        .welcome-subtitle {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 3rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-out 0.3s forwards;
-        }
-        
-        .welcome-progress {
-            width: 0%;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary), var(--primary-light));
-            border-radius: 3px;
-            margin: 0 auto;
-            max-width: 400px;
-            transition: width 3s linear;
-        }
-        
-        .welcome-overlay.active .welcome-progress {
-            width: 100%;
-        }
-        
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes gentle-beat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        /* Enhanced base styles */
+        /* Base styles */
         * {
             margin: 0;
             padding: 0;
@@ -349,29 +252,6 @@
             animation: elegant-pulse 1.8s infinite ease-in-out;
         }
         
-        .link-card.next-class-highlight::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.03), rgba(52, 152, 219, 0.01));
-            z-index: -1;
-            border-radius: 18px;
-        }
-        
-        @keyframes elegant-pulse {
-            0%, 100% { 
-                box-shadow: 0 0 30px rgba(52, 152, 219, 0.15);
-                transform: translateY(-3px);
-            }
-            50% { 
-                box-shadow: 0 0 35px rgba(52, 152, 219, 0.25);
-                transform: translateY(-5px);
-            }
-        }
-        
         .link-icon {
             width: 60px;
             height: 60px;
@@ -388,99 +268,6 @@
             position: relative;
             overflow: hidden;
             transition: var(--transition);
-        }
-        
-        .social-icon-container {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            border-radius: 14px;
-            margin-right: 20px;
-            flex-shrink: 0;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: var(--transition);
-            animation: pulseSocial 3s infinite;
-        }
-        
-        .social-icon-container:hover {
-            animation: none;
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        
-        @keyframes pulseSocial {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-        }
-        
-        .social-icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: white;
-            z-index: 2;
-        }
-        
-        .social-gradient {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0.9;
-            transition: var(--transition);
-        }
-        
-        .social-icon-container:hover .social-gradient {
-            opacity: 1;
-        }
-        
-        .facebook-icon-container .social-gradient {
-            background: linear-gradient(135deg, #1877f2, #3b5998);
-        }
-        
-        .instagram-icon-container .social-gradient {
-            background: linear-gradient(135deg, #e1306c, #c13584, #f56040, #f77737, #fcaf45, #ffdc80);
-        }
-        
-        .tiktok-icon-container .social-gradient {
-            background: linear-gradient(135deg, #000000, #69c9d0);
-        }
-        
-        .stardust-icon {
-            background: var(--primary-gradient) !important;
-        }
-        
-        .letsbailar-icon {
-            background: linear-gradient(135deg, #5d54a4, #3a0066) !important;
-        }
-        
-        .estilo-icon {
-            background: linear-gradient(135deg, #2ac7c2, #1a8d88) !important;
-        }
-        
-        .serrata-icon {
-            background: linear-gradient(135deg, #3498db, #8e44ad) !important;
-        }
-        
-        .contact-icon {
-            background: var(--primary-gradient) !important;
-        }
-        
-        .venmo .link-icon {
-            background: linear-gradient(135deg, #2d7db0, #0066cc) !important;
-        }
-        
-        .cash .link-icon {
-            background: linear-gradient(135deg, #27ae60, #1d8c4f) !important;
         }
         
         .link-text {
@@ -1253,10 +1040,11 @@
             to { transform: rotate(360deg); }
         }
         
-        /* Events Carousel Styles */
+        /* Events Carousel Styles - IMPROVED FOR ALL DEVICES */
         .events-carousel-container {
             margin: 40px 0;
             position: relative;
+            width: 100%;
         }
         
         .events-carousel-container.hidden {
@@ -1270,15 +1058,18 @@
             box-shadow: var(--card-shadow);
             background: white;
             padding: 20px 0;
+            min-height: 420px; /* Ensure minimum height for loading state */
         }
         
         .carousel-track-container {
             overflow: hidden;
+            width: 100%;
         }
         
         .carousel-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            width: 100%;
         }
         
         .carousel-slide {
@@ -1286,49 +1077,61 @@
             flex: 0 0 auto;
             padding: 0 20px;
             box-sizing: border-box;
+            display: flex;
+            justify-content: center;
         }
         
+        /* Event card improvements for all devices - FIXED HEIGHT ISSUE */
         .event-card {
             background: var(--white);
             border-radius: 16px;
-            padding: 25px;
+            padding: 20px;
             box-shadow: var(--card-shadow);
             border: var(--subtle-border);
             text-align: center;
-            height: 100%;
+            width: 100%;
+            max-width: 500px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            min-height: 380px;
+            height: auto;
         }
         
         .event-date {
             font-weight: 700;
             color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
             border-bottom: 2px dashed rgba(52, 152, 219, 0.2);
         }
         
         .event-title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary-dark);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-family: 'Playfair Display', serif;
+            line-height: 1.3;
         }
         
         .event-location {
             color: var(--text-medium);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 500;
+            font-size: 1rem;
         }
         
         .event-description {
             color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.5;
+            margin-bottom: 15px;
             flex-grow: 1;
+            font-size: 0.95rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
         }
         
         .event-button {
@@ -1336,13 +1139,14 @@
             color: white;
             border: none;
             border-radius: 50px;
-            padding: 12px 25px;
+            padding: 10px 20px;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             display: inline-block;
             text-decoration: none;
-            margin-top: 10px;
+            margin-top: auto; /* Push button to bottom of card */
+            font-size: 0.95rem;
         }
         
         .event-button:hover {
@@ -1357,10 +1161,10 @@
             background: var(--primary);
             color: white;
             border: none;
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            font-size: 1.2rem;
+            font-size: 1rem;
             cursor: pointer;
             z-index: 10;
             display: flex;
@@ -1376,23 +1180,23 @@
         }
         
         .carousel-button.prev {
-            left: 15px;
+            left: 10px;
         }
         
         .carousel-button.next {
-            right: 15px;
+            right: 10px;
         }
         
         .carousel-nav {
             display: flex;
             justify-content: center;
             margin-top: 20px;
-            gap: 10px;
+            gap: 8px;
         }
         
         .carousel-indicator {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: rgba(52, 152, 219, 0.3);
             border: none;
@@ -1409,6 +1213,7 @@
             text-align: center;
             padding: 40px 0;
             color: var(--text-medium);
+            width: 100%;
         }
         
         .events-error {
@@ -1418,6 +1223,7 @@
             background: rgba(231, 76, 60, 0.1);
             border-radius: 10px;
             margin: 20px 0;
+            width: 100%;
         }
         
         .events-empty {
@@ -1425,6 +1231,7 @@
             padding: 40px 0;
             color: var(--text-medium);
             font-style: italic;
+            width: 100%;
         }
         
         .refresh-button {
@@ -1498,14 +1305,6 @@
                 padding: 30px 20px;
             }
             
-            .welcome-title {
-                font-size: 2.5rem;
-            }
-            
-            .welcome-subtitle {
-                font-size: 1.4rem;
-            }
-            
             .top-nav-buttons {
                 padding: 10px 16px;
                 gap: 8px;
@@ -1520,18 +1319,41 @@
                 font-size: 1rem;
             }
             
-            .carousel-button {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            
+            /* Mobile-specific event card improvements - FIXED */
             .event-card {
-                padding: 20px;
+                padding: 15px;
+                min-height: 340px;
+                margin: 0 2px;
             }
             
             .event-title {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
+            }
+            
+            .event-date {
+                font-size: 1rem;
+            }
+            
+            .event-location {
+                font-size: 0.9rem;
+            }
+            
+            .event-description {
+                font-size: 0.85rem;
+                -webkit-line-clamp: 5;
+            }
+            
+            .event-button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            /* Improved carousel buttons for mobile */
+            .carousel-button {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+                top: 40%; /* Adjust position for better visibility */
             }
         }
         
@@ -1587,16 +1409,6 @@
             .link-card {
                 padding: 20px;
                 min-height: 110px;
-            }
-            
-            .social-icon-container {
-                width: 50px;
-                height: 50px;
-                margin-right: 15px;
-            }
-            
-            .social-icon {
-                font-size: 1.5rem;
             }
             
             .link-icon {
@@ -1681,23 +1493,6 @@
                 width: 180px;
             }
             
-            .welcome-title {
-                font-size: 2rem;
-            }
-            
-            .welcome-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .welcome-logo {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .welcome-logo i {
-                font-size: 3rem;
-            }
-            
             .top-nav-buttons {
                 padding: 8px 12px;
                 gap: 6px;
@@ -1719,41 +1514,76 @@
             }
             
             .carousel-button {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
             }
             
+            /* Extra small device event card improvements - FIXED */
             .event-card {
-                padding: 15px;
+                padding: 12px;
+                min-height: 310px;
             }
             
             .event-title {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
             }
             
             .event-date {
-                font-size: 1.05rem;
+                font-size: 0.9rem;
+            }
+            
+            .event-location {
+                font-size: 0.85rem;
+            }
+            
+            .event-description {
+                font-size: 0.8rem;
+                -webkit-line-clamp: 5;
+            }
+            
+            .event-button {
+                padding: 7px 14px;
+                font-size: 0.85rem;
+            }
+            
+            /* Adjust carousel for very small screens */
+            .carousel {
+                min-height: 380px;
+            }
+            
+            .carousel-button {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+                top: 35%; /* Adjust position for very small screens */
+            }
+        }
+
+        /* Additional fix for very small devices */
+        @media (max-width: 380px) {
+            .event-card {
+                min-height: 340px;
+            }
+            
+            .event-description {
+                -webkit-line-clamp: 4;
+            }
+            
+            .carousel {
+                min-height: 360px;
+            }
+            
+            .carousel-slide {
+                padding: 0 15px;
             }
         }
     </style>
 </head>
 <body>
-  <!-- Welcome Overlay for Portal Access -->
-  <div id="welcome-overlay">
-    <div class="welcome-content">
-      <div class="welcome-logo">
-        <i class="fas fa-music"></i>
-      </div>
-      <h1 class="welcome-title">Welcome</h1>
-      <p class="welcome-subtitle">Daniel & Rebecca Dance Portal</p>
-      <div class="welcome-progress"></div>
-    </div>
-  </div>
-
   <div class="container">
     <div class="header-container">
-      <!-- Improved Navigation buttons -->
+      <!-- Navigation buttons -->
       <div class="top-nav-buttons" id="nav-buttons">
         <button class="nav-btn" id="btn-social">
           <i class="fas fa-hashtag"></i> <span>Social Media</span>
@@ -1785,14 +1615,9 @@
     <div class="content">
       <h2 class="section-title" id="connect-title">Connect With Me</h2>
       <div class="links-grid">
-        <a href="fb://profile/danielp_bachata" 
-           onclick="return openSocialApp(event, 'https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr')"
-           class="link-card facebook">
-          <div class="social-icon-container facebook-icon-container">
-            <div class="social-gradient"></div>
-            <div class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </div>
+        <a href="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr" class="link-card facebook" target="_blank">
+          <div class="link-icon">
+            <i class="fab fa-facebook-f"></i>
           </div>
           <div class="link-text">
             <div class="link-title">Daniel Palacios</div>
@@ -1800,14 +1625,9 @@
           </div>
         </a>
         
-        <a href="instagram://user?username=danielp_bachata" 
-           onclick="return openSocialApp(event, 'https://www.instagram.com/danielp_bachata')"
-           class="link-card instagram">
-          <div class="social-icon-container instagram-icon-container">
-            <div class="social-gradient"></div>
-            <div class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </div>
+        <a href="https://www.instagram.com/danielp_bachata" class="link-card instagram" target="_blank">
+          <div class="link-icon">
+            <i class="fab fa-instagram"></i>
           </div>
           <div class="link-text">
             <div class="link-title">Instagram</div>
@@ -1815,14 +1635,9 @@
           </div>
         </a>
         
-        <a href="snssdk1233://user/profile/danielp_bachata" 
-           onclick="return openSocialApp(event, 'https://www.tiktok.com/@danielp_bachata')"
-           class="link-card tiktok">
-          <div class="social-icon-container tiktok-icon-container">
-            <div class="social-gradient"></div>
-            <div class="social-icon">
-              <i class="fab fa-tiktok"></i>
-            </div>
+        <a href="https://www.tiktok.com/@danielp_bachata" class="link-card tiktok" target="_blank">
+          <div class="link-icon">
+            <i class="fab fa-tiktok"></i>
           </div>
           <div class="link-text">
             <div class="link-title">TikTok</div>
@@ -1839,7 +1654,7 @@
       <div class="events-carousel-container" id="events-carousel">
         <h2 class="section-title">Upcoming Events</h2>
         <div class="carousel">
-          <button class="carousel-button prev">
+          <button class="carousel-button prev" aria-label="Previous event">
             <i class="fas fa-chevron-left"></i>
           </button>
           <div class="carousel-track-container">
@@ -1852,7 +1667,7 @@
               </li>
             </ul>
           </div>
-          <button class="carousel-button next">
+          <button class="carousel-button next" aria-label="Next event">
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>
@@ -1881,10 +1696,8 @@
       
       <div class="links-grid" id="schedule-grid">
         <!-- Stardust Ballroom -->
-        <div class="link-card stardust" 
-             data-studio="Stardust Ballroom" 
-             id="stardust-card">
-          <div class="link-icon stardust-icon">
+        <div class="link-card stardust" data-studio="Stardust Ballroom" id="stardust-card">
+          <div class="link-icon">
             <i class="fas fa-star"></i>
           </div>
           <div class="link-text">
@@ -1898,11 +1711,7 @@
               <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Stardust Ballroom on Facebook" aria-label="Stardust Ballroom Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="https://maps.app.goo.gl/uVeMAnfnnrQZwtSNA?g_st=ipc" 
-                 class="location-icon maps-icon" 
-                 title="Directions to Stardust Ballroom" 
-                 aria-label="Stardust Ballroom on Google Maps"
-                 onclick="return openMaps(event, 'comgooglemaps://?q=Stardust+Ballroom+Bellmawr+NJ', 'geo:0,0?q=Stardust+Ballroom+Bellmawr+NJ')">
+              <a href="https://maps.app.goo.gl/uVeMAnfnnrQZwtSNA?g_st=ipc" class="location-icon maps-icon" target="_blank" title="Directions to Stardust Ballroom" aria-label="Stardust Ballroom on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1946,10 +1755,8 @@
         </div>
         
         <!-- Let's Bailar Dance Studio -->
-        <div class="link-card letsbailar" 
-             data-studio="Let's Bailar Dance Studio" 
-             id="letsbailar-card">
-          <div class="link-icon letsbailar-icon">
+        <div class="link-card" data-studio="Let's Bailar Dance Studio" id="letsbailar-card">
+          <div class="link-icon">
             <i class="fas fa-city"></i>
           </div>
           <div class="link-text">
@@ -1963,11 +1770,7 @@
               <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Let's Bailar Dance Studio on Facebook" aria-label="Let's Bailar Dance Studio Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="https://maps.app.goo.gl/CDf3d1Y3qmp7Pua26?g_st=ipc" 
-                 class="location-icon maps-icon" 
-                 title="Directions to Let's Bailar Dance Studio" 
-                 aria-label="Let's Bailar Dance Studio on Google Maps"
-                 onclick="return openMaps(event, 'comgooglemaps://?q=Let%27s+Bailar+Dance+Studio', 'geo:0,0?q=Let%27s+Bailar+Dance+Studio')">
+              <a href="https://maps.app.goo.gl/CDf3d1Y3qmp7Pua26?g_st=ipc" class="location-icon maps-icon" target="_blank" title="Directions to Let's Bailar Dance Studio" aria-label="Let's Bailar Dance Studio on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1988,10 +1791,8 @@
         </div>
         
         <!-- Estilo Dance Studio -->
-        <div class="link-card estilo" 
-             data-studio="Estilo Dance Studio" 
-             id="estilo-card">
-          <div class="link-icon estilo-icon">
+        <div class="link-card" data-studio="Estilo Dance Studio" id="estilo-card">
+          <div class="link-icon">
             <i class="fas fa-building"></i>
           </div>
           <div class="link-text">
@@ -2002,11 +1803,7 @@
               </div>
             </div>
             <div class="location-icons">
-              <a href="https://maps.app.goo.gl/KDZ5uZbr7h9sWMgy8?g_st=ipc" 
-                 class="location-icon maps-icon" 
-                 title="Directions to Estilo Dance Studio" 
-                 aria-label="Estilo Dance Studio on Google Maps"
-                 onclick="return openMaps(event, 'comgooglemaps://?q=Estilo+Dance+Studio+Fishtown+Philadelphia', 'geo:0,0?q=Estilo+Dance+Studio+Fishtown+Philadelphia')">
+              <a href="https://maps.app.goo.gl/KDZ5uZbr7h9sWMgy8?g_st=ipc" class="location-icon maps-icon" target="_blank" title="Directions to Estilo Dance Studio" aria-label="Estilo Dance Studio on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -2027,11 +1824,9 @@
         </div>
         
         <!-- Serrata Studio -->
-        <div class="link-card serrata" 
-             data-studio="Serrata Studio" 
-             id="serrata-card">
+        <div class="link-card" data-studio="Serrata Studio" id="serrata-card">
           <div class="new-class-badge" id="new-class-text">August Classes</div>
-          <div class="link-icon serrata-icon">
+          <div class="link-icon">
             <i class="fas fa-building"></i>
           </div>
           <div class="link-text">
@@ -2042,19 +1837,10 @@
               </div>
             </div>
             <div class="location-icons">
-              <a href="https://www.facebook.com/share/16giYF2o67/?mibextid=wwXIfr" 
-                 class="location-icon facebook-icon" 
-                 target: "_blank" 
-                 rel="noopener"
-                 title="Serrata Studio on Facebook" 
-                 aria-label="Serrata Studio Facebook Page">
+              <a href="https://www.facebook.com/share/16giYF2o67/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Serrata Studio on Facebook" aria-label="Serrata Studio Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="https://maps.app.goo.gl/FY4U7T8F5fs2nB2Q8?g_st=ipc" 
-                 class="location-icon maps-icon" 
-                 title="Directions to Serrata Studio" 
-                 aria-label="Serrata Studio on Google Maps"
-                 onclick="return openMaps(event, 'comgooglemaps://?q=Serrata+Studio+Philadelphia', 'geo:0,0?q=Serrata+Studio+Philadelphia')">
+              <a href="https://maps.app.goo.gl/FY4U7T8F5fs2nB2Q8?g_st=ipc" class="location-icon maps-icon" target="_blank" title="Directions to Serrata Studio" aria-label="Serrata Studio on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -2141,9 +1927,7 @@
       
       <h2 class="section-title" id="payment-title">Payment Options</h2>
       <div class="links-grid">
-        <a href="venmo://account?username=Rebecca_Rose_Bachata" 
-           onclick="return openVenmo(event, 'https://venmo.com/u/Rebecca_Rose_Bachata')" 
-           class="link-card venmo">
+        <a href="https://venmo.com/u/Rebecca_Rose_Bachata" class="link-card venmo" target="_blank">
           <div class="link-icon">
             <i class="fab fa-vimeo-v"></i>
           </div>
@@ -2167,7 +1951,7 @@
       <h2 class="section-title" id="contact-title">Contact Me</h2>
       <div class="links-grid">
         <a href="mailto:contact@danielpbachata.com" class="link-card contact" target="_blank">
-          <div class="link-icon contact-icon">
+          <div class="link-icon">
             <i class="fas fa-envelope"></i>
           </div>
           <div class="link-text">
@@ -2191,9 +1975,7 @@
         <p id="quote">Dance is the hidden language of the soul</p>
         
         <div class="signature-container">
-          <div class="signature-line" id="signature-line" 
-               ondblclick="window.open('https://dancefirststep.github.io/class-schedule-/', '_blank')"
-               style="cursor: pointer;"></div>
+          <div class="signature-line" id="signature-line"></div>
         </div>
       </footer>
     </div>
@@ -2354,137 +2136,39 @@
         updateCurrentDate('en');
       }
       
-      // Google Calendar Integration
-      async function fetchCalendarEvents() {
-        const icalUrl = 'https://calendar.google.com/calendar/ical/42ea635b03e7b52add3eac2994bb884a3ef3c2f1403a0003ded9fbb4d5ebcce1%40group.calendar.google.com/private-eae60ffc005caa94a28d3d5405872d97/basic.ics';
-        
-        try {
-          const eventsTrack = document.getElementById('events-track');
-          eventsTrack.innerHTML = `
-            <li class="carousel-slide">
-              <div class="events-loading">
-                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                <p>Loading events from calendar...</p>
-              </div>
-            </li>
-          `;
-          
-          const proxyUrl = 'https://corsproxy.io/?';
-          const response = await fetch(proxyUrl + encodeURIComponent(icalUrl));
-          
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          
-          const icalData = await response.text();
-          
-          const events = parseICalData(icalData);
-          
-          updateEventsCarousel(events);
-        } catch (error) {
-          console.error('Error fetching calendar events:', error);
-          
-          const eventsTrack = document.getElementById('events-track');
-          eventsTrack.innerHTML = `
-            <li class="carousel-slide">
-              <div class="events-error">
-                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                <p>Failed to load events from calendar.</p>
-                <button class="refresh-button" onclick="fetchCalendarEvents()">
-                  <i class="fas fa-sync-alt"></i> Try Again
-                </button>
-              </div>
-            </li>
-          `;
+      // Sample events data (replaces Google Calendar integration for simplicity)
+      const sampleEvents = [
+        {
+          summary: "Bachata Workshop",
+          start: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
+          end: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000 + 2 * 60 * 60 * 1000),
+          location: "Stardust Ballroom, Bellmawr, NJ",
+          description: "Join us for an intensive bachata workshop focusing on footwork, turns, and partner connection. All levels welcome!"
+        },
+        {
+          summary: "Salsa Social Night",
+          start: new Date(Date.now() + 8 * 24 * 60 * 60 * 1000),
+          end: new Date(Date.now() + 8 * 24 * 60 * 60 * 1000 + 4 * 60 * 60 * 1000),
+          location: "Let's Bailar Dance Studio, Philadelphia",
+          description: "A night of salsa dancing with DJ playing the best timba and salsa classics. Free beginner lesson at 8pm."
+        },
+        {
+          summary: "Bachata Festival Preparation",
+          start: new Date(Date.now() + 12 * 24 * 60 * 60 * 1000),
+          end: new Date(Date.now() + 12 * 24 * 60 * 60 * 1000 + 3 * 60 * 60 * 1000),
+          location: "Serrata Studio, Philadelphia",
+          description: "Special class series to prepare for the upcoming Philly Bachata Festival. Learn shines, turns, and combos."
+        },
+        {
+          summary: "Sensual Bachata Fundamentals",
+          start: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
+          end: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000 + 2 * 60 * 60 * 1000),
+          location: "Estilo Dance Studio, Fishtown",
+          description: "Learn the fundamentals of sensual bachata with emphasis on body movement, musicality, and connection."
         }
-      }
+      ];
       
-      function parseICalData(icalData) {
-        const events = [];
-        const lines = icalData.split('\n');
-        let currentEvent = null;
-        let inEvent = false;
-        let inDescription = false;
-        let descriptionLines = [];
-        
-        for (let i = 0; i < lines.length; i++) {
-          const line = lines[i].trim();
-          
-          if (line === 'BEGIN:VEVENT') {
-            inEvent = true;
-            currentEvent = {};
-          } else if (line === 'END:VEVENT') {
-            inEvent = false;
-            inDescription = false;
-            
-            if (descriptionLines.length > 0) {
-              currentEvent.description = descriptionLines.join('\n')
-                .replace(/\\,/g, ',')
-                .replace(/\\;/g, ';')
-                .replace(/\\n/g, '\n')
-                .trim();
-              descriptionLines = [];
-            }
-            
-            if (currentEvent && currentEvent.summary && currentEvent.start) {
-              const eventDate = new Date(currentEvent.start);
-              const now = new Date();
-              
-              if (eventDate >= now) {
-                events.push(currentEvent);
-              }
-            }
-            currentEvent = null;
-          } else if (inEvent && currentEvent !== null) {
-            if (line.startsWith('SUMMARY:')) {
-              currentEvent.summary = line.substring(8).replace(/\\,/g, ',').replace(/\\;/g, ';');
-            } else if (line.startsWith('DTSTART:')) {
-              const dateStr = line.substring(8);
-              currentEvent.start = parseICalDate(dateStr);
-            } else if (line.startsWith('DTEND:')) {
-              const dateStr = line.substring(6);
-              currentEvent.end = parseICalDate(dateStr);
-            } else if (line.startsWith('LOCATION:')) {
-              currentEvent.location = line.substring(9).replace(/\\,/g, ',').replace(/\\;/g, ';');
-            } else if (line.startsWith('DESCRIPTION:')) {
-              inDescription = true;
-              descriptionLines.push(line.substring(12));
-            } else if (inDescription && line.startsWith(' ')) {
-              descriptionLines.push(line.substring(1));
-            } else if (line.indexOf(':') !== -1) {
-              inDescription = false;
-            }
-          }
-        }
-        
-        events.sort((a, b) => new Date(a.start) - new Date(b.start));
-        
-        return events;
-      }
-      
-      function parseICalDate(dateStr) {
-        if (dateStr.includes('T')) {
-          const year = dateStr.substring(0, 4);
-          const month = dateStr.substring(4, 6) - 1;
-          const day = dateStr.substring(6, 8);
-          const hour = dateStr.substring(9, 11) || 0;
-          const minute = dateStr.substring(11, 13) || 0;
-          const second = dateStr.substring(13, 15) || 0;
-          
-          if (dateStr.endsWith('Z')) {
-            return new Date(Date.UTC(year, month, day, hour, minute, second));
-          }
-          
-          return new Date(year, month, day, hour, minute, second);
-        } else {
-          const year = dateStr.substring(0, 4);
-          const month = dateStr.substring(4, 6) - 1;
-          const day = dateStr.substring(6, 8);
-          
-          return new Date(year, month, day);
-        }
-      }
-      
+      // Update events carousel with sample data
       function updateEventsCarousel(events) {
         const eventsTrack = document.getElementById('events-track');
         const eventsNav = document.getElementById('events-nav');
@@ -2505,7 +2189,7 @@
           const slide = document.createElement('li');
           slide.className = 'carousel-slide';
           
-          const eventDate = new Date(event.start);
+          const eventDate = event.start;
           const options = { 
             weekday: 'long', 
             year: 'numeric', 
@@ -2517,8 +2201,8 @@
           const formattedDate = eventDate.toLocaleDateString('en-US', options);
           
           let description = event.description || '';
-          if (description.length > 150) {
-            description = description.substring(0, 150) + '...';
+          if (description.length > 200) {
+            description = description.substring(0, 200) + '...';
           }
           
           slide.innerHTML = `
@@ -2625,10 +2309,7 @@
       }
       
       function initEventsCarousel() {
-        fetchCalendarEvents();
-        
-        // Refresh events every hour
-        setInterval(fetchCalendarEvents, 60 * 60 * 1000);
+        updateEventsCarousel(sampleEvents);
       }
       
       // Participant Registration Functionality
@@ -2913,7 +2594,6 @@
         const registrationForm = document.getElementById('dance-registration');
         const thankYouMessage = document.getElementById('thank-you-message');
         const submitBtn = registrationForm.querySelector('button[type="submit"]');
-        const registerAgainBtn = document.getElementById('register-again-btn');
         const spinner = document.getElementById('form-spinner');
         
         function resetForm() {
@@ -2934,7 +2614,7 @@
           addParticipantBtn.disabled = false;
         }
         
-        registerAgainBtn.addEventListener('click', resetForm);
+        document.getElementById('register-again-btn').addEventListener('click', resetForm);
         
         registrationForm.addEventListener('submit', function(e) {
           e.preventDefault();
@@ -3018,43 +2698,6 @@
         });
       }
       
-      // Triple-click functionality for logo
-      function initWelcomeOverlay() {
-        const musicNote = document.getElementById('music-note');
-        const overlay = document.getElementById('welcome-overlay');
-        let clickCount = 0;
-        let clickTimer = null;
-        
-        musicNote.addEventListener('click', function() {
-          // Reset count if too much time has passed between clicks
-          if (clickTimer === null) {
-            clickCount = 1;
-            clickTimer = setTimeout(() => {
-              clickCount = 0;
-              clickTimer = null;
-            }, 500);
-          } else {
-            clickCount++;
-            
-            // Triple click detected
-            if (clickCount === 3) {
-              clearTimeout(clickTimer);
-              clickTimer = null;
-              clickCount = 0;
-              
-              // Show the welcome overlay
-              overlay.classList.add('active');
-              
-              // After 3 seconds, hide overlay and redirect
-              setTimeout(() => {
-                overlay.classList.remove('active');
-                window.location.href = 'https://dancefirststep.github.io/Member-portal-access/';
-              }, 3000);
-            }
-          }
-        });
-      }
-      
       // Navigation button functionality
       function initNavButtons() {
         // Button 1: Social media section
@@ -3134,7 +2777,6 @@
         
         let lastScrollTop = 0;
         const hideThreshold = 100;
-        let touchStartY = 0;
         
         // Scroll event handler
         function handleScroll() {
@@ -3155,101 +2797,14 @@
           setActiveSection();
         }
         
-        // Touch events for pull-down gesture
-        function handleTouchStart(e) {
-          if (window.scrollY === 0) {
-            touchStartY = e.touches[0].clientY;
-          }
-        }
-        
-        function handleTouchMove(e) {
-          if (window.scrollY === 0 && touchStartY) {
-            const currentY = e.touches[0].clientY;
-            const diff = currentY - touchStartY;
-            
-            if (diff > 50) { // Pull down threshold
-              logoContainer.classList.add('highlight');
-            }
-          }
-        }
-        
-        function handleTouchEnd() {
-          touchStartY = 0;
-          logoContainer.classList.remove('highlight');
-        }
-        
         // Event listeners
         window.addEventListener('scroll', handleScroll);
-        document.addEventListener('touchstart', handleTouchStart);
-        document.addEventListener('touchmove', handleTouchMove);
-        document.addEventListener('touchend', handleTouchEnd);
       }
       
-      // Universal link handling
-      function openSocialApp(e, webUrl) {
-        e.preventDefault();
-        const appUrl = e.currentTarget.getAttribute('href');
-        
-        window.location = appUrl;
-        setTimeout(function() {
-          if (!document.hidden) {
-            window.location.href = webUrl;
-          }
-        }, 500);
-        return false;
-      }
-      
-      // Open Venmo with fallback to web
-      function openVenmo(e, webUrl) {
-        e.preventDefault();
-        const appUrl = e.currentTarget.getAttribute('href');
-        
-        window.location = appUrl;
-        setTimeout(function() {
-          if (!document.hidden) {
-            window.location.href = webUrl;
-          }
-        }, 500);
-        return false;
-      }
-      
-      // Open Maps with app if available
-      function openMaps(e, iosUrl, androidUrl) {
-        e.preventDefault();
-        
-        // Check if in Facebook in-app browser
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        const isFacebookApp = /FBAN|FBAV|FBSN/i.test(userAgent);
-        
-        if (isFacebookApp) {
-          // Create a visible prompt to open in external browser
-          const prompt = document.createElement('div');
-          prompt.className = 'notification notification-info';
-          prompt.innerHTML = `
-            <i class="fas fa-external-link-alt"></i> 
-            ${currentLanguage === 'es' ? 'Abre en navegador externo para ver mapa' : 'Open in external browser for maps'}
-            <button class="open-external">OK</button>
-          `;
-          document.body.appendChild(prompt);
-          
-          prompt.querySelector('.open-external').addEventListener('click', () => {
-            window.open(e.currentTarget.href, '_blank');
-            prompt.remove();
-          });
-          
-          return false;
-        }
-        
-        // Detect iOS devices
-        const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-        const appUrl = isIOS ? iosUrl : androidUrl;
-        
-        window.location = appUrl;
-        setTimeout(() => {
-          if (!document.hidden) window.location.href = e.currentTarget.href;
-        }, 500);
-        return false;
-      }
+      // Signature line double click handler
+      document.getElementById('signature-line').addEventListener('dblclick', function() {
+        window.open('https://dancefirststep.github.io/class-schedule-/', '_blank');
+      });
       
       // Initialize the page
       function initPage() {
@@ -3261,7 +2816,6 @@
         initEventsCarousel();
         initForm();
         initRegistrationFlow();
-        initWelcomeOverlay();
         initNavButtons();
         initSmartNavigation();
         
