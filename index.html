@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Daniel Palacios | Professional Dance Instruction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1256,10 +1256,13 @@
             to { transform: rotate(360deg); }
         }
         
-        /* MODERN COMPACT EVENTS CAROUSEL */
+        /* MODERN COMPACT EVENTS CAROUSEL - FIXED FOR FACEBOOK/INSTAGRAM */
         .events-carousel-container {
             margin: 40px 0;
             position: relative;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
         }
         
         .events-carousel-container.hidden {
@@ -1273,25 +1276,32 @@
             background: white;
             padding: 15px 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 100%;
         }
         
         .carousel-track-container {
             overflow: hidden;
+            width: 100%;
+            max-width: 100%;
         }
         
         .carousel-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            width: 100%;
         }
         
         .carousel-slide {
             min-width: 100%;
             flex: 0 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
             box-sizing: border-box;
+            width: 100%;
+            max-width: 100%;
         }
         
-        /* Modern compact event card */
+        /* Modern compact event card - Fixed for Facebook/Instagram */
         .event-card {
             background: var(--white);
             border-radius: 14px;
@@ -1305,6 +1315,9 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         
         .event-card::before {
@@ -1365,7 +1378,7 @@
             font-size: 0.95rem;
             display: -webkit-box;
             -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
+            -webkit-box-oriment: vertical;
             overflow: hidden;
         }
         
@@ -1416,11 +1429,11 @@
         }
         
         .carousel-button.prev {
-            left: 10px;
+            left: 5px;
         }
         
         .carousel-button.next {
-            right: 10px;
+            right: 5px;
         }
         
         .carousel-nav {
@@ -1591,6 +1604,10 @@
             .event-button {
                 padding: 8px 16px;
                 font-size: 0.9rem;
+            }
+            
+            .carousel-slide {
+                padding: 0 10px;
             }
         }
         
@@ -1809,6 +1826,21 @@
                 padding: 7px 14px;
                 font-size: 0.85rem;
             }
+            
+            .carousel-slide {
+                padding: 0 8px;
+            }
+        }
+        
+        /* Facebook/Instagram specific fixes */
+        @media (max-width: 400px) {
+            .carousel-slide {
+                padding: 0 5px;
+            }
+            
+            .event-card {
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -1972,7 +2004,7 @@
               <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Stardust Ballroom on Facebook" aria-label="Stardust Ballroom Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="https://maps.app.goo.gl/uVeMAnfnnrQZwtSNA?g_st=ipc" 
+              <a href="https://www.google.com/maps/search/?api=1&query=Stardust+Ballroom+Bellmawr+NJ" 
                  class="location-icon maps-icon" 
                  title="Directions to Stardust Ballroom" 
                  aria-label="Stardust Ballroom on Google Maps"
@@ -2037,11 +2069,11 @@
               <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Let's Bailar Dance Studio on Facebook" aria-label="Let's Bailar Dance Studio Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="https://maps.app.goo.gl/CDf3d1Y3qmp7Pua26?g_st=ipc" 
+              <a href="https://www.google.com/maps/search/?api=1&query=Let%27s+Bailar+Dance+Studio+Philadelphia" 
                  class="location-icon maps-icon" 
                  title="Directions to Let's Bailar Dance Studio" 
                  aria-label="Let's Bailar Dance Studio on Google Maps"
-                 onclick="return openMaps(event, 'comgooglemaps://?q=Let%27s+Bailar+Dance+Studio', 'geo:0,0?q=Let%27s+Bailar+Dance+Studio')">
+                 onclick="return openMaps(event, 'comgooglemaps://?q=Let%27s+Bailar+Dance+Studio+Philadelphia', 'geo:0,0?q=Let%27s+Bailar+Dance+Studio+Philadelphia')">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -2076,7 +2108,7 @@
               </div>
             </div>
             <div class="location-icons">
-              <a href="https://maps.app.goo.gl/KDZ5uZbr7h9sWMgy8?g_st=ipc" 
+              <a href="https://www.google.com/maps/search/?api=1&query=Estilo+Dance+Studio+Fishtown+Philadelphia" 
                  class="location-icon maps-icon" 
                  title="Directions to Estilo Dance Studio" 
                  aria-label="Estilo Dance Studio on Google Maps"
@@ -2124,7 +2156,7 @@
                  aria-label="Serrata Studio Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="https://maps.app.goo.gl/FY4U7T8F5fs2nB2Q8?g_st=ipc" 
+              <a href="https://www.google.com/maps/search/?api=1&query=Serrata+Studio+Philadelphia" 
                  class="location-icon maps-icon" 
                  title="Directions to Serrata Studio" 
                  aria-label="Serrata Studio on Google Maps"
@@ -2421,271 +2453,255 @@
       });
       
       // Check for saved language preference
-      const savedLanguage = localStorage.getItem('language');
-      if (savedLanguage) {
-        setLanguage(savedLanguage);
-      } else {
-        updateCurrentDate('en');
-      }
-      
-      // Google Calendar Integration
-      async function fetchCalendarEvents() {
-        const icalUrl = 'https://calendar.google.com/calendar/ical/42ea635b03e7b52add3eac2994bb884a3ef3c2f1403a0003ded9fbb4d5ebcce1%40group.calendar.google.com/private-eae60ffc005caa94a28d3d5405872d97/basic.ics';
-        
-        try {
-          const eventsTrack = document.getElementById('events-track');
-          eventsTrack.innerHTML = `
-            <li class="carousel-slide">
-              <div class="events-loading">
-                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                <p>Loading events from calendar...</p>
-              </div>
-            </li>
-          `;
-          
-          const proxyUrl = 'https://corsproxy.io/?';
-          const response = await fetch(proxyUrl + encodeURIComponent(icalUrl));
-          
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          
-          const icalData = await response.text();
-          
-          const events = parseICalData(icalData);
-          
-          updateEventsCarousel(events);
-        } catch (error) {
-          console.error('Error fetching calendar events:', error);
-          
-          const eventsTrack = document.getElementById('events-track');
-          eventsTrack.innerHTML = `
-            <li class="carousel-slide">
-              <div class="events-error">
-                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                <p>Failed to load events from calendar.</p>
-                <button class="refresh-button" onclick="fetchCalendarEvents()">
-                  <i class="fas fa-sync-alt"></i> Try Again
-                </button>
-              </div>
-            </li>
-          `;
+        const savedLanguage = localStorage.getItem('language');
+        if (savedLanguage) {
+          setLanguage(savedLanguage);
+        } else {
+          updateCurrentDate('en');
         }
-      }
-      
-      function parseICalData(icalData) {
-        const events = [];
-        const lines = icalData.split('\n');
-        let currentEvent = null;
-        let inEvent = false;
-        let inDescription = false;
-        let descriptionLines = [];
         
-        for (let i = 0; i < lines.length; i++) {
-          const line = lines[i].trim();
+        // Google Calendar Integration
+        async function fetchCalendarEvents() {
+          const icalUrl = 'https://calendar.google.com/calendar/ical/42ea635b03e7b52add3eac2994bb884a3ef3c2f1403a0003ded9fbb4d5ebcce1%40group.calendar.google.com/private-eae60ffc005caa94a28d3d5405872d97/basic.ics';
           
-          if (line === 'BEGIN:VEVENT') {
-            inEvent = true;
-            currentEvent = {};
-          } else if (line === 'END:VEVENT') {
-            inEvent = false;
-            inDescription = false;
+          try {
+            const eventsTrack = document.getElementById('events-track');
+            eventsTrack.innerHTML = `
+              <li class="carousel-slide">
+                <div class="events-loading">
+                  <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                  <p>Loading events from calendar...</p>
+                </div>
+              </li>
+            `;
             
-            if (descriptionLines.length > 0) {
-              currentEvent.description = descriptionLines.join('\n')
-                .replace(/\\,/g, ',')
-                .replace(/\\;/g, ';')
-                .replace(/\\n/g, '\n')
-                .trim();
-              descriptionLines = [];
+            const proxyUrl = 'https://corsproxy.io/?';
+            const response = await fetch(proxyUrl + encodeURIComponent(icalUrl));
+            
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
             }
             
-            if (currentEvent && currentEvent.summary && currentEvent.start) {
-              const eventDate = new Date(currentEvent.start);
-              const now = new Date();
+            const icalData = await response.text();
+            
+            const events = parseICalData(icalData);
+            
+            updateEventsCarousel(events);
+          } catch (error) {
+            console.error('Error fetching calendar events:', error);
+            
+            const eventsTrack = document.getElementById('events-track');
+            eventsTrack.innerHTML = `
+              <li class="carousel-slide">
+                <div class="events-error">
+                  <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                  <p>Failed to load events from calendar.</p>
+                  <button class="refresh-button" onclick="fetchCalendarEvents()">
+                    <i class="fas fa-sync-alt"></i> Try Again
+                  </button>
+                </div>
+              </li>
+            `;
+          }
+        }
+        
+        function parseICalData(icalData) {
+          const events = [];
+          const lines = icalData.split('\n');
+          let currentEvent = null;
+          let inEvent = false;
+          let inDescription = false;
+          let descriptionLines = [];
+          
+          for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+            
+            if (line === 'BEGIN:VEVENT') {
+              inEvent = true;
+              currentEvent = {};
+            } else if (line === 'END:VEVENT') {
+              inEvent = false;
+              inDescription = false;
               
-              if (eventDate >= now) {
-                events.push(currentEvent);
+              if (descriptionLines.length > 0) {
+                currentEvent.description = descriptionLines.join('\n')
+                  .replace(/\\,/g, ',')
+                  .replace(/\\;/g, ';')
+                  .replace(/\\n/g, '\n')
+                  .trim();
+                descriptionLines = [];
+              }
+              
+              if (currentEvent && currentEvent.summary && currentEvent.start) {
+                const eventDate = new Date(currentEvent.start);
+                const now = new Date();
+                
+                if (eventDate >= now) {
+                  events.push(currentEvent);
+                }
+              }
+              currentEvent = null;
+            } else if (inEvent && currentEvent !== null) {
+              if (line.startsWith('SUMMARY:')) {
+                currentEvent.summary = line.substring(8).replace(/\\,/g, ',').replace(/\\;/g, ';');
+              } else if (line.startsWith('DTSTART:')) {
+                const dateStr = line.substring(8);
+                currentEvent.start = parseICalDate(dateStr);
+              } else if (line.startsWith('DTEND:')) {
+                const dateStr = line.substring(6);
+                currentEvent.end = parseICalDate(dateStr);
+              } else if (line.startsWith('LOCATION:')) {
+                currentEvent.location = line.substring(9).replace(/\\,/g, ',').replace(/\\;/g, ';');
+              } else if (line.startsWith('DESCRIPTION:')) {
+                inDescription = true;
+                descriptionLines.push(line.substring(12));
+              } else if (inDescription && line.startsWith(' ')) {
+                descriptionLines.push(line.substring(1));
+              } else if (line.indexOf(':') !== -1) {
+                inDescription = false;
               }
             }
-            currentEvent = null;
-          } else if (inEvent && currentEvent !== null) {
-            if (line.startsWith('SUMMARY:')) {
-              currentEvent.summary = line.substring(8).replace(/\\,/g, ',').replace(/\\;/g, ';');
-            } else if (line.startsWith('DTSTART:')) {
-              const dateStr = line.substring(8);
-              currentEvent.start = parseICalDate(dateStr);
-            } else if (line.startsWith('DTEND:')) {
-              const dateStr = line.substring(6);
-              currentEvent.end = parseICalDate(dateStr);
-            } else if (line.startsWith('LOCATION:')) {
-              currentEvent.location = line.substring(9).replace(/\\,/g, ',').replace(/\\;/g, ';');
-            } else if (line.startsWith('DESCRIPTION:')) {
-              inDescription = true;
-              descriptionLines.push(line.substring(12));
-            } else if (inDescription && line.startsWith(' ')) {
-              descriptionLines.push(line.substring(1));
-            } else if (line.indexOf(':') !== -1) {
-              inDescription = false;
+          }
+          
+          events.sort((a, b) => new Date(a.start) - new Date(b.start));
+          
+          // Limit to 5 most recent upcoming events
+          return events.slice(0, 5);
+        }
+        
+        function parseICalDate(dateStr) {
+          if (dateStr.includes('T')) {
+            const year = dateStr.substring(0, 4);
+            const month = dateStr.substring(4, 6) - 1;
+            const day = dateStr.substring(6, 8);
+            const hour = dateStr.substring(9, 11) || 0;
+            const minute = dateStr.substring(11, 13) || 0;
+            const second = dateStr.substring(13, 15) || 0;
+            
+            if (dateStr.endsWith('Z')) {
+              return new Date(Date.UTC(year, month, day, hour, minute, second));
             }
-          }
-        }
-        
-        events.sort((a, b) => new Date(a.start) - new Date(b.start));
-        
-        // Limit to 5 most recent upcoming events
-        return events.slice(0, 5);
-      }
-      
-      function parseICalDate(dateStr) {
-        if (dateStr.includes('T')) {
-          const year = dateStr.substring(0, 4);
-          const month = dateStr.substring(4, 6) - 1;
-          const day = dateStr.substring(6, 8);
-          const hour = dateStr.substring(9, 11) || 0;
-          const minute = dateStr.substring(11, 13) || 0;
-          const second = dateStr.substring(13, 15) || 0;
-          
-          if (dateStr.endsWith('Z')) {
-            return new Date(Date.UTC(year, month, day, hour, minute, second));
-          }
-          
-          return new Date(year, month, day, hour, minute, second);
-        } else {
-          const year = dateStr.substring(0, 4);
-          const month = dateStr.substring(4, 6) - 1;
-          const day = dateStr.substring(6, 8);
-          
-          return new Date(year, month, day);
-        }
-      }
-      
-      function updateEventsCarousel(events) {
-        const eventsTrack = document.getElementById('events-track');
-        const eventsNav = document.getElementById('events-nav');
-        const eventsContainer = document.getElementById('events-carousel');
-        
-        eventsTrack.innerHTML = '';
-        eventsNav.innerHTML = '';
-        
-        if (events.length === 0) {
-          eventsContainer.classList.add('hidden');
-          return;
-        }
-        
-        // Show the container if there are events
-        eventsContainer.classList.remove('hidden');
-        
-        events.forEach((event, index) => {
-          const slide = document.createElement('li');
-          slide.className = 'carousel-slide';
-          
-          const eventDate = new Date(event.start);
-          const options = { 
-            weekday: 'short', 
-            year: 'numeric', 
-            month: 'short', 
-            day: 'numeric',
-            hour: 'numeric',
-            minute: '2-digit'
-          };
-          const formattedDate = eventDate.toLocaleDateString('en-US', options);
-          
-          let description = event.description || '';
-          if (description.length > 200) {
-            description = description.substring(0, 200) + '...';
-          }
-          
-          slide.innerHTML = `
-            <div class="event-card">
-              <div class="event-date"><i class="far fa-calendar-alt"></i> ${formattedDate}</div>
-              <h3 class="event-title">${event.summary || 'Dance Event'}</h3>
-              ${event.location ? `<div class="event-location"><i class="fas fa-map-marker-alt"></i> ${event.location}</div>` : ''}
-              ${description ? `<p class="event-description">${description}</p>` : ''}
-              <a href="#registration-form" class="event-button">Register Now</a>
-            </div>
-          `;
-          
-          eventsTrack.appendChild(slide);
-          
-          const indicator = document.createElement('button');
-          indicator.className = 'carousel-indicator';
-          indicator.dataset.index = index;
-          eventsNav.appendChild(indicator);
-        });
-        
-        initCarouselFunctionality();
-      }
-      
-      function initCarouselFunctionality() {
-        const track = document.getElementById('events-track');
-        const nav = document.getElementById('events-nav');
-        const slides = Array.from(track.children);
-        const indicators = Array.from(nav.children);
-        const nextButton = document.querySelector('.carousel-button.next');
-        const prevButton = document.querySelector('.carousel-button.prev');
-        
-        if (slides.length <= 1) {
-          nextButton.style.display = 'none';
-          prevButton.style.display = 'none';
-          nav.style.display = 'none';
-          return;
-        }
-        
-        let currentIndex = 0;
-        
-        function setActiveSlide(index) {
-          indicators.forEach(indicator => {
-            indicator.classList.remove('current-slide');
-          });
-          if (indicators[index]) {
-            indicators[index].classList.add('current-slide');
-          }
-          
-          track.style.transform = `translateX(-${index * 100}%)`;
-          
-          prevButton.style.display = index === 0 ? 'none' : 'flex';
-          nextButton.style.display = index === slides.length - 1 ? 'none' : 'flex';
-        }
-        
-        nextButton.addEventListener('click', () => {
-          if (currentIndex < slides.length - 1) {
-            currentIndex++;
-            setActiveSlide(currentIndex);
-          }
-        });
-        
-        prevButton.addEventListener('click', () => {
-          if (currentIndex > 0) {
-            currentIndex--;
-            setActiveSlide(currentIndex);
-          }
-        });
-        
-        indicators.forEach((indicator, index) => {
-          indicator.addEventListener('click', () => {
-            currentIndex = index;
-            setActiveSlide(currentIndex);
-          });
-        });
-        
-        let autoAdvance = setInterval(() => {
-          if (currentIndex < slides.length - 1) {
-            currentIndex++;
-            setActiveSlide(currentIndex);
+            
+            return new Date(year, month, day, hour, minute, second);
           } else {
-            currentIndex = 0;
-            setActiveSlide(currentIndex);
+            const year = dateStr.substring(0, 4);
+            const month = dateStr.substring(4, 6) - 1;
+            const day = dateStr.substring(6, 8);
+            
+            return new Date(year, month, day);
           }
-        }, 5000);
+        }
         
-        const carousel = document.querySelector('.carousel');
-        carousel.addEventListener('mouseenter', () => {
-          clearInterval(autoAdvance);
-        });
+        function updateEventsCarousel(events) {
+          const eventsTrack = document.getElementById('events-track');
+          const eventsNav = document.getElementById('events-nav');
+          const eventsContainer = document.getElementById('events-carousel');
+          
+          eventsTrack.innerHTML = '';
+          eventsNav.innerHTML = '';
+          
+          if (events.length === 0) {
+            eventsContainer.classList.add('hidden');
+            return;
+          }
+          
+          // Show the container if there are events
+          eventsContainer.classList.remove('hidden');
+          
+          events.forEach((event, index) => {
+            const slide = document.createElement('li');
+            slide.className = 'carousel-slide';
+            
+            const eventDate = new Date(event.start);
+            const options = { 
+              weekday: 'short', 
+              year: 'numeric', 
+              month: 'short', 
+              day: 'numeric',
+              hour: 'numeric',
+              minute: '2-digit'
+            };
+            const formattedDate = eventDate.toLocaleDateString('en-US', options);
+            
+            let description = event.description || '';
+            if (description.length > 200) {
+              description = description.substring(0, 200) + '...';
+            }
+            
+            slide.innerHTML = `
+              <div class="event-card">
+                <div class="event-date"><i class="far fa-calendar-alt"></i> ${formattedDate}</div>
+                <h3 class="event-title">${event.summary || 'Dance Event'}</h3>
+                ${event.location ? `<div class="event-location"><i class="fas fa-map-marker-alt"></i> ${event.location}</div>` : ''}
+                ${description ? `<p class="event-description">${description}</p>` : ''}
+                <a href="#registration-form" class="event-button">Register Now</a>
+              </div>
+            `;
+            
+            eventsTrack.appendChild(slide);
+            
+            const indicator = document.createElement('button');
+            indicator.className = 'carousel-indicator';
+            indicator.dataset.index = index;
+            eventsNav.appendChild(indicator);
+          });
+          
+          initCarouselFunctionality();
+        }
         
-        carousel.addEventListener('mouseleave', () => {
-          autoAdvance = setInterval(() => {
+        function initCarouselFunctionality() {
+          const track = document.getElementById('events-track');
+          const nav = document.getElementById('events-nav');
+          const slides = Array.from(track.children);
+          const indicators = Array.from(nav.children);
+          const nextButton = document.querySelector('.carousel-button.next');
+          const prevButton = document.querySelector('.carousel-button.prev');
+          
+          if (slides.length <= 1) {
+            nextButton.style.display = 'none';
+            prevButton.style.display = 'none';
+            nav.style.display = 'none';
+            return;
+          }
+          
+          let currentIndex = 0;
+          
+          function setActiveSlide(index) {
+            indicators.forEach(indicator => {
+              indicator.classList.remove('current-slide');
+            });
+            if (indicators[index]) {
+              indicators[index].classList.add('current-slide');
+            }
+            
+            track.style.transform = `translateX(-${index * 100}%)`;
+            
+            prevButton.style.display = index === 0 ? 'none' : 'flex';
+            nextButton.style.display = index === slides.length - 1 ? 'none' : 'flex';
+          }
+          
+          nextButton.addEventListener('click', () => {
+            if (currentIndex < slides.length - 1) {
+              currentIndex++;
+              setActiveSlide(currentIndex);
+            }
+          });
+          
+          prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+              currentIndex--;
+              setActiveSlide(currentIndex);
+            }
+          });
+          
+          indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+              currentIndex = index;
+              setActiveSlide(currentIndex);
+            });
+          });
+          
+          let autoAdvance = setInterval(() => {
             if (currentIndex < slides.length - 1) {
               currentIndex++;
               setActiveSlide(currentIndex);
@@ -2694,663 +2710,707 @@
               setActiveSlide(currentIndex);
             }
           }, 5000);
+          
+          const carousel = document.querySelector('.carousel');
+          carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoAdvance);
+          });
+          
+          carousel.addEventListener('mouseleave', () => {
+            autoAdvance = setInterval(() => {
+              if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                setActiveSlide(currentIndex);
+              } else {
+                currentIndex = 0;
+                setActiveSlide(currentIndex);
+              }
+            }, 5000);
+          });
+          
+          setActiveSlide(0);
+        }
+        
+        function initEventsCarousel() {
+          fetchCalendarEvents();
+          
+          // Refresh events every hour
+          setInterval(fetchCalendarEvents, 60 * 60 * 1000);
+        }
+        
+        // Participant Registration Functionality
+        const participantContainer = document.getElementById('participant-container');
+        const addParticipantBtn = document.getElementById('add-participant');
+        const removeParticipantBtn = document.getElementById('remove-participant');
+        
+        let participantCount = 1;
+        const maxParticipants = 4;
+        
+        // Add participant
+        addParticipantBtn.addEventListener('click', function() {
+          if (participantCount < maxParticipants) {
+            participantCount++;
+            
+            // Create new participant field
+            const newParticipant = document.createElement('div');
+            newParticipant.className = 'participant-fields name-field';
+            newParticipant.innerHTML = `
+              <div class="participant-form-group">
+                <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+              </div>
+            `;
+            
+            // Add with fade-in effect
+            participantContainer.appendChild(newParticipant);
+            
+            // Enable remove button
+            removeParticipantBtn.disabled = false;
+            
+            // Disable add button if max reached
+            if (participantCount === maxParticipants) {
+              addParticipantBtn.disabled = true;
+            }
+          }
         });
         
-        setActiveSlide(0);
-      }
-      
-      function initEventsCarousel() {
-        fetchCalendarEvents();
+        // Remove participant
+        removeParticipantBtn.addEventListener('click', function() {
+          if (participantCount > 1) {
+            const lastField = participantContainer.lastChild;
+            participantContainer.removeChild(lastField);
+            participantCount--;
+            
+            // Disable remove button if only one remains
+            if (participantCount === 1) {
+              removeParticipantBtn.disabled = true;
+            }
+            
+            // Re-enable add button
+            addParticipantBtn.disabled = false;
+          }
+        });
         
-        // Refresh events every hour
-        setInterval(fetchCalendarEvents, 60 * 60 * 1000);
-      }
-      
-      // Participant Registration Functionality
-      const participantContainer = document.getElementById('participant-container');
-      const addParticipantBtn = document.getElementById('add-participant');
-      const removeParticipantBtn = document.getElementById('remove-participant');
-      
-      let participantCount = 1;
-      const maxParticipants = 4;
-      
-      // Add participant
-      addParticipantBtn.addEventListener('click', function() {
-        if (participantCount < maxParticipants) {
-          participantCount++;
-          
-          // Create new participant field
-          const newParticipant = document.createElement('div');
-          newParticipant.className = 'participant-fields name-field';
-          newParticipant.innerHTML = `
-            <div class="participant-form-group">
-              <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
-            </div>
-          `;
-          
-          // Add with fade-in effect
-          participantContainer.appendChild(newParticipant);
-          
-          // Enable remove button
-          removeParticipantBtn.disabled = false;
-          
-          // Disable add button if max reached
-          if (participantCount === maxParticipants) {
-            addParticipantBtn.disabled = true;
+        // Class schedule data with start/end times
+        const classSchedule = [
+          { 
+            day: "Monday", 
+            dayIndex: 1,
+            studio: "Stardust Ballroom",
+            classes: [
+              "6:30pm Bachata Intro",
+              "7:00pm Bachata Fundamentals",
+              "8:00pm Bachata Next Level"
+            ],
+            locationId: "stardust-card",
+            startTime: 1830,
+            endTime: 2100
+          },
+          { 
+            day: "Thursday", 
+            dayIndex: 4,
+            studio: "Stardust Ballroom",
+            classes: [
+              "6:30pm Intro to Salsa",
+              "7:00pm Salsa Open Level",
+              "8:00pm Bachata Open Level",
+              "9:15pm Bachata ELITE*"
+            ],
+            locationId: "stardust-card",
+            startTime: 1830,
+            endTime: 2200
+          },
+          { 
+            day: "Friday", 
+            dayIndex: 5,
+            studio: "Let's Bailar Dance Studio",
+            classes: [
+              "7:00pm Salsa",
+              "8:00pm Bachata"
+            ],
+            locationId: "letsbailar-card",
+            startTime: 1900,
+            endTime: 2100
+          },
+          { 
+            day: "Saturday", 
+            dayIndex: 6,
+            studio: "Estilo Dance Studio",
+            classes: [
+              "4:00pm Salsa",
+              "5:00pm Bachata"
+            ],
+            locationId: "estilo-card",
+            startTime: 1600,
+            endTime: 1800
+          },
+          { 
+            day: "Wednesday", 
+            dayIndex: 3,
+            studio: "Serrata Studio",
+            classes: [
+              "7:15pm Salsa",
+              "8:15pm Bachata"
+            ],
+            locationId: "serrata-card",
+            startTime: 1915,
+            endTime: 2115
+          },
+          { 
+            day: "Saturday", 
+            dayIndex: 6,
+            studio: "Serrata Studio",
+            classes: [
+              "10:30am Bachata",
+              "11:30am Salsa"
+            ],
+            locationId: "serrata-card",
+            startTime: 1030,
+            endTime: 1300
           }
-        }
-      });
-      
-      // Remove participant
-      removeParticipantBtn.addEventListener('click', function() {
-        if (participantCount > 1) {
-          const lastField = participantContainer.lastChild;
-          participantContainer.removeChild(lastField);
-          participantCount--;
-          
-          // Disable remove button if only one remains
-          if (participantCount === 1) {
-            removeParticipantBtn.disabled = true;
-          }
-          
-          // Re-enable add button
-          addParticipantBtn.disabled = false;
-        }
-      });
-      
-      // Class schedule data with start/end times
-      const classSchedule = [
-        { 
-          day: "Monday", 
-          dayIndex: 1,
-          studio: "Stardust Ballroom",
-          classes: [
-            "6:30pm Bachata Intro",
-            "7:00pm Bachata Fundamentals",
-            "8:00pm Bachata Next Level"
-          ],
-          locationId: "stardust-card",
-          startTime: 1830,
-          endTime: 2100
-        },
-        { 
-          day: "Thursday", 
-          dayIndex: 4,
-          studio: "Stardust Ballroom",
-          classes: [
-            "6:30pm Intro to Salsa",
-            "7:00pm Salsa Open Level",
-            "8:00pm Bachata Open Level",
-            "9:15pm Bachata ELITE*"
-          ],
-          locationId: "stardust-card",
-          startTime: 1830,
-          endTime: 2200
-        },
-        { 
-          day: "Friday", 
-          dayIndex: 5,
-          studio: "Let's Bailar Dance Studio",
-          classes: [
-            "7:00pm Salsa",
-            "8:00pm Bachata"
-          ],
-          locationId: "letsbailar-card",
-          startTime: 1900,
-          endTime: 2100
-        },
-        { 
-          day: "Saturday", 
-          dayIndex: 6,
-          studio: "Estilo Dance Studio",
-          classes: [
-            "4:00pm Salsa",
-            "5:00pm Bachata"
-          ],
-          locationId: "estilo-card",
-          startTime: 1600,
-          endTime: 1800
-        },
-        { 
-          day: "Wednesday", 
-          dayIndex: 3,
-          studio: "Serrata Studio",
-          classes: [
-            "7:15pm Salsa",
-            "8:15pm Bachata"
-          ],
-          locationId: "serrata-card",
-          startTime: 1915,
-          endTime: 2115
-        },
-        { 
-          day: "Saturday", 
-          dayIndex: 6,
-          studio: "Serrata Studio",
-          classes: [
-            "10:30am Bachata",
-            "11:30am Salsa"
-          ],
-          locationId: "serrata-card",
-          startTime: 1030,
-          endTime: 1300
-        }
-      ];
+        ];
 
-      // Find next class to highlight
-      function getNextClassInfo() {
-        const now = new Date();
-        const currentDayIndex = now.getDay(); 
-        const currentHours = now.getHours();
-        const currentMinutes = now.getMinutes();
-        const currentTime = currentHours * 100 + currentMinutes;
-        
-        // Sort classes by day and then by start time
-        const sortedClasses = [...classSchedule].sort((a, b) => {
-          // If same day, sort by start time
-          if (a.dayIndex === b.dayIndex) {
-            return a.startTime - b.startTime;
-          }
-          return a.dayIndex - b.dayIndex;
-        });
-        
-        // Find today's class if exists and hasn't ended
-        const todayClass = sortedClasses.find(s => 
-          s.dayIndex === currentDayIndex && 
-          currentTime < s.endTime
-        );
-        
-        if (todayClass) {
-          return {
-            day: todayClass.day,
-            studio: todayClass.studio,
-            schedule: todayClass.classes,
-            timePrefix: currentLanguage === 'es' ? "Esta noche" : "Tonight",
-            locationId: todayClass.locationId
-          };
-        }
-        
-        // Find next class in the same week
-        const futureClasses = sortedClasses.filter(s => s.dayIndex > currentDayIndex);
-        
-        if (futureClasses.length > 0) {
-          const nextClass = futureClasses[0];
-          const dayDifference = nextClass.dayIndex - currentDayIndex;
-          let timePrefix = "";
+        // Find next class to highlight
+        function getNextClassInfo() {
+          const now = new Date();
+          const currentDayIndex = now.getDay(); 
+          const currentHours = now.getHours();
+          const currentMinutes = now.getMinutes();
+          const currentTime = currentHours * 100 + currentMinutes;
           
-          if (dayDifference === 1) {
-            timePrefix = currentLanguage === 'es' ? "Mañana" : "Tomorrow";
-          } else if (dayDifference === 2) {
-            timePrefix = currentLanguage === 'es' ? "Este " : "This " + nextClass.day;
-          } else {
-            timePrefix = currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day;
+          // Sort classes by day and then by start time
+          const sortedClasses = [...classSchedule].sort((a, b) => {
+            // If same day, sort by start time
+            if (a.dayIndex === b.dayIndex) {
+              return a.startTime - b.startTime;
+            }
+            return a.dayIndex - b.dayIndex;
+          });
+          
+          // Find today's class if exists and hasn't ended
+          const todayClass = sortedClasses.find(s => 
+            s.dayIndex === currentDayIndex && 
+            currentTime < s.endTime
+          );
+          
+          if (todayClass) {
+            return {
+              day: todayClass.day,
+              studio: todayClass.studio,
+              schedule: todayClass.classes,
+              timePrefix: currentLanguage === 'es' ? "Esta noche" : "Tonight",
+              locationId: todayClass.locationId
+            };
           }
           
+          // Find next class in the same week
+          const futureClasses = sortedClasses.filter(s => s.dayIndex > currentDayIndex);
+          
+          if (futureClasses.length > 0) {
+            const nextClass = futureClasses[0];
+            const dayDifference = nextClass.dayIndex - currentDayIndex;
+            let timePrefix = "";
+            
+            if (dayDifference === 1) {
+              timePrefix = currentLanguage === 'es' ? "Mañana" : "Tomorrow";
+            } else if (dayDifference === 2) {
+              timePrefix = currentLanguage === 'es' ? "Este " : "This " + nextClass.day;
+            } else {
+              timePrefix = currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day;
+            }
+            
+            return {
+              day: nextClass.day,
+              studio: nextClass.studio,
+              schedule: nextClass.classes,
+              timePrefix: timePrefix,
+              locationId: nextClass.locationId
+            };
+          }
+          
+          // If no future classes in same week, take first class of next week
+          const nextClass = sortedClasses[0];
           return {
             day: nextClass.day,
             studio: nextClass.studio,
             schedule: nextClass.classes,
-            timePrefix: timePrefix,
+            timePrefix: currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day,
             locationId: nextClass.locationId
           };
         }
-        
-        // If no future classes in same week, take first class of next week
-        const nextClass = sortedClasses[0];
-        return {
-          day: nextClass.day,
-          studio: nextClass.studio,
-          schedule: nextClass.classes,
-          timePrefix: currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day,
-          locationId: nextClass.locationId
-        };
-      }
 
-      // Update the call-to-action section
-      function updateCTASection() {
-        const nextClass = getNextClassInfo();
-        
-        const ctaTitle = document.getElementById('cta-title');
-        ctaTitle.innerHTML = `<span class="pulse">${nextClass.timePrefix}</span>: ${nextClass.studio}`;
-        
-        document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
-        
-        document.querySelectorAll('.link-card').forEach(card => {
-          card.classList.remove('next-class-highlight');
-        });
-        
-        const locationCard = document.getElementById(nextClass.locationId);
-        if (locationCard) {
-          locationCard.classList.add('next-class-highlight');
-        }
-      }
-      
-      // Update schedule display order
-      function updateScheduleDisplay() {
-        const now = new Date();
-        const currentDayIndex = now.getDay();
-        const currentHours = now.getHours();
-        const currentMinutes = now.getMinutes();
-        const currentTime = currentHours * 100 + currentMinutes;
-        
-        // Create a map of studios with their next class
-        const studioMap = {};
-        classSchedule.forEach(schedule => {
-          const locationId = schedule.locationId;
+        // Update the call-to-action section
+        function updateCTASection() {
+          const nextClass = getNextClassInfo();
           
-          // Calculate days until class
-          let daysUntil = schedule.dayIndex - currentDayIndex;
-          if (daysUntil < 0) daysUntil += 7;
+          const ctaTitle = document.getElementById('cta-title');
+          ctaTitle.innerHTML = `<span class="pulse">${nextClass.timePrefix}</span>: ${nextClass.studio}`;
           
-          // Check if today's class has passed
-          if (daysUntil === 0 && currentTime >= schedule.endTime) {
-            daysUntil = 7; // Schedule for next week
+          document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
+          
+          document.querySelectorAll('.link-card').forEach(card => {
+            card.classList.remove('next-class-highlight');
+          });
+          
+          const locationCard = document.getElementById(nextClass.locationId);
+          if (locationCard) {
+            locationCard.classList.add('next-class-highlight');
           }
-          
-          // If we haven't seen this studio or this class is sooner
-          if (!studioMap[locationId] || daysUntil < studioMap[locationId].daysUntil) {
-            studioMap[locationId] = {
-              daysUntil: daysUntil,
-              schedule: schedule
-            };
-          }
-        });
-        
-        // Convert to array and sort by days until next class
-        const sortedStudios = Object.values(studioMap).sort((a, b) => {
-          return a.daysUntil - b.daysUntil;
-        });
-        
-        // Reorder the cards in the schedule grid
-        const scheduleGrid = document.getElementById('schedule-grid');
-        const cards = Array.from(scheduleGrid.children);
-        
-        // Create a new array with the cards in the correct order
-        const orderedCards = sortedStudios.map(studio => {
-          return cards.find(card => card.id === studio.schedule.locationId);
-        });
-        
-        // Remove all existing cards
-        while (scheduleGrid.firstChild) {
-          scheduleGrid.removeChild(scheduleGrid.firstChild);
         }
         
-        // Add cards in new order
-        orderedCards.forEach(card => {
-          if (card) {
-            scheduleGrid.appendChild(card);
-          }
-        });
-      }
-
-      // Handle form submission
-      function initForm() {
-        const registrationForm = document.getElementById('dance-registration');
-        const thankYouMessage = document.getElementById('thank-you-message');
-        const submitBtn = registrationForm.querySelector('button[type="submit"]');
-        const spinner = document.getElementById('form-spinner');
-        
-        function resetForm() {
-          registrationForm.reset();
-          thankYouMessage.style.display = 'none';
-          registrationForm.style.display = 'block';
+        // Update schedule display order
+        function updateScheduleDisplay() {
+          const now = new Date();
+          const currentDayIndex = now.getDay();
+          const currentHours = now.getHours();
+          const currentMinutes = now.getMinutes();
+          const currentTime = currentHours * 100 + currentMinutes;
           
-          // Reset participants to one
-          participantContainer.innerHTML = `
-            <div class="participant-fields name-field">
-              <div class="participant-form-group">
-                <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+          // Create a map of studios with their next class
+          const studioMap = {};
+          classSchedule.forEach(schedule => {
+            const locationId = schedule.locationId;
+            
+            // Calculate days until class
+            let daysUntil = schedule.dayIndex - currentDayIndex;
+            if (daysUntil < 0) daysUntil += 7;
+            
+            // Check if today's class has passed
+            if (daysUntil === 0 && currentTime >= schedule.endTime) {
+              daysUntil = 7; // Schedule for next week
+            }
+            
+            // If we haven't seen this studio or this class is sooner
+            if (!studioMap[locationId] || daysUntil < studioMap[locationId].daysUntil) {
+              studioMap[locationId] = {
+                daysUntil: daysUntil,
+                schedule: schedule
+              };
+            }
+          });
+          
+          // Convert to array and sort by days until next class
+          const sortedStudios = Object.values(studioMap).sort((a, b) => {
+            return a.daysUntil - b.daysUntil;
+          });
+          
+          // Reorder the cards in the schedule grid
+          const scheduleGrid = document.getElementById('schedule-grid');
+          const cards = Array.from(scheduleGrid.children);
+          
+          // Create a new array with the cards in the correct order
+          const orderedCards = sortedStudios.map(studio => {
+            return cards.find(card => card.id === studio.schedule.locationId);
+          });
+          
+          // Remove all existing cards
+          while (scheduleGrid.firstChild) {
+            scheduleGrid.removeChild(scheduleGrid.firstChild);
+          }
+          
+          // Add cards in new order
+          orderedCards.forEach(card => {
+            if (card) {
+              scheduleGrid.appendChild(card);
+            }
+          });
+        }
+
+        // Handle form submission
+        function initForm() {
+          const registrationForm = document.getElementById('dance-registration');
+          const thankYouMessage = document.getElementById('thank-you-message');
+          const submitBtn = registrationForm.querySelector('button[type="submit"]');
+          const spinner = document.getElementById('form-spinner');
+          
+          function resetForm() {
+            registrationForm.reset();
+            thankYouMessage.style.display = 'none';
+            registrationForm.style.display = 'block';
+            
+            // Reset participants to one
+            participantContainer.innerHTML = `
+              <div class="participant-fields name-field">
+                <div class="participant-form-group">
+                  <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+                </div>
               </div>
-            </div>
-          `;
-          participantCount = 1;
-          removeParticipantBtn.disabled = true;
-          addParticipantBtn.disabled = false;
+            `;
+            participantCount = 1;
+            removeParticipantBtn.disabled = true;
+            addParticipantBtn.disabled = false;
+          }
+          
+          document.getElementById('register-again-btn').addEventListener('click', resetForm);
+          
+          registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect participant names
+            const participantNames = [];
+            const nameInputs = participantContainer.querySelectorAll('.form-input');
+            nameInputs.forEach(input => {
+              if (input.value.trim()) {
+                participantNames.push(input.value.trim());
+              }
+            });
+            
+            const email = document.getElementById('email').value;
+            const location = document.getElementById('location').value;
+            
+            if (participantNames.length === 0) {
+              showNotification(currentLanguage === 'es' ? "Por favor ingresa al menos un nombre" : "Please enter at least one name", "info");
+              return;
+            }
+            
+            if (!email.trim()) {
+              showNotification(currentLanguage === 'es' ? "Por favor ingresa tu correo electrónico" : "Please enter your email address", "info");
+              return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+              showNotification(currentLanguage === 'es' ? "Por favor ingresa un correo electrónico válido" : "Please enter a valid email address", "info");
+              return;
+            }
+            
+            if (!location) {
+              showNotification(currentLanguage === 'es' ? "Por favor selecciona una ubicación" : "Please select a class location", "info");
+              return;
+            }
+            
+            // Show loading spinner
+            submitBtn.disabled = true;
+            spinner.style.display = 'inline-block';
+            
+          setTimeout(function() {
+              // Hide spinner and show success
+              spinner.style.display = 'none';
+              submitBtn.disabled = false;
+              
+              registrationForm.style.display = 'none';
+              thankYouMessage.style.display = 'block';
+              thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              
+              showNotification(
+                currentLanguage === 'es' ? 
+                  "¡Registro exitoso! Tu lugar está siendo reservado" : 
+                  "Registration successful! Your spot is being saved", 
+                "success"
+              );
+            }, 1500);
+          });
         }
         
-        document.getElementById('register-again-btn').addEventListener('click', resetForm);
+        // Show notification
+        function showNotification(message, type) {
+          const notification = document.createElement('div');
+          notification.className = `notification notification-${type}`;
+          notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
+          document.body.appendChild(notification);
+          setTimeout(() => { notification.remove(); }, 3000);
+        }
         
-        registrationForm.addEventListener('submit', function(e) {
-          e.preventDefault();
+        // Enhanced registration flow
+        function initRegistrationFlow() {
+          const registerCta = document.getElementById('register-cta');
+          const registrationForm = document.getElementById('registration-form');
           
-          // Collect participant names
-          const participantNames = [];
-          const nameInputs = participantContainer.querySelectorAll('.form-input');
-          nameInputs.forEach(input => {
-            if (input.value.trim()) {
-              participantNames.push(input.value.trim());
+          registerCta.addEventListener('click', function() {
+            // Scroll to the registration form
+            registrationForm.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          });
+        }
+        
+        // Triple-click functionality for logo
+        function initWelcomeOverlay() {
+          const musicNote = document.getElementById('music-note');
+          const overlay = document.getElementById('welcome-overlay');
+          let clickCount = 0;
+          let clickTimer = null;
+          
+          musicNote.addEventListener('click', function() {
+            // Reset count if too much time has passed between clicks
+            if (clickTimer === null) {
+              clickCount = 1;
+              clickTimer = setTimeout(() => {
+                clickCount = 0;
+                clickTimer = null;
+              }, 500);
+            } else {
+              clickCount++;
+              
+              // Triple click detected
+              if (clickCount === 3) {
+                clearTimeout(clickTimer);
+                clickTimer = null;
+                clickCount = 0;
+                
+                // Show the welcome overlay
+                overlay.classList.add('active');
+                
+                // After 3 seconds, hide overlay and redirect
+                setTimeout(() => {
+                  overlay.classList.remove('active');
+                  window.location.href = 'https://dancefirststep.github.io/Member-portal-access/';
+                }, 3000);
+              }
             }
           });
-          
-          const email = document.getElementById('email').value;
-          const location = document.getElementById('location').value;
-          
-          if (participantNames.length === 0) {
-            showNotification(currentLanguage === 'es' ? "Por favor ingresa al menos un nombre" : "Please enter at least one name", "info");
-            return;
-          }
-          
-          if (!email.trim()) {
-            showNotification(currentLanguage === 'es' ? "Por favor ingresa tu correo electrónico" : "Please enter your email address", "info");
-            return;
-          }
-          
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(email)) {
-            showNotification(currentLanguage === 'es' ? "Por favor ingresa un correo electrónico válido" : "Please enter a valid email address", "info");
-            return;
-          }
-          
-          if (!location) {
-            showNotification(currentLanguage === 'es' ? "Por favor selecciona una ubicación" : "Please select a class location", "info");
-            return;
-          }
-          
-          // Show loading spinner
-          submitBtn.disabled = true;
-          spinner.style.display = 'inline-block';
-          
-        setTimeout(function() {
-            // Hide spinner and show success
-            spinner.style.display = 'none';
-            submitBtn.disabled = false;
-            
-            registrationForm.style.display = 'none';
-            thankYouMessage.style.display = 'block';
-            thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            showNotification(
-              currentLanguage === 'es' ? 
-                "¡Registro exitoso! Tu lugar está siendo reservado" : 
-                "Registration successful! Your spot is being saved", 
-              "success"
-            );
-          }, 1500);
-        });
-      }
-      
-      // Show notification
-      function showNotification(message, type) {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
-        document.body.appendChild(notification);
-        setTimeout(() => { notification.remove(); }, 3000);
-      }
-      
-      // Enhanced registration flow
-      function initRegistrationFlow() {
-        const registerCta = document.getElementById('register-cta');
-        const registrationForm = document.getElementById('registration-form');
+        }
         
-        registerCta.addEventListener('click', function() {
-          // Scroll to the registration form
-          registrationForm.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        });
-      }
-      
-      // Triple-click functionality for logo
-      function initWelcomeOverlay() {
-        const musicNote = document.getElementById('music-note');
-        const overlay = document.getElementById('welcome-overlay');
-        let clickCount = 0;
-        let clickTimer = null;
-        
-        musicNote.addEventListener('click', function() {
-          // Reset count if too much time has passed between clicks
-          if (clickTimer === null) {
-            clickCount = 1;
-            clickTimer = setTimeout(() => {
-              clickCount = 0;
-              clickTimer = null;
-            }, 500);
-          } else {
-            clickCount++;
-            
-            // Triple click detected
-            if (clickCount === 3) {
-              clearTimeout(clickTimer);
-              clickTimer = null;
-              clickCount = 0;
-              
-              // Show the welcome overlay
-              overlay.classList.add('active');
-              
-              // After 3 seconds, hide overlay and redirect
-              setTimeout(() => {
-                overlay.classList.remove('active');
-                window.location.href = 'https://dancefirststep.github.io/Member-portal-access/';
-              }, 3000);
-            }
-          }
-        });
-      }
-      
-      // Navigation button functionality
-      function initNavButtons() {
-        // Button 1: Social media section
-        document.getElementById('btn-social').addEventListener('click', (e) => {
-          e.preventDefault();
-          document.getElementById('connect-title').scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start'
-          });
-        });
-        
-        // Button 2: Next class section
-        document.getElementById('btn-next-class').addEventListener('click', (e) => {
-          e.preventDefault();
-          document.getElementById('class-cta').scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start'
-          });
-        });
-        
-        // Button 3: Schedule section
-        document.getElementById('btn-schedule').addEventListener('click', (e) => {
-          e.preventDefault();
-          document.getElementById('schedule-title').scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start'
-          });
-        });
-        
-        // Button 4: First location card
-        document.getElementById('btn-location').addEventListener('click', (e) => {
-          e.preventDefault();
-          const firstCard = document.querySelector('#schedule-grid > .link-card:first-child');
-          if (firstCard) {
-            firstCard.scrollIntoView({ 
+        // Navigation button functionality
+        function initNavButtons() {
+          // Button 1: Social media section
+          document.getElementById('btn-social').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('connect-title').scrollIntoView({ 
               behavior: 'smooth', 
               block: 'start'
             });
-          }
-        });
-      }
-      
-      // Set active section based on scroll position
-      function setActiveSection() {
-        const sections = [
-          {id: 'connect-title', btn: 'btn-social'},
-          {id: 'class-cta', btn: 'btn-next-class'},
-          {id: 'schedule-title', btn: 'btn-schedule'},
-          {id: 'schedule-grid', btn: 'btn-location'}
-        ];
-        
-        // Reset active states
-        document.querySelectorAll('.nav-btn').forEach(btn => {
-          btn.classList.remove('active-section');
-        });
-        
-        // Find current active section
-        const currentSection = sections.find(section => {
-          const el = document.getElementById(section.id);
-          if (el) {
-            const rect = el.getBoundingClientRect();
-            return rect.top <= 200 && rect.bottom >= 100;
-          }
-          return false;
-        });
-        
-        // Set active state
-        if (currentSection) {
-          document.getElementById(currentSection.btn).classList.add('active-section');
-        }
-      }
-      
-      // Smart navigation buttons visibility
-      function initSmartNavigation() {
-        const navButtons = document.getElementById('nav-buttons');
-        const logoContainer = document.getElementById('music-note');
-        
-        let lastScrollTop = 0;
-        const hideThreshold = 100;
-        let touchStartY = 0;
-        
-        // Scroll event handler
-        function handleScroll() {
-          const currentScrollY = window.scrollY;
+          });
           
-          // Auto-hide/show nav based on scroll direction
-          if (currentScrollY > hideThreshold) {
-            if (currentScrollY > lastScrollTop) {
-              navButtons.classList.add('hidden');
+         // Button 2: Next class section
+          document.getElementById('btn-next-class').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('class-cta').scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start'
+            });
+          });
+          
+          // Button 3: Schedule section
+          document.getElementById('btn-schedule').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('schedule-title').scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start'
+            });
+          });
+          
+          // Button 4: First location card
+          document.getElementById('btn-location').addEventListener('click', (e) => {
+            e.preventDefault();
+            const firstCard = document.querySelector('#schedule-grid > .link-card:first-child');
+            if (firstCard) {
+              firstCard.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start'
+              });
+            }
+          });
+        }
+        
+        // Set active section based on scroll position
+        function setActiveSection() {
+          const sections = [
+            {id: 'connect-title', btn: 'btn-social'},
+            {id: 'class-cta', btn: 'btn-next-class'},
+            {id: 'schedule-title', btn: 'btn-schedule'},
+            {id: 'schedule-grid', btn: 'btn-location'}
+          ];
+          
+          // Reset active states
+          document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.remove('active-section');
+          });
+          
+          // Find current active section
+          const currentSection = sections.find(section => {
+            const el = document.getElementById(section.id);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              return rect.top <= 200 && rect.bottom >= 100;
+            }
+            return false;
+          });
+          
+          // Set active state
+          if (currentSection) {
+            document.getElementById(currentSection.btn).classList.add('active-section');
+          }
+        }
+        
+        // Smart navigation buttons visibility
+        function initSmartNavigation() {
+          const navButtons = document.getElementById('nav-buttons');
+          const logoContainer = document.getElementById('music-note');
+          
+          let lastScrollTop = 0;
+          const hideThreshold = 100;
+          let touchStartY = 0;
+          
+          // Scroll event handler
+          function handleScroll() {
+            const currentScrollY = window.scrollY;
+            
+            // Auto-hide/show nav based on scroll direction
+            if (currentScrollY > hideThreshold) {
+              if (currentScrollY > lastScrollTop) {
+                navButtons.classList.add('hidden');
+              } else {
+                navButtons.classList.remove('hidden');
+              }
             } else {
               navButtons.classList.remove('hidden');
             }
-          } else {
-            navButtons.classList.remove('hidden');
+            
+            lastScrollTop = currentScrollY;
+            setActiveSection();
           }
           
-          lastScrollTop = currentScrollY;
-          setActiveSection();
-        }
-        
-        // Touch events for pull-down gesture
-        function handleTouchStart(e) {
-          if (window.scrollY === 0) {
-            touchStartY = e.touches[0].clientY;
-          }
-        }
-        
-        function handleTouchMove(e) {
-          if (window.scrollY === 0 && touchStartY) {
-            const currentY = e.touches[0].clientY;
-            const diff = currentY - touchStartY;
-            
-            if (diff > 50) { // Pull down threshold
-              logoContainer.classList.add('highlight');
+          // Touch events for pull-down gesture
+          function handleTouchStart(e) {
+            if (window.scrollY === 0) {
+              touchStartY = e.touches[0].clientY;
             }
           }
-        }
-        
-        function handleTouchEnd() {
-          touchStartY = 0;
-          logoContainer.classList.remove('highlight');
-        }
-        
-        // Event listeners
-        window.addEventListener('scroll', handleScroll);
-        document.addEventListener('touchstart', handleTouchStart);
-        document.addEventListener('touchmove', handleTouchMove);
-        document.addEventListener('touchend', handleTouchEnd);
-      }
-      
-      // Universal link handling
-      function openSocialApp(e, webUrl) {
-        e.preventDefault();
-        const appUrl = e.currentTarget.getAttribute('href');
-        
-        window.location = appUrl;
-        setTimeout(function() {
-          if (!document.hidden) {
-            window.location.href = webUrl;
-          }
-        }, 500);
-        return false;
-      }
-      
-      // Open Venmo with fallback to web
-      function openVenmo(e, webUrl) {
-        e.preventDefault();
-        const appUrl = e.currentTarget.getAttribute('href');
-        
-        window.location = appUrl;
-        setTimeout(function() {
-          if (!document.hidden) {
-            window.location.href = webUrl;
-          }
-        }, 500);
-        return false;
-      }
-      
-      // Open Maps with app if available
-      function openMaps(e, iosUrl, androidUrl) {
-        e.preventDefault();
-        
-        // Check if in Facebook in-app browser
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        const isFacebookApp = /FBAN|FBAV|FBSN/i.test(userAgent);
-        
-        if (isFacebookApp) {
-          // Create a visible prompt to open in external browser
-          const prompt = document.createElement('div');
-          prompt.className = 'notification notification-info';
-          prompt.innerHTML = `
-            <i class="fas fa-external-link-alt"></i> 
-            ${currentLanguage === 'es' ? 'Abre en navegador externo para ver mapa' : 'Open in external browser for maps'}
-            <button class="open-external">OK</button>
-          `;
-          document.body.appendChild(prompt);
           
-          prompt.querySelector('.open-external').addEventListener('click', () => {
-            window.open(e.currentTarget.href, '_blank');
-            prompt.remove();
-          });
+          function handleTouchMove(e) {
+            if (window.scrollY === 0 && touchStartY) {
+              const currentY = e.touches[0].clientY;
+              const diff = currentY - touchStartY;
+              
+              if (diff > 50) { // Pull down threshold
+                logoContainer.classList.add('highlight');
+              }
+            }
+          }
+          
+          function handleTouchEnd() {
+            touchStartY = 0;
+            logoContainer.classList.remove('highlight');
+          }
+          
+          // Event listeners
+          window.addEventListener('scroll', handleScroll);
+          document.addEventListener('touchstart', handleTouchStart);
+          document.addEventListener('touchmove', handleTouchMove);
+          document.addEventListener('touchend', handleTouchEnd);
+        }
+        
+        // Universal link handling
+        function openSocialApp(e, webUrl) {
+          e.preventDefault();
+          const appUrl = e.currentTarget.getAttribute('href');
+          
+          window.location = appUrl;
+          setTimeout(function() {
+            if (!document.hidden) {
+              window.location.href = webUrl;
+            }
+          }, 500);
+          return false;
+        }
+        
+        // Open Venmo with fallback to web
+        function openVenmo(e, webUrl) {
+          e.preventDefault();
+          const appUrl = e.currentTarget.getAttribute('href');
+          
+          window.location = appUrl;
+          setTimeout(function() {
+            if (!document.hidden) {
+              window.location.href = webUrl;
+            }
+          }, 500);
+          return false;
+        }
+        
+        // Improved Google Maps navigation function
+        function openMaps(e, iosUrl, androidUrl) {
+          e.preventDefault();
+          const mapsUrl = e.currentTarget.href;
+          
+          // Check if in Facebook in-app browser
+          const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+          const isFacebookApp = /FBAN|FBAV|FBSN/i.test(userAgent);
+          
+          if (isFacebookApp) {
+            // Create a visible prompt to open in external browser
+            const prompt = document.createElement('div');
+            prompt.className = 'notification notification-info';
+            prompt.innerHTML = `
+              <i class="fas fa-external-link-alt"></i> 
+              ${currentLanguage === 'es' ? 'Abre en navegador externo para ver mapa' : 'Open in external browser for maps'}
+              <button class="open-external">OK</button>
+            `;
+            document.body.appendChild(prompt);
+            
+            prompt.querySelector('.open-external').addEventListener('click', () => {
+              window.open(mapsUrl, '_blank');
+              prompt.remove();
+            });
+            
+            return false;
+          }
+          
+          // Detect iOS devices
+          const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+          
+          // Try to open the native app
+          if (isIOS) {
+            window.location = iosUrl;
+          } else {
+            // For Android, use the standard Google Maps URL format
+            window.location = androidUrl;
+          }
+          
+          // Fallback to web after a short delay
+          setTimeout(() => {
+            if (!document.hidden) {
+              window.location.href = mapsUrl;
+            }
+          }, 500);
           
           return false;
         }
         
-        // Detect iOS devices
-        const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-        const appUrl = isIOS ? iosUrl : androidUrl;
+        // Initialize maps links after page load
+        function initMapsLinks() {
+          document.querySelectorAll('a.maps-icon').forEach(link => {
+            link.addEventListener('click', function(e) {
+              const studioName = this.title.replace('Directions to ', '');
+              const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+              
+              if (isIOS) {
+                openMaps(e, `maps://?q=${encodeURIComponent(studioName)}`, `geo:0,0?q=${encodeURIComponent(studioName)}`);
+              } else {
+                openMaps(e, `comgooglemaps://?q=${encodeURIComponent(studioName)}`, `geo:0,0?q=${encodeURIComponent(studioName)}`);
+              }
+            });
+          });
+        }
         
-        window.location = appUrl;
-        setTimeout(() => {
-          if (!document.hidden) window.location.href = e.currentTarget.href;
-        }, 500);
-        return false;
-      }
-      
-      // Initialize the page
-      function initPage() {
-        // Force page to start at top
-        window.scrollTo(0, 0);
-        
-        updateCTASection();
-        updateScheduleDisplay();
-        initEventsCarousel();
-        initForm();
-        initRegistrationFlow();
-        initWelcomeOverlay();
-        initNavButtons();
-        initSmartNavigation();
-        
-        // Set scroll event listener for active section
-        window.addEventListener('scroll', setActiveSection);
-        
-        // Update every minute
-        setInterval(() => {
+        // Initialize the page
+        function initPage() {
+          // Force page to start at top
+          window.scrollTo(0, 0);
+          
           updateCTASection();
           updateScheduleDisplay();
-        }, 60000);
-      }
+          initEventsCarousel();
+          initForm();
+          initRegistrationFlow();
+          initWelcomeOverlay();
+          initNavButtons();
+          initSmartNavigation();
+          initMapsLinks();
+          
+          // Set scroll event listener for active section
+          window.addEventListener('scroll', setActiveSection);
+          
+          // Update every minute
+          setInterval(() => {
+            updateCTASection();
+            updateScheduleDisplay();
+          }, 60000);
+        }
 
-      initPage();
-    });
-  </script>
-</body>
+        initPage();
+      });
+    </script>
+  </body>
 </html>
